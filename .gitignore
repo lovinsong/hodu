@@ -24,6 +24,7 @@ hs_err_pid
 
 # add
 .classpath
+.properties
 .project
 .springBeans
 target/
