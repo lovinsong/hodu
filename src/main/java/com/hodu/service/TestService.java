@@ -6,6 +6,6 @@ import com.hodu.model.TestVO;
 
 public interface TestService {
 
-	public List <TestVO> TnameInformation();
+	public List<TestVO> TnameInformation();
 	
 }
