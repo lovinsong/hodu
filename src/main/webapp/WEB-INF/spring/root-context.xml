@@ -25,7 +25,8 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	  	<property name="dataSource" ref="dataSource" />
 	</bean>
-
+	
+	<context:component-scan base-package="com.hodu.project" />
 	<context:component-scan base-package="com.hodu.model" />
 	<context:component-scan base-package="com.hodu.service" />
 	<mybatis-spring:scan base-package="com.hodu.mapper"/>
