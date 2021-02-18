@@ -6,7 +6,11 @@ import com.hodu.model.TestVO;
 
 public interface TestMapper {
 
-	List<TestVO> getTableList(); //TestVO 객체리스트
+	public List<TestVO> getTableList(); //TestVO 객체리스트
+
+	public List<TestVO> getTableName(); 
+
+	public Integer getTableCount(); 
 	
 	
 }

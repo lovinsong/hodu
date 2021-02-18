@@ -9,6 +9,11 @@ public interface TestService {
 
 	public List<TestVO> TnameInformation();
 	
-	public ArrayList Tname();
+	public List<TestVO> Tname();
+	
+	public ArrayList TNameArray();
+
+	public int TCount();
+
 	
 }
