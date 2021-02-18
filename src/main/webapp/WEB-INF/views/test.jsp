@@ -11,6 +11,9 @@
 
 <h1> TEST </h1>
 <button onclick="location.href='./'">버튼</button>
-${test1 }
+<p>전체 : ${test1 }</p><br>
+<p>Tname : ${test2 }</p><br>
+<p>테이블 갯수 : ${test3 }</p>
+
 </body>
 </html>
