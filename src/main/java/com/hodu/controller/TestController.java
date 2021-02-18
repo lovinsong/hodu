@@ -16,13 +16,12 @@ public class TestController {
 	@GetMapping(value = "test")
 	public void test(Model model) {
 		
-<<<<<<< HEAD
-		model.addAttribute("test1",test.Tname());
-=======
+
+		model.addAttribute("testArr",test.TNameArray());
 		model.addAttribute("test1", test.TnameInformation());
 		model.addAttribute("test2", test.Tname());
 		model.addAttribute("test3", test.TCount());
->>>>>>> refs/heads/master
+
 	}
 
 }

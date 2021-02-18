@@ -16,7 +16,7 @@
 	<br>
 	<br>
 	
-	<c:forEach var="test" items="${test1 }">
+	<c:forEach var="test" items="${testArr }">
 		${test}<br>
 	</c:forEach>
 
