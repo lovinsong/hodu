@@ -8,4 +8,5 @@ public interface TestMapper {
 
 	List<TestVO> getTableList(); //TestVO 객체리스트
 	
+	
 }

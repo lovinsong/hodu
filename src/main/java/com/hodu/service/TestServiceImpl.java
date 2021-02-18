@@ -1,5 +1,6 @@
 package com.hodu.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,20 @@ public class TestServiceImpl implements TestService {
 
 		return tm.getTableList();
 	
+	}
+
+	@Override
+	public ArrayList Tname() {
+		
+		List<TestVO> t1 = tm.getTableList();
+		ArrayList tal = new ArrayList();
+		
+		for (TestVO tv : t1) {
+			System.out.println(tv.getTNAME());
+			tal.add(tv.getTNAME());
+		}
+		
+		return tal;
 	}
 
 }

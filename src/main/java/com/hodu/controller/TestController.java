@@ -13,12 +13,10 @@ public class TestController {
 	@Autowired
 	TestService test;
 
-
 	@GetMapping(value = "test")
 	public void test(Model model) {
 		
-		model.addAttribute("test1",test.TnameInformation());
-		
+		model.addAttribute("test1",test.Tname());
 	}
 
 }

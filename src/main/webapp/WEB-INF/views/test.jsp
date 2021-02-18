@@ -12,6 +12,11 @@
 
 <h1> TEST </h1>
 <button onclick="location.href='./'">버튼</button>
-${test1 }
+	<br>
+	<br>
+	
+	<c:forEach var="test" items="${test1 }">
+		${test}<br>
+	</c:forEach>
 </body>
 </html>
