@@ -8,4 +8,12 @@
 		SELECT * FROM TAB 
 	</select>
 
+	<select id="getTableName" resultType="com.hodu.model.TestVO">
+		SELECT tname FROM TAB 
+	</select>
+
+	<select id="getTableCount" resultType="Integer">
+		SELECT count(*) FROM TAB 
+	</select>
+
 </mapper>

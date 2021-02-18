@@ -12,13 +12,25 @@ import com.hodu.mapper.TestMapper;
 public class TestServiceImpl implements TestService {
 
 	@Autowired
-	TestMapper tm;
+	private TestMapper tm;
 	
 	@Override
 	public List<TestVO> TnameInformation() {
 
 		return tm.getTableList();
+		
+	}
+	@Override
 	
+	public List<TestVO> Tname() {
+		
+		return tm.getTableName();
+		
+	}
+	@Override
+	public int TCount() {
+		
+		return tm.getTableCount();
 	}
 
 }

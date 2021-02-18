@@ -8,4 +8,8 @@ public interface TestService {
 
 	public List<TestVO> TnameInformation();
 	
+	public List<TestVO> Tname();
+	
+	public int TCount();
+	
 }
