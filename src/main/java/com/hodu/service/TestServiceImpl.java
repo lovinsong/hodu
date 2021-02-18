@@ -33,19 +33,24 @@ public class TestServiceImpl implements TestService {
 		
 		return tm.getTableCount();
 	}
-
+	
+	// TNAME을 ArrayList 형태로 받아옴
 	@Override
 	public ArrayList TNameArray() {
 		
-		List<TestVO> t1 = tm.getTableList();
-		ArrayList tal = new ArrayList();
+		//  table의 모든 정보를 받아온다
+		List<TestVO> table_list = tm.getTableList();
 		
-		for (TestVO tv : t1) {
-			System.out.println(tv.getTNAME());
-			tal.add(tv.getTNAME());
+		// 리턴해줄 ArrayList를 선언한다
+		ArrayList tArr = new ArrayList();
+		
+		// 반복문을 돌리며 각 TestVO의 TNAME을 가져와 tArr에 요소로 추가한다
+		for (TestVO tv : table_list) {
+			tArr.add(tv.getTNAME());
 		}
 		
-		return tal;
+		// tArr을 리턴한다 -> 이 자원을 컨트롤러에서 사용
+		return tArr;
 	}
 
 }

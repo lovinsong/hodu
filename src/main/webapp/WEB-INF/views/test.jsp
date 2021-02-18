@@ -16,6 +16,7 @@
 	<br>
 	<br>
 	
+	<!--  반복문으로 세로로 출력 -->
 	<c:forEach var="test" items="${testArr }">
 		${test}<br>
 	</c:forEach>
