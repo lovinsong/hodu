@@ -1,7 +1,7 @@
 package com.hodu.model;
 
-import java.util.Date;
 import java.sql.Blob;
+import java.util.Date;
 
 import lombok.Data;
 
