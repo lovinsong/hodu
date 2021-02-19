@@ -6,6 +6,7 @@ import java.util.Date;
 import lombok.Data;
 
 
+
 @Data
 public class InquiryDTO {
 	private Integer inquiry_postnum;

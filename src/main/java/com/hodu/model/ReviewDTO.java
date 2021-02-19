@@ -1,9 +1,9 @@
 package com.hodu.model;
 
+import java.sql.Blob;
 import java.util.Date;
 
 import lombok.Data;
-import oracle.sql.BLOB;
 
 @Data
 public class ReviewDTO {
@@ -14,7 +14,7 @@ public class ReviewDTO {
 	private String review_title;
 	private String review_content;
 	private Integer review_star;
-	private BLOB review_img;
+	private Blob review_img;
 	private Integer review_like;
 	private Date review_date;
 	private Integer review_views;
