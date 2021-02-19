@@ -1,9 +1,10 @@
 package com.hodu.model;
 
+import java.sql.Blob;
 import java.util.Date;
 
 import lombok.Data;
-import oracle.sql.BLOB;
+
 
 @Data
 public class ItemDTO {
@@ -19,8 +20,8 @@ public class ItemDTO {
 	private String item_place;
 	private Integer item_views;
 	private Date item_date;
-	private BLOB item_thumbnailimg;
-	private BLOB item_contentimg;
+	private Blob item_thumbnailimg;
+	private Blob item_contentimg;
 	private String item_show;
 
 	
