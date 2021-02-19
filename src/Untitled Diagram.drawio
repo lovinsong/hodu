@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-02-19T05:47:32.270Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36" etag="NU7qKJawagEVQ5guHnEL" version="14.4.2" type="github">
+<mxfile host="app.diagrams.net" modified="2021-02-19T06:02:28.997Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36" etag="7OPuKy6WV9S_3h8ozAgP" version="14.4.2" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="1607" dy="896" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" math="0" shadow="0">
+    <mxGraphModel dx="1734" dy="1089" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -287,15 +287,15 @@
         </mxCell>
         <mxCell id="ckT1rNQQLvq8ha-L-AeO-72" value="" style="edgeStyle=segmentEdgeStyle;endArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="880" y="70" as="sourcePoint" />
-            <mxPoint x="1440" y="120" as="targetPoint" />
+            <mxPoint x="810" y="70" as="sourcePoint" />
+            <mxPoint x="1370" y="120" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="1440" y="70" />
+              <mxPoint x="1370" y="70" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="ckT1rNQQLvq8ha-L-AeO-73" value="문의 게시판" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="1380" y="120" width="120" height="80" as="geometry" />
+          <mxGeometry x="1310" y="120" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="ckT1rNQQLvq8ha-L-AeO-74" value="리뷰게시판" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="390" y="660" width="130" height="80" as="geometry" />
@@ -334,15 +334,15 @@
         </mxCell>
         <mxCell id="ckT1rNQQLvq8ha-L-AeO-82" value="" style="edgeStyle=segmentEdgeStyle;endArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="730" y="70" as="sourcePoint" />
-            <mxPoint x="1290" y="120" as="targetPoint" />
+            <mxPoint x="665" y="70" as="sourcePoint" />
+            <mxPoint x="1225" y="120" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="1290" y="70" />
+              <mxPoint x="1225" y="70" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="ckT1rNQQLvq8ha-L-AeO-83" value="공지 게시판" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="1230" y="120" width="120" height="80" as="geometry" />
+          <mxGeometry x="1170" y="120" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="ckT1rNQQLvq8ha-L-AeO-84" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ckT1rNQQLvq8ha-L-AeO-62">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
