@@ -1,9 +1,9 @@
 package com.hodu.model;
 
+import java.sql.Blob;
 import java.util.Date;
 
 import lombok.Data;
-import oracle.sql.BLOB;
 
 @Data
 public class MemberDTO {
@@ -14,7 +14,7 @@ public class MemberDTO {
 	private String member_nickname;
 	private String member_pw;
 	private String member_name;
-	private BLOB member_img;
+	private Blob member_img;
 	private String member_phone;
 	private String member_address;
 	private String member_email;
