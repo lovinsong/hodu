@@ -66,7 +66,7 @@
 
 				</table>
 
-			<%-- 	<!-- 검색게시글 페이지 처리 -->
+	<%-- 			<!-- 검색게시글 페이지 처리 -->
 				<form action="noticeList" name="pageForm">
 					<div class="text-center">
 						<hr>
@@ -92,10 +92,10 @@
 							</c:if>
 						</ul>
 
-							<button type="button" class="btn btn-info" onclick="location.href='notice-reg'">글쓰기</button>		
+									
 
 					</div>
-
+					
 					<!-- form형식으로 보낼 때 hidden으로 값을 숨겨서 보낼 수 있다 -->
 					<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
 					<input type="hidden" name="amount" value="${pageVO.cri.amount }">
@@ -104,9 +104,11 @@
 						name="searchName" value="${pageVO.cri.searchName }">
 
 				</form> --%>
+				
+				<button type="button" class="btn btn-info" onclick="location.href='notice-reg'">글쓰기</button>
 
 				<!--페이지 네이션을 가져옴-->
-				<%-- <form>
+				<form>
                     <div class="text-center">
                     <hr>
                     <ul class="pagination pagination-sm">
@@ -129,7 +131,7 @@
                     <button type="button" class="btn btn-info" onclick="location.href='freeRegist'">글쓰기</button>
                     </div>
 		    	</form>
- --%>
+
 			</div>
 		</div>
 	</div>
