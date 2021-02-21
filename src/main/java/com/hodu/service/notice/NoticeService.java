@@ -8,5 +8,5 @@ public interface NoticeService {
 	
 	public List<NoticeDTO> getNotice();
 	public NoticeDTO getOneNotice(int number);
-	public int notice_reg(NoticeDTO nDTO);
+	public int writeNotice(NoticeDTO nDTO);
 }

@@ -40,7 +40,7 @@ public class HoduController {
 	// 글등록
 	@RequestMapping(value = "/registForm", method = RequestMethod.POST)
     public String registForm(NoticeDTO dto, RedirectAttributes ra) {
-        NoticeService.notice_reg(dto);// insert 실행(mapper)
+        NoticeService.writeNotice(dto);// insert 실행(mapper)
         System.out.println(dto);
         ra.addFlashAttribute("msg", "정상적으로 등록처리 되었습니다");// 일회용 메세지 넘겨주기
         return "redirect:board/notice/notice-category";

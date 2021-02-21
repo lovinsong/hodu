@@ -27,7 +27,7 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public int notice_reg(NoticeDTO nDTO) {
+	public int writeNotice(NoticeDTO nDTO) {
 		return noticeMapper.writeNotice(nDTO);
 	}
 	
