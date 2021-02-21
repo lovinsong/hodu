@@ -65,6 +65,9 @@
 					</tbody>
 
 				</table>
+				<div>
+				<button type="button" class="btn btn-info" onclick="location.href='notice-reg'">글쓰기</button>		
+				</div>
 
 			<%-- 	<!-- 검색게시글 페이지 처리 -->
 				<form action="noticeList" name="pageForm">

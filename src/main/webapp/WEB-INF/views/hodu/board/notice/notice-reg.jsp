@@ -17,23 +17,23 @@
                         <p>게시판</p>
                     </div>
                     
-                    <form action="registForm" method="post" name="registForm">
+                    <form action="registForm" method="post" name="NoticeDTO">
 	                    <table class="table">
 	                        <tbody class="t-control">
 	                        	<!-- input의 name을 추가 -->
 	                            <tr>
 	                                <td class="t-title">NAME</td>
 	                                <!-- span을 통해 평상시에 안보이는 메세지를 작성 -->
-	                                <td><input class="form-control input-sm" name="writer" value="master" readonly><span id="msgId"></span></td>
+	                                <td><input class="form-control input-sm" name="member_id" value="master" readonly><span id="msgId"></span></td>
 	                            </tr>
 	                            <tr>
 	                                <td class="t-title">TITLE</td>
-	                                <td><input class="form-control input-sm" name="title"><span id="msgTitle"></span></td>
+	                                <td><input class="form-control input-sm" name="notice_title"><span id="msgTitle"></span></td>
 	                            </tr>
 	                            <tr>
-	                                <td class="t-title">COMMNET</td>
+	                                <td class="t-title">CONTENTS</td>
 	                                <td>
-	                                <textarea class="form-control" rows="7" name="content"></textarea>
+	                                <textarea class="form-control" rows="7" name="notice_content"></textarea>
 	                                </td>                 
 	                            </tr>
 	                        </tbody>

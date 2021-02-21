@@ -17,8 +17,6 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public List<NoticeDTO> getNotice() {
-		// TODO Auto-generated method stub
-		
 		System.out.println(noticeMapper.getNotice());
 		return noticeMapper.getNotice();
 	}
@@ -26,6 +24,11 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public NoticeDTO getOneNotice(int number) {
 		return noticeMapper.getOneNotice(number);
+	}
+
+	@Override
+	public int notice_reg(NoticeDTO nDTO) {
+		return noticeMapper.writeNotice(nDTO);
 	}
 	
 }
