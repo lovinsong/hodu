@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hodu.mapper.MemberMapper">
+
+<insert id="addMember">
+      INSERT INTO hodu_member VALUES (
+      #{member_id}, 
+      BRONZE, 
+      BRONZE,
+      #{member_nickname},
+      #{member_pw},
+      #{member_name},
+      #{member_img,jdbcType=BLOB},
+      #{member_phone},
+      #{member_address},
+      #{member_email},
+      0,
+      sysdate, 
+      1,
+      #{hodu_manager,jdbcType=VARCHAR2}
+      )
+</insert>
+    
+</mapper>
