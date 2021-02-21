@@ -22,7 +22,7 @@
 
 <h3 align=center>회원 정보 입력</h3>
 
-<form action="./join_finish" method="POST">
+<form action="./login" method="GET">
 <!-- 테이블을 넣을 큰 네모 공간을 만드는 태그 = fieldset -->
 <fieldset>
 <!-- fieldset의 메인 글자 태그 = legend -->

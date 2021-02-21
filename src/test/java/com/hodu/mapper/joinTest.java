@@ -40,24 +40,24 @@ public class joinTest {
 	public void insertTest() {
 		MemberDTO mem = new MemberDTO();
 		mem.setMember_id("abc");
-		//mem.setLevel_mentee("BRONZE");
-		//mem.setLevel_mentor("BRONZE");
+		mem.setLevel_mentee("BRONZE");
+		mem.setLevel_mentor("BRONZE");
 		mem.setMember_nickname("abc");
 		mem.setMember_pw("1234");
 		mem.setMember_name("홍길동");
-		//mem.setMember_img("BLOB");
+		mem.setMember_img(null);
 		mem.setMember_phone("010-1234-1234");
 		mem.setMember_address("서울시 00구 00동");
 		mem.setMember_email("abc@naver.com");
-		//mem.setMember_cash(0);
-//		Calendar hiredate = Calendar.getInstance();
-//	      hiredate.set(Calendar.YEAR, 2018);
-//	      hiredate.set(Calendar.MONTH, 9);
-//	      hiredate.set(Calendar.DATE, 15);
-//	      
-//	      SimpleDateFormat format = new SimpleDateFormat("");
-//		mem.setMember_regdate(hiredate.getTime());
-		//mem.setMember_enabled("1");
+		mem.setMember_cash(0);
+		Calendar hiredate = Calendar.getInstance();
+	      hiredate.set(Calendar.YEAR, 2018);
+	      hiredate.set(Calendar.MONTH, 9);
+	      hiredate.set(Calendar.DATE, 15);
+	      
+	      SimpleDateFormat format = new SimpleDateFormat("");
+		mem.setMember_regdate(hiredate.getTime());
+		mem.setMember_enabled("1");
 		mem.setHodu_manager("Y");
 		
 		

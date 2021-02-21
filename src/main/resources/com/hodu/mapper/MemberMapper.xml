@@ -13,14 +13,14 @@
       #{member_nickname},
       #{member_pw},
       #{member_name},
-      #{member_img,jdbcType=BLOB},
+      #{member_img},
       #{member_phone},
       #{member_address},
       #{member_email},
       0,
       sysdate, 
       1,
-      #{hodu_manager,jdbcType=VARCHAR2}
+      #{hodu_manager}
       )
 </insert>
     
