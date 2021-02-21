@@ -24,7 +24,7 @@
 	                            <tr>
 	                                <td class="t-title">NAME</td>
 	                                <!-- span을 통해 평상시에 안보이는 메세지를 작성 -->
-	                                <td><input class="form-control input-sm" name="writer" value="${sessionScope.userVO.userId }" readonly><span id="msgId"></span></td>
+	                                <td><input class="form-control input-sm" name="writer" value="master" readonly><span id="msgId"></span></td>
 	                            </tr>
 	                            <tr>
 	                                <td class="t-title">TITLE</td>
