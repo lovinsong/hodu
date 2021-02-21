@@ -1,8 +1,17 @@
 package com.hodu.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.hodu.model.NoticeDTO;
+import com.hodu.service.notice.NoticeService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -11,24 +20,39 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class HoduController {
 	
+	@Autowired
+	private NoticeService NoticeService;
 	
-	@GetMapping("board/item/item-category")
-	public void item_category() {
+	
+	@GetMapping("board/notice/notice-category")
+	public void notice_category(Model model) {
+		List<NoticeDTO> list =  NoticeService.getNotice();
+		model.addAttribute("list", list);
 		
 	}
 	
-	@GetMapping("board/item/item")
-	public void item() {
+	@GetMapping("board/notice/notice-reg")
+	public void notice_reg() {
 		
 	}
 	
-	@GetMapping("board/item/item-modify")
-	public void item_modify() {
+	@GetMapping("board/notice/notice-modify")
+	public void notice_modify() {
 		
 	}
 	
-	@GetMapping("board/item/item-detail")
-	public void item_detail() {
-		
+	@GetMapping("board/notice/notice-detail")
+	public void notice_detail(@RequestParam("notice_postnum") int notice_postnum, Model model) {
+		NoticeDTO dto =  NoticeService.getOneNotice(notice_postnum);
+		model.addAttribute("dto", dto);
 	}
+	
+//	@RequestMapping(value = "/NoticeDetail", method = RequestMethod.GET)
+//	public String NoticeDetail(@RequestParam("bno") int bno, Model model) {
+//		//화면으로 넘어갈때 bno기반의 데이터를 가지고 상세화면으로 가도록 getContent()로 처리
+//		NoticeBoardVO vo =  NoticeBoardService.getContent(bno);
+//		model.addAttribute("vo", vo);
+//		return "NoticeBoard/NoticeDetail";
+//	}
+	
 }

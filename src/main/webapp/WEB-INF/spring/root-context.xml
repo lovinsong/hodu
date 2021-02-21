@@ -30,6 +30,7 @@
 	<context:component-scan base-package="com.hodu.project" />
 	<context:component-scan base-package="com.hodu.model" />
 	<context:component-scan base-package="com.hodu.service" />
+	<context:component-scan base-package="com.hodu.service.notice" />
 	<mybatis-spring:scan base-package="com.hodu.mapper"/>
 		
 </beans>
