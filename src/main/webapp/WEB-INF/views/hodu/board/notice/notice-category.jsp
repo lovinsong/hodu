@@ -138,7 +138,7 @@
 	</div>
 </section>
 
-<script>
+
 	//페이지
 	/*
 	1. 페이지네이션을 a -> form태그로 변경
@@ -159,8 +159,9 @@
 
 		/* console.log(event.target.tagName); */
 		/* console.log(pagination); */
-	}
+/*	} */
 
+<script>
 	window.onload = function() {
 		//history.state객체를 통해서 기록정보 확인 가능
 		if (history.state === '') return;
@@ -175,7 +176,7 @@
 		//현재 history를 수정해 메서드의 매개변수로 전달된(오브젝트, title, URL)로 대체한다
 		//브라우저의 기록을 새롭게 변경(데이터, 페이지제목, 변경할 주소(url)                                                                                                                                                )
 		history.replaceState('', null, null);
-	} */
+	} 
 </script>
 
 
