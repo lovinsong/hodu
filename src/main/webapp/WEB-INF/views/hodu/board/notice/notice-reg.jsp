@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>    
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -9,15 +16,15 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/board.css">
 <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" >
-  <section>
+   <section>
        <div class="container">
             <div class="row">
                 <div class="col-xs-12 content-wrap">
                     <div class="titlebox">
-                        <p>게시판</p>
+                        <p>자유게시판</p>
                     </div>
                     
-                    <form action="registForm" method="post" name="NoticeDTO">
+                    <form action="registForm" method="post" name="registForm">
 	                    <table class="table">
 	                        <tbody class="t-control">
 	                        	<!-- input의 name을 추가 -->
@@ -31,7 +38,7 @@
 	                                <td><input class="form-control input-sm" name="notice_title"><span id="msgTitle"></span></td>
 	                            </tr>
 	                            <tr>
-	                                <td class="t-title">CONTENTS</td>
+	                                <td class="t-title">COMMNET</td>
 	                                <td>
 	                                <textarea class="form-control" rows="7" name="notice_content"></textarea>
 	                                </td>                 
@@ -50,11 +57,11 @@
        
        <script type="text/javascript">
        		function regist(){
-       			if(document.registForm.writer.value === ''){
+       			if(document.registForm.member_id.value === ''){
        				document.getElementById("msgId").innerHTML = " 아이디는 필수 입니다";
        				document.registForm.writer.focus();
        				return;
-       			} else if(document.registForm.title.value === ''){
+       			} else if(document.registForm.notice_title.value === ''){
        				document.getElementById("msgTitle").innerHTML = " 제목은 필수 입니다";
        				document.registForm.title.focus();
        				return;

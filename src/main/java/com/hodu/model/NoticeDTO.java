@@ -2,9 +2,15 @@ package com.hodu.model;
 
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class NoticeDTO {
 	
 	private Integer notice_postnum;

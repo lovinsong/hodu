@@ -14,7 +14,7 @@
 	</select>
 	
 	<insert id="writeNotice">
-		INSERT INTO notice_board VALUES (INQUIRY_BOARD_SEQ.NEXTVAL, #{member_id}, '공지사항', #{notice_title}, #{notice_content}, sysdate, 0, 'Y');
+		INSERT INTO notice_board VALUES (INQUIRY_BOARD_SEQ.NEXTVAL, #{member_id}, '공지사항', #{notice_title}, #{notice_content}, sysdate, 0, 'Y')
 	</insert>
 	
 </mapper>

@@ -38,12 +38,12 @@ public class HoduController {
 	}
 
 	// 글등록
-	@RequestMapping(value = "/registForm", method = RequestMethod.POST)
+	@RequestMapping(value = "board/notice/registForm", method = RequestMethod.POST)
     public String registForm(NoticeDTO dto, RedirectAttributes ra) {
+		System.out.println(dto);
         NoticeService.writeNotice(dto);// insert 실행(mapper)
-        System.out.println(dto);
         ra.addFlashAttribute("msg", "정상적으로 등록처리 되었습니다");// 일회용 메세지 넘겨주기
-        return "redirect:board/notice/notice-category";
+        return "redirect:notice-category";
     }
 	
 	@GetMapping("board/notice/notice-modify")
@@ -57,12 +57,5 @@ public class HoduController {
 		model.addAttribute("dto", dto);
 	}
 	
-//	@RequestMapping(value = "/NoticeDetail", method = RequestMethod.GET)
-//	public String NoticeDetail(@RequestParam("bno") int bno, Model model) {
-//		//화면으로 넘어갈때 bno기반의 데이터를 가지고 상세화면으로 가도록 getContent()로 처리
-//		NoticeBoardVO vo =  NoticeBoardService.getContent(bno);
-//		model.addAttribute("vo", vo);
-//		return "NoticeBoard/NoticeDetail";
-//	}
 	
 }
