@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class MemberJoinServiceImpl implements MemberJoinService{
+public class MemberServiceImpl implements MemberService{
 	
 	private MemberMapper mem_mapper;
 	

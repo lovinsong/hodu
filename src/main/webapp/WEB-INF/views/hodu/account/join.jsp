@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="java.util.Date" %>
-<%@ page import="java.text.SimpleDateFormat" %>
+	pageEncoding="UTF-8"%>
+<%@ page import="java.util.Date"%>
+<%@ page import="java.text.SimpleDateFormat"%>
 <%
-	Date nowTime = new Date();
-	SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일");
+Date nowTime = new Date();
+SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일");
 %>
 
 
@@ -16,68 +16,81 @@
 <title>회원 등록 페이지</title>
 </head>
 <body>
-<h1>회원등록</h1>
+	<h1>회원등록</h1>
 
 
 
-<h3 align=center>회원 정보 입력</h3>
+	<h3 align=center>회원 정보 입력</h3>
 
-<form action="./login" method="GET">
-<!-- 테이블을 넣을 큰 네모 공간을 만드는 태그 = fieldset -->
-<fieldset>
-<!-- fieldset의 메인 글자 태그 = legend -->
-<legend>회원 정보</legend>
-<!-- 테이블 생성 -->
-<table>
-<tr>
-	<td >아이디</td>
-	
-	<td ><input type="text" name="userid" value="${memberdto.member_id}"></td>
-</tr>
-
-<tr>
-	<td >닉네임</td>
-	<td ><input type="text" name="nickname" value="${memberdto.member_nickname}"></td>
-</tr>
-
-<tr>
-	<td>비밀번호</td>
-	<td><input type="password" name="password" value="${memberdto.member_pw}"></td>
-</tr>
-
-<tr>
-	<td >이름</td>
-	<td ><input type="text" name="name" value="${memberdto.member_name}"></td>
-</tr>
-
-<!-- 이미지는 생각  -->
-
-<tr>
-	<td >휴대폰</td>
-	<td ><input type="text" name="phone" value="${memberdto.member_phone}"></td>
-</tr>
-
-<tr>
-	<td >주소</td>
-	<td ><input type="text" name="address" value="${memberdto.member_address}"></td>
-</tr>
-
-<tr>
-	<td >이메일</td>
-	<td ><input type="text" name="email" value="${memberdto.member_email}"></td>
-</tr>
-
-
-
-</table>
-	<!-- 해당 요청이 수정인지 가입인지 서블릿의 post에선 알 방법이 없음 - 수정이나 가입이나 넘어가는 데이터는 아이디, 이름, 이메일, 비밀번호, 주소 전부 동일
-		때문에 action 파라미터로 구분 - 서블릿의 get단계에서부터 가입요청인지 수정요청인지 구분하여 넘겨줌.
-		우리가 볼 필요는 없기 때문에 hidden 파라미터로 넘겨줌-->
-	
-	<input type="submit" value="저 장">
-	<input type="reset" value="취 소">
-</fieldset>
-</form>
+	<form method="POST">
+		<!-- 아이디 -->
+		<div class="form-group">
+			<label for="member_id">아이디</label> 
+			<input type="text" class="form-control" id="member_id" name="member_id" placeholder="ID" required>
+			<div class="check_font" id="id_check"></div>
+		</div>
+		<!-- 비밀번호 -->
+		<div class="form-group">
+			<label for="member_pw">비밀번호</label> 
+			<input type="password" class="form-control" id="member_pw" name="member_pw" placeholder="PASSWORD" required>
+			<div class="check_font" id="pw_check"></div>
+		</div>
+		<!-- 비밀번호 재확인 -->
+		<div class="form-group">
+			<label for="member_pw2">비밀번호 확인</label> 
+			<input type="password" class="form-control" id="member_pw2" name="member_pw2" placeholder="Confirm Password" required>
+			<div class="check_font" id="pw2_check"></div>
+		</div>
+		<!-- 이름 -->
+		<div class="form-group">
+			<label for="member_name">이름</label> 
+			<input type="text" class="form-control" id="member_name" name="member_name" placeholder="Name" required>
+		</div>
+		
+		<!-- 닉네임 -->
+		<div class="form-group">
+			<label for="member_nickname">닉네임</label> 
+			<input type="text" class="form-control" id="member_nickname" name="member_nickname" placeholder="Nickname" required>
+		</div>
+		
+		<!-- 본인확인 이메일 -->
+		<div class="form-group">
+			<label for="member_email">이메일</label> 
+			<input type="text" class="form-control" name="member_email" id="member_email" placeholder="E-mail" required>
+			<!-- <input type="text" style="margin-top: 5px;"class="email_form" name="email_confirm" id="email_confirm" placeholder="인증번호를 입력해주세요!" required>
+						<button type="button" class="btn btn-outline-danger btn-sm px-3" onclick="confirm_email()">
+							<i class="fa fa-envelope"></i>&nbsp;인증
+						</button>&nbsp;
+						<button type="button" class="btn btn-outline-info btn-sm px-3">
+							<i class="fa fa-envelope"></i>&nbsp;확인
+						</button>&nbsp; -->
+			<div class="check_font" id="email_check"></div>
+		</div>
+		
+		<!-- 휴대전화 -->
+		<div class="form-group">
+			<label for="member_phone">휴대전화 ('-' 없이 번호만 입력해주세요)</label> 
+			<input type="text" class="form-control" id="member_phone" name="member_phone" placeholder="Phone Number" required>
+			<div class="check_font" id="phone_check"></div>
+		</div>
+		
+		<!-- 주소 -->
+		<div class="form-group">
+			<label for="member_address">주소</label> 
+			<input type="text" class="form-control" id="member_address" name="member_address" placeholder="Address" required>
+			<div class="check_font" id="address_check"></div>
+		</div>
+		
+		
+		<div class="reg_button">
+			<a class="btn btn-danger px-3" href="./login"> 
+				<i class="fa fa-rotate-right pr-2" aria-hidden="true"></i>취소하기
+			</a>&emsp;&emsp;
+			<button class="btn btn-primary px-3" id="reg_submit">
+				<i class="fa fa-heart pr-2" aria-hidden="true"></i>가입하기
+			</button>
+		</div>
+	</form>
 
 
 

@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hodu.model.MemberDTO;
-import com.hodu.service.MemberJoinService;
+import com.hodu.service.MemberService;
 
 import lombok.extern.log4j.Log4j;
 
 @Controller
 @RequestMapping(value="/hodu/account/")
 @Log4j
-public class MemberJoinController {
+public class MemberController {
 	
-	private MemberJoinService service;
+	private MemberService service;
 	
 		//post정보를 받아서 여기서 서비스를 돌려서 쿼리문드로 디비에 넣고 
 		//insert 1일때 등록성공 그게 성공하면 성공페이지로(redirect로 메인페이지)
