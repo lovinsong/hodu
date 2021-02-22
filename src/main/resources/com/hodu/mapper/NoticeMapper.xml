@@ -21,4 +21,22 @@
 		UPDATE notice_board SET NOTICE_TITLE = #{notice_title}, NOTICE_CONTENT = #{notice_content } WHERE NOTICE_POSTNUM = #{notice_postnum }
 	</update>
 	
+	<delete id="deleteNotice">
+		DELETE notice_board WHERE NOTICE_POSTNUM = #{notice_postnum}	
+	</delete>
+	
+	<insert id="writeReply">
+		INSERT INTO NOTICE_REPLY VALUES (NOTICE_REPLY_SEQ.NEXTVAL, #{board_postnum}, #{member_id}, #{reply_content}, sysdate, sysdate, 'Y')
+	</insert>
+	
+	<select id="getReply" resultType="com.hodu.model.ReplyDTO">
+		SELECT * FROM NOTICE_REPLY WHERE NOTICE_POSTNUM = #{board_postnum}
+	</select>
+	
+	<select id="replyTotal" resultType="int">
+        select count(*) from NOTICE_REPLY WHERE NOTICE_POSTNUM = #{board_postnum}
+    </select>
+	
+	
 </mapper>
+
