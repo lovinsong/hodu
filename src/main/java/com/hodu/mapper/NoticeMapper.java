@@ -13,4 +13,7 @@ public interface NoticeMapper {
 	//글 등록
 	public int writeNotice(NoticeDTO nDTO);
 	
+	//글 수정
+	public int updateNotice(NoticeDTO nDTO);
+	
 }

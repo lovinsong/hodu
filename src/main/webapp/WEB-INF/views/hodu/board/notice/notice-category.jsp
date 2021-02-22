@@ -25,18 +25,18 @@
 				<%-- <form action="noticeList">
 					<div class="search-wrap">
 						<button type="submit" class="btn btn-info search-btn" >검색</button>
-						<input type="text" class="form-control search-input" name="searchName" value="${pageVO.cri.searchName }"><!-- value: 검색한 내용을 유지시키기 --> 
+						<input type="text" class="form-control search-input" name="searchName" value="${pagedto.cri.searchName }"><!-- value: 검색한 내용을 유지시키기 --> 
 						<!-- 검색 결과 유지시키기(3항 연산식) -->
 						<select	class="form-control search-select" name="searchType">
-							<option value="title" ${pageVO.cri.searchType eq 'title' ? 'selected' : '' }>제목</option>
-							<option value="content" ${pageVO.cri.searchType eq 'content' ? 'selected' : '' }>내용</option>
-							<option value="writer" ${pageVO.cri.searchType eq 'writer' ? 'selected' : '' }>작성자</option>
-							<option value="titcont" ${pageVO.cri.searchType eq 'titcont' ? 'selected' : '' }>제목+내용</option>
+							<option value="title" ${pagedto.cri.searchType eq 'title' ? 'selected' : '' }>제목</option>
+							<option value="content" ${pagedto.cri.searchType eq 'content' ? 'selected' : '' }>내용</option>
+							<option value="writer" ${pagedto.cri.searchType eq 'writer' ? 'selected' : '' }>작성자</option>
+							<option value="titcont" ${pagedto.cri.searchType eq 'titcont' ? 'selected' : '' }>제목+내용</option>
 						</select>
 					</div>
 					
 					<input type="hidden" name="pageNum" value="1"><!-- 검색 후 1번페이지 -->
-					<input type="hidden" name="pageNum" value="${pageVO.cri.amount }"><!-- amount는 같다 -->
+					<input type="hidden" name="pageNum" value="${pagedto.cri.amount }"><!-- amount는 같다 -->
 				</form> --%>
 
 				<table class="table table-bordered tablestyle">
@@ -50,15 +50,15 @@
 						</tr>
 					</thead>
 					<tbody>
-						<!-- vo란 이름으로 꺼내주기 -->
-						<c:forEach var="vo" items="${list }">
+						<!-- dto란 이름으로 꺼내주기 -->
+						<c:forEach var="dto" items="${list }">
 							<tr>
-								<td>${vo.notice_postnum }</td>
-								<td><a href="notice-detail?notice_postnum=${vo.notice_postnum }">${vo.notice_title }</a></td>
-								<td>${vo.member_id }</td>
-								<td><fmt:formatDate value="${vo.notice_date }"
+								<td>${dto.notice_postnum }</td>
+								<td><a href="notice-detail?notice_postnum=${dto.notice_postnum }">${dto.notice_title }</a></td>
+								<td>${dto.member_id }</td>
+								<td><fmt:formatDate value="${dto.notice_date }"
 										pattern="yyyy년MM월dd일 " /></td>
-								<td><fmt:formatDate value="${vo.notice_date }"
+								<td><fmt:formatDate value="${dto.notice_date }"
 										pattern="yyyy년MM월dd일" /></td>
 							</tr>
 						</c:forEach>
@@ -75,14 +75,14 @@
 						<hr>
 						<ul class="pagination pagination-sm">
 							<!--3.이전버튼 활성화여부 -->
-							<c:if test="${pageVO.prev }">
-								<li><a href="#" data-page="${pageVO.startPage-1 }">이전</a></li>
+							<c:if test="${pagedto.prev }">
+								<li><a href="#" data-page="${pagedto.startPage-1 }">이전</a></li>
 								<!-- href=#: a의 클릭용 -->
 							</c:if>
 
 							<!-- 1. 페이지네이션 번호 처리 -->
-							<c:forEach var="num" begin="${pageVO.startPage }" end="${pageVO.endPage }">
-								<li class="${num == pageVO.pageNum ? 'active' : '' }">
+							<c:forEach var="num" begin="${pagedto.startPage }" end="${pagedto.endPage }">
+								<li class="${num == pagedto.pageNum ? 'active' : '' }">
 									<!-- https://developer.mozilla.org/ko/docs/Web/API/HTMLElement/dataset -->
 									<!-- 자바스크립트 형태의 객체로도 저장할 수 있다 --> <!-- JSON형태로 저장 무조껀 ""로 작성 할 것! -->
 									<a href="#"	data-page="${num }">${num }</a>
@@ -90,8 +90,8 @@
 							</c:forEach>
 
 							<!-- 2. 다음버튼 활성화여부 -->
-							<c:if test="${pageVO.next}">
-								<li><a href="#" data-page="${pageVO.endPage + 1 }">다음</a></li>
+							<c:if test="${pagedto.next}">
+								<li><a href="#" data-page="${pagedto.endPage + 1 }">다음</a></li>
 							</c:if>
 						</ul>
 
@@ -100,11 +100,11 @@
 					</div>
 
 					<!-- form형식으로 보낼 때 hidden으로 값을 숨겨서 보낼 수 있다 -->
-					<input type="hidden" name="pageNum" value="${pageVO.cri.pageNum }">
-					<input type="hidden" name="amount" value="${pageVO.cri.amount }">
+					<input type="hidden" name="pageNum" value="${pagedto.cri.pageNum }">
+					<input type="hidden" name="amount" value="${pagedto.cri.amount }">
 					<input type="hidden" name="searchType"
-						value="${pageVO.cri.searchType }"> <input type="hidden"
-						name="searchName" value="${pageVO.cri.searchName }">
+						value="${pagedto.cri.searchType }"> <input type="hidden"
+						name="searchName" value="${pagedto.cri.searchName }">
 
 				</form> --%>
 
@@ -114,19 +114,19 @@
                     <hr>
                     <ul class="pagination pagination-sm">
                     	<!--3.이전버튼 활성화여부 -->
-                    	<c:if test="${pageVO.prev }">
-                        <li><a href="freeList?pageNum=${pageVO.startPage - 1 }&amount=${pageVO.amount }">이전</a></li>
+                    	<c:if test="${pagedto.prev }">
+                        <li><a href="freeList?pageNum=${pagedto.startPage - 1 }&amount=${pagedto.amount }">이전</a></li>
                         </c:if>
                         
                         <!-- 1. 페이지네이션 번호 처리 -->
-                        <c:forEach var="num" begin="${pageVO.startPage }" end="${pageVO.endPage }">
-                        <li  class="${num == pageVO.pageNum ? 'active' : '' }">
-                        	<a href="freeList?pageNum=${num }&amount=${pageVO.amount}">${num }</a>
+                        <c:forEach var="num" begin="${pagedto.startPage }" end="${pagedto.endPage }">
+                        <li  class="${num == pagedto.pageNum ? 'active' : '' }">
+                        	<a href="freeList?pageNum=${num }&amount=${pagedto.amount}">${num }</a>
                         </li>
                         </c:forEach>
                         <!-- 2. 다음버튼 활성화여부 -->
-                        <c:if test="${pageVO.next}">
-                        <li><a href="freeList?pageNum=${pageVO.endPage + 1 }&amount=${pageVO.amount}">다음</a></li>
+                        <c:if test="${pagedto.next}">
+                        <li><a href="freeList?pageNum=${pagedto.endPage + 1 }&amount=${pagedto.amount}">다음</a></li>
                         
                     </ul>
                     <button type="button" class="btn btn-info" onclick="location.href='freeRegist'">글쓰기</button>
@@ -139,7 +139,7 @@
 </section>
 
 
-	//페이지
+<!-- 	//페이지
 	/*
 	1. 페이지네이션을 a -> form태그로 변경
 	2. Criteria클래스에 검색에 대한 키워드를 추가
@@ -159,12 +159,12 @@
 
 		/* console.log(event.target.tagName); */
 		/* console.log(pagination); */
-/*	} */
+/*	} */ -->
 
 <script>
 	window.onload = function() {
-		//history.state객체를 통해서 기록정보 확인 가능
-		if (history.state === '') return;
+		
+		if (history.state === '') return; //history.state객체를 통해서 기록정보 확인 가능
 
 		var msg = "${msg}"; //컨트롤러에서 넘어온 메세지
 		if (msg !== '') {

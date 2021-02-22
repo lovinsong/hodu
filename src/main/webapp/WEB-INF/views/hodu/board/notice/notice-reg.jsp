@@ -58,11 +58,11 @@
        <script type="text/javascript">
        		function regist(){
        			if(document.registForm.member_id.value === ''){
-       				document.getElementById("msgId").innerHTML = " 아이디는 필수 입니다";
+       				document.getElementById("msgId").innerHTML = " 아이디는 필수입니다";
        				document.registForm.writer.focus();
        				return;
        			} else if(document.registForm.notice_title.value === ''){
-       				document.getElementById("msgTitle").innerHTML = " 제목은 필수 입니다";
+       				document.getElementById("msgTitle").innerHTML = " 제목은 필수입니다";
        				document.registForm.title.focus();
        				return;
        			} else{

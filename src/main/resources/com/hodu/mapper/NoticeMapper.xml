@@ -17,4 +17,8 @@
 		INSERT INTO notice_board VALUES (INQUIRY_BOARD_SEQ.NEXTVAL, #{member_id}, '공지사항', #{notice_title}, #{notice_content}, sysdate, 0, 'Y')
 	</insert>
 	
+	<update id="updateNotice">
+		UPDATE notice_board SET NOTICE_TITLE = #{notice_title}, NOTICE_CONTENT = #{notice_content} WHERE NOTICE_POSTNUM = #{notice_postnum}	
+	</update>
+	
 </mapper>

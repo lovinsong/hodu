@@ -46,6 +46,9 @@
 
 					<button type="button" class="btn btn-dark"
 						onclick="location.href='notice-category'">목록</button>
+					<button type="button" class="btn btn-dark"
+						onclick="location.href='notice-modify?notice_postnum=${dto.notice_postnum }'">수정</button>
+						
 				</form>
 			</div>
 		</div>
@@ -77,8 +80,8 @@
                         </form> -->
 
 <!--여기에접근 반복-->
-<!-- <div id="replyList"> -->
-<!-- 
+<div id="replyList">
+
                         <div class='reply-wrap'>
                             <div class='reply-image'>
                                 <img src='../resources/img/profile.png'>
@@ -93,18 +96,32 @@
                                 <p class='clearfix'>여기는 댓글영역</p>
                             </div>
                         </div> 
-                        -->
-<!-- </div> -->
-<!-- 게시글 더보기 -->
-<!-- <button type="button" class="form-control" id="moreList">게시글(더보기)</button> -->
+                        <div class='reply-wrap'>
+                            <div class='reply-image'>
+                                <img src='../resources/img/profile.png'>
+                            </div>
+                            <div class='reply-content'>
+                                <div class='reply-group'>
+                                    <strong class='left'>honggildong2</strong> 
+                                    <small class='left'>2019/12/10</small>
+                                    <a href='#' class='right'><span class='glyphicon glyphicon-pencil'></span>수정</a>
+                                    <a href='#' class='right'><span class='glyphicon glyphicon-remove'></span>삭제</a>
+                                </div>
+                                <p class='clearfix'>여기는 댓글영역</p>
+                            </div>
+                        </div> 
+                       
+</div>
 
-<!--             </div>
+<button type="button" class="form-control" id="moreList">게시글(더보기)</button>
+
+            </div>
                 </div>
             </div>
-        </section> -->
+        </section>
 <!-- https://www.w3schools.com/bootstrap/bootstrap_ref_js_modal.asp -->
 <!-- 모달: 예쁘게 만든 경고창(화면에 숨겨놓고 클릭 시 숨긴부분이 나타남), 부트스트랩에서 가져옴 -->
-<!-- <div class="modal fade" id="replyModal" role="dialog">
+<div class="modal fade" id="replyModal" role="dialog">
 		<div class="modal-dialog modal-md">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -128,9 +145,9 @@
 				</div>
 			</div>
 		</div>
-	</div> -->
+	</div>
 
-<!-- 
+
 	<script type="text/javascript">
 		//모달: 부트스트랩지원창
 		//선택자.modal("show"); //open
@@ -143,7 +160,7 @@
 	
 		//1. 제이쿼리 라이브러리 확인
 		//2. 로딩이 끝난 직후 ready함수 안에 작성
-		$(document).ready(function(){
+/* 		$(document).ready(function(){
 		
 			$("#replyRegist").click(add);//댓글 등록 버튼 이벤트
 				
@@ -251,7 +268,7 @@
 						
 						
 				);
-			} //end getList
+			}  *///end getList
 			
 			//수정삭제 모달창
 			/*
@@ -440,7 +457,7 @@
 		
 		
 	</script>
-	 -->
+	
 
 
 

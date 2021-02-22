@@ -30,5 +30,10 @@ public class NoticeServiceImpl implements NoticeService {
 	public int writeNotice(NoticeDTO nDTO) {
 		return noticeMapper.writeNotice(nDTO);
 	}
+
+	@Override
+	public int updateNotice(NoticeDTO nDTO) {
+		return noticeMapper.updateNotice(nDTO);
+	}
 	
 }

@@ -9,4 +9,5 @@ public interface NoticeService {
 	public List<NoticeDTO> getNotice();
 	public NoticeDTO getOneNotice(int number);
 	public int writeNotice(NoticeDTO nDTO);
+	public int updateNotice(NoticeDTO nDTO);
 }

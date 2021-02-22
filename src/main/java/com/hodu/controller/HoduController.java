@@ -44,17 +44,30 @@ public class HoduController {
         ra.addFlashAttribute("msg", "정상적으로 등록처리 되었습니다");// 일회용 메세지 넘겨주기
         return "redirect:notice-category";
     }
+
+//	@GetMapping("board/notice/notice-modify")
+//	public void notice_modify() {
+//		
+//	}
 	
-	@GetMapping("board/notice/notice-modify")
-	public void notice_modify() {
-		
-	}
-	
-	@GetMapping("board/notice/notice-detail")
+	//modify(글수정)와 detail(상세보기)의 형태가 같아 함께 처리
+	@RequestMapping(value = {"board/notice/notice-detail", "board/notice/notice-modify"}, method = RequestMethod.GET) 
 	public void notice_detail(@RequestParam("notice_postnum") int notice_postnum, Model model) {
 		NoticeDTO dto =  NoticeService.getOneNotice(notice_postnum);
 		model.addAttribute("dto", dto);
 	}
 	
+	@RequestMapping(value = "board/notice/freeUpdate", method = RequestMethod.POST)
+    public String NoticeUpdate(NoticeDTO dto, RedirectAttributes ra) {
+        int result = NoticeService.updateNotice(dto);
+        System.out.println(result);
+
+        if(result == 1) {//업데이트 성공
+            ra.addFlashAttribute("msg", "정상적으로 수정되었습니다");
+        } else { //업데이트 실패
+            ra.addFlashAttribute("msg", "수정에 실패했습니다");
+        }
+        return "redirect:notice-category";
+    }
 	
 }
