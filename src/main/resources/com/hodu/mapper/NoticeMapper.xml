@@ -6,7 +6,7 @@
 <mapper	namespace="com.hodu.mapper.NoticeMapper">
 	
 	<select id="getNotice" resultType="com.hodu.model.NoticeDTO">
-		SELECT * FROM notice_board
+		SELECT * FROM notice_board ORDER BY NOTICE_DATE DESC
 	</select>
 	
 	<select id="getOneNotice" resultType="com.hodu.model.NoticeDTO">
@@ -30,7 +30,7 @@
 	</insert>
 	
 	<select id="getReply" resultType="com.hodu.model.ReplyDTO">
-		SELECT * FROM NOTICE_REPLY WHERE NOTICE_POSTNUM = #{board_postnum}
+		SELECT * FROM NOTICE_REPLY WHERE NOTICE_POSTNUM = #{board_postnum} ORDER BY NOTICE_REPLY_DATE DESC
 	</select>
 	
 	<select id="replyTotal" resultType="int">
