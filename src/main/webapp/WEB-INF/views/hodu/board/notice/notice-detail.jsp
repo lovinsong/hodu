@@ -154,14 +154,14 @@
 				success:function(data){
 					if(data = 1){ 
 						$("#reply").val("");
-						alert("댓글등록에 성공하셨습니다");
+						alert("댓글 등록에 성공하셨습니다");
 						getlist(1,true); //목록요청 호출
 					}else{
-						alert("댓글등록에 실패했습니다.잠시후에 다시 시도하세요")
+						alert("댓글 등록에 실패했습니다.잠시후에 다시 시도하세요")
 					}
 				},
 				error:function(error){
-					alert(error,"등록실패입니다. 관리자에게 문의하세요");
+					alert(error,"댓글 등록 실패입니다. 관리자에게 문의하세요");
 				}
 			})
 		}

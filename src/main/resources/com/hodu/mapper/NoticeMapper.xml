@@ -6,7 +6,7 @@
 <mapper	namespace="com.hodu.mapper.NoticeMapper">
 	
 	<select id="getNotice" resultType="com.hodu.model.NoticeDTO">
-		SELECT * FROM notice_board ORDER BY NOTICE_DATE DESC
+		SELECT * FROM notice_board ORDER BY notice_postnum
 	</select>
 	
 	<select id="getOneNotice" resultType="com.hodu.model.NoticeDTO">

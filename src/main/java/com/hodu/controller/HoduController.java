@@ -1,6 +1,5 @@
 package com.hodu.controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -31,6 +30,8 @@ public class HoduController {
 	private NoticeService NoticeService;
 	
 	
+	
+	//글 전체 페이지로 이동하기
 	@GetMapping("board/notice/notice-category")
 	public void notice_category(Model model) {
 		List<NoticeDTO> list =  NoticeService.getNotice();
@@ -38,45 +39,48 @@ public class HoduController {
 		
 	}
 	
-	//공지사항 글 작성 페이지 이동
+	//글 작성 페이지로 이동하기
 	@GetMapping("board/notice/notice-reg")
 	public void notice_reg() {
 	}
 
-	// 글등록
+	
+	
+	//글 작성하기
 	@RequestMapping(value = "board/notice/registForm", method = RequestMethod.POST)
     public String registForm(NoticeDTO dto, RedirectAttributes ra) {
-        NoticeService.writeNotice(dto);// insert 실행(mapper)
-        ra.addFlashAttribute("msg", "정상적으로 등록처리 되었습니다");// 일회용 메세지 넘겨주기
+        NoticeService.writeNotice(dto);
+        ra.addFlashAttribute("msg", "정상적으로 작성/등록되었습니다");
         return "redirect:notice-category";
     }
 	
-	//modify(글수정)와 detail(상세보기)의 형태가 같아 함께 처리
+	
+	//modify(글 수정하기) = detail(글 상세보기) -> 함께 처리
 	@RequestMapping(value = {"board/notice/notice-detail", "board/notice/notice-modify"}, method = RequestMethod.GET) 
 	public void notice_detail(@RequestParam("notice_postnum") int notice_postnum, Model model) {
 		NoticeDTO dto =  NoticeService.getOneNotice(notice_postnum);
 		model.addAttribute("dto", dto);
 	}
 	
+
+	//글 수정하기
 	@RequestMapping(value = "board/notice/freeUpdate", method = RequestMethod.POST)
     public String NoticeUpdate(NoticeDTO dto, RedirectAttributes ra) {
 		 System.out.println(dto);
-        int result = NoticeService.updateNotice(dto);
-       
-
-        if(result == 1) {//업데이트 성공
+        int result = NoticeService.updateNotice(dto);      
+        if(result == 1) {
             ra.addFlashAttribute("msg", "정상적으로 수정되었습니다");
-        } else { //업데이트 실패
+        } else { 
             ra.addFlashAttribute("msg", "수정에 실패했습니다");
         }
         return "redirect:notice-category";
     }
 	
+	
+	//글 삭제하기
 	@RequestMapping(value = "board/notice/freeDelete", method = RequestMethod.POST)
     public String DeleteUpdate(NoticeDTO dto, RedirectAttributes ra) {
-        int result = NoticeService.deleteNotice(dto);
-        System.out.println(result);
-        
+        int result = NoticeService.deleteNotice(dto);       
         if(result == 1) {
             ra.addFlashAttribute("msg", dto.getNotice_postnum() + "번 게시글이 삭제되었습니다" );
         } else {
@@ -86,6 +90,12 @@ public class HoduController {
     }
 	
 	
+	
+	//-------------------------------------------------------------------------------------------------------------------
+	
+	
+	
+	//댓글 작성하기
 	@ResponseBody
     @RequestMapping("/board/notice/replyRegist")
     public int replyRegist(@RequestBody ReplyDTO dto) {
@@ -94,6 +104,8 @@ public class HoduController {
         return result;
     }
 
+	
+	//댓글 불러오기
     @ResponseBody
     @RequestMapping("/board/notice/replylist/{board_postnum}/{page}")
     public HashMap<String, Object> replylist(@PathVariable("board_postnum") int board_postnum, @PathVariable("page") int pageNum) {
@@ -111,23 +123,10 @@ public class HoduController {
         return map;
     }
 
-    /*
-    @ResponseBody
-    @RequestMapping("replylist/{qno}/{page}")
-    public HashMap<String, Object> replylist(@PathVariable("qno") int qno, @PathVariable("page") int pageNum) {
-        Criteria cri = new Criteria(pageNum, 20);
-        ArrayList<ReplyVO> list = questionBoardService.replylist(qno, cri);
-
-        int total = questionBoardService.replyTotal(qno);
-        // 해쉬맵
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("total", total);
-        map.put("list", list);
-
-        return map;
-    }
     
+    /*   
     
+	//댓글 수정하기 
     @ResponseBody
     @RequestMapping("replyupdate")
     public int replyupdate(@RequestBody ReplyDTO ReplyDTO) {
@@ -135,6 +134,7 @@ public class HoduController {
         return questionBoardService.replyUpdate(ReplyDTO);
     }
 
+	//댓글 삭제하기 
     @ResponseBody
     @RequestMapping("replydelete")
     public int replydelete(@RequestParam("rno") int rno) {

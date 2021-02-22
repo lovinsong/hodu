@@ -21,5 +21,6 @@ public class MemberDTO {
 	private Integer member_cash;
 	private Date member_regdate;
 	private String member_enabled;
+	//private int reply_alarm;
 
 }
