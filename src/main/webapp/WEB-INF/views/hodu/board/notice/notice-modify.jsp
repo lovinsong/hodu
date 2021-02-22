@@ -40,7 +40,7 @@
 
                             <div class="form-group">
                                 <label>내용</label>
-                                <textarea class="form-control" rows="10" name='content'>${dto.notice_content }</textarea>
+                                <textarea class="form-control" rows="10" name='notice_content'>${dto.notice_content}</textarea>
                             </div>
 
                             <button type="button" class="btn btn-dark" id="listBtn">목록</button>

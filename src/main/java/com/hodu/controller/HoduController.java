@@ -59,8 +59,9 @@ public class HoduController {
 	
 	@RequestMapping(value = "board/notice/freeUpdate", method = RequestMethod.POST)
     public String NoticeUpdate(NoticeDTO dto, RedirectAttributes ra) {
+		 System.out.println(dto);
         int result = NoticeService.updateNotice(dto);
-        System.out.println(result);
+       
 
         if(result == 1) {//업데이트 성공
             ra.addFlashAttribute("msg", "정상적으로 수정되었습니다");
