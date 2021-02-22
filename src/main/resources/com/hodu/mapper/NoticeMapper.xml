@@ -26,7 +26,7 @@
 	</delete>
 	
 	<insert id="writeReply">
-		INSERT INTO NOTICE_REPLY VALUES (NOTICE_REPLY_SEQ.NEXTVAL, #{board_postnum}, #{member_id}, #{reply_content}, sysdate, sysdate, 'Y')
+		INSERT INTO NOTICE_REPLY VALUES (NOTICE_REPLY_SEQ.NEXTVAL, #{notice_postnum}, #{member_id}, #{notice_reply_content}, sysdate, sysdate, 'Y')
 	</insert>
 	
 	<select id="getReply" resultType="com.hodu.model.ReplyDTO">

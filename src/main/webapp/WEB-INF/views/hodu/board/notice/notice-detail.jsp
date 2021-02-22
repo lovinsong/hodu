@@ -149,11 +149,10 @@
 			$.ajax({
 				type:"post",
 				url:"replyRegist", //요청주소
-				data:JSON.stringify({"board_postnum":qno,"reply_content":rcontent,"member_id":rid}),
+				data:JSON.stringify({"notice_postnum":qno,"notice_reply_content":rcontent,"member_id":rid}),
 				contentType:"application/json; charset=utf-8",
 				success:function(data){
-					console.log(data);
-					if(data ==1){ 
+					if(data = 1){ 
 						$("#reply").val("");
 						alert("댓글등록에 성공하셨습니다");
 						getlist(1,true); //목록요청 호출
