@@ -64,7 +64,7 @@
         }
         
 		#roadAddress,#detailAddress{
-			width: 280px;
+			width: 170px;
 		}
         .regex{
             font-size: 12px;
@@ -77,30 +77,32 @@
             <div class="title">회원 가입 정보 입력</div>
             <label>아이디 : </label><input type="text" name="member_id" id="member_id">
             <input type="button" value="중복확인" id="duplcheck" >
-            <div class="check_font" id="id_check"></div>
+            <div class="member_id regex"></div>
             
             <label>패스워드 : </label><input type="password" name="member_pw" id="member_pw"><br>
-            <div class="pw regex"></div>
+            <div class="member_pw regex"></div>
             
             <label>패스워드확인 : </label><input type="password" id="repw"><br>
             <div class="repw regex"></div>
             
             <label>이름: </label><input type="text" name="member_name" id="member_name"><br>
-            <div class="name regex"></div>
+            <div class="member_name regex"></div>
             
             <label>닉네임: </label><input type="text" name="member_nickname" id="member_nickname"><br>
-            <div class="name regex"></div><!-- 중복 허용? -->
+            <div class="member_nickname regex"></div><!-- 중복 허용? -->
             
-            <label>전화번호 : </label><input type="text" name="member_phone" id="member_phone"><br>
-            <div class="phone regex"></div>
+            <label>전화번호 : </label><input type="text" name="member_phone" id="member_phone" placeholder="-과 공백 없이 입력"
+            maxlength="11"><br>
+            <div class="member_phone regex"></div>
             
             <label>이메일 : </label><input type="text" name="member_email" id="member_email"><br>
-            <div class="email regex"></div>
+            <div class="member_email regex"></div>
             
-            <label>우편번호 :</label><input type="text" id="postcode" placeholder="우편번호" name="zipcode">
-            <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" ><br>
-            <label>주소1 : </label><input type="text" id="roadAddress" placeholder="도로명주소" name="roadaddress"><br>
-            <label>주소2 : </label><input type="text" id="detailAddress" placeholder="상세주소" name="detailaddress"><br>
+            <!--  <label>우편번호 :</label><input type="text" id="postcode" placeholder="우편번호" name="zipcode">-->
+            
+            <label>주소 : </label><input type="text" id="roadAddress" placeholder="도로명주소" name="member_address">
+            <input type="button" onclick="sample4_execDaumPostcode()" value="주소 찾기" >
+            <!--<label>주소2 : </label><input type="text" id="detailAddress" placeholder="상세주소" name="detailaddress"><br>-->
             <div id="signup">
             <input type="button" name="signup" value="회원가입" id="signupbtn">
             <input type="reset" value="다시입력" id="resignupbtn">
@@ -129,75 +131,53 @@
                         }
                        
                         // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                        document.getElementById('postcode').value = data.zonecode;
+                        //document.getElementById('postcode').value = roadAddr;
                         document.getElementById("roadAddress").value = roadAddr;
                     }
                 }).open();
             }
         
-         // 아이디 유효성 검사(1 = 중복 / 0 != 중복)
+         
             $(function(){
-            // 중복확인 & id 유효성검사             
-            $("#duplcheck").on("click",function(){
-            	$("#member_id").blur(function() {
-            		// id = "id_reg" / name = "userId"
-            		var member_id = $('#member_id').val();
-            		$.ajax({
-            			url : '${pageContext.request.contextPath}/user/idCheck?memberId='+ member_id,
-            			type : 'get',
-            			success : function(data) {
-            				console.log("1 = 중복o / 0 = 중복x : "+ data);							
-            				
-            				if (data == 1) {
-            						// 1 : 아이디가 중복되는 문구
-            						$("#id_check").text("사용중인 아이디입니다 :p");
-            						$("#id_check").css("color", "red");
-            						$("#reg_submit").attr("disabled", true);
-            					} else {
-            						
-            						if(idJ.test(user_id)){
-            							// 0 : 아이디 길이 / 문자열 검사
-            							$("#id_check").text("");
-            							$("#reg_submit").attr("disabled", false);
-            				
-            						} else if(user_id == ""){
-            							
-            							$('#id_check').text('아이디를 입력해주세요 :)');
-            							$('#id_check').css('color', 'red');
-            							$("#reg_submit").attr("disabled", true);				
-            							
-            						} else {
-            							
-            							$('#id_check').text("아이디는 소문자와 숫자 4~12자리만 가능합니다 :) :)");
-            							$('#id_check').css('color', 'red');
-            							$("#reg_submit").attr("disabled", true);
-            						}
-            						
-            					}
-            				}, error : function() {
-            						console.log("실패");
-            				}
-            			});
-            		});
-            })
+                // 중복확인 & id 유효성검사             
+                $("#duplcheck").on("click",function(){
+                    var id = $("#member_id").val();
+                    if(id == ""){
+                    	alert("아이디를 입력해주세요");
+                    	return;
+                    }
+                    var regex = /^[a-z][a-z\d]{4,11}$/;
+                	var result = regex.exec(id);
+                    
+                	 if(result != null){
+                         $(".member_id.regex").html("");
+                    window.open("idDuplCheck.jsp?id="+ id,"","width=500px,height=300px,top=300px,left=200px");
+                     }else{
+                         $(".member_id.regex").html("영어 소문자,숫자 4-12자리");
+                         $(".member_id.regex").css("color","red")
+                     }
+                    
+                    
+                })
+            
                 
          
     	//비밀번호 유효성검사
-            $("#pw").on("input",function(){
+            $("#member_pw").on("input",function(){
                 var regex = /^[A-Za-z\d]{8,12}$/;
                 var result = regex.exec($("#pw").val())
                 
                 if(result != null){
-                    $(".pw.regex").html("");
+                    $(".member_pw.regex").html("");
                 }else{
-                    $(".pw.regex").html("영어대소문자,숫자 8-11자리");
-                    $(".pw.regex").css("color","red")
+                    $(".member_pw.regex").html("영어대소문자,숫자 8-11자리");
+                    $(".member_pw.regex").css("color","red")
                 }
             });
             
            //비밀번호 확인    
                $("#repw").on("keyup",function(){
-                    if($("#pw").val()==$("#repw").val()){
+                    if($("#member_pw").val()==$("#repw").val()){
                        $(".repw.regex").html("비밀번호가 일치합니다"); 
                     }else{
                      $(".repw.regex").html("비밀번호가 일치하지않습니다"); 
@@ -205,80 +185,87 @@
                })
             
             //이름 유효성검사
-                $("#name").on("input",function(){
+                $("#member_name").on("input",function(){
                     var regex = /[가-힣]{2,}/;
-                    var result = regex.exec($("#name").val());
+                    var result = regex.exec($("#member_name").val());
                     
                     if(result != null){
-                       $(".name.regex").html("");  
+                       $(".member_name.regex").html("");  
                     }else{
-                        $(".name.regex").html("한글만 입력 가능합니다.");
+                        $(".member_name.regex").html("한글만 입력 가능합니다.");
                     }
                     
                 })
             
             //전화번호 유효성검사
-                $("#phone").on("input",function(){
+                $("#member_phone").on("input",function(){
                      var regex = /^01\d\d{3,4}\d{4}$/;
-                     var result = regex.exec($("#phone").val());
+                     var result = regex.exec($("#member_phone").val());
                     
                     if(result != null){
-                       $(".phone.regex").html("");  
+                       $(".member_phone.regex").html("");  
                     }else{
-                        $(".phone.regex").html("올바른 번호가 아닙니다");
+                        $(".member_phone.regex").html("올바른 번호가 아닙니다");
                     }
                     
                 })
             
             //email유효성 검사
-                $("#email").on("input",function(){
+                $("#member_email").on("input",function(){
                      var regex = /.+@[a-z]+(\.[a-z]+){1,2}$/;
-                     var result = regex.exec($("#email").val());
+                     var result = regex.exec($("#member_email").val());
                     
                     if(result != null){
-                       $(".email.regex").html("");  
+                       $(".member_email.regex").html("");  
                     }else{
-                        $(".email.regex").html("올바른 이메일이 아닙니다");
+                        $(".member_email.regex").html("올바른 이메일이 아닙니다");
                     }
                 })
           //회원가입 버튼 눌렀을 때, 빈칸 있으면 다시 유효성 검사진행    
            $("#signupbtn").on("click",function(){
-        	   var id = $("#id").val();
-        	   var pw = $("#pw").val();
-        	   var name = $("#name").val();
-        	   var phone = $("#phone").val();
-        	   var email = $("#email").val();
+        	   var id = $("#member_id").val();
+        	   var pw = $("#member_pw").val();
+        	   var name = $("#member_name").val();
+        	   var nickname= $("#member_nickname").val();
+        	   var phone = $("#member_phone").val();
+        	   var email = $("#member_email").val();
         	   
         	   var idregex = /^[a-z][a-z\d]{4,11}$/;
         	   var pwregex = /^[A-Za-z\d]{8,12}$/;
         	   var nameregex = /[가-힣]{2,}/;
+        	   var nicknameregex = /[ㄱ-힣0-9A-Za-z]{1,}/;
         	   var phoneregex = /^01\d\d{3,4}\d{4}$/;
         	   var emailregex = /.+@[a-z]+(\.[a-z]+){1,2}$/;
         	   
         	   var idregex = idregex.exec(id);
         	   if(idregex == null){
-        		   alert("아이디양식을 다시 확인해주세요");
+        		   alert("아이디양식을 다시 확인해주세요\n(영어,숫자 4~11글자)");
         		   return;
         	   }
         	   var pwregex = pwregex.exec(pw);
         	   if(pwregex == null){
-        		   alert("비밀번호양식을 다시 확인해주세요");
-        		   retrun;
+        		   alert("비밀번호양식을 다시 확인해주세요\n(영어,숫자 8~12글자)");
+        		   return;
         	   }
         	   var nameregex = nameregex.exec(name);
         	   if(nameregex == null){
-        		   alert("이름양식을 다시 확인해주세요");
-        		   retrun;
+        		   alert("이름양식을 다시 확인해주세요\n(두글자 이상)");
+        		   return;
+        	   }
+        	   var nicknameregex = nicknameregex.exec(nickname);
+        	   if(nicknameregex == null){
+        		   alert("닉네임을 입력해주세요\n(한글자 이상 필수)");
+        		   return;
         	   }
         	   var phoneregex = phoneregex.exec(phone);
         	   if(phoneregex == null){
-        		   alert("핸드폰번호양식을 다시 확인해주세요");
-        		   retrun;
+        		   alert("핸드폰번호양식을 다시 확인해주세요\n(-와 빈칸 없이 입력)");
+        		   return;
         	   }
         	   var emailregex = emailregex.exec(email);
         	   if(emailregex == null){
-        		   alert("이메일양식을 다시 확인해주세요");
-        		   retrun;
+        		   alert("이메일양식을 다시 확인해주세요\n(***@***.***)");
+        		   return;
         	   }
         	   
              //빈칸 없을 때 제출.

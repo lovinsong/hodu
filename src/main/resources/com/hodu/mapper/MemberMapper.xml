@@ -20,12 +20,14 @@
         0,
         sysdate,
         'Y',
-        'N'
+        'N',
+        1,
+        null
         )
 </insert>
 
 <select id="searchMemberId" resultType="int">
-	select * from hodu_member where member_id= #{member_id}
+	select count(*) from hodu_member where member_id= #{member_id}
 </select>
     
 </mapper>
