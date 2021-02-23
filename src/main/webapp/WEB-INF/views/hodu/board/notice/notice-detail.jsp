@@ -155,7 +155,7 @@ $('#star_grade a').click(function(){
 			var qno = "${dto.notice_postnum}"; //문자열의 형태로 화면에서 넘어온 notice_postnum 번호 
 			var rcontent=$("#reply").val();
 			var rid=$("#rid").val();
-			var star=$("#star-result").val();
+			var star=$("#star-result").html();
 		
 			console.log(qno, rcontent, rid, star);
 			
