@@ -28,4 +28,11 @@ public interface NoticeMapper {
 	
 	//답글 갯수 가져오기
 	public int replyTotal(Integer board_postnum);
+	
+	//답글 수정
+	public int updateReply(ReplyDTO rDTO);
+	
+	//답글 삭제
+	public int deleteReply(int rno);
+	
 }

@@ -57,5 +57,15 @@ public class NoticeServiceImpl implements NoticeService {
 		return noticeMapper.replyTotal(board_postnum);
 	}
 
+	@Override
+	public int updateReply(ReplyDTO rDTO) {
+		return noticeMapper.updateReply(rDTO);
+	}
+
+	@Override
+	public int deleteReply(int rno) {
+		return noticeMapper.deleteReply(rno);
+	}
+
 	
 }

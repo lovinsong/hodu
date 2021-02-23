@@ -89,11 +89,7 @@ public class HoduController {
         return "redirect:notice-category";
     }
 	
-	
-	
-	//-------------------------------------------------------------------------------------------------------------------
-	
-	
+
 	
 	//댓글 작성하기
 	@ResponseBody
@@ -124,24 +120,20 @@ public class HoduController {
     }
 
     
-    /*   
-    
 	//댓글 수정하기 
     @ResponseBody
-    @RequestMapping("replyupdate")
+    @RequestMapping("/board/notice/replyupdate")
     public int replyupdate(@RequestBody ReplyDTO ReplyDTO) {
         System.out.println(ReplyDTO.toString());
-        return questionBoardService.replyUpdate(ReplyDTO);
+        return NoticeService.updateReply(ReplyDTO);
     }
 
 	//댓글 삭제하기 
     @ResponseBody
-    @RequestMapping("replydelete")
-    public int replydelete(@RequestParam("rno") int rno) {
-        System.out.println("aa");
-        return questionBoardService.replydelete(rno);
+    @RequestMapping("/board/notice/replydelete")
+    public int deleteReply(@RequestParam("rno") int rno) {
+        return NoticeService.deleteReply(rno);
     }
 
-	*/
 	
 }

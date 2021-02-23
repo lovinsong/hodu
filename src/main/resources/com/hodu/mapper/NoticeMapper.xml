@@ -36,7 +36,14 @@
 	<select id="replyTotal" resultType="int">
         select count(*) from NOTICE_REPLY WHERE NOTICE_POSTNUM = #{board_postnum}
     </select>
+    
+    <update id="updateReply">
+		UPDATE NOTICE_REPLY SET NOTICE_REPLY_CONTENT = #{notice_reply_content} WHERE NOTICE_REPLY_POSTNUM = #{notice_reply_postnum }
+	</update>
 	
+	<delete id="deleteReply">
+        DELETE FROM NOTICE_REPLY WHERE NOTICE_REPLY_POSTNUM = #{notice_reply_postnum}
+    </delete>
 	
 </mapper>
 

@@ -15,4 +15,6 @@ public interface NoticeService {
 	public int writeReply(ReplyDTO rDTO);
 	public List<ReplyDTO> getReply(Integer board_postnum);
 	public int replyTotal(Integer board_postnum);
+	public int updateReply(ReplyDTO rDTO);
+	public int deleteReply(int rno);
 }
