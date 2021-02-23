@@ -5,4 +5,6 @@ import com.hodu.model.MemberDTO;
 public interface MemberMapper {
 
 	public int addMember(MemberDTO mem);
+
+	public int searchMemberId(String member_id);
 }

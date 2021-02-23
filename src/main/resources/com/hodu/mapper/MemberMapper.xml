@@ -6,22 +6,26 @@
 <mapper namespace="com.hodu.mapper.MemberMapper">
 
 <insert id="addMember">
-      INSERT INTO hodu_member VALUES (
-      #{member_id}, 
-      BRONZE, 
-      BRONZE,
-      #{member_nickname},
-      #{member_pw},
-      #{member_name},
-      #{member_img},
-      #{member_phone},
-      #{member_address},
-      #{member_email},
-      0,
-      sysdate, 
-      1,
-      N
-      )
+        INSERT INTO hodu_member VALUES (
+        #{member_id},
+        'BRONZE',
+        'BRONZE',
+        #{member_nickname},
+        #{member_pw},
+        #{member_name},
+        null,
+        #{member_phone},
+        #{member_address},
+        #{member_email},
+        0,
+        sysdate,
+        'Y',
+        'N'
+        )
 </insert>
+
+<select id="searchMemberId" resultType="int">
+	select * from hodu_member where member_id= #{member_id}
+</select>
     
 </mapper>

@@ -18,4 +18,9 @@ public class MemberServiceImpl implements MemberService{
 		return mem_mapper.addMember(mem);
 	}
 
+	@Override
+	public int userIdCheck(String member_id) {
+		return mem_mapper.searchMemberId(member_id);
+	}
+
 }
