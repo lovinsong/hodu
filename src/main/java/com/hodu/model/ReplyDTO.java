@@ -20,5 +20,6 @@ public class ReplyDTO {
 	private Date notice_reply_date;
 	private Date notice_reply_modifydate;
 	private String notice_reply_show;
-
+	private Integer notice_star;
+	
 }

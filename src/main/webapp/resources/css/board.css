@@ -1,3 +1,13 @@
+/* #star_grade a{
+	text-decoration: none;
+	color: gray;
+	font-size: 30px;
+	cursor: hand;
+}
+#star_grade a.on{
+    color: darkgoldenrod;
+} */
+
 
 *{
     margin: 0;

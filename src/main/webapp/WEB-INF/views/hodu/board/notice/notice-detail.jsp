@@ -1,14 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3004837755eae7b6be51a2cfae956086&libraries=services"></script>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/board.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
 
 
-<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/board.css">
-<link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" >
 <section>
 	<div class="container">
 		<div class="row">
@@ -17,8 +21,6 @@
 				<div class="titlebox">
 					<h1>공지사항</h1>
 				</div>
-
-
 				<form>
 					<div>
 						<label>DATE</label>
@@ -63,6 +65,15 @@
 			<div class="col-xs-12 col-md-9 write-wrap">
 				<form class="reply-wrap">
 					<div class="reply-content">
+						<p id="star_grade" class="star_grade">
+	                                <a data-star="1">★</a>
+	                                <a data-star="2">★</a>
+	                                <a data-star="3">★</a>
+	                                <a data-star="4">★</a>
+	                                <a data-star="5">★</a>
+	                                <span style="font-size: 20px;">나의 별점:</span>
+	                                <strong id="star-result" style="font-size: 20px;"></strong>         
+	                     </p>
 						<textarea class="form-control" rows="3" id="reply"></textarea>
 						<div class="reply-group">
 							<div class="reply-input">
@@ -104,7 +115,8 @@
 			<div class="modal-body">
 				<!-- 수정폼 id값을 확인하세요-->
 				<div class="reply-content">
-					<textarea class="form-control" rows="4" id="modalReply" placeholder="내용입력"></textarea>
+					<textarea class="form-control" rows="4" id="modalReply"
+						placeholder="내용입력"></textarea>
 					<div class="reply-group">
 						<div class="reply-input">
 							<input type="hidden" id="modalRno">
@@ -121,6 +133,13 @@
 
 <script>
 
+
+$('#star_grade a').click(function(){
+    $(this).parent().children("a").removeClass("on");  /* 별점의 on 클래스 전부 제거 */ 
+    $(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
+    $("#star-result").html(event.target.dataset.star)
+});
+
 	/* $("#replyModal").modal("show");
 	$("#modalDelBtn").click(function() {
 		$("#replyModal").modal("hide");		
@@ -136,11 +155,12 @@
 			var qno = "${dto.notice_postnum}"; //문자열의 형태로 화면에서 넘어온 notice_postnum 번호 
 			var rcontent=$("#reply").val();
 			var rid=$("#rid").val();
+			var star=$("#star-result").val();
+		
+			console.log(qno, rcontent, rid, star);
 			
-			console.log(qno, rcontent, rid);
-			
-			if(rid===''||rcontent===''){
-				alert('이름,내용을 입력하세요');
+			if(rid===''||rcontent===''||star===''){
+				alert('이름,내용,별점을 입력하세요');
 				return;
 			}
 			
@@ -148,7 +168,7 @@
 			$.ajax({
 				type:"post",
 				url:"replyRegist", //요청주소
-				data:JSON.stringify({"notice_postnum":qno,"notice_reply_content":rcontent,"member_id":rid}),
+				data:JSON.stringify({"notice_postnum":qno,"notice_reply_content":rcontent,"member_id":rid, "notice_star":star}),
 				contentType:"application/json; charset=utf-8",
 				success:function(data){
 					if(data = 1){ 

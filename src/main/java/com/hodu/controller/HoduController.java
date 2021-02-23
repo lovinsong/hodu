@@ -128,6 +128,7 @@ public class HoduController {
         return NoticeService.updateReply(ReplyDTO);
     }
 
+    
 	//댓글 삭제하기 
     @ResponseBody
     @RequestMapping("/board/notice/replydelete")

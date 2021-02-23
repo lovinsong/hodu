@@ -12,6 +12,16 @@
 	box-sizing: border-box;
 }
 
+#star_grade a{
+	text-decoration: none;
+	color: gray;
+	font-size: 30px;
+	cursor: hand;
+}
+#star_grade a.on{
+    color: darkgoldenrod;
+}
+
 body, html {
 	width: 100%;
 	min-width: 320px;
@@ -694,3 +704,8 @@ ul.nav li.drophover:hover>ul.dropdown-menu {
 .modal-inner p {
 	margin: 0px;
 }
+
+
+
+
+
