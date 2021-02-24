@@ -1,15 +1,22 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>파일 업로드</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
 
-<P>  The time on the server is ${serverTime}. </P>
-<a href="./test">누르기</a>
+<h3>파일 업로드 POST 요청: Multipart 인코딩</h3>
+<p>
+입력폼의 method를 POST으로 지정하고,<br>
+enctype 속성의 값을 multipart/form-data로 설정합니다.
+</p>
+<form action="FileUploadServlet" method="post" enctype="multipart/form-data">
+사진: <input type="file" name="photo"><br> 
+설명: <textarea name="description" cols="50" rows="3"></textarea><br>
+	  <input type="submit" value="추가"><br>
+</form> 
 </body>
 </html>

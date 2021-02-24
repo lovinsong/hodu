@@ -81,13 +81,24 @@
 		    <version>1.18.16</version>
 		    <scope>provided</scope>
 		</dependency>
+		
 		<!-- File Upload -->
-		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload/1.3.1 -->
 		<dependency>
 		    <groupId>commons-fileupload</groupId>
 		    <artifactId>commons-fileupload</artifactId>
-		    <version>1.3.1</version>
+		    <version>1.2.2</version>
+		</dependency>	
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.1</version>
 		</dependency>
+		<dependency>
+		    <groupId>com.jfinal</groupId>
+		    <artifactId>cos</artifactId>
+		    <version>2020.4</version>
+		</dependency>
+		
 		
 		<!-- JSON, XML -->
 		<dependency>

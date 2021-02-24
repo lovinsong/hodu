@@ -159,6 +159,8 @@ public class HoduController {
 		
 		return "redirect:notice-detail?notice_postnum=" + notice_postnum;
 	}
+	
+	
 
 	
 }

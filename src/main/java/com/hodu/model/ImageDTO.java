@@ -11,6 +11,7 @@ import lombok.ToString;
 @Data
 @ToString
 public class ImageDTO {
+	
     private Integer img_postnum;
     private String member_id;
     private String img_name;
@@ -18,6 +19,5 @@ public class ImageDTO {
     private long img_size;
     private String img_file_type;
     private Blob img_file_data;
-
-    private MultipartFile file;
+    
 }
