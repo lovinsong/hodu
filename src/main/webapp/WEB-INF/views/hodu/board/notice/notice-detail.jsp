@@ -21,6 +21,12 @@
 				<div class="titlebox">
 					<h1>공지사항</h1>
 				</div>
+				
+				<div id = "notice_review_star" class ="notice_review_star">
+					<a>★${dto.notice_review_star }(${reviewCount })</a>
+				</div>
+				
+				
 				<form>
 					<div>
 						<label>DATE</label>
@@ -60,7 +66,7 @@
 
  
 <section style="margin-top: 80px;">
-	<div class="container">
+	<div class="container" >
 		<div class="row">
 			<div class="col-xs-12 col-md-9 write-wrap">
 				<form class="reply-wrap">
@@ -223,6 +229,10 @@ $('#star_grade a').click(function(){
                         return;
                     }
                     for(var i=0; i<data.length; i++){
+                    	var count = data[i].notice_star;
+                    	count *= 1;
+                    	m_count = 5 - count;
+                    	
                         stradd+="<div class='reply-wrap'>";
                         stradd+="<div class='reply-image'>";
                         stradd+="</div>";
@@ -230,6 +240,7 @@ $('#star_grade a').click(function(){
                         stradd+="<div class='reply-group'>";
                         stradd+="<strong class='left'>"+data[i].member_id+"</strong>"; 
                         stradd+="<small class='left'>"+timeStamp(data[i].notice_reply_date)+"</small>";
+                        stradd+="<small class='left star'>"+ "★".repeat(count) + "☆".repeat(m_count) +"</small>";
                         stradd+="<a href='"+data[i].notice_reply_postnum+" "+data[i].member_id+" " + data[i].notice_reply_content+"' class='right replyModify'><span class='glyphicon glyphicon-pencil'></span>수정</a>"
                         stradd+="<a href='"+data[i].notice_reply_postnum+" "+data[i].member_id+"' class='right replyDelete'><span class='glyphicon glyphicon-remove'></span>삭제</a>"
                         stradd+="</div>";
@@ -242,6 +253,9 @@ $('#star_grade a').click(function(){
                 }        
             );
         }
+        
+        
+
 
 		
 		//수정삭제 모달창

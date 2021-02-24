@@ -17,4 +17,5 @@ public interface NoticeService {
 	public int replyTotal(Integer board_postnum);
 	public int updateReply(ReplyDTO rDTO);
 	public int deleteReply(int rno);
+	public int updateStar(Integer board_postnum);
 }

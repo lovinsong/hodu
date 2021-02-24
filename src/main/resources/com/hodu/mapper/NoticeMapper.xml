@@ -14,7 +14,7 @@
 	</select>
 	
 	<insert id="writeNotice">
-		INSERT INTO notice_board VALUES (INQUIRY_BOARD_SEQ.NEXTVAL, #{member_id}, '공지사항', #{notice_title}, #{notice_content}, sysdate, 0, 'Y')
+		INSERT INTO notice_board VALUES (INQUIRY_BOARD_SEQ.NEXTVAL, #{member_id}, '공지사항', #{notice_title}, #{notice_content}, sysdate, 0, 'Y',sysdate, 0, 0)
 	</insert>
 	
 	<update id="updateNotice">
@@ -28,6 +28,10 @@
 	<insert id="writeReply">
 		INSERT INTO NOTICE_REPLY VALUES (NOTICE_REPLY_SEQ.NEXTVAL, #{notice_postnum}, #{member_id}, #{notice_reply_content}, sysdate, sysdate, 'Y', #{notice_star})
 	</insert>
+	
+	<update id="updateStar">
+		UPDATE NOTICE_BOARD SET NOTICE_REVIEW_STAR= (select ROUND(AVG(NOTICE_STAR),1) from notice_reply WHERE notice_postnum = #{notice_postnum}) WHERE notice_postnum =  #{notice_postnum}
+	</update>
 	
 	<select id="getReply" resultType="com.hodu.model.ReplyDTO">
 		SELECT * FROM NOTICE_REPLY WHERE NOTICE_POSTNUM = #{board_postnum} ORDER BY NOTICE_REPLY_DATE DESC

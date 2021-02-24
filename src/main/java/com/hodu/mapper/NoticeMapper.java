@@ -22,6 +22,9 @@ public interface NoticeMapper {
 	
 	//답글 등록
 	public int writeReply(ReplyDTO rDTO);
+	
+	//별점 평균 구해서 게시판 테이블에 넣어주기
+	public int updateStar(Integer board_postnum);
 
 	//답글 가져오기
 	public List<ReplyDTO> getReply(Integer board_postnum);
@@ -34,5 +37,7 @@ public interface NoticeMapper {
 	
 	//답글 삭제
 	public int deleteReply(int rno);
+	
+	
 	
 }

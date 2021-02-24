@@ -6,6 +6,8 @@
 /*===========================*/
 
 /*디자인 시작시 기본 선언*/
+
+
 * { /* 기본선언: 마딩, 패딩 0, 요소크기에 padding, border값을 포함 x*/
 	padding: 0;
 	margin: 0;
@@ -20,6 +22,32 @@
 }
 #star_grade a.on{
     color: darkgoldenrod;
+}
+
+#notice_review_star {
+	text-align:right;
+	text-decoration: none;
+	font-size: 20px;
+
+}
+#notice_review_star a {
+	color: darkgoldenrod;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.star{
+	color: darkgoldenrod;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 body, html {

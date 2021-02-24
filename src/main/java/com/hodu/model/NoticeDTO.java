@@ -21,6 +21,6 @@ public class NoticeDTO {
 	private Date notice_date;
 	private Integer notice_views;
 	private String notice_show;
-	
+	private Double notice_review_star;
 
 }

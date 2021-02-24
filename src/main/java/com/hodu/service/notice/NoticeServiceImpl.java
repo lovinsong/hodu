@@ -67,5 +67,10 @@ public class NoticeServiceImpl implements NoticeService {
 		return noticeMapper.deleteReply(rno);
 	}
 
+	@Override
+	public int updateStar(Integer board_postnum) {
+		return noticeMapper.updateStar(board_postnum);
+	}
+
 	
 }

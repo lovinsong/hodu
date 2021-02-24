@@ -59,7 +59,10 @@ public class HoduController {
 	@RequestMapping(value = {"board/notice/notice-detail", "board/notice/notice-modify"}, method = RequestMethod.GET) 
 	public void notice_detail(@RequestParam("notice_postnum") int notice_postnum, Model model) {
 		NoticeDTO dto =  NoticeService.getOneNotice(notice_postnum);
+		int reviewCount = NoticeService.replyTotal(notice_postnum);
+		
 		model.addAttribute("dto", dto);
+		model.addAttribute("reviewCount", reviewCount);
 	}
 	
 
@@ -96,8 +99,9 @@ public class HoduController {
     @RequestMapping("/board/notice/replyRegist")
     public int replyRegist(@RequestBody ReplyDTO dto) {
 		System.out.println(dto);
-        int result = NoticeService.writeReply(dto);
-        return result;
+        int result1 = NoticeService.writeReply(dto);
+        int result2 = NoticeService.updateStar(dto.getNotice_postnum());
+        return result1;
     }
 
 	
