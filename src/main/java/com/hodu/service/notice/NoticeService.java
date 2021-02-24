@@ -18,4 +18,7 @@ public interface NoticeService {
 	public int updateReply(ReplyDTO rDTO);
 	public int deleteReply(int rno);
 	public int updateStar(Integer board_postnum);
+	public int addHeart(Integer board_postnum);
+	public String searchHeart(Integer board_postnum);
+	public int updateHeart(Integer board_postnum, String show);
 }

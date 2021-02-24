@@ -42,12 +42,26 @@
     </select>
     
     <update id="updateReply">
-		UPDATE NOTICE_REPLY SET NOTICE_REPLY_CONTENT = #{notice_reply_content} WHERE NOTICE_REPLY_POSTNUM = #{notice_reply_postnum }
+		UPDATE NOTICE_REPLY SET NOTICE_REPLY_CONTENT = #{notice_reply_content}, NOTICE_STAR = #{notice_star} WHERE NOTICE_REPLY_POSTNUM = #{notice_reply_postnum }
 	</update>
 	
 	<delete id="deleteReply">
         DELETE FROM NOTICE_REPLY WHERE NOTICE_REPLY_POSTNUM = #{notice_reply_postnum}
     </delete>
+    
+    <insert id="addHeart">
+		INSERT INTO MY_HEART VALUES (MY_HEART_SEQ.NEXTVAL, 'master', #{board_postnum}, sysdate, 'Y')
+	</insert>
+	
+	<select id ="searchHeart" resultType="string">
+		select heart_show from my_heart  WHERE member_id = 'master' AND notice_postnum = #{board_postnum}
+	</select>
+	
+	<update id="updateHeart">
+		UPDATE my_heart SET heart_show = #{show} WHERE member_id = 'master' AND notice_postnum = #{board_postnum}
+	</update>
+    
+    
 	
 </mapper>
 

@@ -2,6 +2,8 @@ package com.hodu.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.hodu.model.NoticeDTO;
 import com.hodu.model.ReplyDTO;
 
@@ -37,6 +39,15 @@ public interface NoticeMapper {
 	
 	//답글 삭제
 	public int deleteReply(int rno);
+	
+	//찜(Y/N) 조회
+	public String searchHeart(Integer board_postnum);
+	
+	//찜목록 추가
+	public int addHeart(Integer board_postnum);
+	
+	//찜목록 업데이트
+	public int updateHeart(@Param("board_postnum")Integer board_postnum, @Param("show") String show);
 	
 	
 	

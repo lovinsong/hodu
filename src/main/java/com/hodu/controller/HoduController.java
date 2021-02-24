@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -139,6 +140,25 @@ public class HoduController {
     public int deleteReply(@RequestParam("rno") int rno) {
         return NoticeService.deleteReply(rno);
     }
+    
+    //찜하기
+	@RequestMapping(value = {"/board/notice/heart"}, method = RequestMethod.GET) 
+	public String addHeart(@RequestParam("notice_postnum")int notice_postnum, Model model) {
+		
+		String searchResult = NoticeService.searchHeart(notice_postnum);
+		System.out.println("찜 여부 반환 결과 :" +searchResult);
+		
+		if (searchResult == null) {
+			// 찜 여부를 검색하여 기록이 없다면 생성!
+			NoticeService.addHeart(notice_postnum);
+		} else if (searchResult.equals("Y")) {
+			NoticeService.updateHeart(notice_postnum, "N");
+		} else {
+			NoticeService.updateHeart(notice_postnum, "Y");
+		}
+		
+		return "redirect:notice-detail?notice_postnum=" + notice_postnum;
+	}
 
 	
 }

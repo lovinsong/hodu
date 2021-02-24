@@ -72,5 +72,21 @@ public class NoticeServiceImpl implements NoticeService {
 		return noticeMapper.updateStar(board_postnum);
 	}
 
+	@Override
+	public int addHeart(Integer board_postnum) {
+		// TODO Auto-generated method stub
+		return noticeMapper.addHeart(board_postnum);
+	}
+
+	@Override
+	public String searchHeart(Integer board_postnum) {
+		return noticeMapper.searchHeart(board_postnum);
+	}
+
+	@Override
+	public int updateHeart(Integer board_postnum, String show) {
+		return noticeMapper.updateHeart(board_postnum, show);
+	}
+
 	
 }

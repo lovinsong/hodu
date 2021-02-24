@@ -56,6 +56,8 @@
 						onclick="location.href='notice-category'">목록</button>
 					<button type="button" class="btn btn-dark"
 						onclick="location.href='notice-modify?notice_postnum=${dto.notice_postnum }'">수정</button>
+					<button type="button" class="btn btn-dark"
+						onclick="location.href='heart?notice_postnum=${dto.notice_postnum }'">찜하기</button>
 						
 				</form>
 			</div>
@@ -117,6 +119,15 @@
 				<button type="button" class="btn btn-default pull-right"
 					data-dismiss="modal">닫기</button>
 				<h4 class="modal-title">댓글수정</h4>
+				<p id="star_grade_update" class="star_grade">
+                           <a data-star="1">★</a>
+                           <a data-star="2">★</a>
+                           <a data-star="3">★</a>
+                           <a data-star="4">★</a>
+                           <a data-star="5">★</a>
+                           <span style="font-size: 20px;">나의 별점:</span>
+                           <strong id="star-result-update" style="font-size: 20px;"></strong>         
+                </p>
 			</div>
 			<div class="modal-body">
 				<!-- 수정폼 id값을 확인하세요-->
@@ -144,6 +155,13 @@ $('#star_grade a').click(function(){
     $(this).parent().children("a").removeClass("on");  /* 별점의 on 클래스 전부 제거 */ 
     $(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
     $("#star-result").html(event.target.dataset.star)
+});
+
+
+$('#star_grade_update a').click(function(){
+    $(this).parent().children("a").removeClass("on");  /* 별점의 on 클래스 전부 제거 */ 
+    $(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
+    $("#star-result-update").html(event.target.dataset.star)
 });
 
 	/* $("#replyModal").modal("show");
@@ -320,8 +338,9 @@ $('#star_grade a').click(function(){
 			//만약 비밀번호가 틀렸다면 0을 반환해서 비밀번호가 틀렸습니다, 경고창을 띄우셍
 			//업데이트가 성공적으로 진행되었다면 모달창의 값을 공백으로 초기화
 			var rno =$("#modalRno").val();
-			var rcontent=$("#modalReply").val();			
-			
+			var rcontent=$("#modalReply").val();	
+			var notice_star = $("#star-result-update").html();
+
 			if(rno===""||rcontent ===""){
 				alert("내용을 작성하세요");
 				return;
@@ -330,7 +349,7 @@ $('#star_grade a').click(function(){
 			$.ajax({
 				type:"post",
 				url:"replyupdate",
-				data:JSON.stringify({"notice_reply_postnum":rno,"notice_reply_content":rcontent}),
+				data:JSON.stringify({"notice_reply_postnum":rno,"notice_reply_content":rcontent, "notice_star":notice_star}),
 				contentType:"application/json; charset=utf-8",
 				success:function(data){
 					if(data=1){
