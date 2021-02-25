@@ -21,13 +21,24 @@
         sysdate,
         'Y',
         'N',
-        1,
-        null
+        1
         )
 </insert>
 
-<select id="searchMemberId" resultType="int">
+<select id="idCheck" resultType="int">
 	select count(*) from hodu_member where member_id= #{member_id}
+</select>
+
+<select id="nickCheck" resultType="int">
+	select count(*) from hodu_member where member_nickname= #{member_nickname}
+</select>
+
+<select id="phoneCheck" resultType="int">
+	select count(*) from hodu_member where member_phone= #{member_phone}
+</select>
+
+<select id="emailCheck" resultType="int">
+	select count(*) from hodu_member where member_email= #{member_email}
 </select>
     
 </mapper>

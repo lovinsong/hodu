@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,7 @@ public class joinTest {
 	}
 	
 	@Test
+	@Ignore
 	public void insertTest() {
 		MemberDTO mem = new MemberDTO();
 		mem.setMember_id("abc");
@@ -59,10 +61,8 @@ public class joinTest {
 		mem.setMember_regdate(hiredate.getTime());
 		mem.setMember_enabled("1");
 		mem.setHodu_manager("Y");
-		
-		
-		
-		
+	
 	}
-
+	
+	
 }

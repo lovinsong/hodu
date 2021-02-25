@@ -25,7 +25,7 @@ import lombok.extern.log4j.Log4j;
 
 @Controller
 @AllArgsConstructor
-@RequestMapping(value = "/hodu/")
+//@RequestMapping(value = "/hodu/")
 @Log4j
 public class MemberController {
 
@@ -41,16 +41,16 @@ public class MemberController {
 	}
 
 	// 회원가입 페이지 이동
-	@GetMapping(value = "account/join")
+	@GetMapping(value = "/hodu/account/join")
 	public void loginGET() {
 	}
 
 	// 로그인 페이지 이동
-	@GetMapping(value = "account/login")
+	@GetMapping(value = "/hodu/account/login")
 	public void joinGET() {
 	}
 
-	@PostMapping(value = "account/join")
+	@PostMapping(value = "/hodu/account/join")
 	public String addMember(Model model, MemberDTO member) {
 
 		service.createMember(member);
@@ -58,15 +58,67 @@ public class MemberController {
 		return "redirect:/";
 	}
 
-	@RequestMapping(value = "/user/idCheck", method = RequestMethod.GET)
-	@ResponseBody
-	public int idCheck(@RequestParam("memberId") String member_id) {
+	//아이디 중복확인
+	@RequestMapping(value = "/hodu/account/memberIdChk", method = RequestMethod.POST)
+	@ResponseBody 
+	public String memberIdChkPOST(String member_id) throws Exception{ 
+		
+		int result = service.idCheck(member_id); 
+		log.info("결과값 = " + result); 
+		if(result != 0) { 
+			return "fail"; // 중복 아이디가 존재 
+		} else { 
+			return "success"; // 중복 아이디 x 
+			}
+	} // memberIdChkPOST() 종료
+	
+	//닉네임 중복확인
+	@RequestMapping(value = "/hodu/account/memberNickChk", method = RequestMethod.POST)
+	@ResponseBody 
+	public String memberNickChkPOST(String member_nickname) throws Exception{ 
+		
+		int result = service.nickCheck(member_nickname); 
+		log.info("결과값 = " + result); 
+		if(result != 0) { 
+			return "fail"; // 중복  
+		} else { 
+			return "success"; // 중복 x 
+			}
+	} 
+	//휴대폰 중복확인
+	@RequestMapping(value = "/hodu/account/memberPhoneChk", method = RequestMethod.POST) 
+	@ResponseBody 
+	public String memberPhoneChkPOST(String member_phone) throws Exception{ 
+		
+		int result = service.phoneCheck(member_phone); 
+		log.info("결과값 = " + result); 
+		if(result != 0) { 
+			return "fail";
+		} else { 
+			return "success"; 
+			}
+	} 
+	
+	//이메일 중복확인
+	@RequestMapping(value = "/hodu/account/memberEmailChk", method = RequestMethod.POST) 
+	@ResponseBody 
+	public String memberEmailChkPOST(String member_email) throws Exception{ 
+		
+		int result = service.emailCheck(member_email); 
+		log.info("결과값 = " + result); 
+		if(result != 0) { 
+			return "fail"; 
+		} else { 
+			return "success"; 
+			}
+	} 
 
-		return service.userIdCheck(member_id);
-	}
+
+	
+
 
 	/* 이메일 인증 */
-	@RequestMapping(value = "/account/mailCheck", method = RequestMethod.GET)
+	@RequestMapping(value = "/hodu/account/mailCheck", method = RequestMethod.GET)
 	@ResponseBody
 	public String mailCheckGET(String email) throws Exception {
 
@@ -103,6 +155,12 @@ public class MemberController {
 		String num = Integer.toString(checkNum);
 
 		return num;
+	}
+	
+	// 메인 페이지 이동 임시!!!
+	@GetMapping(value = "/hodu/account/mainpage")
+	public String toMain() {
+		return "/hodu/mainpage";
 	}
 
 }

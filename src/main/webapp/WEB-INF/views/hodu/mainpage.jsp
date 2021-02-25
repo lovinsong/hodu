@@ -100,7 +100,7 @@
 					<div class="login_button">
 						<a href="account/login">로그인</a>
 					</div>
-					<span><a href="account/join">회원가입</a></span>
+					<span><a href="join">회원가입</a></span>
 				</div>
 				<div class="clearfix"></div>
 			</div>
