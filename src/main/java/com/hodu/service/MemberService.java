@@ -4,7 +4,12 @@ import com.hodu.model.MemberDTO;
 
 public interface MemberService {
 
-	public int createMember(MemberDTO mem);
+	/* 회원가입 */
+	public void createMember(MemberDTO mem) throws Exception;
 
-	public int userIdCheck(String member_id); 
+	public int userIdCheck(String member_id);
+
+	/* 로그인 */
+	public MemberDTO memberLogin(MemberDTO member) throws Exception;
+
 }

@@ -11,16 +11,25 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class MemberServiceImpl implements MemberService{
 	
-	private MemberMapper mem_mapper;
+	private MemberMapper member_mapper;
 	
+	//회원가입
 	@Override
-	public int createMember(MemberDTO mem) {
-		return mem_mapper.addMember(mem);
+	public void createMember(MemberDTO member) throws Exception{
+		
+		member_mapper.addMember(member);
 	}
 
 	@Override
 	public int userIdCheck(String member_id) {
-		return mem_mapper.searchMemberId(member_id);
+		return member_mapper.searchMemberId(member_id);
+	}
+
+	//로그인
+	@Override
+	public MemberDTO memberLogin(MemberDTO member) throws Exception {
+		
+		return member_mapper.memberLogin(member);
 	}
 
 }

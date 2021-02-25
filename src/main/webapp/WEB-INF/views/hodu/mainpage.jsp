@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +10,7 @@
 </head>
 <style>
 @charset "UTF-8";
+
 * {
 	margin: 0;
 	padding: 0;
@@ -74,11 +77,42 @@
 	height: 70px;
 	background-color: #7696fd;
 } /* 홈페이지 메인 제품 목록 */
+
 .content_area {
 	width: 100%;
 	background-color: #97ef97;
 	height: 1000px;
-} /* float 속성 해제 */
+}
+
+	/* 로그인 성공 영역 */
+.login_success_area { height : 62%;
+	width: 80%;
+	border: 2px solid #7474ad;
+	border-radius: 15px;
+	margin: 5% auto;
+	padding-top: 5%;
+}
+
+.login_success_area>span {
+	display: block;
+	text-align: left;
+	margin-left: 10%;
+}
+
+.login_success_area>a{
+    font-size: 15px;
+    font-weight: 900;
+    display: inline-block;
+    margin-top: 5px;
+    background: #e1e5e8;
+    width: 82px;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 25px;
+    color: #606267;    
+}
+
+/* float 속성 해제 */
 .clearfix {
 	clear: both;
 }
@@ -97,10 +131,25 @@
 					<h1>Search area</h1>
 				</div>
 				<div class="login_area">
-					<div class="login_button">
-						<a href="account/login">로그인</a>
-					</div>
-					<span><a href="account/join">회원가입</a></span>
+
+					<!-- 로그인 하지 않은 상태 -->
+					<c:if test="${member == null }">
+						<div class="login_button">
+							<a href="./account/login">로그인</a>
+						</div>
+						<span><a href="./account/join">회원가입</a></span>
+					</c:if>
+
+					<!-- 로그인 한 상태 -->
+					<c:if test="${member != null }">
+						<div class="login_success_area">
+							<span>회원 : ${member.member_name}</span>
+							<span>닉네임 : ${member.member_nickname}</span>
+							<span>충전금액 : <fmt:formatNumber value="${member.member_cash }" pattern="\#,###.## 호두"/></span>
+							<a href="./account/logout">로그아웃</a>
+
+						</div>
+					</c:if>
 				</div>
 				<div class="clearfix"></div>
 			</div>

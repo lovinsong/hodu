@@ -3,6 +3,8 @@ package com.hodu.controller;
 import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -25,7 +27,6 @@ import lombok.extern.log4j.Log4j;
 
 @Controller
 @AllArgsConstructor
-@RequestMapping(value = "/hodu/")
 @Log4j
 public class MemberController {
 
@@ -36,22 +37,57 @@ public class MemberController {
 	private JavaMailSender mailSender;
 
 	// 메인페이지
-	@GetMapping(value = "mainpage")
+	@GetMapping(value = "/hodu/mainpage")
 	public void mainPageGET() {
 	}
 
 	// 회원가입 페이지 이동
-	@GetMapping(value = "account/join")
+	@GetMapping(value = "/hodu/account/join")
 	public void loginGET() {
 	}
 
 	// 로그인 페이지 이동
-	@GetMapping(value = "account/login")
+	@GetMapping(value = "/hodu/account/login")
 	public void joinGET() {
+
+	}
+	// 메인페이지 로그아웃
+	@GetMapping(value = "/hodu/account/logout")
+	public String logoutMainGET(HttpServletRequest request) throws Exception{
+        
+		HttpSession session = request.getSession();
+		
+		session.invalidate();
+		
+		return "redirect:/hodu/mainpage";
+    }
+
+
+
+	// 로그인 처리
+	@RequestMapping(value = "/hodu/account/login", method = RequestMethod.POST)
+	public String loginPOST(HttpServletRequest request, MemberDTO member, RedirectAttributes rttr) throws Exception {
+
+		HttpSession session = request.getSession();
+		MemberDTO memberdto = service.memberLogin(member); // 제출한아이디와 일치하는 아이디 있는지
+
+		if (memberdto == null) { // 일치하지 않는 아이디, 비밀번호 입력 경우
+
+			int result = 0;
+			rttr.addFlashAttribute("result", result);
+			return "redirect:/hodu/account/login";
+
+		}
+
+		session.setAttribute("member", memberdto); // 일치하는 아이디, 비밀번호 경우 (로그인 성공)
+
+		return "redirect:/hodu/mainpage";
+
 	}
 
-	@PostMapping(value = "account/join")
-	public String addMember(Model model, MemberDTO member) {
+	// 회원가입
+	@PostMapping(value = "/hodu/account/join")
+	public String addMember(MemberDTO member) throws Exception {
 
 		service.createMember(member);
 
@@ -66,7 +102,7 @@ public class MemberController {
 	}
 
 	/* 이메일 인증 */
-	@RequestMapping(value = "/account/mailCheck", method = RequestMethod.GET)
+	@RequestMapping(value = "/hodu/account/mailCheck", method = RequestMethod.GET)
 	@ResponseBody
 	public String mailCheckGET(String email) throws Exception {
 
@@ -80,7 +116,7 @@ public class MemberController {
 		log.info("인증번호" + checkNum);
 
 		/* 이메일 보내기 */
-		String setFrom = "mangisong2@gmail.com";
+		String setFrom = "hodu.manager@gmail.com";
 		String toMail = email;
 		String title = "호두 멤버 가입 인증 이메일 입니다.";
 		String content = "호두 홈페이지를 방문해주셔서 감사합니다." + "<br><br>" + "인증 번호는 " + checkNum + "입니다." + "<br>"

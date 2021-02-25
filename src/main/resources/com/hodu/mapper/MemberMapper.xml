@@ -5,6 +5,7 @@
 
 <mapper namespace="com.hodu.mapper.MemberMapper">
 
+<!-- 회원 가입 -->
 <insert id="addMember">
         INSERT INTO hodu_member VALUES (
         #{member_id},
@@ -25,6 +26,14 @@
         null
         )
 </insert>
+
+ 
+      <!-- 로그인 -->
+      <select id="memberLogin" resultType="com.hodu.model.MemberDTO">
+      
+      SELECT member_id, member_name, member_phone, member_nickname, member_address, member_cash, member_email FROM HODU_MEMBER WHERE member_id = #{member_id} and member_pw = #{member_pw}
+      
+      </select>
 
 <select id="searchMemberId" resultType="int">
 	select count(*) from hodu_member where member_id= #{member_id}
