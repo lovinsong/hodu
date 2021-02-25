@@ -10,8 +10,7 @@
 
 <h3>파일 업로드 POST 요청: Multipart 인코딩</h3>
 <p>
-입력폼의 method를 POST으로 지정하고,<br>
-enctype 속성의 값을 multipart/form-data로 설정합니다.
+입력폼의 method를 POST으로 지정하고, enctype 속성의 값을 multipart/form-data로 설정합니다.
 </p>
 <form action="FileUploadServlet" method="post" enctype="multipart/form-data">
 사진: <input type="file" name="photo"><br> 

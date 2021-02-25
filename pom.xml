@@ -98,6 +98,11 @@
 		    <artifactId>cos</artifactId>
 		    <version>2020.4</version>
 		</dependency>
+		<dependency>
+		    <groupId>javax.activation</groupId>
+		    <artifactId>activation</artifactId>
+		    <version>1.1.1</version>
+		</dependency>
 		
 		
 		<!-- JSON, XML -->
