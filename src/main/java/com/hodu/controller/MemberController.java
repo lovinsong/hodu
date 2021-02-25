@@ -36,7 +36,7 @@ public class MemberController {
 	@Autowired
 	private JavaMailSender mailSender;
 
-	// 메인페이지
+	// 메인 페이지 이동
 	@GetMapping(value = "/hodu/mainpage")
 	public void mainPageGET() {
 	}
@@ -51,21 +51,20 @@ public class MemberController {
 	public void joinGET() {
 
 	}
+
 	// 메인페이지 로그아웃
 	@GetMapping(value = "/hodu/account/logout")
-	public String logoutMainGET(HttpServletRequest request) throws Exception{
-        
+	public String logoutMainGET(HttpServletRequest request) throws Exception {
+
 		HttpSession session = request.getSession();
-		
+
 		session.invalidate();
-		
+
 		return "redirect:/hodu/mainpage";
-    }
-
-
+	}
 
 	// 로그인 처리
-	@RequestMapping(value = "/hodu/account/login", method = RequestMethod.POST)
+	@PostMapping(value = "/hodu/account/login")
 	public String loginPOST(HttpServletRequest request, MemberDTO member, RedirectAttributes rttr) throws Exception {
 
 		HttpSession session = request.getSession();
@@ -85,24 +84,73 @@ public class MemberController {
 
 	}
 
-	// 회원가입
+	// 회원가입 처리
 	@PostMapping(value = "/hodu/account/join")
-	public String addMember(MemberDTO member) throws Exception {
+	public String addMember(Model model, MemberDTO member) throws Exception {
 
 		service.createMember(member);
 
 		return "redirect:/";
 	}
 
-	@RequestMapping(value = "/user/idCheck", method = RequestMethod.GET)
+	// 아이디 중복확인
+	@PostMapping(value = "/hodu/account/memberIdChk")
 	@ResponseBody
-	public int idCheck(@RequestParam("memberId") String member_id) {
+	public String memberIdChkPOST(String member_id) throws Exception {
 
-		return service.userIdCheck(member_id);
+		int result = service.idCheck(member_id);
+		log.info("결과값 = " + result);
+		if (result != 0) {
+			return "fail"; // 중복 아이디가 존재
+		} else {
+			return "success"; // 중복 아이디 x
+		}
+	} // memberIdChkPOST() 종료
+
+	// 닉네임 중복확인
+	@PostMapping(value = "/hodu/account/memberNickChk")
+	@ResponseBody
+	public String memberNickChkPOST(String member_nickname) throws Exception {
+
+		int result = service.nickCheck(member_nickname);
+		log.info("결과값 = " + result);
+		if (result != 0) {
+			return "fail"; // 중복
+		} else {
+			return "success"; // 중복 x
+		}
+	}
+
+	// 휴대폰 중복확인
+	@PostMapping(value = "/hodu/account/memberPhoneChk")
+	@ResponseBody
+	public String memberPhoneChkPOST(String member_phone) throws Exception {
+
+		int result = service.phoneCheck(member_phone);
+		log.info("결과값 = " + result);
+		if (result != 0) {
+			return "fail";
+		} else {
+			return "success";
+		}
+	}
+
+	// 이메일 중복확인
+	@PostMapping(value = "/hodu/account/memberEmailChk")
+	@ResponseBody
+	public String memberEmailChkPOST(String member_email) throws Exception {
+
+		int result = service.emailCheck(member_email);
+		log.info("결과값 = " + result);
+		if (result != 0) {
+			return "fail";
+		} else {
+			return "success";
+		}
 	}
 
 	/* 이메일 인증 */
-	@RequestMapping(value = "/hodu/account/mailCheck", method = RequestMethod.GET)
+	@GetMapping(value = "/hodu/account/mailCheck")
 	@ResponseBody
 	public String mailCheckGET(String email) throws Exception {
 
@@ -139,6 +187,12 @@ public class MemberController {
 		String num = Integer.toString(checkNum);
 
 		return num;
+	}
+
+	// 메인 페이지 이동 임시!!!
+	@GetMapping(value = "/hodu/account/mainpage")
+	public String toMain() {
+		return "/hodu/mainpage";
 	}
 
 }
