@@ -193,7 +193,7 @@ input[type=button]:hover, input[type=reset]:hover {
 			
 			
 			<label>아이디 : </label><input class="id_input" type="text" name="member_id" id="member_id">
-			<span class="id_input_re_1">사용 가능한 아이디입니다.(영문 4~11글자)</span>
+			<span class="id_input_re_1">사용 가능한 아이디입니다.(영문 5~11글자)</span>
 			<span class="id_input_re_2">아이디가 이미 존재합니다.</span>
 			<div class="a"></div><!-- 일단 한칸 띄어주는 용도(아무런 기능 없음) -->
 			
@@ -519,7 +519,7 @@ input[type=button]:hover, input[type=reset]:hover {
 
 				var idregex = idregex.exec(id);
 				if (idregex == null) {
-					alert("아이디양식을 다시 확인해주세요\n(영어,숫자 4~11글자)");
+					alert("아이디양식을 다시 확인해주세요\n(영어,숫자 5~11글자)");
 					return;
 				}
 				if(existId == 'fail'){                            
