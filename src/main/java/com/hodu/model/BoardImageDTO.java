@@ -16,6 +16,6 @@ public class BoardImageDTO {
     private String bimg_org_name;
     private String bimg_new_name;
     private Date bimg_date;
-    private Integer img_size;
+    private long img_size;
 
 }

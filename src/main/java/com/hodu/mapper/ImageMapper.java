@@ -1,5 +1,9 @@
 package com.hodu.mapper;
 
-public interface ImageMapper {
+import com.hodu.model.BoardImageDTO;
 
+public interface ImageMapper {
+	
+	public int updateImage(BoardImageDTO biDTO);
+	
 }
