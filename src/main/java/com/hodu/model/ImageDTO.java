@@ -18,6 +18,6 @@ public class ImageDTO {
     private Date img_date;
     private long img_size;
     private String img_file_type;
-    private Blob img_file_data;
-    
+    //private Blob img_file_data; -> 필요없음
+
 }
