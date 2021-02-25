@@ -12,24 +12,24 @@
 	
 	<!-- Application Loggers -->
 	<logger name="com.hodu.project">
-		<level value="DEBUG" />
+		<level value="info" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
-		<level value="DEBUG" />
+		<level value="info" />
 	</logger>
 	
 	<logger name="org.springframework.beans">
-		<level value="DEBUG" />
+		<level value="info" />
 	</logger>
 	
 	<logger name="org.springframework.context">
-		<level value="DEBUG" />
+		<level value="info" />
 	</logger>
 
 	<logger name="org.springframework.web">
-		<level value="DEBUG" />
+		<level value="info" />
 	</logger>
 
 	<!-- Root Logger -->
