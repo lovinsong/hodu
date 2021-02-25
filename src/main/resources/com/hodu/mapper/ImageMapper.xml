@@ -9,4 +9,8 @@
 		INSERT INTO board_image VALUES (BIMAGE_SEQ.NEXTVAL,'master','notice_board', 29, #{bimg_org_name}, #{bimg_new_name}, #{img_size}, sysdate)
 	</insert>
 
+	<select id="getImageName" resultType="com.hodu.model.BoardImageDTO">
+		SELECT * FROM board_image WHERE board_name = #{board_name} AND board_postnum = #{board_postnum}
+	</select>
+
 </mapper>

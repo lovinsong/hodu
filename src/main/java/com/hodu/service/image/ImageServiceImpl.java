@@ -1,5 +1,7 @@
 package com.hodu.service.image;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,11 @@ public class ImageServiceImpl implements ImageService {
 	@Override
 	public int updateImage(BoardImageDTO biDTO) {
 		return imageMapper.updateImage(biDTO);
+	}
+
+	@Override
+	public List<BoardImageDTO> getImageName(BoardImageDTO biDTO) {
+		return imageMapper.getImageName(biDTO);
 	}
 
 }

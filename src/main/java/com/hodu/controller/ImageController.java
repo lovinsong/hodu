@@ -2,6 +2,7 @@ package com.hodu.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -31,10 +32,13 @@ public class ImageController {
 	@Autowired
 	ImageService imageService;
 
-
 	// 업로드 페이지로 이동하기
 	@GetMapping("upload")
 	public void upload(Model model) {
+	}
+	
+	@GetMapping("checkImg")
+	public void checkImg(Model model) {
 	}
 
 	
@@ -48,9 +52,11 @@ public class ImageController {
 		String filename = file.getOriginalFilename();		
 		String path = req.getSession().getServletContext().getRealPath("/");
 		
+		
+		
 		bidto.setBimg_org_name(file.getOriginalFilename());
 		bidto.setImg_size(file.getSize());
-		bidto.setBimg_new_name(file.getOriginalFilename() + "new");
+		bidto.setBimg_new_name("(new)"+filename);
 		
 		imageService.updateImage(bidto);
 		
@@ -69,5 +75,25 @@ public class ImageController {
 			e.printStackTrace();
 		}
 	}	
+	
+	@RequestMapping(value = "image/realImg", method = RequestMethod.POST)
+	public void realImg(Model model, BoardImageDTO dto) {
+		List<BoardImageDTO> images = imageService.getImageName(dto);
+		System.out.println(images);
+		
+		String p = images.get(0).getBimg_org_name();
+		String path = req.getSession().getServletContext().getRealPath("/");
+		
+		model.addAttribute("p", p );
+		model.addAttribute("path", path );
+		
+//		for(BoardImageDTO imgdto : images) {
+//			String p = req.getSession().getServletContext().getRealPath("/") +imgdto.getBimg_org_name();
+//			model.addAttribute("p", p );
+//		}
+		
+		
+	}
+	
 }
 
