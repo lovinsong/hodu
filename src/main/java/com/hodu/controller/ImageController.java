@@ -26,14 +26,11 @@ public class ImageController {
 	// 업로드 페이지로 이동하기
 	@GetMapping("upload")
 	public void upload(Model model) {
-
 	}
-
 
 	@Autowired
 	HttpServletRequest req;
-	
-	
+		
 	@RequestMapping(value = "image/fileupload", method = RequestMethod.POST)
     public void fileupload(Model model, @RequestParam("file") MultipartFile file) {
 

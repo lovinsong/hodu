@@ -15,9 +15,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.hodu.model.ImageDTO;
-
-import org.springframework.stereotype.Component;
+import com.hodu.model.BoardImageDTO;
 
 @Component("fileUtils")
 public class FileUtils {
@@ -28,7 +26,7 @@ public class FileUtils {
 	
 	private static final String filePath = req.getSession().getServletContext().getRealPath("/") + "upload"; // 파일이 저장될 위치
 	
-	public List<Map<String, Object>> parseInsertFileInfo(ImageDTO dto, MultipartHttpServletRequest mpRequest) throws Exception{
+	public List<Map<String, Object>> parseInsertFileInfo(BoardImageDTO dto, MultipartHttpServletRequest mpRequest) throws Exception{
 	
 	/*
 		Iterator은 데이터들의 집합체? 에서 컬렉션으로부터 정보를 얻어올 수 있는 인터페이스입니다.
@@ -47,17 +45,6 @@ public class FileUtils {
 
 	
 	return null;
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	}
