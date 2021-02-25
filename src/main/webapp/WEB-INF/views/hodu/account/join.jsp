@@ -187,8 +187,6 @@ input[type=button]:hover, input[type=reset]:hover {
 }
 </style>
 <body>
-<<<<<<< HEAD
-=======
 	<form action="join" method="POST" id="signform">
 		<div id="wrapper">
 			<div class="title">회원 가입 정보 입력</div>
@@ -590,7 +588,6 @@ input[type=button]:hover, input[type=reset]:hover {
 		
 
 	</script>
->>>>>>> refs/heads/Song
 
 </body>
 </html>

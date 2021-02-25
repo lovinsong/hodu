@@ -90,7 +90,7 @@ public class MemberController {
 
 		service.createMember(member);
 
-		return "redirect:/";
+		return "redirect:/hodu/mainpage";
 	}
 
 	// 아이디 중복확인

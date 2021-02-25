@@ -151,10 +151,6 @@
 						</div>
 					</c:if>
 					
-					<div class="login_button">
-						<a href="account/login">로그인</a>
-					</div>
-					<span><a href="join">회원가입</a></span>
 				</div>
 				<div class="clearfix"></div>
 			</div>
