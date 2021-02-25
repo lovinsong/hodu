@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,9 +24,11 @@ import lombok.extern.log4j.Log4j;
 
 @Controller
 @RequestMapping("/image/*")
-
 @Log4j
 public class ImageController {
+	
+	@Autowired 
+    ServletContext servletContext;
 	
 	@Autowired
 	HttpServletRequest req;
@@ -53,19 +57,24 @@ public class ImageController {
 		String path = req.getSession().getServletContext().getRealPath("/");
 		
 		
+		System.out.println("path" );
 		
 		bidto.setBimg_org_name(file.getOriginalFilename());
 		bidto.setImg_size(file.getSize());
 		bidto.setBimg_new_name("(new)"+filename);
 		
-		imageService.updateImage(bidto);
+		String RESOURCE_PATH = servletContext.getRealPath("/resources/image");
+
+		System.out.println("리소스 패스" + RESOURCE_PATH);
 		
+		imageService.updateImage(bidto);
+		System.out.println("서블렛 패스" + req.getServletPath());
 		
 		System.out.println("경로" + path);
 		System.out.println("파일 이름" + file.getOriginalFilename());
 		System.out.println("Get Name" + file.getName());		
 		
-		File f1 = new File(path + "\\" + filename);
+		File f1 = new File(RESOURCE_PATH + "\\" + filename);
 		
 		try {
 			file.transferTo(f1);
@@ -81,11 +90,9 @@ public class ImageController {
 		List<BoardImageDTO> images = imageService.getImageName(dto);
 		System.out.println(images);
 		
-		String p = images.get(0).getBimg_org_name();
-		String path = req.getSession().getServletContext().getRealPath("/");
+		String p = req.getScheme() +"://"+ req.getServerName() +":" + req.getServerPort() + "/project/resources/image/" + images.get(1).getBimg_org_name();
 		
 		model.addAttribute("p", p );
-		model.addAttribute("path", path );
 		
 //		for(BoardImageDTO imgdto : images) {
 //			String p = req.getSession().getServletContext().getRealPath("/") +imgdto.getBimg_org_name();

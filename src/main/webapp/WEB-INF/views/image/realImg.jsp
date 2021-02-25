@@ -10,11 +10,8 @@
 
 	<h3>불러온 이미지 입니다.</h3>
 	
-	 <td colspan="2"><img src="${path }${p}"></td>
+	 <td colspan="2"><img src="${p}"></td>
 
-	<p>${path }</p>
-	
-	<img src="http://localhost:8080/project/resources/image/펭귄.jpg">
 
 
 </body>
