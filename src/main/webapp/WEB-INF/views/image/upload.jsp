@@ -26,7 +26,7 @@
           <tr>
               <td colspan="2"><input type="submit" value="업로드"/></td>
           </tr>
-          </form>
+        </form>
      </table>
 </fieldset>
 
