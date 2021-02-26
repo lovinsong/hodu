@@ -206,8 +206,8 @@ public class MemberController {
 	//http://localhost:8081/project/hodu/mypage/account-info/settings/update
 	// 마이페이지 -> 내정보 수정 이동
 	@GetMapping(value = "/hodu/mypage/account-info/settings/update")
-	public void myInfoUpdate(String member_id, Model model) throws Exception{
-		model.addAttribute("member",service.memberInfo(member_id));
+	public void myInfoUpdate(MemberDTO member, Model model) throws Exception{
+		model.addAttribute("member",service.memberInfo(member.getMember_id()));
 	}
 
 
