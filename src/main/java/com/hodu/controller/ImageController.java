@@ -44,16 +44,20 @@ public class ImageController {
 	@Autowired
 	ImageService imageService;
 
+	
 	// 업로드 페이지로 이동하기
 	@GetMapping("upload")
 	public void upload(Model model) {
 	}
 	
+	
+	// 이미지 보는 페이지로 이동하기
 	@GetMapping("checkImg")
 	public void checkImg(Model model) {
 	}
 
 	
+	// 업로드하기
 	@RequestMapping(value = "image/fileupload", method = RequestMethod.POST)
     public void fileupload(Model model, @RequestParam("file") MultipartFile file) throws IOException {
 		
@@ -87,6 +91,8 @@ public class ImageController {
 		}
 	}	
 	
+	
+	// 업로드한 파일 불러오기
 	@RequestMapping(value = "image/realImg", method = RequestMethod.POST)
 	public void realImg(Model model, BoardImageDTO dto) {
 		List<BoardImageDTO> images = imageService.getImageName(dto);

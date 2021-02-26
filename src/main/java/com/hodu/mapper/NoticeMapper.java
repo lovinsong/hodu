@@ -9,8 +9,10 @@ import com.hodu.model.ReplyDTO;
 
 public interface NoticeMapper {
 
+	//글 가져오기
 	public List<NoticeDTO> getNotice(); 
 	
+	//글 1개 가져오기
 	public NoticeDTO getOneNotice(int number); 
 	
 	//글 등록
