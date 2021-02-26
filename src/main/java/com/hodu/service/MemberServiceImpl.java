@@ -52,4 +52,17 @@ public class MemberServiceImpl implements MemberService {
 		return member_mapper.emailCheck(member_email);
 	}
 
+	//한명 정보 불러오기
+	@Override
+	public MemberDTO memberInfo(String member_id) throws Exception {
+		return member_mapper.memberInfo(member_id);
+	}
+	
+	//회원정보 수정
+	@Override
+	public int updateMember(MemberDTO member) throws Exception {
+		return 0;
+				//member_mapper.memberUpdate(member);
+	}
+
 }

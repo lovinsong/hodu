@@ -54,5 +54,10 @@
 	<select id="emailCheck" resultType="int">
 		select count(*) from hodu_member where member_email= #{member_email}
 	</select>
+	
+	<!-- 한명 정보만 불러오기 -->
+	<select id="memberInfo" resultType="com.hodu.model.MemberDTO">
+		SELECT * FROM HODU_MEMBER WHERE member_id = #{member_id}
+	</select>
 
 </mapper>

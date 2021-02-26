@@ -21,4 +21,10 @@ public interface MemberService {
 
 	// 이메일체크
 	public int emailCheck(String member_email) throws Exception;
+	
+	//한명 정보 불러오는 기능
+	public MemberDTO memberInfo(String member_id) throws Exception; 
+	
+	//회원정보 수정
+	public int updateMember(MemberDTO member) throws Exception;
 }

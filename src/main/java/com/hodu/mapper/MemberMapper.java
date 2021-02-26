@@ -21,4 +21,7 @@ public interface MemberMapper {
 	
 	// 이메일 체크
 	public int emailCheck(String member_email);
+	
+	//한명 정보 받기
+	public MemberDTO memberInfo(String member_id);
 }

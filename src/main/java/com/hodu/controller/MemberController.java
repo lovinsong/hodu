@@ -38,7 +38,8 @@ public class MemberController {
 
 	// 메인 페이지 이동
 	@GetMapping(value = "/hodu/mainpage")
-	public void mainPageGET() {
+	public void mainPageGET(MemberDTO member, Model model) {
+		
 	}
 
 	// 회원가입 페이지 이동
@@ -61,6 +62,12 @@ public class MemberController {
 		session.invalidate();
 
 		return "redirect:/hodu/mainpage";
+	}
+	
+	// 메인페이지-> 마이페이지 이동
+	@GetMapping(value = "/hodu/mypage/mypage")
+	public void mypageMainGET(MemberDTO member, Model model){
+
 	}
 
 	// 로그인 처리
@@ -189,10 +196,19 @@ public class MemberController {
 		return num;
 	}
 
-	// 메인 페이지 이동 임시!!!
+	// 로그인 하단 메인 페이지 이동버튼 
 	@GetMapping(value = "/hodu/account/mainpage")
 	public String toMain() {
 		return "/hodu/mainpage";
 	}
+	
+	
+	//http://localhost:8081/project/hodu/mypage/account-info/settings/update
+	// 마이페이지 -> 내정보 수정 이동
+	@GetMapping(value = "/hodu/mypage/account-info/settings/update")
+	public void myInfoUpdate(String member_id, Model model) throws Exception{
+		model.addAttribute("member",service.memberInfo(member_id));
+	}
+
 
 }

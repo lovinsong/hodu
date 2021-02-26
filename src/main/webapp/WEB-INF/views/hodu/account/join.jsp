@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -159,6 +158,10 @@ input[type=button]:hover, input[type=reset]:hover {
 	color:red;
 	display:none;
 }
+.id_input_re_3{
+	color:red;
+	display:none;
+}
 
 .nick_input_re_1{
 	color:green;
@@ -192,17 +195,17 @@ input[type=button]:hover, input[type=reset]:hover {
 			<div class="title">회원 가입 정보 입력</div>
 			
 			
-			<label>아이디 : </label><input class="id_input" type="text" name="member_id" id="member_id">
-			<span class="id_input_re_1">사용 가능한 아이디입니다.(영문 5~11글자)</span>
+			<label>아이디 : </label><input class="id_input" type="text" name="member_id" id="member_id" maxlength="11">
+			<span class="id_input_re_1">사용 가능한 아이디입니다.</span>
 			<span class="id_input_re_2">아이디가 이미 존재합니다.</span>
+			<span class="id_input_re_3">(영문,숫자 5~11글자로만 가능)</span>
 			<div class="a"></div><!-- 일단 한칸 띄어주는 용도(아무런 기능 없음) -->
 			
 			
-			<label>패스워드 : </label><input type="password" name="member_pw"
-				id="member_pw"><br>
+			<label>패스워드 : </label><input type="password" name="member_pw" id="member_pw" maxlength="11"><br>
 			<div class="member_pw regex"></div>
 
-			<label>패스워드확인 : </label><input type="password" id="repw"><br>
+			<label>패스워드확인 : </label><input type="password" id="repw" maxlength="11"><br>
 			<div class="repw regex"></div>
 
 			<label>이름: </label><input type="text" name="member_name" id="member_name"><br>
@@ -295,24 +298,43 @@ input[type=button]:hover, input[type=reset]:hover {
 
 		//!!!작동 아이디
 		$('.id_input').on("propertychange change keyup paste input",function(){ 
-			
 			var member_id = $('.id_input').val(); // .id_input에 입력되는 값 
 			var data = {member_id : member_id} // '컨트롤에 넘길 데이터 이름' : '데이터(.id_input에 입력되는 값)' 
+			
+			if (!(event.keyCode >=37 && event.keyCode<=40)) {
+
+
+				$('.id_input').val(member_id.replace(/[^a-z0-9]/gi,''));
+
+			}
+			
 			$.ajax({ 
 				type : "post", 
 				url : "memberIdChk", 
 				data : data,
 				success : function(result){ 
 					
-					if(result != 'fail'){ 
-						$('.id_input_re_1').css("display","inline-block"); 
+					if(member_id.length < 5 || member_id.length > 11){
+						$('.id_input_re_1').css("display","none"); 
 						$('.id_input_re_2').css("display", "none"); 
-						existId = result;
-					} else { 
-						$('.id_input_re_2').css("display","inline-block"); 
-						$('.id_input_re_1').css("display", "none"); 
-						existId = result;
+						$('.id_input_re_3').css("display", "inline-block");
+					}else{
+						if(result != 'fail'){ //중복 아니면
+							
+							$('.id_input_re_1').css("display","inline-block"); 
+							$('.id_input_re_2').css("display", "none"); 
+							$('.id_input_re_3').css("display", "none"); 
+							existId = result;
+						} else if(result == 'fail'){ //중복이면
+							$('.id_input_re_2').css("display","inline-block"); 
+							$('.id_input_re_1').css("display", "none"); 
+							$('.id_input_re_3').css("display", "none"); 
+							existId = result;
+						}
+						
 					}
+					
+					
 
 				}// success 종료
 
