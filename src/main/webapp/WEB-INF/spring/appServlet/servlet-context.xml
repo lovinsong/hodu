@@ -21,9 +21,9 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.hodu.domain.account" />
-	<context:component-scan base-package="com.hodu.domain.board" />
+
+	<context:component-scan base-package="com.hodu.domain.account.controller" />
+	<context:component-scan base-package="com.hodu.domain.account.mapper" />
+	<context:component-scan base-package="com.hodu.domain.account.service" />
 	<context:component-scan base-package="com.hodu.domain.model" />
-	<context:component-scan base-package="com.hodu.util" />
-	
 </beans:beans>
