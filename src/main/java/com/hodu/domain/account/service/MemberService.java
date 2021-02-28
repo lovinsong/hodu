@@ -5,7 +5,7 @@ import com.hodu.domain.model.MemberDTO;
 public interface MemberService {
 
 	// 회원가입
-	public void createMember(MemberDTO mem) throws Exception;
+	public void createMember(MemberDTO member) throws Exception;
 
 	// 로그인
 	public MemberDTO memberLogin(MemberDTO member) throws Exception;
@@ -28,5 +28,5 @@ public interface MemberService {
 	public MemberDTO memberInfo(String member_id) throws Exception; 
 	
 	//회원정보 수정
-	public void updateMember(MemberDTO mem) throws Exception;
+	public void updateMember(MemberDTO member) throws Exception;
 }
