@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.hodu.mapper.MemberMapper">
+<mapper namespace="com.hodu.domain.account.mapper.MemberMapper">
 
 	<!-- 회원 가입 -->
 	<insert id="addMember">
@@ -27,7 +27,7 @@
 	</insert>
 
 	<!-- 로그인 -->
-	<select id="memberLogin" resultType="com.hodu.model.MemberDTO">
+	<select id="memberLogin" resultType="com.hodu.domain.model.MemberDTO">
 
 		SELECT * FROM HODU_MEMBER WHERE member_id = #{member_id} and member_pw = #{member_pw}
 
@@ -58,7 +58,7 @@
 	</select>
 	
 	<!-- 한명 정보만 불러오기 -->
-	<select id="memberInfo" resultType="com.hodu.model.MemberDTO">
+	<select id="memberInfo" resultType="com.hodu.domain.model.MemberDTO">
 		SELECT * FROM HODU_MEMBER WHERE member_id = #{member_id}
 	</select>
 	
