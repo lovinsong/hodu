@@ -1,12 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>마이 페이지</title>
 </head>
 <body>
-마이페이지
+
+<h1>마이페이지</h1>
+
+<a href="./account-info/settings/update">정보 수정</a>
+
+<a href="./mypage/myinquiry">내 문의</a>
+<a href="./mypage/mylist">찜목록</a>
+<a href="./mypage/myorder">내 주문</a>
+<a href="./mypage/mypayment">결제수단</a>
+<a href="./mypage/myreview">내 리뷰</a>
+<a href="./mypage/mytalk">내 게시글(talk)</a>
+
+
+
+
+
+
+
+
+
 </body>
 </html>
