@@ -15,6 +15,8 @@ public interface MemberService {
 
 	// 닉체크
 	public int nickCheck(String member_nickname) throws Exception;
+	// 수정시 닉체크
+	public String updateNickCheck(String member_id) throws Exception;
 
 	// 폰체크
 	public int phoneCheck(String member_phone) throws Exception;
@@ -26,5 +28,5 @@ public interface MemberService {
 	public MemberDTO memberInfo(String member_id) throws Exception; 
 	
 	//회원정보 수정
-	public int updateMember(MemberDTO member) throws Exception;
+	public void updateMember(MemberDTO mem) throws Exception;
 }

@@ -38,7 +38,7 @@ public class MemberController {
 
 	// 메인 페이지 이동
 	@GetMapping(value = "/hodu/mainpage")
-	public void mainPageGET(MemberDTO member, Model model) {
+	public void mainPageGET() {
 		
 	}
 
@@ -66,7 +66,7 @@ public class MemberController {
 	
 	// 메인페이지-> 마이페이지 이동
 	@GetMapping(value = "/hodu/mypage/mypage")
-	public void mypageMainGET(MemberDTO member, Model model){
+	public void mypageMainGET(){
 
 	}
 
@@ -127,7 +127,27 @@ public class MemberController {
 			return "success"; // 중복 x
 		}
 	}
+	@PostMapping(value = "/hodu/mypage/account-info/settings/memberNickChk")
+	@ResponseBody
+	public String memberNickChkUpdatePOST(String member_nickname,String member_id ,MemberDTO member) throws Exception {
 
+		int result = service.nickCheck(member_nickname);
+		String r = service.updateNickCheck(member_id);
+		
+		log.info("결과값 = " + result);
+		if(r.equals(member.getMember_nickname().toString())) {
+			return "success";
+		}else {
+			if(result !=0 ) {
+				return "fail";
+			}
+			return "success";
+		}
+		
+		
+	}
+
+	
 	// 휴대폰 중복확인
 	@PostMapping(value = "/hodu/account/memberPhoneChk")
 	@ResponseBody
@@ -202,12 +222,23 @@ public class MemberController {
 		return "/hodu/mainpage";
 	}
 	
-	
-	//http://localhost:8081/project/hodu/mypage/account-info/settings/update
 	// 마이페이지 -> 내정보 수정 이동
 	@GetMapping(value = "/hodu/mypage/account-info/settings/update")
-	public void myInfoUpdate(MemberDTO member, Model model) throws Exception{
-		model.addAttribute("member",service.memberInfo(member.getMember_id()));
+	public void myInfoUpdate() throws Exception{
+		
+	}
+	
+	@PostMapping(value = "/hodu/mypage/account-info/settings/update")
+	public String myInfoUpdatePOST(MemberDTO member) throws Exception{
+		service.updateMember(member);
+		return "redirect:/hodu/mypage/mypage";
+	}
+	
+	@GetMapping(value = "/hodu/mypage/account-info/settings/backtomypage")
+	public String cancelUpdate() {
+		return "redirect:/hodu/mypage/mypage";
+		//세션을 수정한 정보로 다시 넣어주기
+		//정보칸 받는걸 서비스를 받아서 하기
 	}
 
 

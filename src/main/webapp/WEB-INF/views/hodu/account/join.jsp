@@ -525,6 +525,7 @@ input[type=button]:hover, input[type=reset]:hover {
 			$("#signupbtn").on("click", function() {
 				var id = $("#member_id").val();
 				var pw = $("#member_pw").val();
+				var pwCheck = $("#repw").val();
 				var name = $("#member_name").val();
 				var nickname = $("#member_nickname").val();
 				var phone = $("#member_phone").val();
@@ -551,6 +552,10 @@ input[type=button]:hover, input[type=reset]:hover {
 				var pwregex = pwregex.exec(pw);
 				if (pwregex == null) {
 					alert("비밀번호양식을 다시 확인해주세요\n(영어,숫자 8~12글자)");
+					return;
+				}
+				if(pwCheck == ""){
+					alert("패스워드 확인을 입력해주세요");
 					return;
 				}
 				if(samePw == 'fail'){                            

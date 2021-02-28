@@ -15,6 +15,8 @@ public interface MemberMapper {
 	
 	// 닉네임 체크
 	public int nickCheck(String member_nickname);
+	// 수정시 닉네임 체크
+	public String updateNickCheck(String member_id);
 	
 	// 폰 체크
 	public int phoneCheck(String member_phone);
@@ -24,4 +26,7 @@ public interface MemberMapper {
 	
 	//한명 정보 받기
 	public MemberDTO memberInfo(String member_id);
+	
+	//회원 정보 수정
+	public void updateMember(MemberDTO member);
 }

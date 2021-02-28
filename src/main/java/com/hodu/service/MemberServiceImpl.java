@@ -39,7 +39,11 @@ public class MemberServiceImpl implements MemberService {
 	public int nickCheck(String member_nickname) throws Exception {
 		return member_mapper.nickCheck(member_nickname);
 	}
-
+	// 수정시 닉네임 체크
+	@Override
+	public String updateNickCheck(String member_id) throws Exception {
+		return member_mapper.updateNickCheck(member_id);
+	}
 	// 폰 체크
 	@Override
 	public int phoneCheck(String member_phone) throws Exception {
@@ -60,9 +64,10 @@ public class MemberServiceImpl implements MemberService {
 	
 	//회원정보 수정
 	@Override
-	public int updateMember(MemberDTO member) throws Exception {
-		return 0;
-				//member_mapper.memberUpdate(member);
+	public void updateMember(MemberDTO member) throws Exception {
+		member_mapper.updateMember(member);
 	}
+
+	
 
 }
