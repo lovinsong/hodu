@@ -1,4 +1,4 @@
-package com.hodu.model;
+package com.hodu.domain.model;
 
 import java.sql.Blob;
 import java.util.Date;
