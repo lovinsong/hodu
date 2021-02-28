@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -59,27 +60,28 @@ public class ImageController {
 	
 	// 업로드하기
 	@RequestMapping(value = "image/fileupload", method = RequestMethod.POST)
-    public void fileupload(Model model, @RequestParam("file") MultipartFile file) throws IOException {
+    public String fileupload(Model model, @RequestParam("file") MultipartFile file) throws IOException {
 		
 		BoardImageDTO bidto = new BoardImageDTO();
 		
 		String filename = file.getOriginalFilename();		
 		
+		String fileRandomName = UUID.randomUUID().toString();
+		
 		
 		bidto.setBimg_org_name(file.getOriginalFilename());
 		bidto.setImg_size(file.getSize());
-		bidto.setBimg_new_name("(new)"+filename);
+		bidto.setBimg_new_name( fileRandomName+"_"+filename);
 		
 		String RESOURCE_PATH = "C:\\Users\\Public\\upload";
 
 		
 		imageService.updateImage(bidto);
 		
-		System.out.println("경로" + RESOURCE_PATH);
-		System.out.println("파일 이름" + file.getOriginalFilename());
-		System.out.println("Get Name" + file.getName());		
+		System.out.println("경로" + RESOURCE_PATH);	
+		System.out.println("새 파일 이름" + bidto.getBimg_new_name());
 		
-		File f1 = new File(RESOURCE_PATH + "\\" + filename);
+		File f1 = new File(RESOURCE_PATH + "\\" + bidto.getBimg_new_name());
 		
 		
 		try {
@@ -89,6 +91,8 @@ public class ImageController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		return "redirect:checkImg";
 	}	
 	
 	
@@ -99,7 +103,7 @@ public class ImageController {
 		List<String> image_names = new ArrayList();
 		
 		for(BoardImageDTO imgdto : images) {
-			String name = "/project/upload/" +imgdto.getBimg_org_name();
+			String name = "/project/upload/" +imgdto.getBimg_new_name();
 			
 			image_names.add(name);
 			
