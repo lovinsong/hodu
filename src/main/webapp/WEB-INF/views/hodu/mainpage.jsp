@@ -8,5 +8,8 @@
 </head>
 <body>
 
+<link rel="icon" href="../image/favicon.ico">
+<link rel="shortcut icon" href="../image/favicon.ico">
+
 </body>
 </html>

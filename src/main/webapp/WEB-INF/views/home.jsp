@@ -4,7 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>파일 업로드</title>
+<link rel="icon" href="./image/favicon.ico">
+<link rel="shortcut icon" href="./image/favicon.ico">
+<title>호두 : 세상의 모든 재능을 배울 수 있는 생활서비스 멘토 매칭</title>
 </head>
 <body>
 
