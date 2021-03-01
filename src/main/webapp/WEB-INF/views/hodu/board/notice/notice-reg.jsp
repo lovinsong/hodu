@@ -25,7 +25,7 @@
                   </div>				             
                     
                     <form action="registForm" method="post" name="registForm" enctype="multipart/form-data">
-	                    <table class="table" border="1" style="margin-left: 50px; margin-top: 50px;">
+	                    <table class="table">
 	                        <tbody class="t-control">
 	                            <tr>
 	                                <td class="t-title"><strong>썸네일 이미지 첨부파일</strong></td>
