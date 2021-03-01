@@ -68,6 +68,12 @@ public class MemberServiceImpl implements MemberService {
 		member_mapper.updateMember(member);
 	}
 
+	@Override
+	public String findId(String email) throws Exception {
+
+		return ;
+	}
+
 	
 
 }

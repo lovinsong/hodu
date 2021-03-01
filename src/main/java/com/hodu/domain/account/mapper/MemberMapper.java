@@ -29,4 +29,7 @@ public interface MemberMapper {
 	
 	//회원 정보 수정
 	public void updateMember(MemberDTO member);
+	
+	//아이디 찾기
+	public String findid(MemberDTO email);
 }

@@ -27,50 +27,72 @@
 	</insert>
 
 	<!-- 로그인 -->
-	<select id="memberLogin" resultType="com.hodu.domain.model.MemberDTO">
+	<select id="memberLogin"
+		resultType="com.hodu.domain.model.MemberDTO">
 
-		SELECT * FROM HODU_MEMBER WHERE member_id = #{member_id} and member_pw = #{member_pw}
+		SELECT * FROM HODU_MEMBER WHERE member_id = #{member_id}
+		and member_pw = #{member_pw}
 
 	</select>
 
-	<!-- 아이디 체크  -->
+	<!-- 아이디 체크 -->
 	<select id="idCheck" resultType="int">
-		select count(*) from hodu_member where member_id= #{member_id}
+		select count(*) from hodu_member
+		where member_id= #{member_id}
 	</select>
 
 	<!-- 닉네임 체크 -->
 	<select id="nickCheck" resultType="int">
-		select count(*) from hodu_member where member_nickname= #{member_nickname}
+		select count(*) from
+		hodu_member where member_nickname= #{member_nickname}
 	</select>
 	<!-- 수정시 닉네임 체크 -->
 	<select id="updateNickCheck" resultType="String">
-		select member_nickname from hodu_member where member_id= #{member_id}
+		select member_nickname
+		from hodu_member where member_id= #{member_id}
 	</select>
 
 	<!-- 폰 체크 -->
 	<select id="phoneCheck" resultType="int">
-		select count(*) from hodu_member where member_phone= #{member_phone}
+		select count(*) from
+		hodu_member where member_phone= #{member_phone}
 	</select>
 
 	<!-- 이메일 체크 -->
 	<select id="emailCheck" resultType="int">
-		select count(*) from hodu_member where member_email= #{member_email}
+		select count(*) from
+		hodu_member where member_email= #{member_email}
 	</select>
-	
+
 	<!-- 한명 정보만 불러오기 -->
-	<select id="memberInfo" resultType="com.hodu.domain.model.MemberDTO">
+	<select id="memberInfo"
+		resultType="com.hodu.domain.model.MemberDTO">
 		SELECT * FROM HODU_MEMBER WHERE member_id = #{member_id}
 	</select>
-	
+
 	<!-- 회원 정보 수정 -->
 	<update id="updateMember">
 		UPDATE hodu_member
-		SET 
+		SET
 		member_pw = #{member_pw},
 		member_nickname = #{member_nickname},
-		member_address = #{member_address} 
-		WHERE 
+		member_address =
+		#{member_address}
+		WHERE
 		member_id = #{member_id}
 	</update>
+
+	<!-- 비밀번호 변경 -->
+	<update id="pwchange" parameterType="hashMap">
+		UPDATE hodu_member SET member_pw = #{member_pw} WHERE member_email =
+		#{member_email}
+	</update>
+
+	<!-- 아이디 찾기 -->
+	<select id="findid" resultType="String">
+		SELECT member_id FROM HODU_MEMBER WHERE member_email = #{member_email}
+	</select>
+
+
 
 </mapper>

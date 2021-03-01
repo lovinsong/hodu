@@ -240,6 +240,20 @@ public class MemberController {
 		//세션을 수정한 정보로 다시 넣어주기
 		//정보칸 받는걸 서비스를 받아서 하기
 	}
+	
+	// 아이디 찾으러 가기
+	@GetMapping(value = "/hodu/account/findid")
+	public void findId() {
+		
+	}
+	
+	
+	// 아이디 찾기
 
+	
+	
+	
+	
+	
 
 }

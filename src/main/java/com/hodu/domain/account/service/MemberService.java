@@ -29,4 +29,9 @@ public interface MemberService {
 	
 	//회원정보 수정
 	public void updateMember(MemberDTO member) throws Exception;
+	
+	//아이디 찾기
+	
+	public String findId(String email) throws Exception;
+	
 }

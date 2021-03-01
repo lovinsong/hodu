@@ -91,8 +91,7 @@
 	text-align: center;
 	color: red;
 }
-
-} /* float 속성 해제 */
+ /* float 속성 해제 */
 .clearfix {
 	clear: both;
 }
@@ -126,7 +125,7 @@
 					</div>
 				</div>
 			</form>
-
+			
 		</div>
 
 	</div>
