@@ -37,7 +37,7 @@ public class MemberController {
 	private JavaMailSender mailSender;
 
 	// 메인 페이지 이동
-	@GetMapping(value = "/hodu/mainpage")
+	@GetMapping(value = "/hodu/main/mainpage")
 	public void mainPageGET() {
 		
 	}
@@ -61,7 +61,7 @@ public class MemberController {
 
 		session.invalidate();
 
-		return "redirect:/hodu/mainpage";
+		return "redirect:/hodu/main/mainpage";
 	}
 	
 	// 메인페이지-> 마이페이지 이동
@@ -87,7 +87,7 @@ public class MemberController {
 
 		session.setAttribute("member", memberdto); // 일치하는 아이디, 비밀번호 경우 (로그인 성공)
 
-		return "redirect:/hodu/mainpage";
+		return "redirect:/hodu/main/mainpage";
 
 	}
 
@@ -97,7 +97,7 @@ public class MemberController {
 
 		service.createMember(member);
 
-		return "redirect:/hodu/mainpage";
+		return "redirect:/hodu/main/mainpage";
 	}
 
 	// 아이디 중복확인
