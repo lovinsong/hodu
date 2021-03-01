@@ -16,6 +16,162 @@ input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholde
 /* 글쓰는 공간 크기 고정 */
 textarea {resize: none;}
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600'); 
+
+/* $open-sans: 'Open Sans', 'Helvetica', sans-serif; 글씨체 */
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+/* $open-sans: 'Open Sans', 'Helvetica', sans-serif;
+ 글씨체 */
+/* MIXINS */
+/* STYLE THE HTML ELEMENTS (INCLUDES RESETS FOR THE DEFAULT FIELDSET AND LEGEND STYLES) */
+ body, html {
+	 margin: 0;
+	 padding: 1rem;
+	 box-sizing: border-box;
+	 width: 100%;
+	 height: 100%;
+	 font-size: 16px;
+	/* font-family: $open-sans; 글씨체*/
+	 -webkit-font-smoothing: antialiased;
+/* 	 background-color: #eee; */
+}
+/*  fieldset {
+	 margin: 0;
+	 padding: 2rem;
+	 box-sizing: border-box;
+	 display: block;
+	 border: none;
+	 border: solid 1px #ccc;
+	 min-width: 0;
+	 background-color: #fff;
+}
+ fieldset legend {
+	 margin: 0 0 1.5rem;
+	 padding: 0;
+	 width: 100%;
+	 float: left;
+	 display: table;
+	 font-size: 1.5rem;
+	 line-height: 140%;
+	 font-weight: 600;
+	 color: #333;
+}
+ fieldset legend + * {
+	 clear: both;
+} 
+ body:not(:-moz-handler-blocked) fieldset {
+	 display: table-cell;
+}*/
+
+/* BUTTON STYLING 버튼*/
+.btn {
+	border-radius: 6px;
+	background-color: #876c5c;	
+	color: white;
+	margin: 1.5 1.5 1.5rem 1.5;
+	text-align: center;	
+	transition: border-color 0.15s ease-out, color 0.25s ease-out, background-color 0.15s ease-out, box-shadow 0.15s ease-out;
+	box-shadow: 0 0 5px rgba(135, 108, 92, .5);
+	
+}
+
+
+/* TOGGLE STYLING 토클 버튼*/
+ .toggle {
+	 margin: 0 0 1.5rem ;
+	 box-sizing: border-box;
+	 font-size: 0;
+	 display: flex;
+	 flex-flow: row nowrap;
+	 justify-content: flex-start;
+	 align-items: stretch;
+}
+ .toggle input {
+	 width: 0;
+	 height: 0;
+	 position: absolute;
+	 left: -9999px;
+}
+ .toggle input + label {
+	 margin-top: 0rem;
+	 margin-bottom: -1.5rem;
+	 padding: 0.75rem 2rem;
+	 box-sizing: border-box;
+	 position: relative;
+	 display: inline-block;
+	 border: solid 1px #ddd;
+	 background-color: #fff;
+	 font-size: 1rem;
+	 line-height: 140%;
+	 font-weight: 600;
+	 text-align: center;
+	 box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+	 transition: border-color 0.15s ease-out, color 0.25s ease-out, background-color 0.15s ease-out, box-shadow 0.15s ease-out;
+	/* ADD THESE PROPERTIES TO SWITCH FROM AUTO WIDTH TO FULL WIDTH */
+	/*flex: 0 0 50%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	*/
+	/* ----- */
+}
+ .toggle input + label:first-of-type {
+	 border-radius: 6px 0 0 6px;
+	 border-right: none;
+}
+ .toggle input + label:last-of-type {
+	 border-radius: 0 6px 6px 0;
+	 border-left: none;
+}
+ .toggle input:hover + label {
+	 border-color: #876c5c;
+}
+ .toggle input:checked + label {
+	 background-color: #876c5c;
+	 color: #fff;
+	 box-shadow: 0 0 10px rgba(135, 108, 92, .5);
+	 border-color: #876c5c;
+	 z-index: 1;
+}
+ .toggle input:focus + label {
+	 outline: dotted 1px #ccc;
+	 outline-offset: 0.45rem;
+}
+ @media (max-width: 800px) {
+	 .toggle input + label {
+		 padding: 0.75rem 0.25rem;
+		 flex: 0 0 50%;
+		 display: flex;
+		 justify-content: center;
+		 align-items: center;
+	}
+}
+/* STYLING FOR THE STATUS HELPER TEXT FOR THE DEMO */
+ .status {
+	 margin: 0;
+	 font-size: 1rem;
+	 font-weight: 400;
+}
+ .status span {
+	 font-weight: 600;
+	 color: #b6985a;
+}
+ .status span:first-of-type {
+	 display: inline;
+}
+ .status span:last-of-type {
+	 display: none;
+}
+ @media (max-width: 800px) {
+	 .status span:first-of-type {
+		 display: none;
+	}
+	 .status span:last-of-type {
+		 display: inline;
+	}
+}
+ 
 
 .star_grade a{
 	text-decoration: none;
@@ -75,10 +231,6 @@ input, textarea, button, select {
 
 ul, ol, dl, li {
 	list-style: none /*순서 요소들이 리스트스타일을 업앤다 */
-}
-
-.btn {
-	border-radius: 0px;
 }
 
 /*=========헤더=========*/
@@ -231,6 +383,7 @@ section {
 	line-height: 40px;
 	margin: 0px auto;
 	margin-top: 100px;
+	margin-bottom: 130px;
 	/* border-top: 1px solid #E1E1E1; */
 	/* border-bottom: 1px solid #E1E1E1;
 }
@@ -358,7 +511,7 @@ section {
 }
 /*th의 순차적 접근 색상변경 */
 .table-bordered>thead>tr>th {
-	background-color: #7dadcd;
+	background-color: #e8ddcc ;
 	color: #003366;
 	text-align: center;
 }
@@ -392,9 +545,9 @@ section {
 
 /*==========자게 글쓰기==========*/
 .t-control .t-title {
-	width: 100px;
 	min-width: 100px; /*화면줄었을때 최소크기*/
 	vertical-align: middle; /*테이블에서 세로 가운대정렬*/
+	width: 200px;
 }
 
 /*input 요소의 넓이만 선택*/
@@ -505,7 +658,7 @@ section {
 }
 
 .tabs-style li a {
-	background-color: #607D8B;
+	background-color: #e8ddcc  ;
 	border: none;
 	margin: 0;
 	border-radius: 0px;
@@ -734,4 +887,16 @@ ul.nav li.drophover:hover>ul.dropdown-menu {
 
 .modal-inner p {
 	margin: 0px;
+}
+
+textarea::placeholder {
+  color: #e8ddcc ;
+  font-style: italic;
+}
+
+textarea::-webkit-input-placeholder {
+  color: #e8ddcc ;
+}
+textarea:-ms-input-placeholder {
+  color: #e8ddcc ;
 }

@@ -9,10 +9,8 @@
 </head>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/board.css">
 <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" >
@@ -21,70 +19,108 @@
             <div class="row">
                 <div class="col-xs-12 content-wrap">
                     <div class="titlebox">
-                        <p>공지사항</p>
-                    </div>
+                    <div>
+                        <h2><strong>클래스 등록하기</strong></h2>
+                    </div>    
+                  </div>				             
                     
-                    <form action="registForm" method="post" name="registForm">
-	                    <table class="table">
+                    <form action="registForm" method="post" name="registForm" enctype="multipart/form-data">
+	                    <table class="table" border="1" style="margin-left: 50px; margin-top: 50px;">
 	                        <tbody class="t-control">
-	                        	<!-- input의 name을 추가 -->
 	                            <tr>
-	                                <td class="t-title">썸네일 이미지</td>
-	                                <!-- span을 통해 평상시에 안보이는 메세지를 작성 -->
-	                                <td><input class="form-control input-sm" name="member_id" value="master" readonly><span id="msgId"></span></td>
+	                                <td class="t-title"><strong>썸네일 이미지 첨부파일</strong></td>
+	                                <td><input type="file" value="파일 선택" name="thumbnail_file"/></td> 
 	                            </tr>
 	                            <tr>
-	                                <td class="t-title">내용 이미지</td>
-	                                <!-- span을 통해 평상시에 안보이는 메세지를 작성 -->
-	                                <td><input class="form-control input-sm" name="member_id" value="master" readonly><span id="msgId"></span></td>
+	                                <td class="t-title"><strong>내용 이미지 첨부파일</strong></td>
+	                                <td><input type="file" value="파일 선택" name="content_file" multiple="multiple"/></td>
 	                            </tr>	                            
 	                            <tr>
-	                                <td class="t-title">제목</td>
-	                                <td><input class="form-control input-sm" name="notice_title"><span id="msgTitle"></span></td>
+	                                <td class="t-title" ><strong>클래스 이름</strong></td>
+	                                <td><input class="form-control input-sm" name="notice_title" style="width:100%;"><span id="msgTitle"></span></td>
 	                            </tr>
 	                            <tr>
-	                                <td class="t-title">카테고리</td>
-	                                <td><input class="form-control input-sm" name="notice_title"><span id="msgTitle"></span></td>
-
-	                                <td class="t-title" >회차</td>
-	                                <td><input class="form-control input-sm" name="notice_title"><span id="msgTitle"></span></td>
+                                  <td class="t-title"><strong>카테고리</strong></td>
+                                    <td><select class="form-select" aria-label="multiple select example">
+	                                  <option selected style="color: lightgrey">- 카테고리 선택 -</option>
+	                                  <option value="1">☆인기</option>
+	                                  <option value="2">뷰티/헬스</option>
+	                                  <option value="3">홈/리빙</option>
+	                                  <option value="4">취미/공예</option>
+	                                  <option value="5">머니</option>
+	                                  <option value="6">IT/커리어</option>
+	                                  <option value="7">디자인/영상</option>
+	                                  <option value="8">외국어</option>
+                                    </select></td>
+								</tr>
+								<tr>
+	                               <td class="t-title"><strong>회차</strong></td>
+	                               <td>                           
+										<div class="toggle">
+											<input type="radio" name="sizeBy" value="weight" id="sizeWeight" checked="checked" />
+											<label for="sizeWeight">1회차</label>
+											<input type="radio" name="sizeBy" value="dimensions" id="sizeDimensions" />
+											<label for="sizeDimensions">다회차</label>
+										</div>
+									</td>
 	                            </tr>	                            
 	                            <tr>
-	                                <td class="t-title">회차 당 가격</td>
-	                                <td><input class="form-control input-sm" name="notice_title"><span id="msgTitle"></span></td>
-	                            </tr>	                         
+	                                <td class="t-title"><strong>회차 당 가격</strong></td>
+	                                <td><input class="form-control input-sm" name="notice_title"> 호두 <img src="/project/resources/image/favicon.ico"><td>
+	                            </tr>	
 	                            <tr>
-	                                <td class="t-title">멘토소개</td>
+	                                <td class="t-title"><strong>회차 당 시간</strong></td>
+	                                <td><input class="form-control input-sm" name="notice_title"><span id="msgTitle"></span></td>
+	                            </tr>	  	
+	                            <tr>
+	                                <td class="t-title"><strong>수업 예정 장소</strong></td>
+	                                <td><input class="form-control input-sm" name="notice_title"><span id="msgTitle"></span></td>
+	                            </tr>	        
+	                            
+	                            <tr>
+	                                <td class="t-title"><strong>수강 최대 인원</strong></td>	<td></td>
+	                            </tr>                            	                            
+                                <tr>
+	                                <td class="t-title"><strong>멘토님은 어떤 분이신가요?</strong></td>
 	                                <td>
 	                                <textarea class="form-control" rows="10" placeholder="멘토 자신에 대해 소개해주세요. 이력사항과 자기소개로 자신을 홍보할 수 있는 기회입니다." name="notice_content"></textarea>
 	                                </td>                 
 	                            </tr>
 	                            <tr>
-	                                <td class="t-title">클래스</td>
+	                                <td class="t-title"><strong>무엇을 하는 클래스인가요?</strong></td>
 	                                <td>
 	                                <textarea class="form-control" rows="10" placeholder="어떤 클래스인지 수업 내용과 수업 목표에 대해 소개해주세요. " name="notice_content"></textarea>
 	                                </td>                 
 	                            </tr>	    
 	                            <tr>
-	                                <td class="t-title">추천</td>
+	                                <td class="t-title"><strong>누구에게 추천하고 싶나요?</strong></td>
 	                                <td>
 	                                <textarea class="form-control" rows="10" placeholder="추천하실 분들을 써주세요. (클래스 홍보에 도움이 됩니다.)" name="notice_content"></textarea>
 	                                </td>                 
 	                            </tr>		                                                    
 	                            <tr>
-	                                <td class="t-title">진행방식</td>
+	                                <td class="t-title"><strong>어떻게 진행되나요?</strong></td>
 	                                <td>
 	                                <textarea class="form-control" rows="10" placeholder="간단한 1회차 커리큘럼 소개와 함께 클래스 진행방식을 써주세요." name="notice_content"></textarea>
 	                                </td>                 
-	                            </tr>	                            
+	                            </tr>	
+	                           <tr>
+							</tr>	                                                                                   
 	                        </tbody>
 	                    </table>
-	                    <div class="titlefoot">
-	                        <button class="btn" type="button" onclick="regist()">등록</button>
-	                        <button class="btn" type="button" onclick="location.href='notice-category'">목록</button>
-	                    </div>
-                    </form>
-                    
+							<div class="container" >
+							  <div class="row row-cols-6" >
+							  
+							    <div class="col"></div>
+							    <div class="col"></div>
+							    <div class="col"><button class = "btn btn-reg" type="button" onclick="regist()"> 등록</button></div>							    
+							    <div class="col"><button class = "btn btn-reg" type="button" onclick="location.href='notice-category'">목록</button></div>
+							    <div class="col"></div>
+							    <div class="col"></div>
+							  
+							  </div>
+							</div>	                    
+                    </form>                    
                 </div>
             </div>    
        </div>
@@ -104,7 +140,7 @@
        			}
        			
        		}
-       
+
        
        </script>
        
