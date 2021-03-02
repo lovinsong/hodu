@@ -308,20 +308,7 @@ public class MemberController {
 		
 	}
 
-	@PostMapping(value = "/hodu/account/mailpwCheck")
-	@ResponseBody
-	public String mailpwChkPOST(String member_email) throws Exception {
-
-		int result = service.emailCheck(member_email);
-		log.info("결과값 = " + result);
-		if (result != 0) {
-			return "fail";
-		} else {
-			return "success";
-		}
-	}
-	
-	/* 이메일 인증 */
+	/* 비밀번호 이메일 인증 */
 	@GetMapping(value = "hodu/account/mailpwCheck")
 	@ResponseBody
 	public String mailpwCheckGET(String email) throws Exception {
