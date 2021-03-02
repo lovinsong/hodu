@@ -43,10 +43,10 @@
   </head>
 
   <body>
-
+  
+  
     <div class="container">
-
-      <h1 id="demo" class="text-center">Demo</h1>
+      <h3 class="text-center" style="margin-top: -4rem;">일정 선택</h3>
       <hr />
       <div class="row marketing">
 
@@ -55,14 +55,15 @@
         </div>
         <div class="col-sm-6 col-md-4">
           <h4>커스터마이징</h4>
-
+		
+		
           <label>
             <input id="datepicker-demo-input-show-datepicker" type="checkbox" checked />
             날짜
           </label>
           <br />
           <label>
-            <input id="datepicker-demo-input-customize-future" type="checkbox" />
+            <input id="datepicker-demo-input-customize-future" type="checkbox" checked />
             앞으로의 날짜만
           </label>
           <br />
@@ -71,20 +72,10 @@
             시간
           </label>
           <br />
-          <label>
-            <input id="datepicker-demo-input-customize-smart-ampm" type="checkbox" />
-            AM/PM 
-          </label>
-          <br />
-          <label>
-            <input id="datepicker-demo-input-customize-disable-ampm" type="checkbox" />
-            24시간방식
-          </label>
-          <br />
 
 
-          <br /><br />
-          <a href="https://jsfiddle.net/mtr_datepicker/469qq7xv/" target="_blank">More customizable demo</a>
+<!--           <br /><br />
+          <a href="https://jsfiddle.net/mtr_datepicker/469qq7xv/" target="_blank">More customizable demo</a> -->
         </div>
         <div class="col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-0">
           <h4>Export formats</h4>

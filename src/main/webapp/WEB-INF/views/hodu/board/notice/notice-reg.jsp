@@ -57,7 +57,7 @@
 								</tr>
 								<tr>
 	                               <td class="t-title"><strong>클래스 일정</strong></td>
-	                               <td><button class="btn btn-select" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">선택하러 가기</button></td>
+	                               <td><button class="btn btn-select" type="button" onclick="popUp();">선택하러 가기</button></td>
 	                            </tr>	                            
 	                            <tr>
 	                                <td class="t-title"><strong>수강 최대 인원</strong></td>	
@@ -149,28 +149,6 @@
        
        
        
-       <!-- Modal -->
-		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		      </div>
-		      <div class="modal-body">
-			        
-        
-			        
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary">Save changes</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-       
-       
        <script type="text/javascript">
 
        
@@ -203,6 +181,15 @@
    			
    		}
    		
+   		function popUp() {
+   			
+   			var popupX = (document.body.offsetWidth / 2) - (800 / 2);
+   			var popupY= (document.body.offsetHeight / 2) - (500 / 2);
+
+   			var url = "./testDatepicker";
+   			var name = "hi";
+   			window.open(url,name,'status=no, height=500, width=800, left='+ popupX + ', top='+ popupY);
+   		}
     
 
        
