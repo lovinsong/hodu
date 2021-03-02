@@ -94,12 +94,16 @@ public class MemberController {
 	public String addMember(MemberDTO member) throws Exception {
 
 		// 암호 확인
-		System.out.println("첫번째:" + member.getMember_pw());
-		// 비밀번호 암호화 (sha256
+//		System.out.println("첫번째:" + member.getMember_pw());
+
+		// 비밀번호 암호화 (sha256 이용)
 		String encryPassword = UserSha256.encrypt(member.getMember_pw());
 		member.setMember_pw(encryPassword);
-		System.out.println("두번째:" + member.getMember_pw());
+	
+		// 암호 확인
+//		System.out.println("두번째:" + member.getMember_pw());
 
+		// 회원 추가
 		service.createMember(member);
 
 		return "redirect:/hodu/main/mainpage";

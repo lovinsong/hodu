@@ -172,7 +172,7 @@
 					</c:if>-->
 
 					<div class="find_button_wrap">
-						<input type="button" class="find_button" value="비밀번호 찾기">
+						<input type="button" class="find_button" value="비밀번호 변경하기">
 					</div>
 
 				</div>
@@ -267,7 +267,7 @@
 			//	return;
 			//}
 			if(inputCode == ""){
-				alert("인증번호를 입력해주세요");
+				alert("아이디와 인증번호를 확인해주세요");
 				return;
 			}
 			if(sameCode == 'fail'){

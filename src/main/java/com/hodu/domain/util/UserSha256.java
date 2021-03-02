@@ -2,6 +2,7 @@ package com.hodu.domain.util;
 
 import java.security.MessageDigest;
 
+// 암호화 해주는 유틸
 public class UserSha256 {
 	public static String encrypt(String planText) {
 		try {
