@@ -9,6 +9,11 @@
 	margin: 0;
 	box-sizing: border-box;
 }
+
+td {
+    vertical-align: middle;
+}
+
 /* 버튼 클릭 시 점선테두리 없애기 */
 *:focus { outline:none; }
 
@@ -71,11 +76,30 @@ textarea {resize: none;}
 	border-radius: 6px;
 	background-color: #876c5c;	
 	color: white;
-	margin: 1.5 1.5 1.5rem 1.5;
+	margin: 1.5 1.5 1.5 1.5;
 	text-align: center;	
 	transition: border-color 0.15s ease-out, color 0.25s ease-out, background-color 0.15s ease-out, box-shadow 0.15s ease-out;
 	box-shadow: 0 0 5px rgba(135, 108, 92, .5);
 	cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    background: #876c5c;
+}
+input[type=range]::-moz-range-thumb {
+    background: #876c5c;
+}
+input[type=range]::-ms-thumb {
+    background: #876c5c;
+}
+
+
+/* 회차 당 시간 체크 */
+.t-control .form-range {
+    width: 400px;
+    color: #000;
+    cursor: pointer;
+    display: inline;
 }
 
 
@@ -139,13 +163,6 @@ textarea {resize: none;}
 	 border-color: #876c5c;
 	 z-index: 1;
 }
-
-/* 회차 당 시간 체크 */
-.form-range {
-	width: 500px;
-	color: #e8ddcc;
-}
-
 
 /* +/- 인원수 버튼 */
 .qty .count {

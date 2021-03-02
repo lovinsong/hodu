@@ -40,7 +40,6 @@ public class ImageController {
 	
 	@Autowired
 	ResourceLoader resourceLoader; 
-
 	
 	@Autowired
 	ImageService imageService;
@@ -109,8 +108,7 @@ public class ImageController {
 			
 		}
 		
-		model.addAttribute("image_names",image_names);
-		
+		model.addAttribute("image_names",image_names);		
 		
 	}
 	

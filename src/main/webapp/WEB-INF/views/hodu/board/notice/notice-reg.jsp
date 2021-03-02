@@ -73,14 +73,11 @@
 	                            </tr>	                            
 	                            <tr>
 	                                <td class="t-title"><strong>회차 당 가격</strong></td>
-	                                <td><input class="form-control input-sm" name="notice_title"> 호두 <img src="/project/resources/image/favicon.ico"><td>
+	                                <td><input class="form-control input-sm" name="notice_title"> 호두 <img src="/project/resources/image/favicon.ico"></td>
 	                            </tr>	
 	                            <tr>
 	                                <td class="t-title"><strong>회차 당 시간</strong></td>
-	                                <td>
-									<input type="range" class="form-range" min="0" max="6" step="0.5" value="0" id="customRange3">
-									</td>
-	                                <td><input type="number" class="form-control input-sm" name="notice_title"> 시간 </td>
+	                                <td><input type="range" class="form-range" min="0" max="6" step="0.5" value="0" id="customRange3"> 시간</td>
 	                            </tr>	  	
 	                            <tr>
 	                                <td class="t-title"><strong>수업 예정 장소</strong></td>
