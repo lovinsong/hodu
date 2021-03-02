@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<span>회원님의 비밀번호는  : ${member.member_pw}</span>
+<span>회원님의 비밀번호는  : ${member.member_pw}</span><br>
+<input type="button" value="로그인 하러가기" onclick="location.href='login'">
 </body>
 </html>

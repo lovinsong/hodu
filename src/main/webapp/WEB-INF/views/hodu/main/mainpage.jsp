@@ -148,6 +148,7 @@
 							<span>충전금액 : <fmt:formatNumber value="${member.member_cash }" pattern="\#,###.## 호두"/></span>
 							<a href="../mypage/mypage">마이페이지</a>
 							<a href="../account/logout">로그아웃</a>
+
 						</div>
 					</c:if>
 					

@@ -111,6 +111,17 @@
 #mail_check_input_box_true {
 	background-color: white;
 }
+.mail_check_button {
+	border: 1px solid black;
+	height: 51px;
+	width: 30%;
+	line-height: 50px;
+	text-align: center;
+	font-size: 30px;
+	font-weight: 900;
+	background-color: #ececf7;
+	cursor: pointer;
+}
 
 .correct {
 	color: green;
@@ -136,13 +147,13 @@
 				<div class="findid_wrap">
 					<div class="id_wrap">
 						<div class="id_input_box">
-							<input class="id_input" name="member_id" placeholder="아이디">
+							<input class="id_input" name="member_id" id="member_id" placeholder="아이디">
 						</div>
 					</div>
 
 					<div class="mail_name">이메일</div>
 					<div class="mail_input_box">
-						<input class="mail_input" name="member_email" id="member_email">
+						<input class="mail_input" name="member_email" id="member_email" readonly="readonly">
 					</div>
 
 					<div class="mail_check_wrap">
@@ -156,9 +167,9 @@
 						<span id="mail_check_input_box_warn"></span>
 					</div>
 
-					<c:if test="${result == 0 }">
-						<div class="find_warn">사용자 ID 또는 비밀번호를 잘못 입력하셨호도.</div>
-					</c:if>
+					<!--<c:if test="${result == 0 }">
+						<div class="find_warn">ID를 잘못 입력하셨거나 없는 ID입니다.</div>
+					</c:if>-->
 
 					<div class="find_button_wrap">
 						<input type="button" class="find_button" value="비밀번호 찾기">
@@ -173,28 +184,51 @@
 
 	<script>
 		var code = ""; //이메일전송 인증번호 저장위한 코드
+		var sameCode ="";
+		$("#member_email").attr('readonly', false);
 
 		$(".mail_check_button").click(function() {
 
 			var email = $(".mail_input").val(); // 입력한 이메일
 			var cehckBox = $(".mail_check_input"); // 인증번호 입력란
 			var boxWrap = $(".mail_check_input_box"); // 인증번호 입력란 박스
+			
+			if(email !=""){
+				
+				//console.log("keyup 테스트"); 
+				var member_id = $('#member_id').val();
+				var member_email = $('#member_email').val();
+				var data = { member_id : member_id, member_email : member_email}
+				$.ajax({ 
+					type : "post", 
+					url : "availableEmailChk", 
+					data : data,
+					success : function(result){ 
+						
+						if(result != 'fail'){ 
+							$.ajax({
 
-			$.ajax({
-
-				type : "GET",
-				url : "mailpwCheck?email=" + email,
-				success : function(data) {
-
-					//console.log("data : " + data);
-					cehckBox.attr("disabled", false);
-					boxWrap.attr("id", "mail_check_input_box_true");
-					code = data;
-
-				}
-
-			});
-
+								type : "GET",
+								url : "mailCheck?email=" + email,
+								success : function(data) {
+				
+								//console.log("data : " + data); //console값 으로 이메일 데이터 비교
+								cehckBox.attr("disabled", false);
+								boxWrap.attr("id", "mail_check_input_box_true");
+								code = data;
+			
+								}
+				
+							});
+							alert("인증번호 전송완료!");
+						} else { 
+							alert("가입된 정보와 다른 이메일입니다.");
+						}
+					}// success 종료
+				}); // ajax 종료
+			}else{
+				alert("이메일을 입력해주세요");
+			}
 		});
 
 		/* 인증번호 비교 */
@@ -206,16 +240,41 @@
 			if (inputCode == code) { // 일치할 경우
 				checkResult.html("인증번호가 일치합니다.");
 				checkResult.attr("class", "correct");
+				sameCode = 'success';
+				$("#member_email").attr('readonly', true);
 			} else { // 일치하지 않을 경우
 				checkResult.html("인증번호를 다시 확인해주세요.");
 				checkResult.attr("class", "incorrect");
+				sameCode = 'fail';
 			}
 
 		});
 		
-		/* 로그인 버튼 클릭 메서드 */
+		/* 비밀번호 찾기 클릭 메서드 */
 		$(".find_button").click(function() {
-
+			
+			//var memberId = $("member_id").val;
+			//var memberEmail = $("member_email").val;
+			var inputCode = $(".mail_check_input").val(); // 입력코드    
+			
+			
+			//if(memberId == ""){
+			//	alert("아이디를 입력해주세요");
+			//	return;
+			//}
+			//if(memberEmail == ""){
+			//	alert("이메일을 입력해주세요");
+			//	return;
+			//}
+			if(inputCode == ""){
+				alert("인증번호를 입력해주세요");
+				return;
+			}
+			if(sameCode == 'fail'){
+				alert("인증번호가 일치하지 않습니다.");
+				return;
+			}
+			
 			//alert("로그인 버튼 작동");
 
 			/* 로그인 메서드 서버 요청 */

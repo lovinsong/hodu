@@ -23,5 +23,5 @@ public class MemberDTO {
 	private String hodu_manager;
 	private Integer member_postcode;
 	private String member_detailaddress;
-	
+
 }

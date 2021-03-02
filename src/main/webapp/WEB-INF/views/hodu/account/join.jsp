@@ -20,7 +20,7 @@
 	border-color: #692e1d;
 	border-radius: 5px;;
 	width: 500px;
-	height: 600px;
+	height: 650px;
 	margin: auto;
 }
 
@@ -48,7 +48,7 @@ input {
 	outline: none;
 }
 
-#signup {
+#signup, #contract {
 	text-align: center;
 	margin: 5px;
 }
@@ -70,7 +70,7 @@ input[type=button]:hover, input[type=reset]:hover {
 }
 
 #roadAddress, #detailAddress {
-	width: 170px;
+	width: 280px;
 }
 
 .regex {
@@ -233,8 +233,6 @@ input[type=button]:hover, input[type=reset]:hover {
 				<div class="mail_input_box">
 					<input class="mail_input" name="member_email" id="member_email" readonly="readonly">
 					<div class="member_email regex"></div>
-					<span class="mail_input_re_1">사용가능한 이메일입니다. 인증번호 전송완료</span>
-					<span class="mail_input_re_2">중복된 이메일입니다. 재입력 후 다시 인증번호 전송을 눌러주세요</span>
 				</div>
 				<div class="mail_check_wrap">
 					<div class="mail_check_input_box" id="mail_check_input_box_false">
@@ -248,12 +246,46 @@ input[type=button]:hover, input[type=reset]:hover {
 				</div>
 			</div>
 
-			<!--  <label>우편번호 :</label><input type="text" id="postcode" placeholder="우편번호" name="zipcode">-->
+			
 
-			<label>주소 : </label><input type="text" id="roadAddress"
-				placeholder="도로명주소" name="member_address"> <input
-				type="button" onclick="sample4_execDaumPostcode()" value="주소 찾기">
-			<!--<label>주소2 : </label><input type="text" id="detailAddress" placeholder="상세주소" name="detailaddress"><br>-->
+			<label>우편번호 :</label><input type="text" id="postcode" placeholder="우편번호" name="member_postcode" readonly>
+			<input type="button" onclick="sample4_execDaumPostcode()" value="주소 찾기"><br>
+			<label>주소1 : </label><input type="text" id="roadAddress" placeholder="도로명주소" name="member_address" readonly><br>
+			<label>주소2 : </label><input type="text" id="detailAddress" placeholder="상세주소" name="member_detailaddress"><br>
+			
+			<label>약관동의</label>
+			<textarea rows="1" cols="35" readonly>
+			가. 수집하는 개인정보의 항목첫째, 회사는 회원가 입, 원활한 고객상담, 각종 서비스의 제공을 위해 최초 회원가입 당시 아래와 같은 최소한의 개인정보를 필수항목으로 수집하고 있습니다.
+			회원가입
+			- 이름, 생년월일, 성별, 아이디, 비밀번호, 별명, 연락처(메일주소, 휴대폰 번호 중 선택), 가입인증정보
+			만14세 미만 아동 회원가입
+			- 이름, 생년월일, 성별, 법정대리인 정보, 아이디, 비밀번호, 연락처 (메일주소, 휴대폰 번호 중 선택), 가입인증정보
+			단체아이디 회원가입
+			- 단체아이디, 회사명, 대표자명, 대표 전화번호, 대표 이메일 주소, 단체주소, 관리자 아이디, 관리자 연락처, 관리자 부서/직위
+			- 선택항목 : 대표 홈페이지, 대표 팩스번호
+			둘째, 서비스 이용과정이나 사업처리 과정에서 아래와 같은 정보들이 자동으로 생성되어 수집될 수 있습니다.
+			- IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
+			셋째, 네이버 아이디를 이용한 부가 서비스 및 맞춤식 서비스 이용 또는 이벤트 응모 과정에서 해당 서비스의 이용자에 한해서만 개인정보 추가 수집이 발생할 수 있으며, 이러한 경우 별도의 동의를 받습니다.
+			넷째, 성인컨텐츠, 유료/게임 등 일부 서비스 이용시 관련 법률 준수를 위해 본인인증이 필요한 경우, 아래와 같은 정보들이 수집될 수 있습니다.
+			- 이름, 생년월일, 성별, 중복가입확인정보(DI), 암호화된 동일인 식별정보(CI), 휴대폰 번호(선택), 아이핀 번호(아이핀 이용시), 내/외국인 정보
+			다섯째, 유료 서비스 이용 과정에서 아래와 같은 결제 정보들이 수집될 수 있습니다.
+			- 신용카드 결제시 : 카드사명, 카드번호 등
+			- 휴대전화 결제시 : 이동전화번호, 통신사, 결제승인번호 등
+			- 계좌이체시 : 은행명, 계좌번호 등
+			- 상품권 이용시 : 상품권 번호
+			나. 개인정보 수집방법회사는 다음과 같은 방법으로 개인정보를 수집합니다.
+			- 홈페이지, 서면양식, 팩스, 전화, 상담 게시판, 이메일, 이벤트 응모, 배송요청
+			- 협력회사로부터의 제공
+			- 생성정보 수집 툴을 통한 수집
+			</textarea><br>
+			
+			<div id="contract">
+				<input type="checkbox" name="req"> 개인정보 수집 및 이용에 동의합니다.
+			</div>
+
+			
+
+			
 			<div id="signup">
 				<input type="button" name="signup" value="가입하기" id="signupbtn">
 				<input type="button" value="메인 페이지" onclick="location.href='mainpage'"><!-- 메인페이지로 연결!!! -->
@@ -267,6 +299,8 @@ input[type=button]:hover, input[type=reset]:hover {
 		var existPhone = "";
 		var code = ""; // 이메일 전송인증번호 저장을 위한 코드
 		$("#member_email").attr('readonly', false);
+		var contractCheck = 0;
+		
 
 		//다음 우편번호 API
 		//본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
@@ -290,11 +324,16 @@ input[type=button]:hover, input[type=reset]:hover {
 					}
 
 					// 우편번호와 주소 정보를 해당 필드에 넣는다.
-					//document.getElementById('postcode').value = roadAddr;
+					document.getElementById('postcode').value = data.zonecode;
 					document.getElementById("roadAddress").value = roadAddr;
+					document.getElementById("detailAddress").focus();
 				}
 			}).open();
 		}
+		
+		
+		
+		
 
 		//!!!작동 아이디
 		$('.id_input').on("propertychange change keyup paste input",function(){ 
@@ -394,7 +433,7 @@ input[type=button]:hover, input[type=reset]:hover {
 		
 		/* 인증번호 이메일 전송 */
 		$(".mail_check_button").click(function() {
-			var email = $(".mail_input").val(); // 입력한 이메일
+			//var email = $(".mail_input").val(); // 입력한 이메일
 			var cehckBox = $(".mail_check_input"); // 인증번호 입력란
 			var boxWrap = $(".mail_check_input_box"); // 인증번호 입력란 박스
 			
@@ -426,15 +465,15 @@ input[type=button]:hover, input[type=reset]:hover {
 								}
 				
 							});
-							$('.mail_input_re_1').css("display","inline-block"); 
-							$('.mail_input_re_2').css("display", "none"); 
+							alert("사용가능한 이메일입니다. 인증번호 전송완료!");
 						} else { 
-							$('.mail_input_re_2').css("display","inline-block"); 
-							$('.mail_input_re_1').css("display", "none");
+							alert("중복된 이메일입니다.\n재입력 후 다시 인증번호 전송을 눌러주세요");
 						}
 					}// success 종료
 				}); // ajax 종료
-			}//if문 종료
+			}else{
+				alert("이메일을 입력해주세요");
+			}
 		});//function종료
 
 		/* 인증번호 비교 */
@@ -453,7 +492,7 @@ input[type=button]:hover, input[type=reset]:hover {
 		    }   
 		    
 		});
-
+		
 		
 		
 		
@@ -471,8 +510,11 @@ input[type=button]:hover, input[type=reset]:hover {
 					$(".member_pw.regex").css("color", "red")
 				}
 			});
-
-			//비밀번호 확인    
+			
+			//비밀번호 확인  
+			$("#member_pw").on("propertychange change keyup paste input", function() {
+				samePw = 'fail';
+			}) 
 			$("#repw").on("keyup", function() {
 				if ($("#member_pw").val() == $("#repw").val()) {
 					$(".repw.regex").html("비밀번호가 일치합니다");
@@ -605,8 +647,16 @@ input[type=button]:hover, input[type=reset]:hover {
 					alert("주소입력을 완료해주세요");
 					return;
 				}
+			    if($('input[name=req]').is(":checked")){
+			    	contractCheck = 1;
+				}
+				if(contractCheck !=1){
+					alert("개인정보 약관에 동의하셔야 합니다.");
+					return;
+				}
 
 				//빈칸 없을 때 제출.
+				alert("가입 완료! 환영합니다(´▽`ʃ♡ƪ)\n가입하신 아이디와 비밀번호로 로그인 해주세요");
 				$("#signform").submit();
 
 			})

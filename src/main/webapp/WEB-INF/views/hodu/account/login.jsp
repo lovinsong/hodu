@@ -122,7 +122,7 @@
 					</div>
 					<div class="pw_wrap">
 						<div class="pw_input_box">
-							<input class="pw_iput" name="member_pw">
+							<input class="pw_iput" type="password" name="member_pw">
 						</div>
 					</div>
 

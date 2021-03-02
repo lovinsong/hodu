@@ -36,11 +36,13 @@ public class MemberServiceImpl implements MemberService {
 	public int nickCheck(String member_nickname) throws Exception {
 		return member_mapper.nickCheck(member_nickname);
 	}
+
 	// 수정시 닉네임 체크
 	@Override
 	public String updateNickCheck(String member_id) throws Exception {
 		return member_mapper.updateNickCheck(member_id);
 	}
+
 	// 폰 체크
 	@Override
 	public int phoneCheck(String member_phone) throws Exception {
@@ -53,16 +55,29 @@ public class MemberServiceImpl implements MemberService {
 		return member_mapper.emailCheck(member_email);
 	}
 
-	//한명 정보 불러오기
+	// 한명 정보 불러오기
 	@Override
 	public MemberDTO memberInfo(String member_id) throws Exception {
 		return member_mapper.memberInfo(member_id);
 	}
-	
-	//회원정보 수정
+
+	// 회원정보 수정
 	@Override
 	public void updateMember(MemberDTO member) throws Exception {
 		member_mapper.updateMember(member);
+	}
+
+	// 패스워드 체크
+	@Override
+	public String pwCheck(String member_id) throws Exception {
+		return member_mapper.pwCheck(member_id);
+	}
+
+	// 회원 탈퇴
+	@Override
+	public void deleteMember(String member_id) throws Exception {
+		member_mapper.deleteMember(member_id);
+
 	}
 
 	// 아이디 찾기
@@ -75,6 +90,18 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberDTO findpw(MemberDTO member_pw) throws Exception {
 		return member_mapper.findpw(member_pw);
+	}
+
+	// 아이디와 맞는 이메일인지 찾기
+	@Override
+	public String availableEmailCheck(String member_id) throws Exception {
+		return member_mapper.availableEmailCheck(member_id);
+	}
+
+	// 계정 비밀번호 수정
+	@Override
+	public void updatePw(MemberDTO member) throws Exception {
+		member_mapper.updatePw(member);
 	}
 
 }
