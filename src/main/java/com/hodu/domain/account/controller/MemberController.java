@@ -262,20 +262,6 @@ public class MemberController {
 
 	}
 
-	// 패스워드 원래 값과 같나 확인 =>deleteㅡmember였는데 삭제?
-	// @PostMapping(value = "/hodu/account/memberPwChk")
-	// @ResponseBody
-	// public String memberPwChkPOST(String member_pw,String member_id) throws
-	// Exception {
-//
-//		String result = service.pwCheck(member_id);
-//		//log.info("결과값 = " + result);
-//		if (result.equals(member_pw)) {
-//			return "success";
-//		} else {
-//			return "fail";
-//		}
-//	}
 
 	// 회원 탈퇴 처리
 	@PostMapping(value = "/hodu/account/delete")
@@ -339,7 +325,7 @@ public class MemberController {
 
 		session.setAttribute("member", memberdto); // 일치하는 아이디, 비밀번호 경우 (로그인 성공)
 
-		return "redirect:/hodu/account/findokpass";
+		return "redirect:/hodu/account/changepw";
 
 	}
 
