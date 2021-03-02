@@ -122,6 +122,14 @@
 			<version>5.4.2</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.15</version>
+		</dependency>
+
+
 		<!-- JSON, XML -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>

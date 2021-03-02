@@ -37,7 +37,4 @@ public interface MemberMapper {
 	//비밀번호 찾기 임시
 	public MemberDTO findpw(MemberDTO member);
 	
-	//비밀번호 변경
-	public int updatePw(MemberDTO member) throws Exception;
-	
 }

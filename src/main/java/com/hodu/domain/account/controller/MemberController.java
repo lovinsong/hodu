@@ -19,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hodu.domain.account.service.MemberService;
 import com.hodu.domain.model.MemberDTO;
+import com.hodu.domain.util.UserSha256;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -34,7 +35,7 @@ public class MemberController {
 	
 	@Autowired
 	private JavaMailSender mailSender;
-	
+
 
 	// 메인 페이지 이동
 	@GetMapping(value = "/hodu/main/mainpage")
@@ -94,6 +95,13 @@ public class MemberController {
 	// 회원가입 처리
 	@PostMapping(value = "/hodu/account/join")
 	public String addMember(MemberDTO member) throws Exception {
+
+		// 암호 확인
+		System.out.println("첫번째:" + member.getMember_pw());
+		// 비밀번호 암호화 (sha256
+		String encryPassword = UserSha256.encrypt(member.getMember_pw());
+		member.setMember_pw(encryPassword);
+		System.out.println("두번째:" + member.getMember_pw());
 
 
 		
@@ -342,16 +350,6 @@ public class MemberController {
 		String num = Integer.toString(checkNum);
 		
 		return num;
-	}
-
-	/* 비밀번호 찾기 */
-	@GetMapping(value = "/hodu/account/findpw")
-	public void findPwGET() throws Exception{
-	}
-
-	@PostMapping(value = "/hodu/account/findpw")
-	public void findPwPOST(@ModelAttribute MemberDTO member, HttpServletResponse response) throws Exception{
-		
 	}
 	
 }

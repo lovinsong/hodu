@@ -20,6 +20,8 @@ public class MemberDTO {
 	private String member_email;
 	private Integer member_cash;
 	private Date member_regdate;
-	private String member_enabled;
 	private String hodu_manager;
+	private Integer member_postcode;
+	private String member_detailaddress;
+	
 }

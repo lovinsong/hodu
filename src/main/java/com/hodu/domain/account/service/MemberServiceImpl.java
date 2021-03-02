@@ -77,10 +77,4 @@ public class MemberServiceImpl implements MemberService {
 		return member_mapper.findpw(member_pw);
 	}
 
-	@Override
-	public void findPassword(MemberDTO member) throws Exception {
-		
-	}
-	
-
 }

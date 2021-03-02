@@ -36,8 +36,5 @@ public interface MemberService {
 	//비밀번호 찾기
 	public MemberDTO findpw(MemberDTO member_id) throws Exception;
 
-	//비밀번호찾기
-	public void findPassword(MemberDTO vo) throws Exception;
-
 	
 }

@@ -20,9 +20,10 @@
 		#{member_email},
 		0,
 		sysdate,
-		'Y',
 		'N',
-		1
+		1,
+		#{member_postcode},
+		#{member_detailaddress}
 		)
 	</insert>
 
