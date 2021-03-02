@@ -9,8 +9,15 @@
 </head>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
+<!-- +/-인원수 체크 -->
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/board.css">
 <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" >
@@ -70,7 +77,10 @@
 	                            </tr>	
 	                            <tr>
 	                                <td class="t-title"><strong>회차 당 시간</strong></td>
-	                                <td><input class="form-control input-sm" name="notice_title"><span id="msgTitle"></span></td>
+	                                <td>
+									<input type="range" class="form-range" min="0" max="6" step="0.5" value="0" id="customRange3">
+									</td>
+	                                <td><input type="number" class="form-control input-sm" name="notice_title"> 시간 </td>
 	                            </tr>	  	
 	                            <tr>
 	                                <td class="t-title"><strong>수업 예정 장소</strong></td>
@@ -78,7 +88,12 @@
 	                            </tr>	        
 	                            
 	                            <tr>
-	                                <td class="t-title"><strong>수강 최대 인원</strong></td>	<td></td>
+	                                <td class="t-title"><strong>수강 최대 인원</strong></td>	
+	                                <td class="qty mt-5">
+				                        <span class="minus">－</span>
+				                        <input type="number" class="count" name="qty" value="1">
+				                        <span class="plus">＋</span>	                              
+	                                </td>
 	                            </tr>                            	                            
                                 <tr>
 	                                <td class="t-title"><strong>멘토님은 어떤 분이신가요?</strong></td>
@@ -109,23 +124,35 @@
 	                        </tbody>
 	                    </table>
 							<div class="container" >
-							  <div class="row row-cols-6" >
-							  
-							    <div class="col"></div>
-							    <div class="col"></div>
-							    <div class="col"><button class = "btn btn-reg" type="button" onclick="regist()"> 등록</button></div>							    
-							    <div class="col"><button class = "btn btn-reg" type="button" onclick="location.href='notice-category'">목록</button></div>
-							    <div class="col"></div>
-							    <div class="col"></div>
-							  
-							  </div>
-							</div>	                    
+                              <div class="row align-items-center" >
+
+                                <div class="col-md-6" align="right"><button class = "btn btn-reg" type="button" onclick="regist()"> 등록</button></div>
+                                <div class="col-md-6"><button class = "btn btn-reg" type="button" onclick="location.href='notice-category'">목록</button></div>
+
+                              </div>
+                            </div>                   
                     </form>                    
                 </div>
             </div>    
        </div>
        
        <script type="text/javascript">
+
+       
+  		//인원 수 체크
+		$(document).ready(function(){
+		    $('.count').prop('disabled', true);
+   			$(document).on('click','.plus',function(){
+				$('.count').val(parseInt($('.count').val()) + 1 );
+    		});
+        	$(document).on('click','.minus',function(){
+    			$('.count').val(parseInt($('.count').val()) - 1 );
+    				if ($('.count').val() == 0) {
+						$('.count').val(1);
+					}
+    	    	});
+ 		});
+       
        		function regist(){
        			if(document.registForm.member_id.value === ''){
        				document.getElementById("msgId").innerHTML = " 아이디는 필수입니다";
@@ -140,6 +167,8 @@
        			}
        			
        		}
+       		
+
 
        
        </script>

@@ -9,6 +9,8 @@
 	margin: 0;
 	box-sizing: border-box;
 }
+/* 버튼 클릭 시 점선테두리 없애기 */
+*:focus { outline:none; }
 
 /* placeholder 클릭시 안보이는 기능 */
 input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder { /* WebKit browsers / color:transparent; } input:focus:-moz-placeholder, textarea:focus:-moz-placeholder { / Mozilla Firefox 4 to 18 / color:transparent; } input:focus::-moz-placeholder, textarea:focus::-moz-placeholder { / Mozilla Firefox 19+ / color:transparent; } input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder { / Internet Explorer 10+ */ color:transparent; }
@@ -73,7 +75,7 @@ textarea {resize: none;}
 	text-align: center;	
 	transition: border-color 0.15s ease-out, color 0.25s ease-out, background-color 0.15s ease-out, box-shadow 0.15s ease-out;
 	box-shadow: 0 0 5px rgba(135, 108, 92, .5);
-	
+	cursor: pointer;
 }
 
 
@@ -86,6 +88,7 @@ textarea {resize: none;}
 	 flex-flow: row nowrap;
 	 justify-content: flex-start;
 	 align-items: stretch;
+     cursor: pointer;
 }
  .toggle input {
 	 width: 0;
@@ -117,10 +120,12 @@ textarea {resize: none;}
 	/* ----- */
 }
  .toggle input + label:first-of-type {
+     cursor: pointer;
 	 border-radius: 6px 0 0 6px;
 	 border-right: none;
 }
  .toggle input + label:last-of-type {
+     cursor: pointer; 
 	 border-radius: 0 6px 6px 0;
 	 border-left: none;
 }
@@ -134,10 +139,91 @@ textarea {resize: none;}
 	 border-color: #876c5c;
 	 z-index: 1;
 }
- .toggle input:focus + label {
-	 outline: dotted 1px #ccc;
-	 outline-offset: 0.45rem;
+
+/* 회차 당 시간 체크 */
+.form-range {
+	width: 500px;
+	color: #e8ddcc;
 }
+
+
+/* +/- 인원수 버튼 */
+.qty .count {
+    color: #000;
+    display: inline-block;
+    vertical-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    width: 30px;
+	min-width: 10px;
+    text-align: center;
+}
+.qty .plus {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: center;
+    color: white;
+    width: 30px;
+    height: 30px;
+    font: 30px/1 Arial,sans-serif;
+    border-radius: 50%;
+    text-align: center;
+    }
+.qty .minus {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: center;
+    color: white;
+    width: 30px;
+    height: 30px;
+    font: 30px/1 Arial,sans-serif;
+    border-radius: 50%;
+    background-clip: padding-box;
+    text-align: center;   
+}
+
+.minus {
+    vertical-align: center;
+	background-color: #876c5c;
+	box-shadow: 0 0 5px rgba(135, 108, 92, .5);
+}
+.plus {
+    vertical-align: center;
+	background-color: #876c5c;
+	box-shadow: 0 0 5px rgba(135, 108, 92, .5);
+}
+
+.minus:hover{
+    background-color: #e8ddcc !important;
+}
+.plus:hover{
+    background-color: #e8ddcc !important;
+}
+
+/*Prevent text selection*/
+span{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+input{  
+    border: 0;
+    width: 2%;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input:disabled{
+    background-color:white;
+}
+
+
+
+
+
  @media (max-width: 800px) {
 	 .toggle input + label {
 		 padding: 0.75rem 0.25rem;
