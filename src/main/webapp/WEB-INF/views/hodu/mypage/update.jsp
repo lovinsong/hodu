@@ -71,7 +71,10 @@ input[type=button]:hover, input[type=reset]:hover {
 }
 
 #roadAddress, #detailAddress {
-	width: 170px;
+	width: 280px;
+}
+#changeAddress{
+	color:red;
 }
 
 .regex {
@@ -131,28 +134,29 @@ input[type=button]:hover, input[type=reset]:hover {
 		<span class="nick_input_re_1">사용 가능한 닉네임입니다.</span>
 		<span class="nick_input_re_2">닉네임이 이미 존재합니다.</span>
 		<div class="member_nickname regex"></div>
-		
-		<label>호두: </label>&nbsp; ${member.member_cash}<br>
 
 		<label>전화번호 : </label>&nbsp; ${member.member_phone}<br>
 		<div class="member_phone regex"></div>
 
 		<label>이메일: </label>&nbsp; ${member.member_email}<br>
 
-		
-
-		<label>주소 : </label><input type="text" id="roadAddress" placeholder="도로명주소" name="member_address" value="${member.member_address}"> 
-		<input type="button" onclick="sample4_execDaumPostcode()" value="주소 찾기">
+		<label>우편번호 :</label><input type="text" id="postcode" placeholder="우편번호" name="member_postcode" 
+										value="${member.member_postcode}" readonly>
+		<input type="button" onclick="sample4_execDaumPostcode()" value="주소 찾기"><br>
+		<label>주소1 : </label><input type="text" id="roadAddress" placeholder="도로명주소" name="member_address" 
+										value="${member.member_address}" readonly><br> 
+		<label>주소2 : </label><input type="text" id="detailAddress" placeholder="상세주소" name="member_detailaddress" 
+										value="${member.member_detailaddress}"><br>
 		<div id="signup">
-			<input type="button" name="signup" value="수정 하기" id="signupbtn">
-			<input type="button" value="취소" onclick="location.href='backtomypage'"><br><!-- 연결 안됨!!! -->
-			<input type="button" value="회원 탈퇴" id="deletebtn">
+			<input type="button" name="signup" value="수정 하기" id="signupbtn"><br>
+			<input type="button" value="회원 탈퇴" id="deletebtn" onclick="location.href='delete'">
 		</div>
 	</div>
 </form>
 <script>
 		var samePw = ""; 
 		var existNickname = "";
+		
 		
 		//다음 우편번호 API
 		//본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
@@ -176,12 +180,13 @@ input[type=button]:hover, input[type=reset]:hover {
 					}
 
 					// 우편번호와 주소 정보를 해당 필드에 넣는다.
-					//document.getElementById('postcode').value = roadAddr;
+					document.getElementById('postcode').value = data.zonecode;
 					document.getElementById("roadAddress").value = roadAddr;
+					document.getElementById("detailAddress").focus();
 				}
 			}).open();
 		}
-
+		
 		
 		
 		//!!!작동 닉네임
@@ -241,17 +246,21 @@ input[type=button]:hover, input[type=reset]:hover {
 				}
 			})
 
-			
+			$("#member_pw").on("propertychange change keyup paste input", function() {
+					samePw = 'fail';
+				})
 			
 			//회원가입 버튼 눌렀을 때, 빈칸 있으면 다시 유효성 검사진행    
 			$("#signupbtn").on("click", function() {
 				var pw = $("#member_pw").val();
 				var nickname = $("#member_nickname").val();
-				var address = $("#roadAddress").val();
+				//var address = $("#roadAddress").val();
 				var pwCheck = $("#repw").val();
 
 				var pwregex = /^[A-Za-z\d]{8,12}$/;
 				var nicknameregex = /[ㄱ-힣0-9A-Za-z]{1,}/;
+				
+				
 
 				
 				var pwregex = pwregex.exec(pw);
@@ -288,32 +297,6 @@ input[type=button]:hover, input[type=reset]:hover {
 				$("#updateform").submit();
 
 			})
-			
-			
-			$("#deletebtn").on("click", function() {
-				var pw = $("#member_pw").val();
-				var pwCheck = $("#repw").val();
-
-				//패스워드 원래거랑 같아야 삭제가능
-
-				
-				
-				
-				if(pwCheck == ""){
-					alert("패스워드 확인을 입력해주세요");
-					return;
-				}
-				if(samePw == 'fail'){                            
-			        alert("패스워드확인 값이 일치하지 않습니다\n다시 입력해주세요");
-			    	return;
-			    }
-				
-				
-				//빈칸 없을 때 제출.
-				$("#updateform").submit();
-
-			})
-			
 			
 		})
 

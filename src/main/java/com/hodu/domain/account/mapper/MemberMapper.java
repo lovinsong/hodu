@@ -29,4 +29,10 @@ public interface MemberMapper {
 	
 	//회원 정보 수정
 	public void updateMember(MemberDTO member);
+	
+	// 폰 체크
+	public String pwCheck(String member_id);
+	
+	//회원탈퇴
+	public void deleteMember(String member_id);
 }

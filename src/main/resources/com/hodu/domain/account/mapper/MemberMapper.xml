@@ -3,6 +3,8 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
+
 <mapper namespace="com.hodu.domain.account.mapper.MemberMapper">
 
 	<!-- 회원 가입 -->
@@ -20,9 +22,10 @@
 		#{member_email},
 		0,
 		sysdate,
-		'Y',
 		'N',
-		1
+		1,
+		#{member_postcode},
+		#{member_detailaddress}
 		)
 	</insert>
 
@@ -69,8 +72,19 @@
 		member_pw = #{member_pw},
 		member_nickname = #{member_nickname},
 		member_address = #{member_address} 
+		member_postcode = #{member_postcode},
+		member_detailaddress = #{member_detailaddress}
 		WHERE 
 		member_id = #{member_id}
 	</update>
-
+	
+	<!-- 패스워드 체크 -->
+	<select id="pwCheck" resultType="String">
+		select member_pw from hodu_member where member_id= #{member_id}
+	</select>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="deleteMember">
+		delete from hodu_member where member_id = #{member_id}
+	</delete>
 </mapper>

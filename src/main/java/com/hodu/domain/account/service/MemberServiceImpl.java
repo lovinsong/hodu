@@ -68,6 +68,19 @@ public class MemberServiceImpl implements MemberService {
 		member_mapper.updateMember(member);
 	}
 
+	//패스워드 체크
+	@Override
+	public String pwCheck(String member_id) throws Exception {
+		return member_mapper.pwCheck(member_id);
+	}
+
+	//회원 탈퇴
+	@Override
+	public void deleteMember(String member_id) throws Exception {
+		member_mapper.deleteMember(member_id);
+		
+	}
+
 	
 
 }

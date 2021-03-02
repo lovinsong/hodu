@@ -58,7 +58,6 @@ public class joinTest {
 	      
 	      SimpleDateFormat format = new SimpleDateFormat("");
 		mem.setMember_regdate(hiredate.getTime());
-		mem.setMember_enabled("1");
 		mem.setHodu_manager("Y");
 	
 	}

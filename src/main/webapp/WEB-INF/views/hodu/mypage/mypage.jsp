@@ -11,7 +11,7 @@
 
 <h1>마이페이지</h1>
 
-<a href="./account-info/settings/update">정보 수정</a>
+<a href="./mypage/update">정보 수정</a>
 
 <a href="./mypage/myinquiry">내 문의</a>
 <a href="./mypage/mylist">찜목록</a>

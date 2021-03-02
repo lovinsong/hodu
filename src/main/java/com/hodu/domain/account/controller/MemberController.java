@@ -93,7 +93,7 @@ public class MemberController {
 
 	// 회원가입 처리
 	@PostMapping(value = "/hodu/account/join")
-	public String addMember(Model model, MemberDTO member) throws Exception {
+	public String addMember(MemberDTO member) throws Exception {
 
 		service.createMember(member);
 
@@ -127,7 +127,7 @@ public class MemberController {
 			return "success"; // 중복 x
 		}
 	}
-	@PostMapping(value = "/hodu/mypage/account-info/settings/memberNickChk")
+	@PostMapping(value = "/hodu/mypage/memberNickChk")
 	@ResponseBody
 	public String memberNickChkUpdatePOST(String member_nickname,String member_id ,MemberDTO member) throws Exception {
 
@@ -219,27 +219,68 @@ public class MemberController {
 	// 로그인 하단 메인 페이지 이동버튼 
 	@GetMapping(value = "/hodu/account/mainpage")
 	public String toMain() {
-		return "/hodu/mainpage";
+		return "/hodu/main/mainpage";
 	}
 	
 	// 마이페이지 -> 내정보 수정 이동
-	@GetMapping(value = "/hodu/mypage/account-info/settings/update")
-	public void myInfoUpdate() throws Exception{
+	@GetMapping(value = "/hodu/mypage/mypage/update")
+	public String myInfoUpdate() throws Exception{
+		return "redirect:/hodu/mypage/update";
+	}
+	@GetMapping(value = "/hodu/mypage/update")
+	public void myInfoUpdate2() throws Exception{
+		
+	}
+	//정보 수정
+	@PostMapping(value = "/hodu/mypage/update")
+	public String myInfoUpdatePOST(HttpServletRequest request,MemberDTO member) throws Exception{
+		HttpSession session = request.getSession();
+		service.updateMember(member);
+		MemberDTO memberdto = service.memberInfo(member.getMember_id());
+		session.setAttribute("member", memberdto);
+		return "redirect:/hodu/mypage/mypage";
+	}
+	
+	
+	
+	//회원 탈퇴
+	@GetMapping(value = "/hodu/mypage/delete")
+	public String toDeletePage() throws Exception{
+		return "redirect:/hodu/account/delete-member";
+	}
+	@GetMapping(value = "/hodu/account/delete-member")
+	public void deletePage() throws Exception{
 		
 	}
 	
-	@PostMapping(value = "/hodu/mypage/account-info/settings/update")
-	public String myInfoUpdatePOST(MemberDTO member) throws Exception{
-		service.updateMember(member);
-		return "redirect:/hodu/mypage/mypage";
+	
+	// 패스워드 원래 값과 같나 확인
+	@PostMapping(value = "/hodu/account/memberPwChk")
+	@ResponseBody
+	public String memberPwChkPOST(String member_pw,String member_id) throws Exception {
+
+		String result = service.pwCheck(member_id);
+		//log.info("결과값 = " + result);
+		if (result.equals(member_pw)) {
+			return "success";
+		} else {
+			return "fail";
+		}
 	}
 	
-	@GetMapping(value = "/hodu/mypage/account-info/settings/backtomypage")
-	public String cancelUpdate() {
-		return "redirect:/hodu/mypage/mypage";
-		//세션을 수정한 정보로 다시 넣어주기
-		//정보칸 받는걸 서비스를 받아서 하기
+	// 회원 탈퇴 처리
+	@PostMapping(value = "/hodu/account/delete")
+	public String deleteMember(HttpServletRequest request,String member_id) throws Exception {
+
+		service.deleteMember(member_id);
+
+		HttpSession session = request.getSession();
+		session.invalidate();
+		
+		return "redirect:/hodu/main/mainpage";
 	}
+	
+
 
 
 }
