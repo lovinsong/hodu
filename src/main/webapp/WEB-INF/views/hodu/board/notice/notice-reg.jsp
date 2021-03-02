@@ -10,11 +10,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<!-- +/-인원수 체크 -->
-<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -61,29 +56,9 @@
                                     </select></td>
 								</tr>
 								<tr>
-	                               <td class="t-title"><strong>회차</strong></td>
-	                               <td>                           
-										<div class="toggle">
-											<input type="radio" name="sizeBy" value="weight" id="sizeWeight" checked="checked" />
-											<label for="sizeWeight">1회차</label>
-											<input type="radio" name="sizeBy" value="dimensions" id="sizeDimensions" />
-											<label for="sizeDimensions">다회차</label>
-										</div>
-									</td>
+	                               <td class="t-title"><strong>클래스 일정</strong></td>
+	                               <td><button class="btn btn-select" type="button">선택하러 가기</button></td>
 	                            </tr>	                            
-	                            <tr>
-	                                <td class="t-title"><strong>회차 당 가격</strong></td>
-	                                <td><input class="form-control input-sm" name="notice_title"> 호두 <img src="/project/resources/image/favicon.ico"></td>
-	                            </tr>	
-	                            <tr>
-	                                <td class="t-title"><strong>회차 당 시간</strong></td>
-	                                <td><input type="range" class="form-range" min="0" max="6" step="0.5" value="0" id="customRange3"> 시간</td>
-	                            </tr>	  	
-	                            <tr>
-	                                <td class="t-title"><strong>수업 예정 장소</strong></td>
-	                                <td><input class="form-control input-sm" name="notice_title"><span id="msgTitle"></span></td>
-	                            </tr>	        
-	                            
 	                            <tr>
 	                                <td class="t-title"><strong>수강 최대 인원</strong></td>	
 	                                <td class="qty mt-5">
@@ -91,7 +66,15 @@
 				                        <input type="number" class="count" name="qty" value="1">
 				                        <span class="plus">＋</span>	                              
 	                                </td>
-	                            </tr>                            	                            
+	                            </tr>    
+                                <tr>
+	                                <td class="t-title"><strong>회차 당 가격</strong></td>
+	                                <td><input class="form-control input-sm" name="notice_title" placeholder="0" style="text-align:right;"> <strong>&emsp;호두 </strong><img src="/project/resources/image/favicon.ico"></td>
+	                            </tr>		                            
+	                            <tr>
+	                                <td class="t-title"><strong>수업 예정 장소</strong></td>
+	                                <td><input class="form-control input-sm" name="notice_title"><span id="msgTitle"></span></td>
+	                            </tr>     	                                           	                            
                                 <tr>
 	                                <td class="t-title"><strong>멘토님은 어떤 분이신가요?</strong></td>
 	                                <td>
@@ -150,20 +133,22 @@
     	    	});
  		});
        
-       		function regist(){
-       			if(document.registForm.member_id.value === ''){
-       				document.getElementById("msgId").innerHTML = " 아이디는 필수입니다";
-       				document.registForm.writer.focus();
-       				return;
-       			} else if(document.registForm.notice_title.value === ''){
-       				document.getElementById("msgTitle").innerHTML = " 제목은 필수입니다";
-       				document.registForm.title.focus();
-       				return;
-       			} else{
-       				document.registForm.submit();//입력 완료시 서브밋
-       			}
-       			
-       		}
+     		function regist(){
+     			if(document.registForm.member_id.value === ''){
+     				document.getElementById("msgId").innerHTML = " 아이디는 필수입니다";
+     				document.registForm.writer.focus();
+     				return;
+     			} else if(document.registForm.notice_title.value === ''){
+     				document.getElementById("msgTitle").innerHTML = " 제목은 필수입니다";
+     				document.registForm.title.focus();
+     				return;
+     			} else{
+     				document.registForm.submit();//입력 완료시 서브밋
+     			}
+     			
+     		}
+     		
+     		
        		
 
 
