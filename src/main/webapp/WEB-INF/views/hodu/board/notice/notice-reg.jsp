@@ -14,10 +14,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.4/js/bootstrap-datetimepicker.min.js"></script>
- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.4/css/bootstrap-datetimepicker.min.css">
-
-
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/board.css">
 <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" >
    <section>
@@ -137,7 +133,9 @@
 						<input type="radio" name="sizeBy" value="dimensions" id="sizeDimensions" />
 						<label for="sizeDimensions">다회차</label>
 					</div>
-					
+					<div>
+					<input id="datetimepicker3" type="text" >
+					</div>
 					
 			<br>
 		      </div>
@@ -161,7 +159,7 @@
 		      </div>
 		      <div class="modal-body">
 			        
-			        
+        
 			        
 		      </div>
 		      <div class="modal-footer">
@@ -190,28 +188,24 @@
     	    	});
  		});
        
-     		function regist(){
-     			if(document.registForm.member_id.value === ''){
-     				document.getElementById("msgId").innerHTML = " 아이디는 필수입니다";
-     				document.registForm.writer.focus();
-     				return;
-     			} else if(document.registForm.notice_title.value === ''){
-     				document.getElementById("msgTitle").innerHTML = " 제목은 필수입니다";
-     				document.registForm.title.focus();
-     				return;
-     			} else{
-     				document.registForm.submit();//입력 완료시 서브밋
-     			}
-     			
-     		}
-     		
-     		
-       		
-
+   		function regist(){
+   			if(document.registForm.member_id.value === ''){
+   				document.getElementById("msgId").innerHTML = " 아이디는 필수입니다";
+   				document.registForm.writer.focus();
+   				return;
+   			} else if(document.registForm.notice_title.value === ''){
+   				document.getElementById("msgTitle").innerHTML = " 제목은 필수입니다";
+   				document.registForm.title.focus();
+   				return;
+   			} else{
+   				document.registForm.submit();//입력 완료시 서브밋
+   			}
+   			
+   		}
+   		
+    
 
        
-       </script>
-       
-       
-       
-    </section>
+   </script>
+
+</section>
