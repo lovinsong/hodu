@@ -253,19 +253,10 @@
 		/* 비밀번호 찾기 클릭 메서드 */
 		$(".find_button").click(function() {
 			
-			//var memberId = $("member_id").val;
-			//var memberEmail = $("member_email").val;
 			var inputCode = $(".mail_check_input").val(); // 입력코드    
 			
 			
-			//if(memberId == ""){
-			//	alert("아이디를 입력해주세요");
-			//	return;
-			//}
-			//if(memberEmail == ""){
-			//	alert("이메일을 입력해주세요");
-			//	return;
-			//}
+			
 			if(inputCode == ""){
 				alert("아이디와 인증번호를 확인해주세요");
 				return;

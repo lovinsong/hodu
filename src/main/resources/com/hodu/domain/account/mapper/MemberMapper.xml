@@ -33,9 +33,8 @@
 	<select id="memberLogin"
 		resultType="com.hodu.domain.model.MemberDTO">
 
-		<!-- SELECT * FROM HODU_MEMBER WHERE member_id = #{member_id} and member_pw 
-			= #{member_pw} -->
-		SELECT * FROM HODU_MEMBER WHERE member_id = #{member_id}
+		SELECT * FROM HODU_MEMBER WHERE member_id = #{member_id} and member_pw = #{member_pw}
+		<!-- SELECT * FROM HODU_MEMBER WHERE member_id = #{member_id} -->
 
 	</select>
 
@@ -107,7 +106,7 @@
 
 	<!-- 비밀번호 찾기 -->
 	<select id="findpw" resultType="com.hodu.domain.model.MemberDTO">
-		SELECT member_pw FROM HODU_MEMBER
+		SELECT * FROM HODU_MEMBER
 		WHERE member_id = #{member_id} and member_email = #{member_email}
 	</select>
 

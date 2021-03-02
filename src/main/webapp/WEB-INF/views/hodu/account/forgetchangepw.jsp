@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>비밀번호 변경</title>
+<title>비밀번호 분실 변경</title>
 <script 
 	src="https://code.jquery.com/jquery-3.4.1.js" 
 	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" 
@@ -12,8 +12,8 @@
 </script>
 </head>
 <body>
-<h1>비밀번호 변경 페이지</h1>
-<form action="updatepw" method="POST" id="updatepwform">
+<h1>비밀번호 분실시 변경 페이지</h1>
+<form action="forgetupdatepw" method="POST" id="forgetupdatepwform">
 		<input type="hidden" class="id_input" name="member_id" id="member_id" value="${member.member_id}" readonly>
 		
 		<label>변경할 패스워드 : </label><input type="password" name="member_pw" id="member_pw" maxlength="11"><br>
@@ -99,8 +99,8 @@
 				
 
 				//빈칸 없을 때 제출.
-				alert("비밀번호 변경 완료!");
-				$("#updatepwform").submit();
+				alert("비밀번호 변경 완료!\n새로운 비밀번호로 로그인하세요");
+				$("#forgetupdatepwform").submit();
 
 			})
 			
@@ -109,7 +109,5 @@
 		
 
 </script>
-
-
 </body>
 </html>

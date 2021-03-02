@@ -73,6 +73,11 @@ public class MemberController {
 	public String loginPOST(HttpServletRequest request, MemberDTO member, RedirectAttributes rttr) throws Exception {
 
 		HttpSession session = request.getSession();
+		
+		// 비밀번호 암호화 (sha256 이용)
+		String encryPassword = UserSha256.encrypt(member.getMember_pw());
+		member.setMember_pw(encryPassword);
+		
 		MemberDTO memberdto = service.memberLogin(member); // 제출한아이디와 일치하는 아이디 있는지
 
 		if (memberdto == null) { // 일치하지 않는 아이디, 비밀번호 입력 경우
@@ -256,17 +261,15 @@ public class MemberController {
 	public String toDeletePage() throws Exception {
 		return "redirect:/hodu/account/delete-member";
 	}
-
 	@GetMapping(value = "/hodu/account/delete-member")
 	public void deletePage() throws Exception {
 
 	}
 
-
 	// 회원 탈퇴 처리
 	@PostMapping(value = "/hodu/account/delete")
 	public String deleteMember(HttpServletRequest request, String member_id) throws Exception {
-
+		
 		service.deleteMember(member_id);
 
 		HttpSession session = request.getSession();
@@ -325,7 +328,7 @@ public class MemberController {
 
 		session.setAttribute("member", memberdto); // 일치하는 아이디, 비밀번호 경우 (로그인 성공)
 
-		return "redirect:/hodu/account/changepw";
+		return "redirect:/hodu/account/forgetchangepw";
 
 	}
 
@@ -335,7 +338,7 @@ public class MemberController {
 
 	}
 
-	// 비밀번호 찾으러가기
+	// 비밀번호 찾으러가기 =>삭제?
 	@GetMapping(value = "/hodu/account/findokpass")
 	public void findOkPwGET() {
 
@@ -397,19 +400,43 @@ public class MemberController {
 	public String toupdatePw() throws Exception {
 		return "redirect:/hodu/account/changepw";
 	}
-
 	@GetMapping(value = "/hodu/account/changepw")
 	public void updatePw() throws Exception {
 	}
-
-	// 계정 비밀번호 변경
 	@PostMapping(value = "/hodu/account/updatepw")
 	public String updatePwPOST(HttpServletRequest request, MemberDTO member) throws Exception {
 		HttpSession session = request.getSession();
-		service.updatePw(member);
-
+		
+		// 비밀번호 암호화 (sha256 이용)
+		String encryPassword = UserSha256.encrypt(member.getMember_pw());
+		member.setMember_pw(encryPassword);
+		
+		service.updatePw(member);	
 		MemberDTO memberdto = service.memberInfo(member.getMember_id());
 		session.setAttribute("member", memberdto);
 		return "redirect:/hodu/mypage/mypage";
+	}
+	
+	//비밀번호 분실시 비번 변경
+	@GetMapping(value = "/hodu/account/forgetchangepw")
+	public void forgetUpdatePw() throws Exception {
+	}
+	@PostMapping(value = "/hodu/account/forgetchangepw")
+	public void forgetchangePwPOST(HttpServletRequest request, MemberDTO member) throws Exception {
+		HttpSession session = request.getSession();
+		MemberDTO memberdto = service.memberInfo(member.getMember_id());
+		session.setAttribute("member", memberdto);
+	}
+	@PostMapping(value = "/hodu/account/forgetupdatepw")
+	public String forgetUpdatePwPOST(HttpServletRequest request, MemberDTO member) throws Exception {
+		HttpSession session = request.getSession();
+		
+		// 비밀번호 암호화 (sha256 이용)
+		String encryPassword = UserSha256.encrypt(member.getMember_pw());
+		member.setMember_pw(encryPassword);
+		service.updatePw(member);
+
+		session.invalidate();
+		return "redirect:/hodu/account/login";
 	}
 }

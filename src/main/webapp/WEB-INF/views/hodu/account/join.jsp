@@ -223,11 +223,7 @@ input[type=button]:hover, input[type=reset]:hover {
 			<span class="phone_input_re_1">가입되지 않은 번호입니다.(사용 가능)</span>
 			<span class="phone_input_re_2">이미 가입된 번호입니다.</span>
 
-			<!-- 
-			<label>이메일 : </label><input type="text" name="member_email"
-				id="member_email"><br>
-			<div class="member_email regex"></div>
-	 -->
+		
 			<div class="mail_warp">
 				<div class="mail_name">이메일</div>
 				<div class="mail_input_box">

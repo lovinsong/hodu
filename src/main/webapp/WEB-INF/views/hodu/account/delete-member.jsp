@@ -6,8 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>탈퇴 페이지</title>
-<script
-	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script 
 	src="https://code.jquery.com/jquery-3.4.1.js" 
 	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" 
@@ -39,8 +37,7 @@
 		</div>
 	</div>
 </form>
-<script>
-	//var samePw = ""; 
+<script> 
 	var isPwOriginal ="";
 	var contractCheck = 0;
 	
@@ -72,52 +69,22 @@
 	
 	$(function() {  
 		
-		//비밀번호 확인    
-		//$("#repw").on("propertychange change keyup paste input", function() {
-		//	if ($("#member_pw").val() == $("#repw").val()) {
-		//		$(".repw.regex").html("비밀번호가 일치합니다");
-		//		samePw = 'success';
-		//	} else {
-		//		$(".repw.regex").html("비밀번호가 일치하지않습니다");
-		//		samePw = 'fail';
-		//	}
-		//})
+		
 			
 			//회원가입 버튼 눌렀을 때, 빈칸 있으면 다시 유효성 검사진행    
 			$("#signupbtn").on("click", function() {
 				var pw = $("#member_pw").val();
-				//var pwCheck = $("#repw").val();
-				
-				//$("#member_pw").on("propertychange change keyup paste input", function() {
-				
-				//		if ($("#member_pw").val() == $("#repw").val()) {
-				//			$(".repw.regex").html("비밀번호가 일치합니다");
-				//			samePw = 'success';
-				//		} else {
-				//			$(".repw.regex").html("비밀번호가 일치하지않습니다");
-				//			samePw = 'fail';
-				//		}
-					
-				//})
 				
 				
 				if(pw == ""){
 					alert("비밀번호를 입력해주세요");
 					return;
 				}
-				//if(pwCheck == ""){
-				//	alert("패스워드 확인을 입력해주세요");
-				//	return;
-				//}
 				if(isPwOriginal == 'fail'){                            
 			        alert("패스워드 값이 일치하지 않습니다\n계정 비밀번호를 다시 입력해주세요");
 			        samePw = "";
 			    	return;
 			    }
-				//if(samePw == 'fail'){                            
-			    //    alert("패스워드확인 값이 일치하지 않습니다\n다시 입력해주세요");
-			    //	return;
-			    //}
 				
 				if($('input[name=req]').is(":checked")){
 			    	contractCheck = 1;
