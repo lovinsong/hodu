@@ -31,7 +31,13 @@ public interface MemberService {
 	public void updateMember(MemberDTO member) throws Exception;
 	
 	//아이디 찾기
-	
-	public String findId(String email) throws Exception;
+	public MemberDTO findId(MemberDTO member_id) throws Exception;
+
+	//비밀번호 찾기
+	public MemberDTO findpw(MemberDTO member_id) throws Exception;
+
+	//비밀번호찾기
+	public void findPassword(MemberDTO vo) throws Exception;
+
 	
 }

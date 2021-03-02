@@ -85,6 +85,16 @@
 	color: white;
 	margin: auto;
 }
+
+.temp_button {
+	width: 84%;
+	height: 80px;
+	background-color: #6AAFE6;
+	font-size: 40px;
+	font-weight: 900;
+	color: white;
+	margin: auto;
+}
 /* 로그인 실패시 경고글 */
 .login_warn {
 	margin-top: 30px;
@@ -121,7 +131,10 @@
 					</c:if>
 
 					<div class="login_button_wrap">
-						<input type="button" class="login_button" value="로그인">
+						<input type="button" class="login_button" value="로그인"><br><br>
+						<input type="button" class="temp_button" onclick="location.href='findid'" value="아이디 찾기"><br><br>
+						<input type="button" class="temp_button" onclick="location.href='findpass'" value="비밀번호 찾기"><br><br>
+						<input type="button" class="temp_button" onclick="location.href='../main/mainpage'" value="Home">
 					</div>
 				</div>
 			</form>

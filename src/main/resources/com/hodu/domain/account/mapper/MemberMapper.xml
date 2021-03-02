@@ -30,8 +30,9 @@
 	<select id="memberLogin"
 		resultType="com.hodu.domain.model.MemberDTO">
 
+		<!-- SELECT * FROM HODU_MEMBER WHERE member_id = #{member_id} and member_pw 
+			= #{member_pw} -->
 		SELECT * FROM HODU_MEMBER WHERE member_id = #{member_id}
-		and member_pw = #{member_pw}
 
 	</select>
 
@@ -82,17 +83,21 @@
 		member_id = #{member_id}
 	</update>
 
-	<!-- 비밀번호 변경 -->
-	<update id="pwchange" parameterType="hashMap">
-		UPDATE hodu_member SET member_pw = #{member_pw} WHERE member_email =
-		#{member_email}
-	</update>
-
 	<!-- 아이디 찾기 -->
-	<select id="findid" resultType="String">
-		SELECT member_id FROM HODU_MEMBER WHERE member_email = #{member_email}
+	<select id="findid" resultType="com.hodu.domain.model.MemberDTO">
+		SELECT member_id FROM HODU_MEMBER
+		WHERE member_name = #{member_name} and member_email = #{member_email}
 	</select>
 
+	<!-- 비밀번호 찾기 -->
+	<select id="findpw" resultType="com.hodu.domain.model.MemberDTO">
+		SELECT member_pw FROM HODU_MEMBER
+		WHERE member_id = #{member_id} and member_email = #{member_email}
+	</select>
 
+	<!-- 비밀번호 변경 -->
+	<update id="updatePw">
+		update hodu_member set member_pw = #{member_pw} where member_id = #{member_id}
+	</update>
 
 </mapper>

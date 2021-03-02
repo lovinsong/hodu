@@ -15,6 +15,7 @@ public interface MemberMapper {
 	
 	// 닉네임 체크
 	public int nickCheck(String member_nickname);
+	
 	// 수정시 닉네임 체크
 	public String updateNickCheck(String member_id);
 	
@@ -31,5 +32,12 @@ public interface MemberMapper {
 	public void updateMember(MemberDTO member);
 	
 	//아이디 찾기
-	public String findid(MemberDTO email);
+	public MemberDTO findid(MemberDTO member);
+	
+	//비밀번호 찾기 임시
+	public MemberDTO findpw(MemberDTO member);
+	
+	//비밀번호 변경
+	public int updatePw(MemberDTO member) throws Exception;
+	
 }

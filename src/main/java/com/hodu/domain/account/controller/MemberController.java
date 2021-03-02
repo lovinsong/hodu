@@ -4,18 +4,16 @@ import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -30,16 +28,18 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class MemberController {
 
+	
 	@Autowired
 	private MemberService service;
-
+	
 	@Autowired
 	private JavaMailSender mailSender;
+	
 
 	// 메인 페이지 이동
 	@GetMapping(value = "/hodu/main/mainpage")
 	public void mainPageGET() {
-		
+
 	}
 
 	// 회원가입 페이지 이동
@@ -63,10 +63,10 @@ public class MemberController {
 
 		return "redirect:/hodu/main/mainpage";
 	}
-	
+
 	// 메인페이지-> 마이페이지 이동
 	@GetMapping(value = "/hodu/mypage/mypage")
-	public void mypageMainGET(){
+	public void mypageMainGET() {
 
 	}
 
@@ -93,8 +93,10 @@ public class MemberController {
 
 	// 회원가입 처리
 	@PostMapping(value = "/hodu/account/join")
-	public String addMember(Model model, MemberDTO member) throws Exception {
+	public String addMember(MemberDTO member) throws Exception {
 
+
+		
 		service.createMember(member);
 
 		return "redirect:/hodu/main/mainpage";
@@ -127,27 +129,26 @@ public class MemberController {
 			return "success"; // 중복 x
 		}
 	}
+
 	@PostMapping(value = "/hodu/mypage/account-info/settings/memberNickChk")
 	@ResponseBody
-	public String memberNickChkUpdatePOST(String member_nickname,String member_id ,MemberDTO member) throws Exception {
+	public String memberNickChkUpdatePOST(String member_nickname, String member_id, MemberDTO member) throws Exception {
 
 		int result = service.nickCheck(member_nickname);
 		String r = service.updateNickCheck(member_id);
-		
+
 		log.info("결과값 = " + result);
-		if(r.equals(member.getMember_nickname().toString())) {
+		if (r.equals(member.getMember_nickname().toString())) {
 			return "success";
-		}else {
-			if(result !=0 ) {
+		} else {
+			if (result != 0) {
 				return "fail";
 			}
 			return "success";
 		}
-		
-		
+
 	}
 
-	
 	// 휴대폰 중복확인
 	@PostMapping(value = "/hodu/account/memberPhoneChk")
 	@ResponseBody
@@ -216,44 +217,154 @@ public class MemberController {
 		return num;
 	}
 
-	// 로그인 하단 메인 페이지 이동버튼 
+	// 로그인 하단 메인 페이지 이동버튼
 	@GetMapping(value = "/hodu/account/mainpage")
 	public String toMain() {
 		return "/hodu/mainpage";
 	}
-	
+
 	// 마이페이지 -> 내정보 수정 이동
 	@GetMapping(value = "/hodu/mypage/account-info/settings/update")
-	public void myInfoUpdate() throws Exception{
-		
+	public void myInfoUpdate() throws Exception {
+
 	}
-	
+
 	@PostMapping(value = "/hodu/mypage/account-info/settings/update")
-	public String myInfoUpdatePOST(MemberDTO member) throws Exception{
+	public String myInfoUpdatePOST(MemberDTO member) throws Exception {
 		service.updateMember(member);
 		return "redirect:/hodu/mypage/mypage";
 	}
-	
+
 	@GetMapping(value = "/hodu/mypage/account-info/settings/backtomypage")
 	public String cancelUpdate() {
 		return "redirect:/hodu/mypage/mypage";
-		//세션을 수정한 정보로 다시 넣어주기
-		//정보칸 받는걸 서비스를 받아서 하기
+		// 세션을 수정한 정보로 다시 넣어주기
+		// 정보칸 받는걸 서비스를 받아서 하기
 	}
-	
+
 	// 아이디 찾으러 가기
 	@GetMapping(value = "/hodu/account/findid")
-	public void findId() {
+	public void findIdGET() {
+
+	}
+
+	// 아이디 찾기 처리
+	@PostMapping(value = "/hodu/account/findid")
+	public String findIdPOST(HttpServletRequest request, MemberDTO member, RedirectAttributes rttr) throws Exception {
+
+		HttpSession session = request.getSession();
+		MemberDTO memberdto = service.findId(member); // 제출한 이름과 일치하는 이메일 있는지
+
+		if (memberdto == null) { // 일치하지 않는 아이디, 비밀번호 입력 경우
+
+			int result = 0;
+			rttr.addFlashAttribute("result", result);
+			return "redirect:/hodu/account/findid";
+
+		}
+
+		session.setAttribute("member", memberdto); // 일치하는 아이디, 비밀번호 경우 (로그인 성공)
+
+		return "redirect:/hodu/account/findidok";
+
+	}
+
+	// 아이디 찾기(완) 가기
+	@GetMapping(value = "/hodu/account/findidok")
+	public void findOkIdGET() {
+
+	}
+
+	//비밀번호 찾기 임시..
+	@PostMapping(value = "/hodu/account/findpass")
+	public String findpwPOST(HttpServletRequest request, MemberDTO member, RedirectAttributes rttr) throws Exception {
+
+		HttpSession session = request.getSession();
+		MemberDTO memberdto = service.findpw(member); // 제출한 이름과 일치하는 이메일 있는지
+
+		if (memberdto == null) { // 일치하지 않는 아이디, 비밀번호 입력 경우
+
+			int result = 0;
+			rttr.addFlashAttribute("result", result);
+			return "redirect:/hodu/account/findpass";
+
+		}
+
+		session.setAttribute("member", memberdto); // 일치하는 아이디, 비밀번호 경우 (로그인 성공)
+
+		return "redirect:/hodu/account/findokpass";
+
+	}
+	
+	// 비밀번호 찾으러가기
+	@GetMapping(value = "/hodu/account/findpass")
+	public void findPw2GET() {
+
+	}
+	
+	// 비밀번호 찾으러가기
+	@GetMapping(value = "/hodu/account/findokpass")
+	public void findOkPwGET() {
+		
+	}
+
+	@PostMapping(value = "/hodu/account/mailpwCheck")
+	@ResponseBody
+	public String mailpwChkPOST(String member_email) throws Exception {
+
+		int result = service.emailCheck(member_email);
+		log.info("결과값 = " + result);
+		if (result != 0) {
+			return "fail";
+		} else {
+			return "success";
+		}
+	}
+	
+	/* 이메일 인증 */
+	@GetMapping(value = "hodu/account/mailpwCheck")
+	@ResponseBody
+	public String mailpwCheckGET(String email) throws Exception {
+
+		/* 인증번호(난수) 생성 */
+		Random random = new Random();
+		int checkNum = random.nextInt(888888) + 111111;
+		log.info("인증번호 " + checkNum);
+
+		/* 이메일 보내기 */
+		String setFrom = "lovinsong@kakao.com";
+		String toMail = email;
+		String title = "비밀번호 확인 인증 이메일 입니다.";
+		String content = "오늘도 호두를 이용해주셔서 감사합니다." + "<br><br>" + "인증 번호는 " + checkNum + "입니다." + "<br>"
+				+ "해당 인증번호를 인증번호 확인란에 기입하여 주세요.";
+
+		try {
+
+			MimeMessage message = mailSender.createMimeMessage();
+			MimeMessageHelper helper = new MimeMessageHelper(message, true, "utf-8");
+			helper.setFrom(setFrom);
+			helper.setTo(toMail);
+			helper.setSubject(title);
+			helper.setText(content, true);
+			mailSender.send(message);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		String num = Integer.toString(checkNum);
+		
+		return num;
+	}
+
+	/* 비밀번호 찾기 */
+	@GetMapping(value = "/hodu/account/findpw")
+	public void findPwGET() throws Exception{
+	}
+
+	@PostMapping(value = "/hodu/account/findpw")
+	public void findPwPOST(@ModelAttribute MemberDTO member, HttpServletResponse response) throws Exception{
 		
 	}
 	
-	
-	// 아이디 찾기
-
-	
-	
-	
-	
-	
-
 }

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Welcome BookMall</title>
+<title>Welcome Hodu</title>
 </head>
 <style>
 @charset "UTF-8";
