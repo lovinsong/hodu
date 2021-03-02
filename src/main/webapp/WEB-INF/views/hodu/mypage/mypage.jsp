@@ -12,6 +12,7 @@
 <h1>마이페이지</h1>
 
 <a href="./mypage/update">정보 수정</a>
+<a href="./account/changepw">비밀번호 변경하기</a>
 
 <a href="./mypage/myinquiry">내 문의</a>
 <a href="./mypage/mylist">찜목록</a>

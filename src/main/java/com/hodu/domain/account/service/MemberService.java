@@ -43,6 +43,10 @@ public interface MemberService {
 	//비밀번호 찾기
 	public MemberDTO findpw(MemberDTO member_id) throws Exception;
 
+	//아이디와 맞는 이메일인지 찾기
+	public String availableEmailCheck(String member_id) throws Exception;
 	
+	//계정 비밀번호 수정
+	public void updatePw(MemberDTO member) throws Exception;
 
 }

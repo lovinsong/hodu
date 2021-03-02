@@ -78,9 +78,8 @@
 	<update id="updateMember">
 		UPDATE hodu_member
 		SET
-		member_pw = #{member_pw},
 		member_nickname = #{member_nickname},
-		member_address = #{member_address} 
+		member_address = #{member_address}, 
 		member_postcode = #{member_postcode},
 		member_detailaddress = #{member_detailaddress}
 		WHERE 
@@ -113,5 +112,11 @@
 	<update id="updatePw">
 		update hodu_member set member_pw = #{member_pw} where member_id = #{member_id}
 	</update>
-
+	
+	<!-- 아이디와 일치하는 이메일이 있는지 -->
+	<select id="availableEmailCheck" resultType="String">
+		select member_email
+		from hodu_member where member_id= #{member_id}
+	</select>
+	
 </mapper>

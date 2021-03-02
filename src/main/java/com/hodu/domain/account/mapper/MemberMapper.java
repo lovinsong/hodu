@@ -43,5 +43,9 @@ public interface MemberMapper {
 	//비밀번호 찾기 임시
 	public MemberDTO findpw(MemberDTO member);
 	
-
+	//아이디와 맞는 이메일인지 찾기
+	public String availableEmailCheck(String member_id);
+	
+	//회원 정보 수정
+	public void updatePw(MemberDTO member);
 }

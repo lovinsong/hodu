@@ -129,7 +129,6 @@ public class MemberController {
 			return "success"; // 중복 x
 		}
 	}
-
 	@PostMapping(value = "/hodu/mypage/memberNickChk")
 	@ResponseBody
 	public String memberNickChkUpdatePOST(String member_nickname, String member_id, MemberDTO member) throws Exception {
@@ -256,27 +255,20 @@ public class MemberController {
 
 
 	
-	// 패스워드 원래 값과 같나 확인
-	@PostMapping(value = "/hodu/account/memberPwChk")
-	@ResponseBody
-	public String memberPwChkPOST(String member_pw,String member_id) throws Exception {
+	// 패스워드 원래 값과 같나 확인 =>deleteㅡmember였는데 삭제?
+	//@PostMapping(value = "/hodu/account/memberPwChk")
+	//@ResponseBody
+	//public String memberPwChkPOST(String member_pw,String member_id) throws Exception {
+//
+//		String result = service.pwCheck(member_id);
+//		//log.info("결과값 = " + result);
+//		if (result.equals(member_pw)) {
+//			return "success";
+//		} else {
+//			return "fail";
+//		}
+//	}
 
-		String result = service.pwCheck(member_id);
-		//log.info("결과값 = " + result);
-		if (result.equals(member_pw)) {
-			return "success";
-		} else {
-			return "fail";
-		}
-	}
-
-
-	@PostMapping(value = "/hodu/mypage/account-info/settings/update")
-	public String myInfoUpdatePOST(MemberDTO member) throws Exception {
-		service.updateMember(member);
-		return "redirect:/hodu/mypage/mypage";
-
-	}
 
 	
 	// 회원 탈퇴 처리
@@ -326,7 +318,7 @@ public class MemberController {
 
 	}
 
-	//비밀번호 찾기 임시..
+	//비밀번호 찾기 임시.. =>물어보기 임시인지?
 	@PostMapping(value = "/hodu/account/findpass")
 	public String findpwPOST(HttpServletRequest request, MemberDTO member, RedirectAttributes rttr) throws Exception {
 
@@ -347,13 +339,13 @@ public class MemberController {
 
 	}
 	
-	// 비밀번호 찾으러가기
+	// 비밀번호 찾으러가기 
 	@GetMapping(value = "/hodu/account/findpass")
 	public void findPw2GET() {
 
 	}
 	
-	// 비밀번호 찾으러가기
+	// 비밀번호 찾으러가기 
 	@GetMapping(value = "/hodu/account/findokpass")
 	public void findOkPwGET() {
 		
@@ -394,7 +386,40 @@ public class MemberController {
 		
 		return num;
 	}
+	
+	// 이메일 중복확인
+	@PostMapping(value = "/hodu/account/availableEmailChk")
+	@ResponseBody
+	public String availableEmailChkPOST(String member_id,String member_email) throws Exception {
+
+		String result = service.availableEmailCheck(member_id);
+		
+		log.info("결과값 = " + result);
+		if (result.equals(member_email)) {
+			return "success";
+		} else {
+			return "fail";
+		}
+	}
 
 	
+	//계정 비밀번호 변경
+	@GetMapping(value = "/hodu/mypage/account/changepw")
+	public String toupdatePw() throws Exception{
+		return "redirect:/hodu/account/changepw";
+	}
+	@GetMapping(value = "/hodu/account/changepw")
+	public void updatePw() throws Exception{
+	}
 	
+	//계정 비밀번호 변경
+	@PostMapping(value = "/hodu/account/updatepw")
+	public String updatePwPOST(HttpServletRequest request,MemberDTO member) throws Exception{
+		HttpSession session = request.getSession();
+		service.updatePw(member);
+		
+		MemberDTO memberdto = service.memberInfo(member.getMember_id());
+		session.setAttribute("member", memberdto);
+		return "redirect:/hodu/mypage/mypage";
+	}
 }

@@ -233,8 +233,6 @@ input[type=button]:hover, input[type=reset]:hover {
 				<div class="mail_input_box">
 					<input class="mail_input" name="member_email" id="member_email" readonly="readonly">
 					<div class="member_email regex"></div>
-					<!-- <span class="mail_input_re_1">사용가능한 이메일입니다. 인증번호 전송완료</span> -->
-					<!-- <span class="mail_input_re_2">중복된 이메일입니다. 재입력 후 다시 인증번호 전송을 눌러주세요</span> -->
 				</div>
 				<div class="mail_check_wrap">
 					<div class="mail_check_input_box" id="mail_check_input_box_false">
@@ -435,7 +433,7 @@ input[type=button]:hover, input[type=reset]:hover {
 		
 		/* 인증번호 이메일 전송 */
 		$(".mail_check_button").click(function() {
-			var email = $(".mail_input").val(); // 입력한 이메일
+			//var email = $(".mail_input").val(); // 입력한 이메일
 			var cehckBox = $(".mail_check_input"); // 인증번호 입력란
 			var boxWrap = $(".mail_check_input_box"); // 인증번호 입력란 박스
 			
@@ -467,12 +465,8 @@ input[type=button]:hover, input[type=reset]:hover {
 								}
 				
 							});
-							//$('.mail_input_re_1').css("display","inline-block"); 
-							//$('.mail_input_re_2').css("display", "none"); 
 							alert("사용가능한 이메일입니다. 인증번호 전송완료!");
 						} else { 
-							//$('.mail_input_re_2').css("display","inline-block"); 
-							//$('.mail_input_re_1').css("display", "none");
 							alert("중복된 이메일입니다.\n재입력 후 다시 인증번호 전송을 눌러주세요");
 						}
 					}// success 종료

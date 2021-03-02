@@ -7,6 +7,7 @@
 <title></title>
 </head>
 <body>
-<span>회원님의 아이디는  : ${member.member_id}</span>
+<span>회원님의 아이디는  : ${member.member_id}</span><br>
+<input type="button" value="로그인 하러가기" onclick="location.href='login'">
 </body>
 </html>

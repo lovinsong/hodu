@@ -92,6 +92,18 @@ public class MemberServiceImpl implements MemberService {
 		return member_mapper.findpw(member_pw);
 	}
 
+	//아이디와 맞는 이메일인지 찾기
+	@Override
+	public String availableEmailCheck(String member_id) throws Exception {
+		return member_mapper.availableEmailCheck(member_id);
+	}
+
+	//계정 비밀번호 수정
+	@Override
+	public void updatePw(MemberDTO member) throws Exception {
+		member_mapper.updatePw(member);
+	}
+
 	
 
 }
