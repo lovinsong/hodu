@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<span>회원님의 비밀번호는  : ${member.member_pw}</span>
 </body>
 </html>

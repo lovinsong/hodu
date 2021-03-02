@@ -6,10 +6,7 @@ import org.springframework.stereotype.Service;
 import com.hodu.domain.account.mapper.MemberMapper;
 import com.hodu.domain.model.MemberDTO;
 
-import lombok.AllArgsConstructor;
-
 @Service
-@AllArgsConstructor
 public class MemberServiceImpl implements MemberService {
 
 	@Autowired
@@ -68,6 +65,7 @@ public class MemberServiceImpl implements MemberService {
 		member_mapper.updateMember(member);
 	}
 
+
 	//패스워드 체크
 	@Override
 	public String pwCheck(String member_id) throws Exception {
@@ -79,6 +77,19 @@ public class MemberServiceImpl implements MemberService {
 	public void deleteMember(String member_id) throws Exception {
 		member_mapper.deleteMember(member_id);
 		
+	}
+
+
+	// 아이디 찾기
+	@Override
+	public MemberDTO findId(MemberDTO member_id) throws Exception {
+		return member_mapper.findid(member_id);
+	}
+
+	// 비밀번호 찾기
+	@Override
+	public MemberDTO findpw(MemberDTO member_pw) throws Exception {
+		return member_mapper.findpw(member_pw);
 	}
 
 	
