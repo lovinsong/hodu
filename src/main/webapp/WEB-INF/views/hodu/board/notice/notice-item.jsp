@@ -91,17 +91,17 @@
 											<li><a href="#">기타 외국어</a></li>											
 										</ul>
 									</li>
-									<li class="current"><a href="#">맞춤 수업 선택하기</a>
+									<li class="current">&emsp;<a href="#">🔍</a>
 										<ul>
-											<li><a href="#">시간</a></li>
-											<li><a href="#">지역</a></li>
-											<li><a href="#">요리</a></li>
+											<li><a href="#">&nbsp; 지역/시간 별로 검색하기</a></li>
 										</ul>
 									</li>
 								</ul>
 							</nav>
 					</header>
 				</div>
+				
+				<hr>
 
 			<!-- Features -->
 				<div id="features-wrapper">
@@ -113,10 +113,15 @@
 										<a href="#" class="image featured"><img src="/project/resources/thumbnail/pic01.jpg" alt="" /></a>
 										<div class="inner">
 											<header>
-												<h2>Put something here</h2>
-												<p>Maybe here as well I think</p>
+												<h2>[방문교육] 당신의 사랑스러운 반려견을 모두에게 사랑받는 명견으로!</h2>
+													<p>￦27,000 </p>												
+													<p> 보호자 자택 </p>
 											</header>
-											<p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
+										 <p>
+										 	<div id = "notice_review_star" class ="notice_review_star">
+												<a>★${dto.notice_review_star }(${reviewCount })</a>
+											</div>
+										 </p>
 										</div>
 									</section>
 
@@ -127,10 +132,11 @@
 										<a href="#" class="image featured"><img src="/project/resources/thumbnail/pic02.jpeg" alt="" /></a>
 										<div class="inner">
 											<header>
-												<h2>An interesting title</h2>
-												<p>This is also an interesting subtitle</p>
+												<h2>[현개발자] 현업 개발자에게서 듣는 자바(JAVA)뽀개기!!</h2>
+												<p>￦20,000</p>
+												<p>부천</p>												
 											</header>
-											<p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
+
 										</div>
 									</section>
 
@@ -141,10 +147,10 @@
 										<a href="#" class="image featured"><img src="/project/resources/thumbnail/pic03.jpg" alt="" /></a>
 										<div class="inner">
 											<header>
-												<h2>Oh, and finally ...</h2>
-												<p>Here's another intriguing subtitle</p>
+												<h2>[원데이:도자기] 도란도란 물레 체험</h2>
+												<p>￦20,000</p>
 											</header>
-											<p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
+											<p></p>
 										</div>
 									</section>
 
@@ -155,10 +161,10 @@
 									<a href="#" class="image featured"><img src="/project/resources/thumbnail/pic04.jpg" alt="" /></a>
 									<div class="inner">
 										<header>
-											<h2>Oh, and finally ...</h2>
-											<p>Here's another intriguing subtitle</p>
+											<h2>[원데이/온라인] 2시간 동안 타로를 배워 점을 칠 수 있다구요?</h2>
+											<p>￦25,000</p>
 										</header>
-										<p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
+										<p></p>
 									</div>
 								</section>
 
@@ -169,10 +175,10 @@
 								<a href="#" class="image featured"><img src="/project/resources/thumbnail/pic05.jpg" alt="" /></a>
 								<div class="inner">
 									<header>
-										<h2>Oh, and finally ...</h2>
-										<p>Here's another intriguing subtitle</p>
+										<h2>[미디클래스] 노트북과 핸드폰만으로 음악 유튜브 해보자!</h2>
+										<p>￦30,000</p>
 									</header>
-									<p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
+									<p></p>
 								</div>
 							</section>
 
@@ -183,10 +189,10 @@
 									<a href="#" class="image featured"><img src="/project/resources/thumbnail/pic06.jpg" alt="" /></a>
 									<div class="inner">
 										<header>
-											<h2>Oh, and finally ...</h2>
-											<p>Here's another intriguing subtitle</p>
+											<h2>[1:1 수업] 7년차 롱보더에게 배우는 롱보드 4회만에 트릭부터 댄싱까지!</h2>
+											<p>￦60,000</p>
 										</header>
-										<p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
+										<p></p>
 									</div>
 								</section>
 
@@ -197,10 +203,10 @@
 								<a href="#" class="image featured"><img src="/project/resources/thumbnail/pic07.jpg" alt="" /></a>
 								<div class="inner">
 									<header>
-										<h2>Put something here</h2>
-										<p>Maybe here as well I think</p>
+										<h2>혼자서도할수있어요 셀프네일도 샵에서한것처럼!! 기초부터 탄탄하게</h2>
+										<p>￦25,000</p>
 									</header>
-									<p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
+									<p></p>
 								</div>
 							</section>
 
@@ -211,10 +217,10 @@
 								<a href="#" class="image featured"><img src="/project/resources/thumbnail/pic08.jpg" alt="" /></a>
 								<div class="inner">
 									<header>
-										<h2>Put something here</h2>
-										<p>Maybe here as well I think</p>
+										<h2>대세 판단과 주식 잘 사고 파는 법</h2>
+										<p>￦30,000</p>
 									</header>
-									<p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
+									<p></p>
 								</div>
 							</section>
 
@@ -225,10 +231,10 @@
 								<a href="#" class="image featured"><img src="/project/resources/thumbnail/pic09.jpg" alt="" /></a>
 								<div class="inner">
 									<header>
-										<h2>Put something here</h2>
-										<p>Maybe here as well I think</p>
+										<h2>[원데이/케잌만들기] 고급진 케잌 만들기 도전!!</h2>
+										<p>￦30,000</p>
 									</header>
-									<p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
+									<p></p>
 								</div>
 							</section>
 
@@ -242,12 +248,12 @@
 
 		<!-- Scripts -->
 
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.min.js"></script>
+			<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.dropotron.min.js"></script>
+			<script src="${pageContext.request.contextPath}/resources/assets/js/browser.min.js"></script>
+			<script src="${pageContext.request.contextPath}/resources/assets/js/breakpoints.min.js"></script>
+			<script src="${pageContext.request.contextPath}/resources/assets/js/util.js"></script>
+			<script src="${pageContext.request.contextPath}/resources/assets/js/main.js"></script>
 
 	</body>
 </html>

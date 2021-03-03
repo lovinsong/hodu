@@ -1,12 +1,6 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Oleo+Script:400|Open+Sans:300,300italic,600,600italic,800");
 
-/*
-	Verti by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -1782,7 +1776,13 @@ input, select, textarea {
 		background: #fff;
 		border-radius: 6px;
 		box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.05);
-		padding: 2em;
+		padding: 2em;	
+		height: 450px;
+		
+	}
+	
+	.box:hover {
+		opacity:0.5;
 	}
 
 		.box.feature {
@@ -1790,23 +1790,28 @@ input, select, textarea {
 		}
 
 			.box.feature .inner {
-				padding: 4em 2em 3em 2em;
+				padding: 1em 2em 3em 2em;
 			}
 
 			.box.feature h2 {
-				font-size: 1.35em;
+				font-size: 1em;
+				line-height: 130%
 			}
 
 			.box.feature p {
+				padding: 0;
 				margin: 0;
+				display: inline;
+				line-height: 150%;	
 			}
 
 			.box.feature .image {
 				position: relative;
-				margin: 0;
+				margin: 0;			
 			}
 
 				.box.feature .image img {
+					height: 300px;
 					border-bottom-left-radius: 0;
 					border-bottom-right-radius: 0;
 				}
@@ -2590,6 +2595,7 @@ input, select, textarea {
 						.box.feature .image img {
 							border-bottom-left-radius: 0;
 							border-bottom-right-radius: 0;
+							height: 300px;
 						}
 
 		/* Widgets */
