@@ -461,4 +461,10 @@ public class MemberController {
 	public void joinForm() {
 		
 	}
+	
+	// 회원가입 약관
+	@GetMapping(value = "/hodu/account/contract")
+	public void joinContract() {
+		
+	}
 }

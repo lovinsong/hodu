@@ -193,7 +193,7 @@ input[type=button]:hover, input[type=reset]:hover {
 }
 </style>
 <body>
-	<form action="join" method="POST" id="signform">
+	<form action="join" method="POST" id="signform" name="signform">
 		<div id="wrapper">
 			<div class="title">회원 가입 정보 입력</div>
 
@@ -266,11 +266,15 @@ input[type=button]:hover, input[type=reset]:hover {
 			
 		
 			<div id="contract">
-				<input type="checkbox" name="req"> 개인정보 수집 및 이용에 동의합니다.
+				<!-- 약관 보러가기 -->
+				<input type="button" id="gotojoinform" value="약관 보기" />
+				<input type="button" id="yes" value="동의 확인" /> 
+				<input type="hidden" id="pInput" class="pInput"><br>
+				<input type="checkbox" class="req" name="req" id="req" disabled="disabled"> 개인정보 수집 및 이용에 동의합니다.<br>
+				
 			</div>
 
-			<!-- 약관 보러가기 -->
-			<input type="button" id="gotojoinform" value="약관 보기" />
+			
 
 
 			<div id="signup">
@@ -293,8 +297,8 @@ input[type=button]:hover, input[type=reset]:hover {
     
 	// 회원약관 바로가기 바로가기
     
-            $("#gotojoinform").click(function(){
-            window.open("./joinform", "회원 약관", 'status=no, width=500, height=600, left='+ popupX + ', top='+ popupY);
+        $("#gotojoinform").click(function(){
+            window.open("./joinform", "회원 약관", 'status=no, width=550, height=600, left='+ popupX + ', top='+ popupY);
         });
 	</script>
 
@@ -501,7 +505,6 @@ input[type=button]:hover, input[type=reset]:hover {
 		
 		
 		
-		
 		$(function() {             
 			
 			//비밀번호 유효성검사
@@ -568,6 +571,20 @@ input[type=button]:hover, input[type=reset]:hover {
 					$(".member_email.regex").html("올바른 이메일 형식이 아닙니다");
 				}
 			})
+			
+			
+			$("#yes").on("click", function() {
+				var agree = $("#pInput").val();
+				
+				if(agree !=""){
+					$("input:checkbox[id='req']").prop("checked", true);
+					alert("약관 동의가 체크되셨습니다!");
+				}else{
+					alert("동의를 누르시지 않으셨습니다.");
+				}
+			})
+			
+			
 			
 			//회원가입 버튼 눌렀을 때, 빈칸 있으면 다시 유효성 검사진행    
 			$("#signupbtn").on("click", function() {
@@ -653,6 +670,7 @@ input[type=button]:hover, input[type=reset]:hover {
 					alert("주소입력을 완료해주세요");
 					return;
 				}
+			    
 			    if($('input[name=req]').is(":checked")){
 			    	contractCheck = 1;
 				}
@@ -662,7 +680,7 @@ input[type=button]:hover, input[type=reset]:hover {
 				}
 
 				//빈칸 없을 때 제출.
-				alert("가입 완료! 환영합니다(´▽`ʃ♡ƪ)\n가입하신 아이디와 비밀번호로 로그인 해주세요");
+				alert("가입 완료! 환영합니다\n가입하신 아이디와 비밀번호로 로그인 해주세요");
 				$("#signform").submit();
 
 			})

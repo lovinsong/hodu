@@ -8,7 +8,6 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"
 	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 	crossorigin="anonymous">
-	
 </script>
 </head>
 <style>
@@ -109,20 +108,18 @@ ul.join_box {
 </style>
 
 <body>
-	<form action="" id="joinForm">
+	<form action="contract" id="contractform" name="contractform">
 		<ul class="join_box">
 			<li class="checkBox check01">
 				<ul class="clearfix">
-					<li>이용약관, 개인정보 수집 및 이용, 위치정보 이용약관(선택), 프로모션 안내 메일 수신(선택)에 모두
-						동의합니다.</li>
-					<li class="checkAllBtn"><input type="checkbox" name="chkAll"
-						id="chk" class="chkAll"></li>
+					<li>이용약관, 개인정보 수집 및 이용, 위치정보 이용약관(선택), 프로모션 안내 메일 수신(선택)에 모두 동의합니다.</li>
+					<li class="checkAllBtn"><input type="checkbox" name="chkAll" id="chk" class="chkAll"></li>
 				</ul>
 			</li>
 			<li class="checkBox check02">
 				<ul class="clearfix">
 					<li>이용약관 동의(필수)</li>
-					<li class="checkBtn"><input type="checkbox" name="chk1">
+					<li class="checkBtn"><input class="checkBtn1" type="checkbox" name="chk1">
 					</li>
 				</ul> <textarea name="" id="">여러분을 환영합니다.
 네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 네이버 서비스의 이용과 관련하여 네이버 서비스를 제공하는 네이버 주식회사(이하 ‘네이버’)와 이를 이용하는 네이버 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 네이버 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
@@ -131,7 +128,7 @@ ul.join_box {
 			<li class="checkBox check03">
 				<ul class="clearfix">
 					<li>개인정보 수집 및 이용에 대한 안내(필수)</li>
-					<li class="checkBtn"><input type="checkbox" name="chk2">
+					<li class="checkBtn"><input class="checkBtn2" type="checkbox" name="chk2">
 					</li>
 				</ul> <textarea name="" id="" cols="30" rows="10">여러분을 환영합니다.
 네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 네이버 서비스의 이용과 관련하여 네이버 서비스를 제공하는 네이버 주식회사(이하 ‘네이버’)와 이를 이용하는 네이버 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 네이버 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
@@ -140,7 +137,7 @@ ul.join_box {
 			<li class="checkBox check03">
 				<ul class="clearfix">
 					<li>위치정보 이용약관 동의(선택)</li>
-					<li class="checkBtn"><input type="checkbox" name="chk3">
+					<li class="checkBtn"><input class="checkBtn3" type="checkbox" name="chk3">
 					</li>
 				</ul> <textarea name="" id="">여러분을 환영합니다.
 네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 네이버 서비스의 이용과 관련하여 네이버 서비스를 제공하는 네이버 주식회사(이하 ‘네이버’)와 이를 이용하는 네이버 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 네이버 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
@@ -148,71 +145,117 @@ ul.join_box {
 			</li>
 			<li class="checkBox check04">
 				<ul class="clearfix">
-					<li>이벤트 등 프로모션 알림 메일 수신(선택</li>
-					<li class="checkBtn"><input type="checkbox" name="chk4">
+					<li>이벤트 등 프로모션 알림 메일 수신(선택)</li>
+					<li class="checkBtn"><input class="checkBtn4" type="checkbox" name="chk4">
 					</li>
 				</ul>
 
 			</li>
 		</ul>
+		
 		<ul class="footBtwrap clearfix">
-			<li><button class="fpmgBt1" onclick="window.close()">비동의</button></li>
-			<li><button class="fpmgBt2" onclick="./mainpage">동의</button></li>
+			<li><button class="fpmgBt1" id="nosignupbtn" onclick="window.close()">비동의</button></li>
+			<li><input type="hidden" id="cInput" value="동의함">
+				<button class="fpmgBt2" id="signupbtn" >동의</button><!-- onclick="setParentText()" -->
+			</li>
 		</ul>
 	</form>
 
 	<script>
 	
-	var contractCheck = 0;
+	//var contractCheck = 0;
+	var checkbox1 = "f";
+	var checkbox2 = "f";
+	var checkbox3 = "f";
+	var checkbox4 = "f";
 	
-		function allCheck() {
-			$("[name=check2]").prop("checked", true);
-		}// 모두 체크하기
-
-		function oneCheck(a) {
-			var allChkBox = $("[name=check1]");
-			var chkBoxName = $(a).attr("name");
-
-			if ($(a).prop("checked")) {
-				checkBoxLength = $("[name=" + chkBoxName + "]").length;
-				//전체체크박스 수(모두동의하기 체크박스 제외)
-				checkedLength = $("[name=" + chkBoxName + "]:checked").length;
-				//체크된 체크박스 수 
-				if (checkBoxLength == checkedLength) {
-					allChkBox.prop("checked", true);
-					//전체체크박스수 == 체크된 체크박스 수 같다면 모두체크
-
-				} else {
-					allChkBox.prop("checked", false);
-
-				}
-			} else {
-				allChkBox.prop("checked", false);
-			}
-		}
-
-		$(function() {
-			$("[name=check1]").click(function() {
-				allCheck(this);
-				//모두동의하기 체크박스 클릭시
-			});
-			$("[name=check2]").each(function() {
-				$(this).click(function() {
-					oneCheck(this);
-				});
-			});
-		});
+	
 		
-		$("#fpmgBt2").on("click", function(){
-			if($('input[name=chk1]').is("checked"))
-				if($('input[name=chk2]').is("checked")){
-				contractCheck = 1;
-			}	
-			if(contractCheck !=1){
-				alert("필수 약관에 동의하셔야 합니다.");
-				return;
-		})
-	</script>
+	
+			
+			
+			$("input[name='chkAll']").on({
+				"click":function(){
+					$( '.checkBtn1' ).prop('checked', this.checked );
+					$( '.checkBtn2' ).prop('checked', this.checked );
+					$( '.checkBtn3' ).prop('checked', this.checked );
+					$( '.checkBtn4' ).prop('checked', this.checked );
+				}
+			});
+			  
+			$("input[name='chk1']").on({
+				"click":function(){
+					if ($("input[name='chk1']").is(":checked")) {
+						checkbox1 = 't';
+						console.log("checkbox1 : " + checkbox1); //console값 으로 이메일 데이터 비교
+		            } else {
+		            	checkbox1 = 'f';
+		            	console.log("checkbox1 : " + checkbox1); //console값 으로 이메일 데이터 비교
+		            }
+				}
+			});
+			
+			
+			
+			$("input[name='chk2']").on({
+				"click":function(){
+					if ($("input[name='chk2']").is(":checked")) {
+						checkbox2 = 't';
+						console.log("checkbox1 : " + checkbox2); //console값 으로 이메일 데이터 비교
+		            } else {
+		            	checkbox2 = 'f';console.log("checkbox1 : " + checkbox2); //console값 으로 이메일 데이터 비교
+		            }
+				}
+			});
+			$("input[name='chk3']").on({
+				"click":function(){
+					if ($("input[name='chk3']").is(":checked")) {
+						checkbox3 = 't';
+						console.log("checkbox1 : " + checkbox3); //console값 으로 이메일 데이터 비교
+		            } else {
+		            	checkbox3 = 'f';console.log("checkbox1 : " + checkbox3); //console값 으로 이메일 데이터 비교
+		            }
+				}
+			}); 
+			$("input[name='chk4']").on({
+				"click":function(){
+					if ($("input[name='chk4']").is(":checked")) {
+						checkbox4 = 't';
+						console.log("checkbox1 : " + checkbox4); //console값 으로 이메일 데이터 비교
+		            } else {
+		            	checkbox4 = 'f';console.log("checkbox1 : " + checkbox4); //console값 으로 이메일 데이터 비교
+		            }
+				}
+			}); 
+			
+		
+	
+			$(function() {
+				
+				$("#signupbtn").on("click", function() {
+					
+					if(checkbox1 != 't'){
+						alert("필수 약관은 동의하셔야 합니다");
+						return false;
+					} 
+					if(checkbox2 != 't'){
+						alert("필수 약관은 동의하셔야 합니다");
+						return false;
+					}
+					
+					alert("약관 동의 완료\n동의 확인버튼을 눌러주세요");
+					//$("#contractform").submit();
+					window.opener.document.signform.pInput.value = document.contractform.cInput.value;
+					window.open("about:blank","_self").close();
+					
+				})
+				//$("#nosignupbtn").on("click", function() {
+				//	alert("동의하셔야 가입할 수 있습니다.");
+				//	return false;
+				//})
+				
+			})
+</script>
 
 </body>
 </html>
