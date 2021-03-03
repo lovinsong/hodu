@@ -27,7 +27,7 @@
 		});
 	
 	jQuery('#datetimepicker4').datetimepicker({
-		  format:'H:i',
+		 format:'d.m.Y H:i',
 		  inline:true,
 		  datepicker:false,
 		  lang:'ru'
