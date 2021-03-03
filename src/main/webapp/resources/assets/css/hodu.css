@@ -1772,13 +1772,15 @@ input, select, textarea {
 
 /* Box */
 
+
+	
 	.box {
 		background: #fff;
 		border-radius: 6px;
 		box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.05);
 		padding: 2em;	
-		height: 450px;
-		
+		height: 450px;	
+		background-color: #f7f7f7;	
 	}
 	
 	.box:hover {
@@ -1789,7 +1791,7 @@ input, select, textarea {
 			padding: 0;
 		}
 
-			.box.feature .inner {
+			.box.feature .inner {			
 				padding: 1em 2em 3em 2em;
 			}
 
@@ -1991,14 +1993,13 @@ input, select, textarea {
 	#nav {
 		position: absolute;
 		font-size: 0.9em;
-
 	}
 
 		#nav ul {
 			list-style: none;
 			padding-left: 0;
-					border-style: thin;
-					border-color: #696969;
+			border-style: thin;
+			border-color: #696969;
 		}
 
 			#nav ul li {
@@ -2008,34 +2009,67 @@ input, select, textarea {
 			}
 
 				#nav ul li a, #nav ul li span {
-					-moz-transition: background-color .25s ease-in-out;
-					-webkit-transition: background-color .25s ease-in-out;
-					-ms-transition: background-color .25s ease-in-out;
-					transition: background-color .25s ease-in-out;
+					-moz-transition: background-color .2s ease-in-out;
+					-webkit-transition: background-color .2s ease-in-out;
+					-ms-transition: background-color .2s ease-in-out;
+					transition: background-color .2s ease-in-out;
 					font-weight: 800;
 					letter-spacing: 0.025em;
 					color: #696969;
 					text-decoration: none;
 					border-radius: 6px;
-					padding: 0.5em 1em 0.5em 1em;
+					padding: 0.5em 0.5em 0.5em 0.5em;
 				}
+				
+				#nav ul li span{
+				padding-top:0.2em;
+				padding-bottom:0.2em;
+				margin-bottom:0.2em;
+				}
+				
+/* 				#nav ul li span .material-icons a{
+				font-size:inherit;
+				padding-top:0.2em;
+				padding-bottom:0.2em;
+				margin-bottom:3em;
+				} */
 
 				#nav ul li > ul {
 					display: none;
+					border-radius: inherit;
 				}
 
 				#nav ul li:hover a, #nav ul li:hover span {
-					background: #f7faf7;
+					background: #e6e6e6;				
 				}
 
 				#nav ul li.active a, #nav ul li.active span {
-					background: #fff;
+					background: #f7f7f7;			
 				}
 
-				#nav ul li.current a {
-					background: #444;
-					color: #fff;
+/* 				#nav ul li.current a {
+					border: solid 1px #e6e6e6;
+					border-style: thin;
 				}
+				
+				#nav ul li.current:hover  a, #nav ul li:hover span {
+					background: #f7f7f7;
+					padding-bottom:0.5em	
+				} */
+
+
+
+	/* 아이콘 */
+	.material-icons {
+	  font-family: 'Material Icons';
+	  font-size: 10px;
+	  margin:0;  
+	  padding:0;
+	  vertical-align:middle;
+
+	}
+
+
 
 
 	.dropotron {
@@ -2584,15 +2618,18 @@ input, select, textarea {
 			.box {
 				padding: 15px 15px 15px 15px;
 				margin: 0;
+				border-style: thin;
+				border-color: #696969;
 			}
 
 				.box.feature {
 					margin: 20px 0 0 0 !important;
-					padding: 0;
+					padding: 0;					
 				}
 
 					.box.feature .inner {
 						padding: 30px 15px 30px 15px;
+								    border: 1px solid #4444;
 					}
 
 					.box.feature p {

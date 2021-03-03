@@ -7,6 +7,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/hodu.css" />
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	
 	</head>
 	<body class="is-preload homepage">
 		<div id="page-wrapper">
@@ -91,9 +92,9 @@
 											<li><a href="#">기타 외국어</a></li>											
 										</ul>
 									</li>
-									<li class="current">&emsp;<a href="#">🔍</a>
+									<li><span class="material-icons">&nbsp;manage_search<!-- <a><font size="2em">찾기</font></a> -->&nbsp;</span>&nbsp;									
 										<ul>
-											<li><a href="#">&nbsp; 지역/시간 별로 검색하기</a></li>
+											<li><a href="#">&nbsp; 지역 / 시간 별로 검색하기</a></li>
 										</ul>
 									</li>
 								</ul>
