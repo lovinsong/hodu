@@ -255,6 +255,21 @@ public class MemberController {
 		session.setAttribute("member", memberdto);
 		return "redirect:/hodu/mypage/mypage";
 	}
+	
+	// 패스워드 원래 값과 같나 확인 
+	@PostMapping(value = "/hodu/account/memberPwChk")
+	@ResponseBody
+	public String memberPwChkPOST(String member_pw,String member_id) throws Exception {
+		// 비밀번호 암호화 (sha256 이용)
+		String encryPassword = UserSha256.encrypt(member_pw);
+		String result = service.pwCheck(member_id);
+		//log.info("결과값 = " + result);
+		if (result.equals(encryPassword)) {
+			return "success";
+		} else {
+			return "fail";
+		}
+	}
 
 	// 회원 탈퇴
 	@GetMapping(value = "/hodu/mypage/delete")
