@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>호두 클래스 게시판</title>
+		<title>호두 클래스</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/hodu.css" />
@@ -113,15 +113,14 @@
 										<a href="#" class="image featured"><img src="/project/resources/thumbnail/pic01.jpg" alt="" /></a>
 										<div class="inner">
 											<header>
-												<h2>[방문교육] 당신의 사랑스러운 반려견을 모두에게 사랑받는 명견으로!</h2>
+												<h2>[당신의 반려견을 모두에게 사랑받는 명견으로!]</h2>
 													<p>￦27,000 </p>												
 													<p> 보호자 자택 </p>
-											</header>
-										 <p>
-										 	<div id = "notice_review_star" class ="notice_review_star">
-												<a>★${dto.notice_review_star }(${reviewCount })</a>
-											</div>
-										 </p>
+													<p class="profile"><img src="/project/resources/image/mentor.jpg" alt="" /></p>
+											 	<div id = "notice_review_star" class ="notice_review_star">
+													<a>★${dto.notice_review_star }(${reviewCount })</a>
+												</div>																							
+											</header>											
 										</div>
 									</section>
 
@@ -132,11 +131,14 @@
 										<a href="#" class="image featured"><img src="/project/resources/thumbnail/pic02.jpeg" alt="" /></a>
 										<div class="inner">
 											<header>
-												<h2>[현개발자] 현업 개발자에게서 듣는 자바(JAVA)뽀개기!!</h2>
-												<p>￦20,000</p>
-												<p>부천</p>												
+												<h2>현업 개발자에게서 듣는 자바(JAVA)뽀개기!!</h2>
+													<p>￦20,000</p>
+													<p>부천</p>	
+													<p class="profile"><img src="/project/resources/image/mentor.jpg" alt="" /></p>												
+											<div id = "notice_review_star" class ="notice_review_star">
+												<a>★${dto.notice_review_star }(${reviewCount })</a>
+											</div>											
 											</header>
-
 										</div>
 									</section>
 
@@ -149,8 +151,12 @@
 											<header>
 												<h2>[원데이:도자기] 도란도란 물레 체험</h2>
 												<p>￦20,000</p>
+												<p>부천</p>	
+												<p class="profile"><img src="/project/resources/image/mentor.jpg" alt="" /></p>													
+											<div id = "notice_review_star" class ="notice_review_star">
+												<a>★${dto.notice_review_star }(${reviewCount })</a>
+											</div>											
 											</header>
-											<p></p>
 										</div>
 									</section>
 
@@ -163,8 +169,12 @@
 										<header>
 											<h2>[원데이/온라인] 2시간 동안 타로를 배워 점을 칠 수 있다구요?</h2>
 											<p>￦25,000</p>
+											<p>부천</p>	
+											<p class="profile"><img src="/project/resources/image/mentor.jpg" alt="" /></p>	
+										<div id = "notice_review_star" class ="notice_review_star">
+											<a>★${dto.notice_review_star }(${reviewCount })</a>
+										</div>											
 										</header>
-										<p></p>
 									</div>
 								</section>
 
@@ -177,8 +187,12 @@
 									<header>
 										<h2>[미디클래스] 노트북과 핸드폰만으로 음악 유튜브 해보자!</h2>
 										<p>￦30,000</p>
+										<p>수원</p>	
+										<p class="profile"><img src="/project/resources/image/mentor.jpg" alt="" /></p>	
+									<div id = "notice_review_star" class ="notice_review_star">
+										<a>★${dto.notice_review_star }(${reviewCount })</a>
+									</div>											
 									</header>
-									<p></p>
 								</div>
 							</section>
 
@@ -191,8 +205,12 @@
 										<header>
 											<h2>[1:1 수업] 7년차 롱보더에게 배우는 롱보드 4회만에 트릭부터 댄싱까지!</h2>
 											<p>￦60,000</p>
+											<p>부산</p>	
+											<p class="profile"><img src="/project/resources/image/mentor.jpg" alt="" /></p>
+										<div id = "notice_review_star" class ="notice_review_star">
+											<a>★${dto.notice_review_star }(${reviewCount })</a>
+										</div>											
 										</header>
-										<p></p>
 									</div>
 								</section>
 
@@ -203,10 +221,14 @@
 								<a href="#" class="image featured"><img src="/project/resources/thumbnail/pic07.jpg" alt="" /></a>
 								<div class="inner">
 									<header>
-										<h2>혼자서도할수있어요 셀프네일도 샵에서한것처럼!! 기초부터 탄탄하게</h2>
+										<h2>혼자서도 할 수 있어요 셀프네일도 샵에서한것처럼!! 기초부터 탄탄하게</h2>
 										<p>￦25,000</p>
+										<p>구로</p>	
+										<p class="profile"><img src="/project/resources/image/mentor.jpg" alt="" /></p>
+									<div id = "notice_review_star" class ="notice_review_star">
+										<a>★${dto.notice_review_star }(${reviewCount })</a>
+									</div>											
 									</header>
-									<p></p>
 								</div>
 							</section>
 
@@ -219,8 +241,12 @@
 									<header>
 										<h2>대세 판단과 주식 잘 사고 파는 법</h2>
 										<p>￦30,000</p>
+										<p>노원</p>	
+										<p class="profile"><img src="/project/resources/image/mentor.jpg" alt="" /></p>
+									<div id = "notice_review_star" class ="notice_review_star">
+										<a>★${dto.notice_review_star }(${reviewCount })</a>
+									</div>											
 									</header>
-									<p></p>
 								</div>
 							</section>
 
@@ -233,18 +259,22 @@
 									<header>
 										<h2>[원데이/케잌만들기] 고급진 케잌 만들기 도전!!</h2>
 										<p>￦30,000</p>
+										<p>덕소</p>
+										<p class="profile"><img src="/project/resources/image/mentor.jpg" alt="" /></p>
+									<div id = "notice_review_star" class ="notice_review_star">
+										<a>★${dto.notice_review_star }(${reviewCount })</a>
+									</div>											
 									</header>
-									<p></p>
 								</div>
 							</section>
 
-						</div>
-						
-						</div>
+						</div>						
 					</div>
 				</div>
-
 			</div>
+		</div>
+		
+		
 
 		<!-- Scripts -->
 
