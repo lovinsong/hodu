@@ -192,12 +192,12 @@
    		
    		function popUp() {
    			
-   			var popupX = (document.body.offsetWidth / 2) - (800 / 2);
-   			var popupY= (document.body.offsetHeight / 2) - (500 / 2);
+   			var popupX = (document.body.offsetWidth / 2) - (450 / 2);
+   			var popupY= (document.body.offsetHeight / 2) - (650 / 2);
 
    			var url = "./testDatepicker";
    			var name = "hi";
-   			window.open(url,name,'status=no, height=500, width=800, left='+ popupX + ', top='+ popupY);
+   			window.open(url,name,'status=no, height=650, width=450, left='+ popupX + ', top='+ popupY);
    		}
    		
    		//다음 우편번호 API
