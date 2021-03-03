@@ -45,6 +45,11 @@ public class HoduController {
 	public void notice_reg() {
 	}
 
+
+	//날짜 선택 페이지로 이동하기
+	@GetMapping("board/notice/testDatepicker")
+    public void testDatepicker() {
+    }
 	
 	
 	//글 작성하기
