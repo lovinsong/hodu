@@ -426,4 +426,10 @@ public class MemberController {
 		session.setAttribute("member", memberdto);
 		return "redirect:/hodu/mypage/mypage";
 	}
+	
+	// 회원가입 약관
+	@GetMapping(value = "/hodu/account/joinform")
+	public void joinForm() {
+		
+	}
 }
