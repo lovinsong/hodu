@@ -79,8 +79,8 @@
 	                                <td>
 	                                <input type="button" class="btn" onclick="sample4_execDaumPostcode()" value="주소 찾기"><br><br>
 	                                <label>우편번호 : &emsp;</label><input type="text" id="postcode" placeholder="우편번호" name="member_postcode" readonly><br>
-						            <label>주소1 : &emsp;</label><input type="text" id="roadAddress" placeholder="도로명주소" name="member_address" readonly><br>
-						            <label>주소2 : &emsp;</label><input type="text" id="detailAddress" placeholder="상세주소" name="member_detailaddress"><br>               
+						            <label>주소 : &emsp;</label><input type="text" id="roadAddress" placeholder="도로명주소" name="member_address" readonly><br>
+						            <label>상세 입력하기 : &emsp;</label><input type="text" id="detailAddress" placeholder="상세주소" name="member_detailaddress"><br>               
 	                                
 	                                <span id="msgTitle"></span></td>	                            
 	                            </tr>     	                                           	                            
