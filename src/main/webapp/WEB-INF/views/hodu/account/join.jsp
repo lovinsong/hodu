@@ -7,9 +7,8 @@
 <title>회원 등록 페이지</title>
 <script
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script 
-	src="https://code.jquery.com/jquery-3.4.1.js" 
-	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" 
+<script src="https://code.jquery.com/jquery-3.4.1.js"
+	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 	crossorigin="anonymous">
 </script>
 
@@ -48,7 +47,7 @@ input {
 	outline: none;
 }
 
-#signup, #contract {
+#signup, #contract, #gotojoinform {
 	text-align: center;
 	margin: 5px;
 }
@@ -149,90 +148,104 @@ input[type=button]:hover, input[type=reset]:hover {
 	color: red;
 }
 
-.id_input_re_1{
-	color:green;
-	display:none;
+.id_input_re_1 {
+	color: green;
+	display: none;
 }
 
-.id_input_re_2{
-	color:red;
-	display:none;
-}
-.id_input_re_3{
-	color:red;
-	display:none;
+.id_input_re_2 {
+	color: red;
+	display: none;
 }
 
-.nick_input_re_1{
-	color:green;
-	display:none;
-}
-.nick_input_re_2{
-	color:red;
-	display:none;
+.id_input_re_3 {
+	color: red;
+	display: none;
 }
 
-.phone_input_re_1{
-	color:green;
-	display:none;
+.nick_input_re_1 {
+	color: green;
+	display: none;
 }
-.phone_input_re_2{
-	color:red;
-	display:none;
+
+.nick_input_re_2 {
+	color: red;
+	display: none;
 }
-.mail_input_re_1{
-	color:green;
-	display:none;
+
+.phone_input_re_1 {
+	color: green;
+	display: none;
 }
-.mail_input_re_2{
-	color:red;
-	display:none;
+
+.phone_input_re_2 {
+	color: red;
+	display: none;
+}
+
+.mail_input_re_1 {
+	color: green;
+	display: none;
+}
+
+.mail_input_re_2 {
+	color: red;
+	display: none;
 }
 </style>
 <body>
 	<form action="join" method="POST" id="signform">
 		<div id="wrapper">
 			<div class="title">회원 가입 정보 입력</div>
-			
-			
-			<label>아이디 : </label><input class="id_input" type="text" name="member_id" id="member_id" maxlength="11">
-			<span class="id_input_re_1">사용 가능한 아이디입니다.</span>
-			<span class="id_input_re_2">아이디가 이미 존재합니다.</span>
-			<span class="id_input_re_3">(영문,숫자 5~11글자로만 가능)</span>
-			<div class="a"></div><!-- 일단 한칸 띄어주는 용도(아무런 기능 없음) -->
-			
-			
-			<label>패스워드 : </label><input type="password" name="member_pw" id="member_pw" maxlength="11"><br>
+
+
+			<label>아이디 : </label><input class="id_input" type="text"
+				name="member_id" id="member_id" maxlength="11"> <span
+				class="id_input_re_1">사용 가능한 아이디입니다.</span> <span
+				class="id_input_re_2">아이디가 이미 존재합니다.</span> <span
+				class="id_input_re_3">(영문,숫자 5~11글자로만 가능)</span>
+			<div class="a"></div>
+			<!-- 일단 한칸 띄어주는 용도(아무런 기능 없음) -->
+
+
+			<label>패스워드 : </label><input type="password" name="member_pw"
+				id="member_pw" maxlength="11"><br>
 			<div class="member_pw regex"></div>
 
-			<label>패스워드확인 : </label><input type="password" id="repw" maxlength="11"><br>
+			<label>패스워드확인 : </label><input type="password" id="repw"
+				maxlength="11"><br>
 			<div class="repw regex"></div>
 
-			<label>이름: </label><input type="text" name="member_name" id="member_name"><br>
+			<label>이름: </label><input type="text" name="member_name"
+				id="member_name"><br>
 			<div class="member_name regex"></div>
 
-			<label>닉네임: </label><input class="nick_input" type="text" name="member_nickname" id="member_nickname">
-			<span class="nick_input_re_1">사용 가능한 닉네임입니다.</span>
-			<span class="nick_input_re_2">닉네임이 이미 존재합니다.</span>
+			<label>닉네임: </label><input class="nick_input" type="text"
+				name="member_nickname" id="member_nickname"> <span
+				class="nick_input_re_1">사용 가능한 닉네임입니다.</span> <span
+				class="nick_input_re_2">닉네임이 이미 존재합니다.</span>
 			<div class="member_nickname regex"></div>
-			
 
-			<label>전화번호 : </label><input class="phone_input" type="text" name="member_phone"
-				id="member_phone" placeholder="- 과 공백 없이 입력" maxlength="11"><br>
+
+			<label>전화번호 : </label><input class="phone_input" type="text"
+				name="member_phone" id="member_phone" placeholder="- 과 공백 없이 입력"
+				maxlength="11"><br>
 			<div class="member_phone regex"></div>
-			<span class="phone_input_re_1">가입되지 않은 번호입니다.(사용 가능)</span>
-			<span class="phone_input_re_2">이미 가입된 번호입니다.</span>
+			<span class="phone_input_re_1">가입되지 않은 번호입니다.(사용 가능)</span> <span
+				class="phone_input_re_2">이미 가입된 번호입니다.</span>
 
 		
 			<div class="mail_warp">
 				<div class="mail_name">이메일</div>
 				<div class="mail_input_box">
-					<input class="mail_input" name="member_email" id="member_email" readonly="readonly">
+					<input class="mail_input" name="member_email" id="member_email"
+						readonly="readonly">
 					<div class="member_email regex"></div>
 				</div>
 				<div class="mail_check_wrap">
 					<div class="mail_check_input_box" id="mail_check_input_box_false">
-						<input class="mail_check_input" id="confirmnum" disabled="disabled">
+						<input class="mail_check_input" id="confirmnum"
+							disabled="disabled">
 					</div>
 					<div class="mail_check_button">
 						<span>인증번호 전송</span>
@@ -242,52 +255,50 @@ input[type=button]:hover, input[type=reset]:hover {
 				</div>
 			</div>
 
-			
 
-			<label>우편번호 :</label><input type="text" id="postcode" placeholder="우편번호" name="member_postcode" readonly>
-			<input type="button" onclick="sample4_execDaumPostcode()" value="주소 찾기"><br>
-			<label>주소1 : </label><input type="text" id="roadAddress" placeholder="도로명주소" name="member_address" readonly><br>
-			<label>주소2 : </label><input type="text" id="detailAddress" placeholder="상세주소" name="member_detailaddress"><br>
+
+			<label>우편번호 :</label><input type="text" id="postcode"
+				placeholder="우편번호" name="member_postcode" readonly> <input
+				type="button" onclick="sample4_execDaumPostcode()" value="주소 찾기"><br>
+			<label>주소1 : </label><input type="text" id="roadAddress"
+				placeholder="도로명주소" name="member_address" readonly><br>
+			<label>주소2 : </label><input type="text" id="detailAddress"
+				placeholder="상세주소" name="member_detailaddress"><br> 
 			
-			<label>약관동의</label>
-			<textarea rows="1" cols="35" readonly>
-			가. 수집하는 개인정보의 항목첫째, 회사는 회원가 입, 원활한 고객상담, 각종 서비스의 제공을 위해 최초 회원가입 당시 아래와 같은 최소한의 개인정보를 필수항목으로 수집하고 있습니다.
-			회원가입
-			- 이름, 생년월일, 성별, 아이디, 비밀번호, 별명, 연락처(메일주소, 휴대폰 번호 중 선택), 가입인증정보
-			만14세 미만 아동 회원가입
-			- 이름, 생년월일, 성별, 법정대리인 정보, 아이디, 비밀번호, 연락처 (메일주소, 휴대폰 번호 중 선택), 가입인증정보
-			단체아이디 회원가입
-			- 단체아이디, 회사명, 대표자명, 대표 전화번호, 대표 이메일 주소, 단체주소, 관리자 아이디, 관리자 연락처, 관리자 부서/직위
-			- 선택항목 : 대표 홈페이지, 대표 팩스번호
-			둘째, 서비스 이용과정이나 사업처리 과정에서 아래와 같은 정보들이 자동으로 생성되어 수집될 수 있습니다.
-			- IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
-			셋째, 네이버 아이디를 이용한 부가 서비스 및 맞춤식 서비스 이용 또는 이벤트 응모 과정에서 해당 서비스의 이용자에 한해서만 개인정보 추가 수집이 발생할 수 있으며, 이러한 경우 별도의 동의를 받습니다.
-			넷째, 성인컨텐츠, 유료/게임 등 일부 서비스 이용시 관련 법률 준수를 위해 본인인증이 필요한 경우, 아래와 같은 정보들이 수집될 수 있습니다.
-			- 이름, 생년월일, 성별, 중복가입확인정보(DI), 암호화된 동일인 식별정보(CI), 휴대폰 번호(선택), 아이핀 번호(아이핀 이용시), 내/외국인 정보
-			다섯째, 유료 서비스 이용 과정에서 아래와 같은 결제 정보들이 수집될 수 있습니다.
-			- 신용카드 결제시 : 카드사명, 카드번호 등
-			- 휴대전화 결제시 : 이동전화번호, 통신사, 결제승인번호 등
-			- 계좌이체시 : 은행명, 계좌번호 등
-			- 상품권 이용시 : 상품권 번호
-			나. 개인정보 수집방법회사는 다음과 같은 방법으로 개인정보를 수집합니다.
-			- 홈페이지, 서면양식, 팩스, 전화, 상담 게시판, 이메일, 이벤트 응모, 배송요청
-			- 협력회사로부터의 제공
-			- 생성정보 수집 툴을 통한 수집
-			</textarea><br>
-			
+		
 			<div id="contract">
 				<input type="checkbox" name="req"> 개인정보 수집 및 이용에 동의합니다.
 			</div>
 
-			
+			<!-- 약관 보러가기 -->
+			<input type="button" id="gotojoinform" value="약관 보기" />
 
-			
+
 			<div id="signup">
 				<input type="button" name="signup" value="가입하기" id="signupbtn">
-				<input type="button" value="메인 페이지" onclick="location.href='mainpage'"><!-- 메인페이지로 연결!!! -->
+				<input type="button" value="메인 페이지"
+					onclick="location.href='mainpage'">
+				<!-- 메인페이지로 연결!!! -->
 			</div>
 		</div>
 	</form>
+
+	<script>
+	// 약관 보러 가기에 관한 스크립트
+	
+	var popupX = (window.screen.width / 2) - (500 / 2);
+	//&nbsp;만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
+
+	var popupY = (window.screen.height / 2) - (600 / 2);
+	//&nbsp;만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
+    
+	// 회원약관 바로가기 바로가기
+    
+            $("#gotojoinform").click(function(){
+            window.open("./joinform", "회원 약관", 'status=no, width=500, height=600, left='+ popupX + ', top='+ popupY);
+        });
+	</script>
+
 	<script>
 		var existId = "";
 		var samePw = ""; 

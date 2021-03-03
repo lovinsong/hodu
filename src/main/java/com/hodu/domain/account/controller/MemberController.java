@@ -432,6 +432,7 @@ public class MemberController {
 		return "redirect:/hodu/mypage/mypage";
 	}
 	
+
 	//비밀번호 분실시 비번 변경
 	@GetMapping(value = "/hodu/account/forgetchangepw")
 	public void forgetUpdatePw() throws Exception {
@@ -453,5 +454,11 @@ public class MemberController {
 
 		session.invalidate();
 		return "redirect:/hodu/account/login";
+	}
+
+	// 회원가입 약관
+	@GetMapping(value = "/hodu/account/joinform")
+	public void joinForm() {
+		
 	}
 }
