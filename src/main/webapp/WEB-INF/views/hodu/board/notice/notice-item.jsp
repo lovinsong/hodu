@@ -114,7 +114,7 @@
 										<a href="#" class="image featured"><img src="/project/resources/thumbnail/pic01.jpg" alt="" /></a>
 										<div class="inner">
 											<header>
-												<h2>[당신의 반려견을 모두에게 사랑받는 명견으로!]</h2>
+											    <h2 class="title_line">당신의 사랑스러운 반려견을 모두에게 사랑받는 명견으로!</h2>
 													<p>￦27,000 </p>												
 													<p> 보호자 자택 </p>
 													<p class="profile"><img src="/project/resources/image/mentor.jpg" alt="" /></p>
@@ -132,7 +132,7 @@
 										<a href="#" class="image featured"><img src="/project/resources/thumbnail/pic02.jpeg" alt="" /></a>
 										<div class="inner">
 											<header>
-												<h2>현업 개발자에게서 듣는 자바(JAVA)뽀개기!!</h2>
+												<h2 class="title_line">자바 (Java) 입문자를 프로그래밍 교육! 고수의 코딩! 수강생 맞춤 강의!</h2>
 													<p>￦20,000</p>
 													<p>부천</p>	
 													<p class="profile"><img src="/project/resources/image/mentor.jpg" alt="" /></p>												
@@ -150,7 +150,7 @@
 										<a href="#" class="image featured"><img src="/project/resources/thumbnail/pic03.jpg" alt="" /></a>
 										<div class="inner">
 											<header>
-												<h2>[원데이:도자기] 도란도란 물레 체험</h2>
+												<h2 class="title_line">[원데이:도자기] 도란도란 물레 체험</h2>
 												<p>￦20,000</p>
 												<p>부천</p>	
 												<p class="profile"><img src="/project/resources/image/mentor.jpg" alt="" /></p>													
@@ -168,7 +168,7 @@
 									<a href="#" class="image featured"><img src="/project/resources/thumbnail/pic04.jpg" alt="" /></a>
 									<div class="inner">
 										<header>
-											<h2>[원데이/온라인] 2시간 동안 타로를 배워 점을 칠 수 있다구요?</h2>
+											<h2 class="title_line">[원데이/온라인] 2시간 동안 타로를 배워 점을 칠 수 있다구요?</h2>
 											<p>￦25,000</p>
 											<p>부천</p>	
 											<p class="profile"><img src="/project/resources/image/mentor.jpg" alt="" /></p>	
@@ -186,7 +186,7 @@
 								<a href="#" class="image featured"><img src="/project/resources/thumbnail/pic05.jpg" alt="" /></a>
 								<div class="inner">
 									<header>
-										<h2>[미디클래스] 노트북과 핸드폰만으로 음악 유튜브 해보자!</h2>
+										<h2 class="title_line">[미디클래스] 노트북과 핸드폰만으로 음악 유튜브 해보자!</h2>
 										<p>￦30,000</p>
 										<p>수원</p>	
 										<p class="profile"><img src="/project/resources/image/mentor.jpg" alt="" /></p>	
@@ -204,7 +204,7 @@
 									<a href="#" class="image featured"><img src="/project/resources/thumbnail/pic06.jpg" alt="" /></a>
 									<div class="inner">
 										<header>
-											<h2>[1:1 수업] 7년차 롱보더에게 배우는 롱보드 4회만에 트릭부터 댄싱까지!</h2>
+											<h2 class="title_line">[1:1 수업] 7년차 롱보더에게 배우는 롱보드 4회만에 트릭부터 댄싱까지!</h2>
 											<p>￦60,000</p>
 											<p>부산</p>	
 											<p class="profile"><img src="/project/resources/image/mentor.jpg" alt="" /></p>
@@ -222,7 +222,7 @@
 								<a href="#" class="image featured"><img src="/project/resources/thumbnail/pic07.jpg" alt="" /></a>
 								<div class="inner">
 									<header>
-										<h2>혼자서도 할 수 있어요 셀프네일도 샵에서한것처럼!! 기초부터 탄탄하게</h2>
+										<h2 class="title_line">혼자서도 할 수 있어요 셀프네일도 샵에서한것처럼!! 기초부터 탄탄하게</h2>
 										<p>￦25,000</p>
 										<p>구로</p>	
 										<p class="profile"><img src="/project/resources/image/mentor.jpg" alt="" /></p>
@@ -240,7 +240,7 @@
 								<a href="#" class="image featured"><img src="/project/resources/thumbnail/pic08.jpg" alt="" /></a>
 								<div class="inner">
 									<header>
-										<h2>대세 판단과 주식 잘 사고 파는 법</h2>
+										<h2 class="title_line">대세 판단과 주식 잘 사고 파는 법</h2>
 										<p>￦30,000</p>
 										<p>노원</p>	
 										<p class="profile"><img src="/project/resources/image/mentor.jpg" alt="" /></p>
@@ -258,7 +258,7 @@
 								<a href="#" class="image featured"><img src="/project/resources/thumbnail/pic09.jpg" alt="" /></a>
 								<div class="inner">
 									<header>
-										<h2>[원데이/케잌만들기] 고급진 케잌 만들기 도전!!</h2>
+										<h2 class="title_line">[원데이/케잌만들기] 고급진 케잌 만들기 도전!!</h2>
 										<p>￦30,000</p>
 										<p>덕소</p>
 										<p class="profile"><img src="/project/resources/image/mentor.jpg" alt="" /></p>
