@@ -4,7 +4,6 @@ import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -21,7 +19,6 @@ import com.hodu.domain.account.service.MemberService;
 import com.hodu.domain.model.MemberDTO;
 import com.hodu.domain.util.UserSha256;
 
-import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
 @Controller
@@ -77,7 +74,6 @@ public class MemberController {
 		// 비밀번호 암호화 (sha256 이용)
 		String encryPassword = UserSha256.encrypt(member.getMember_pw());
 		member.setMember_pw(encryPassword);
-		
 		MemberDTO memberdto = service.memberLogin(member); // 제출한아이디와 일치하는 아이디 있는지
 
 		if (memberdto == null) { // 일치하지 않는 아이디, 비밀번호 입력 경우

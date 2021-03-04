@@ -36,18 +36,18 @@
 			</button>
 
 			<c:choose>
-				<c:when test="${!empty userid}">
+				<c:when test="${member != null}">
 					<ul id="nav-top" class="nav navbar-nav navbar-right">
 						<li><input type="button" value="클래스찾기"></li>
 						<li><input type="button" value="클래스찾기"></li>
 						<li><input type="button" value="클래스찾기"></li>
-						<li><input type="button" value="클래스찾기"></li>
+						<li><input type="button" onclick = "location.href='../account/logout'" value="로그아웃"></li>
 					</ul>
 				</c:when>
 			</c:choose>
 
 			<c:choose>
-				<c:when test="${empty userid}">
+				<c:when test="${member == nulld}">
 					<div class="row">
 						<div class="col-3">
 							<input type="button" value="클래스찾기">
@@ -56,10 +56,10 @@
 							<input type="button" value="멘토가입">
 						</div>
 						<div class="col-3">
-							<input type="button" value="회원가입">
+							<input type="button" onclick="location.href='../account/join'" value="회원가입">
 						</div>
 						<div class="col-3">
-							<input type="button" onclick="login()" id="loginbtn" value="로그인">
+							<input type="button" onclick="location.href='../account/login'" id="loginbtn" value="로그인">
 						</div>
 					</div>
 				</c:when>
@@ -67,27 +67,13 @@
 		</div>
 	</nav>
 	<hr>
-	<!-- Optional JavaScript; choose one of the two! -->
 
-	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
 		crossorigin="anonymous"></script>
 
-	<!-- Option 2: Separate Popper and Bootstrap JS -->
-	<!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
-    -->
 </body>
 <script>
-	function login() {
-		alert("로그인 누름");
-	}
-
-	$("#loginbtn").on("click", function() {
-		login();
-	})
 </script>
 </html>
