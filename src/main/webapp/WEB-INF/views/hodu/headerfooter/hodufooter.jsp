@@ -72,7 +72,9 @@ hr {
 }
 </style>
 <body>
-	<div class="container-fluid mt-8">
+	<hr>
+	<br>
+	<div class="container">
 		<div class="bg-white mx-8">
 			<div class="row mb-4">
 				<div class="col-md-4 col-sm-4 col-xs-4">
@@ -139,7 +141,7 @@ hr {
 				</div>
 			</div>
 		</div>
-	</div>
+		</div>
 </body>
 <script>
 	jQuery(document).ready(function($) {
