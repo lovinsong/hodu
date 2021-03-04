@@ -1769,21 +1769,23 @@ input, select, textarea {
 				margin-left: 0;
 				padding-left: 0;
 			}
+			
+
 
 /* Box */
-
-
-	
 	.box {
+		margin-left: 1rem;
 		background: #fff;
 		border-radius: 6px;
 		box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.05);
 		padding: 2em;	
-		height: 400px;	
-		background-color: #f7f7f7;	
+		height: 100%;	
+		background-color: #f7f7f7;
+		border-style:thin;
+		border-color: #f7f7f7;	
 	}
 	
-	.box:hover {
+	.box.feature img:hover {
 		opacity:0.5;
 	}
 
@@ -1792,42 +1794,51 @@ input, select, textarea {
 		}
 
 			.box.feature .inner {			
-				padding: 1em 2em 3em 2em;
+				padding: 1.5em 1.5em 0.1em 1.3em;
 			}
 
 			.box.feature h2 {
-				font-size: 1em;
+				font-size: 1.05em;
 				line-height: 130%
 			}
 
-			.box.feature p {
-				padding: 0;
-				margin: 0;
+			.box.feature p {				
+				padding: 0;				
 				display: inline;
 				line-height: 150%;	
+				font-size: 14px;
 			}
+
+/* 아이템 제목 */
+.title_line { 
+	width:100%; 
+	overflow:hidden; 
+	text-overflow:ellipsis; 
+	white-space:nowrap; 
+}
+
+			
+/* 가격 */
+.price_line {
+	background-color:#f7f2e9;
+}
+			
 			
 			.box.feature .profile {
 			    float: right;
 			    margin-top:7px;
 			    margin-right:-3px;
+			    text-align:center; 
+			    font-size:9px;
+			    font-weight: bold;
 			}
 			
 			.box.feature .profile img{
-/* 				box-sizing: border-box;
-			    width: 80px;
-			    float: right;
-			    margin-left: 240px;
-			    position: absolute;
-			    height: 100px;
-			    margin-top: -27px; */
 			    border-radius: 10px;
-			    height: 50px;
-			    width: 50px;
+			    height: 55px;
+			    width: 55px;
 			    box-sizing: border-box;
-			    position: relative;
-			    margin-top: 5px;
-			    margin-right: 5px;			 
+				margin: 6px 6px 4px 6px;
 			}
 
 			.box.feature .image {
@@ -1841,6 +1852,10 @@ input, select, textarea {
 					border-bottom-right-radius: 0;
 				}
 
+/* 검색 조건 */
+	.guideBox dl {
+		cursor: pointer;		
+	}
 
 
 /* Icons */
@@ -1963,15 +1978,7 @@ input, select, textarea {
 		position: relative;
 	}
 	
-/* 아이템 제목 */
-.title_line { 
-	width:100%; 
-	overflow:hidden; 
-	text-overflow:ellipsis; 
-	white-space:nowrap; 
-}
-
-
+	
 /* Logo */
 
 	#logo {
@@ -2069,19 +2076,19 @@ input, select, textarea {
 					padding-bottom:0.5em	
 				} */
 
+	 /* Pagination */
+		#page {
+			text-align: center;
+		}
 
 
 	/* 아이콘 */
 	.material-icons {
 	  font-family: 'Material Icons';
-	  font-size: 10px;
 	  margin:0;  
 	  padding:0;
 	  vertical-align:middle;
-
 	}
-
-
 
 
 	.dropotron {
