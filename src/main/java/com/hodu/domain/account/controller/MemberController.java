@@ -432,4 +432,12 @@ public class MemberController {
 	public void joinForm() {
 		
 	}
+	
+	
+	//임시 확인용 헤더
+	@GetMapping(value = "/hodu/headerfooter/hoduheader")
+	public void testHeader() {
+		
+	}
+	
 }
