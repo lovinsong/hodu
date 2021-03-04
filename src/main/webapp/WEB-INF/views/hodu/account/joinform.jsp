@@ -175,10 +175,8 @@ ul.join_box {
 			        if( checkBoxLength == checkedLength ) {
 			            allChkBox.prop("checked", true);
 			            //전체체크박스수 == 체크된 체크박스 수 같다면 모두체크
-			 
 			        } else {
 			            allChkBox.prop("checked", false);
-			            
 			        }
 			    }else {
 			        allChkBox.prop("checked", false);

@@ -118,11 +118,13 @@
 }
 </style>
 <body>
+<!-- footer 파일 포함 코드 -->
+<%@ include file="../headerfooter/hoduheader.jsp" %>
 	<div class="wrapper">
 		<div class="wrap">
-			<div class="top_gnb_area">
+			<!-- <div class="top_gnb_area">
 				<h1>gnb area</h1>
-			</div>
+			</div> -->
 			<div class="top_area">
 				<div class="logo_area">
 					<h1>logo area</h1>
@@ -163,6 +165,10 @@
 			</div>
 		</div>
 	</div>
+	
+	
+<!-- footer 파일 포함 코드 -->
+<%@ include file="../headerfooter/hodufooter.jsp" %>
 </body>
 </html>
 
