@@ -163,6 +163,11 @@
 			</div>
 		</div>
 	</div>
+	
+	
+<!-- footer 파일 포함 코드 -->
+<div class="clearfix"></div>
+<%@ include file="../headerfooter/hodufooter.jsp" %>
 </body>
 </html>
 

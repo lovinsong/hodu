@@ -7,7 +7,10 @@
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<script src="https://code.jquery.com/jquery-3.4.1.js"
+	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+	crossorigin="anonymous">
+</script>
 <!-- Bootstrap CSS -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
@@ -30,14 +33,32 @@
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
+			
+			<input type="text" id="userid">
+			<c:choose>
+			<c:when test="${!empty userid}">
+				<ul id="nav-top" class="nav navbar-nav navbar-right">
+			      	<li><input type="button" value="클래스찾기"></li>
+			      	<li><input type="button" value="클래스찾기"></li>
+			      	<li><input type="button" value="클래스찾기"></li>
+			      	<li><input type="button" value="클래스찾기"></li>
+		      	</ul>
+	      	</c:when>
+			</c:choose>
+			
+			<c:choose>
+			<c:when test="${empty userid}">
 				<div class="row">
-					<div class="col-4">찾기</div>
-					<div class="col-4">가입</div>
-					<div class="col-4">로그인</div>
+					<div class="col-3"><input type="button" value="클래스찾기"></div>
+					<div class="col-3"><input type="button" value="멘토가입"></div>
+					<div class="col-3"><input type="button" value="회원가입"></div>
+					<div class="col-3"><input type="button" onclick="login()" id="loginbtn" value="로그인"></div>
 				</div>
+			</c:when>
+			</c:choose>
 		</div>
 	</nav>
-
+	<hr>
 	<!-- Optional JavaScript; choose one of the two! -->
 
 	<!-- Option 1: Bootstrap Bundle with Popper -->
@@ -52,4 +73,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
     -->
 </body>
+<script>
+	function login(){
+		var userid = "가입함";
+		sessionStorage.setItem("userid", userid ); // 저장
+		document.getElementById('userid').value = userid;
+	}
+	
+	$("#loginbtn").on("click", function() {
+		login();
+	})
+
+</script>
 </html>
