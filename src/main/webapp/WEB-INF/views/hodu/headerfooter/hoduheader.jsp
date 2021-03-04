@@ -31,9 +31,11 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 				<div class="row">
-					<div class="col-4">찾기</div>
-					<div class="col-4">가입</div>
-					<div class="col-4">로그인</div>
+						<div class="col-3">가입</div>
+						<div class="col-3">로그인</div>
+						<div class="col-3">로그인</div>
+						<div class="col-3">로그인</div>
+					</div>
 				</div>
 		</div>
 	</nav>
