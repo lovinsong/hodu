@@ -267,10 +267,8 @@ input[type=button]:hover, input[type=reset]:hover {
 		
 			<div id="contract">
 				<!-- 약관 보러가기 -->
-				<input type="button" id="gotojoinform" value="약관 보기" />
-				<input type="button" id="yes" value="동의 확인" /> 
-				<input type="hidden" id="pInput" class="pInput"><br>
-				<input type="checkbox" class="req" name="req" id="req" disabled="disabled"> 개인정보 수집 및 이용에 동의합니다.<br>
+				<input type="button" id="gotojoinform" value="약관 보기" /><br>
+				<input type="checkbox" class="req" name="req" id="req" disabled="disabled"> 개인정보 수집 및 이용에 동의합니다.
 				
 			</div>
 
@@ -279,8 +277,7 @@ input[type=button]:hover, input[type=reset]:hover {
 
 			<div id="signup">
 				<input type="button" name="signup" value="가입하기" id="signupbtn">
-				<input type="button" value="메인 페이지"
-					onclick="location.href='mainpage'">
+				<input type="button" value="메인 페이지" onclick="location.href='mainpage'">
 				<!-- 메인페이지로 연결!!! -->
 			</div>
 		</div>
@@ -573,17 +570,7 @@ input[type=button]:hover, input[type=reset]:hover {
 			})
 			
 			
-			$("#yes").on("click", function() {
-				var agree = $("#pInput").val();
-				
-				if(agree !=""){
-					$("input:checkbox[id='req']").prop("checked", true);
-					alert("약관 동의가 체크되셨습니다!");
-				}else{
-					alert("동의를 누르시지 않으셨습니다.");
-				}
-			})
-			
+		
 			
 			
 			//회원가입 버튼 눌렀을 때, 빈칸 있으면 다시 유효성 검사진행    
