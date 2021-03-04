@@ -474,5 +474,10 @@ public class MemberController {
 	public void testHeader() {
 		
 	}
+	//임시 확인용 푸터
+	@GetMapping(value = "/hodu/headerfooter/hodufooter")
+	public void testFooter() {
+		
+	}
 	
 }
