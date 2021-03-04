@@ -94,17 +94,9 @@
 										</ul>
 									</li>
 									<li>
-										<span class="material-icons" style="hover:none;">&nbsp;manage_search&nbsp;</span>																		
-										<ul>																													 
-											<li>
-											<div class="guideBox">					
-											  <p>
-											
-											<a href="#"><span class="textbtn" id="textbtn">지역/시간 별 클래스 검색</span></a></p>
-											
-											</div>
-											</li>											
-										</ul>
+									<div class="guideBox"><p>
+										<a class="category" id="category-icon"><span class="material-icons" id="textbtn">search</span></a>																												
+									</p></div>											
 									</li>
 								</ul>
 							</nav>
@@ -113,7 +105,7 @@
 				
 
 											<div class="guideBox">					
-											  <p><span class="textbtn" style="cursor:pointer;">지역/시간 별 클래스 검색</span></p>
+<!-- 											  <p><span class="textbtn" style="cursor:pointer;">지역/시간 별 클래스 검색</span></p> -->
 												<div style="display:none" id="hidden_area">					 
 												    <div>
 												      <dl>
@@ -370,7 +362,6 @@
 		
 
 		<!-- Scripts -->
-
 			<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.min.js"></script>
 			<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.dropotron.min.js"></script>
 			<script src="${pageContext.request.contextPath}/resources/assets/js/browser.min.js"></script>
@@ -381,17 +372,26 @@
 			<script>
 			
 			$(document).on("click","#textbtn",function(){
+				
+				
 			      if($("#hidden_area").css("display")=="none"){
 			        $("#hidden_area").show();
-/* 			        $(this).children("span").text("[닫기]"); */
+			        $("#textbtn").text("  close  ");			       
+			     	$("#category-icon").css('background-color','#e6e6e6');
+			        
+/*  			     $(this).children("span").text("[닫기]");  */
+
 			      }else{
 			        $("#hidden_area").hide();
-/* 			        $(this).children("span").text("[열기]"); */
+			        $("#textbtn").text("  search  ");
+			        $("#category-icon").css('background-color', 'white');
+			        
+/* 			        $(this).children("span").text("[열기]");  */
 			      }
 			});
-			
+
 			</script>
-			
+
 
 	</body>
 </html>

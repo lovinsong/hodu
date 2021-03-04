@@ -1853,7 +1853,7 @@ input, select, textarea {
 				}
 
 /* 검색 조건 */
-	.guideBox dl {
+	.guideBox {
 		cursor: pointer;		
 	}
 
@@ -2045,26 +2045,33 @@ input, select, textarea {
 				padding-bottom:0.2em;
 				margin-bottom:0.2em;
 				}
-				
-/* 				#nav ul li span .material-icons a{
-				font-size:inherit;
-				padding-top:0.2em;
-				padding-bottom:0.2em;
-				margin-bottom:3em;
-				} */
 
 				#nav ul li > ul {
 					display: none;
 					border-radius: inherit;
 				}
 
-				#nav ul li:hover a, #nav ul li:hover span {
-					background: #e6e6e6;				
+				#nav ul li:hover a {
+					background: #e6e6e6;
+					margin-top:0;	
 				}
 
-				#nav ul li.active a, #nav ul li.active span {
-					background: #f7f7f7;			
+/* 				#nav ul li:hover span {
+					background: #e6e6e6;	
+					padding-top:-0.7em;
+					line-height:0.5em;
+				} */
+
+				#nav ul li.active a {
+					background: #f7f7f7;
+					margin-top:0;			
 				}
+				
+/* 				#nav ul li.active span {
+					background: #f7f7f7;	
+					padding-top:-0.7em;
+					line-height:0.5em;
+				} */
 
 /* 				#nav ul li.current a {
 					border: solid 1px #e6e6e6;
