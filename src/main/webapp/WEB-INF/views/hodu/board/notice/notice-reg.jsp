@@ -60,14 +60,26 @@
 								</tr>
 								<tr>
 	                               <td class="t-title"><strong>클래스 일정</strong></td>
-	                               <td><button class="btn btn-select" type="button" onclick="popUp();">선택하러 가기</button></td>
-	                            </tr>	                            
+	                               <td><input class="btn" type="button" onclick="popUp();" value="선택하러 가기"></input></td>
+	                            </tr> 
+	                            <tr>
+	                            	<td class="t-title"><strong>선택일정</strong></td>
+	                            	<td><select class="form-select" aria-label="multiple select example">
+	                            	<!-- 만약 들어간 시간정보가 없으면 DB에 추가 안함-->
+	                                  <option selected style="color: lightgrey">- 등록한 일정 보기 -</option>
+	                                  <option id="pick1" value="1">1차</option>
+	                                  <option id="pick2" value="2">2차</option>
+	                                  <option id="pick3" value="3">3차</option>
+	                                  <option id="pick4" value="4">4차</option>
+	                                  <option id="pick5" value="5">5차</option>
+                                    </select></td>
+	                            </tr>                        
 	                            <tr>
 	                                <td class="t-title"><strong>수강 최대 인원</strong></td>	
 	                                <td class="qty mt-5">
 				                        <span class="minus">－</span>
 				                        <input type="number" class="count" name="qty" value="1">
-				                        <span class="plus">＋</span>	                              
+				                        <span class="plus">＋</span>	                          
 	                                </td>
 	                            </tr>    
                                 <tr>
@@ -77,10 +89,11 @@
 	                            <tr>
 	                                <td class="t-title"><strong>수업 예정 장소</strong></td>
 	                                <td>
+	                                <br>
 	                                <input type="button" class="btn" onclick="sample4_execDaumPostcode()" value="주소 찾기"><br><br>
-	                                <label>우편번호 : &emsp;</label><input type="text" id="postcode" placeholder="우편번호" name="member_postcode" readonly><br>
-						            <label>주소 : &emsp;</label><input type="text" id="roadAddress" placeholder="도로명주소" name="member_address" readonly><br>
-						            <label>상세 입력하기 : &emsp;</label><input type="text" id="detailAddress" placeholder="상세주소" name="member_detailaddress"><br>               
+	                                <label>우편번호 : &emsp;</label><input type="text" id="postcode" placeholder="우편번호" name="member_postcode" readonly><br><br>
+						            <label>주소 : &emsp;</label><input type="text" id="roadAddress" placeholder="도로명주소" name="member_address" readonly><br><br>
+						            <label>상세 입력하기 : &emsp;</label><input  id="detailAddress" class="form-control input" style="width:70%;" name="notice_title"><br> <br>              
 	                                
 	                                <span id="msgTitle"></span></td>	                            
 	                            </tr>     	                                           	                            

@@ -26,6 +26,7 @@
 			margin-top: 1rem;
 			height: 2rem;
 			cursor: pointer;
+			text-align: center;
 		}
 		#btn{
 			text-align: center;
@@ -54,8 +55,8 @@
 				<h2> 클래스 일정 선택 </h2>
 			</div>
 			 <div class="row" id="picker1">
-				<input id="date_timepicker_start1" class="date_timepicker_start" type="text"> ~ 
-				<input id="date_timepicker_end1" class="date_timepicker_end" type="text" > 
+				<input id="date_timepicker_start1" class="date_timepicker_start" type="text" placeholder="시작 날짜 및 시간"> ~ 
+				<input id="date_timepicker_end1" class="date_timepicker_end" type="text" placeholder="종료 시간"> 
 			</div>
 			<div class="row" id="picker2"  style='display:none;'>
 				<input id="date_timepicker_start2" class="date_timepicker_start" type="text"> ~ 
@@ -71,13 +72,13 @@
 			</div>
 			<div class="row" id="picker5"  style='display:none;'>
 				<input id="date_timepicker_start5" class="date_timepicker_start" type="text"> ~ 
-				<input id="date_timepicker_end6" class="date_timepicker_end" type="text" > 
+				<input id="date_timepicker_end5" class="date_timepicker_end" type="text" > 
 			</div>
 		</container>
 		<div id="btn" class="row">
 			<button onclick="addPicker();">+ 추가</button>
 			<button onclick="deletePicker();">- 삭제</button>
-			<button style='background-color: black'onclick="">등록</button>
+			<button style='background-color: black'onclick="reg()">등록</button>
 		</div>
 	</body>
 
@@ -216,6 +217,21 @@
 			document.getElementById('date_timepicker_end'+num).value = null;
 		}
 
+	}
+	
+	
+	function reg(){
+		// 반복문으로 timepicker에 데이터가 있는지 확인한 후 있다면 전송
+		for(var i = 1; i <6; i = i+1){
+			if (document.getElementById('date_timepicker_start'+i).value != '') {
+				$(opener.document).find('#pick'+i).text(document.getElementById('date_timepicker_start'+i).value + ' ~ ' + document.getElementById('date_timepicker_end'+i).value);
+			} else {
+				window.close();
+			}
+		}
+		
+		window.close();
+		
 	}
 
 	</script>
