@@ -34,7 +34,6 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			
-			<input type="text" id="userid">
 			<c:choose>
 			<c:when test="${!empty userid}">
 				<ul id="nav-top" class="nav navbar-nav navbar-right">
@@ -75,9 +74,7 @@
 </body>
 <script>
 	function login(){
-		var userid = "가입함";
-		sessionStorage.setItem("userid", userid ); // 저장
-		document.getElementById('userid').value = userid;
+		alert("로그인 누름");
 	}
 	
 	$("#loginbtn").on("click", function() {
