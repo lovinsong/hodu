@@ -73,6 +73,11 @@ public class MemberController {
 	public String loginPOST(HttpServletRequest request, MemberDTO member, RedirectAttributes rttr) throws Exception {
 
 		HttpSession session = request.getSession();
+		
+		// 비밀번호 암호화 (sha256 이용)
+		String encryPassword = UserSha256.encrypt(member.getMember_pw());
+		member.setMember_pw(encryPassword);
+		
 		MemberDTO memberdto = service.memberLogin(member); // 제출한아이디와 일치하는 아이디 있는지
 
 		if (memberdto == null) { // 일치하지 않는 아이디, 비밀번호 입력 경우
@@ -250,37 +255,36 @@ public class MemberController {
 		session.setAttribute("member", memberdto);
 		return "redirect:/hodu/mypage/mypage";
 	}
+	
+	// 패스워드 원래 값과 같나 확인 
+	@PostMapping(value = "/hodu/account/memberPwChk")
+	@ResponseBody
+	public String memberPwChkPOST(String member_pw,String member_id) throws Exception {
+		// 비밀번호 암호화 (sha256 이용)
+		String encryPassword = UserSha256.encrypt(member_pw);
+		String result = service.pwCheck(member_id);
+		//log.info("결과값 = " + result);
+		if (result.equals(encryPassword)) {
+			return "success";
+		} else {
+			return "fail";
+		}
+	}
 
 	// 회원 탈퇴
 	@GetMapping(value = "/hodu/mypage/delete")
 	public String toDeletePage() throws Exception {
 		return "redirect:/hodu/account/delete-member";
 	}
-
 	@GetMapping(value = "/hodu/account/delete-member")
 	public void deletePage() throws Exception {
 
 	}
 
-	// 패스워드 원래 값과 같나 확인 =>deleteㅡmember였는데 삭제?
-	// @PostMapping(value = "/hodu/account/memberPwChk")
-	// @ResponseBody
-	// public String memberPwChkPOST(String member_pw,String member_id) throws
-	// Exception {
-//
-//		String result = service.pwCheck(member_id);
-//		//log.info("결과값 = " + result);
-//		if (result.equals(member_pw)) {
-//			return "success";
-//		} else {
-//			return "fail";
-//		}
-//	}
-
 	// 회원 탈퇴 처리
 	@PostMapping(value = "/hodu/account/delete")
 	public String deleteMember(HttpServletRequest request, String member_id) throws Exception {
-
+		
 		service.deleteMember(member_id);
 
 		HttpSession session = request.getSession();
@@ -339,7 +343,7 @@ public class MemberController {
 
 		session.setAttribute("member", memberdto); // 일치하는 아이디, 비밀번호 경우 (로그인 성공)
 
-		return "redirect:/hodu/account/findokpass";
+		return "redirect:/hodu/account/forgetchangepw";
 
 	}
 
@@ -349,7 +353,7 @@ public class MemberController {
 
 	}
 
-	// 비밀번호 찾으러가기
+	// 비밀번호 찾으러가기 =>삭제?
 	@GetMapping(value = "/hodu/account/findokpass")
 	public void findOkPwGET() {
 
@@ -411,25 +415,56 @@ public class MemberController {
 	public String toupdatePw() throws Exception {
 		return "redirect:/hodu/account/changepw";
 	}
-
 	@GetMapping(value = "/hodu/account/changepw")
 	public void updatePw() throws Exception {
 	}
-
-	// 계정 비밀번호 변경
 	@PostMapping(value = "/hodu/account/updatepw")
 	public String updatePwPOST(HttpServletRequest request, MemberDTO member) throws Exception {
 		HttpSession session = request.getSession();
-		service.updatePw(member);
-
+		
+		// 비밀번호 암호화 (sha256 이용)
+		String encryPassword = UserSha256.encrypt(member.getMember_pw());
+		member.setMember_pw(encryPassword);
+		
+		service.updatePw(member);	
 		MemberDTO memberdto = service.memberInfo(member.getMember_id());
 		session.setAttribute("member", memberdto);
 		return "redirect:/hodu/mypage/mypage";
 	}
 	
+
+	//비밀번호 분실시 비번 변경
+	@GetMapping(value = "/hodu/account/forgetchangepw")
+	public void forgetUpdatePw() throws Exception {
+	}
+	@PostMapping(value = "/hodu/account/forgetchangepw")
+	public void forgetchangePwPOST(HttpServletRequest request, MemberDTO member) throws Exception {
+		HttpSession session = request.getSession();
+		MemberDTO memberdto = service.memberInfo(member.getMember_id());
+		session.setAttribute("member", memberdto);
+	}
+	@PostMapping(value = "/hodu/account/forgetupdatepw")
+	public String forgetUpdatePwPOST(HttpServletRequest request, MemberDTO member) throws Exception {
+		HttpSession session = request.getSession();
+		
+		// 비밀번호 암호화 (sha256 이용)
+		String encryPassword = UserSha256.encrypt(member.getMember_pw());
+		member.setMember_pw(encryPassword);
+		service.updatePw(member);
+
+		session.invalidate();
+		return "redirect:/hodu/account/login";
+	}
+
 	// 회원가입 약관
 	@GetMapping(value = "/hodu/account/joinform")
 	public void joinForm() {
+		
+	}
+	
+	// 회원가입 약관
+	@GetMapping(value = "/hodu/account/contract")
+	public void joinContract() {
 		
 	}
 	
@@ -437,6 +472,11 @@ public class MemberController {
 	//임시 확인용 헤더
 	@GetMapping(value = "/hodu/headerfooter/hoduheader")
 	public void testHeader() {
+		
+	}
+	//임시 확인용 푸터
+	@GetMapping(value = "/hodu/headerfooter/hodufooter")
+	public void testFooter() {
 		
 	}
 	

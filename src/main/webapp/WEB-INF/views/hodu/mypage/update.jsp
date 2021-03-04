@@ -120,13 +120,6 @@ input[type=button]:hover, input[type=reset]:hover {
       <label>아이디 :</label><input class="id_input" name="member_id" id="member_id" value="${member.member_id}" readonly>
       <div class="a"></div><!-- 일단 한칸 띄어주는 용도(아무런 기능 없음)-->
       
-      
-      <!-- <label>패스워드 : </label><input type="password" name="member_pw" id="member_pw" maxlength="11" value="${member.member_pw}" ><br>
-      <div class="member_pw regex"></div>
-      
-      <label>패스워드확인 : </label><input type="password" id="repw" maxlength="11"><br>
-      <div class="repw regex"></div> -->
-
       <label>이름: </label>&nbsp; ${member.member_name}<br>
       <div class="member_name regex"></div>
 
@@ -154,7 +147,6 @@ input[type=button]:hover, input[type=reset]:hover {
    </div>
 </form>
 <script>
-      //var samePw = ""; 
       var existNickname = "";
       
       
@@ -193,7 +185,6 @@ input[type=button]:hover, input[type=reset]:hover {
       $('.nick_input').on("propertychange change keyup paste input",function(){ //
          //console.log("keyup 테스트");
          var member_nickname = $('.nick_input').val(); 
-         //var member_id = $('.id_input').html();
          var member_id = $('.id_input').val(); 
          var data = {member_nickname : member_nickname, member_id : member_id} // '컨트롤에 넘길 데이터 이름' : '데이터(.id_input에 입력되는 값)' 
          $.ajax({ 
@@ -222,60 +213,15 @@ input[type=button]:hover, input[type=reset]:hover {
       
       $(function() {             
          
-         //비밀번호 유효성검사
-         //$("#member_pw").on("input", function() {
-         //   var regex = /^[A-Za-z\d]{8,12}$/;
-         //   var result = regex.exec($("#member_pw").val())
-
-         //   if (result != null) {
-         //      $(".member_pw.regex").html("");
-         //   } else {
-         //      $(".member_pw.regex").html("영어대소문자,숫자 8-11자리");
-         //      $(".member_pw.regex").css("color", "red")
-         //   }
-         //});
-
-         //비밀번호 확인    
-         //$("#repw").on("keyup", function() {
-         //   if ($("#member_pw").val() == $("#repw").val()) {
-         //      $(".repw.regex").html("비밀번호가 일치합니다");
-         //      samePw = 'success';
-         //   } else {
-         //      $(".repw.regex").html("비밀번호가 일치하지않습니다");
-         //      samePw = 'fail';
-         //   }
-         //})
-
-         //$("#member_pw").on("propertychange change keyup paste input", function() {
-         //      samePw = 'fail';
-         //   })
          
          //회원가입 버튼 눌렀을 때, 빈칸 있으면 다시 유효성 검사진행    
          $("#signupbtn").on("click", function() {
-            //var pw = $("#member_pw").val();
             var nickname = $("#member_nickname").val();
             var address = $("#roadAddress").val();
-            //var pwCheck = $("#repw").val();
 
-            //var pwregex = /^[A-Za-z\d]{8,12}$/;
             var nicknameregex = /[ㄱ-힣0-9A-Za-z]{1,}/;
             
-            
-
-            
-            //var pwregex = pwregex.exec(pw);
-            //if (pwregex == null) {
-            //   alert("비밀번호양식을 다시 확인해주세요\n(영어,숫자 8~12글자)");
-            //   return;
-            //}
-            //if(pwCheck == ""){
-            //   alert("패스워드 확인을 입력해주세요");
-            //   return;
-            //}
-            //if(samePw == 'fail'){                            
-             //    alert("패스워드확인 값이 일치하지 않습니다\n다시 입력해주세요");
-             //   return;
-             //}
+           
             
             var nicknameregex = nicknameregex.exec(nickname);
             if (nicknameregex == null) {
