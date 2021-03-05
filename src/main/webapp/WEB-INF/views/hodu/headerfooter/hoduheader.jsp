@@ -47,7 +47,7 @@
 			</c:choose>
 
 			<c:choose>
-				<c:when test="${member == nulld}">
+				<c:when test="${member == null}">
 					<div class="row">
 						<div class="col-3">
 							<input type="button" value="클래스찾기">

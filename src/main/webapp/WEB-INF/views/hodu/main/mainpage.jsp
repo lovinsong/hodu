@@ -13,18 +13,30 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
+<!-- css -->
 <link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-	integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-	crossorigin="anonymous">
+	href="${pageContext.request.contextPath}/resources/assets/owlcarousel/assets/owl.carousel.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/assets/owlcarousel/assets/owl.theme.default.min.css">
+<!-- js -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/assets/owlcarousel/owl.carousel.min.js"></script>
+
 <style>
 .material-icons {
-	font-size: 65px; body ,html{ height : 100%;
+	font-size: 65px;
+}
+
+.body, html {
+	height: 100%;
 	width: 100%;
 	margin: 0;
 	padding: 0;
 	background: #e74c3c !important;
 }
+
 .searchbar {
 	margin-bottom: auto;
 	margin-top: auto;
@@ -68,6 +80,18 @@
 	color: white;
 	text-decoration: none;
 }
+
+.owl-carousel {
+	
+}
+
+.owl-carousel .item {
+	text-align: center;
+	background: #93e0e4;
+	height: 200px;
+	line-height: 200px;
+	margin: 10px;
+}
 </style>
 </head>
 <body>
@@ -102,27 +126,31 @@
 			<div class="p-5"></div>
 			<div class="row">
 				<div class="col-md-1"></div>
-				<div class="col-md-3"><p style="font-size:30px;">어떤 서비스가 필요하세요?<p></div>
+				<div class="col-md-3">
+					<p style="font-size: 30px;">어떤 서비스가 필요하세요?
+					<p>
+				</div>
 				<div class="col-md-2"></div>
 				<div class="col-md-2"></div>
 				<div class="col-md-2"></div>
 				<div class="col-md-3"></div>
 			</div>
-			
+
 			<div class="row">
-			<div class="col-md-1"></div>
-    			<div class="col-md-5">
-    <div class="mx-auto mt-1 search-bar input-group mb-4 width: 100px">
-      <input name="q" type="text" class="form-control rounded-pill" placeholder="취미 입력" aria-label="Recipient's username" aria-describedby="button-addon2">
-      <div class="input-group-append">
-      </div>
-    </div>
-    	</div>
+				<div class="col-md-1"></div>
+				<div class="col-md-5">
+					<div class="mx-auto mt-1 search-bar input-group mb-4 width: 100px">
+						<input name="q" type="text" class="form-control rounded-pill"
+							placeholder="취미 입력" aria-label="Recipient's username"
+							aria-describedby="button-addon2">
+						<div class="input-group-append"></div>
+					</div>
+				</div>
 				<div class="col-md-1"></div>
 				<div class="col-md-1"></div>
 				<div class="col-md-2"></div>
 				<div class="col-md-3"></div>
-    </div>
+			</div>
 			<div class="row">
 				<div class="col-md-1"></div>
 				<div class="col-md-1">
@@ -165,22 +193,32 @@
 				<div class="col-md-2"></div>
 				<div class="col-md-3"></div>
 			</div>
-				<div class="p-5"></div>
-				<div class="p-5"></div>
-				<div class="p-5"></div>
-				<div class="p-5"></div>
-				<div class="p-5"></div>
-				<div class="p-5"></div>
-				<div class="p-5"></div>
-				<div class="p-5"></div>
-				<div class="p-5"></div>
-				<div class="p-5"></div>
-				<div class="p-5"></div>
-				<div class="p-5"></div>
-				<div class="p-5"></div>
-				<div class="p-5"></div>
-				<div class="p-5"></div>
-				<div class="p-5"></div>
+			<div class="owl-carousel owl-theme">
+				<div class="item">내용1</div>
+				<div class="item">내용2</div>
+				<div class="item">내용3</div>
+				<div class="item">내용4</div>
+				<div class="item">내용5</div>
+			</div>
+
+
+
+			<div class="p-5"></div>
+			<div class="p-5"></div>
+			<div class="p-5"></div>
+			<div class="p-5"></div>
+			<div class="p-5"></div>
+			<div class="p-5"></div>
+			<div class="p-5"></div>
+			<div class="p-5"></div>
+			<div class="p-5"></div>
+			<div class="p-5"></div>
+			<div class="p-5"></div>
+			<div class="p-5"></div>
+			<div class="p-5"></div>
+			<div class="p-5"></div>
+			<div class="p-5"></div>
+			<div class="p-5"></div>
 
 		</div>
 	</div>
@@ -190,7 +228,11 @@
 
 
 
-
+	<script>
+		$(document).ready(function() {
+			$(".owl-carousel").owlCarousel();
+		});
+	</script>
 
 
 	<!-- footer 파일 포함 코드 -->
