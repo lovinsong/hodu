@@ -1,174 +1,200 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Welcome Hodu</title>
-</head>
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+	integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+	crossorigin="anonymous">
 <style>
-@charset "UTF-8";
-
-* {
+.material-icons {
+	font-size: 65px; body ,html{ height : 100%;
+	width: 100%;
 	margin: 0;
 	padding: 0;
-} /* 화면 전체 렙 */
-.wrapper {
-	width: 1900px;
-} /* content 랩 */
-.wrap {
-	width: 1080px;
-	margin: auto;
-} /* 홈페이지 기능 네비 */
-.top_gnb_area {
-	width: 100%;
-	height: 50px;
-	background-color: #a2a2ea;
-} /* 로고, 검색, 로그인 */
-.top_area {
-	width: 100%;
-	height: 150px; /* background-color: #f7f0b9; */
-} /* 로고 영역 */
-.logo_area {
-	width: 25%;
-	height: 100%;
-	background-color: red;
-	float: left;
-} /* 검색 박스 영역 */
-.search_area {
-	width: 50%;
-	height: 100%;
-	background-color: yellow;
-	float: left;
-} /* 로그인 버튼 영역 */
-.login_area {
-	width: 25%;
-	height: 100%;
-	display: inline-block;
-	text-align: center;
+	background: #e74c3c !important;
+}
+.searchbar {
+	margin-bottom: auto;
+	margin-top: auto;
+	height: 60px;
+	background-color: #353b48;
+	border-radius: 30px;
+	padding: 10px;
 }
 
-.login_button {
-	height: 50%;
-	background-color: #D4DFE6;
-	margin-top: 30px;
-	line-height: 77px;
-	font-size: 40px;
-	font-weight: 900;
-	border-radius: 10px;
-	cursor: pointer;
+.search_input {
+	color: white;
+	border: 0;
+	outline: 0;
+	background: none;
+	width: 0;
+	caret-color: transparent;
+	line-height: 40px;
+	transition: width 0.4s linear;
 }
 
-.login_area>span {
-	margin-top: 10px;
-	font-weight: 900;
-	display: inline-block;
+.searchbar:hover>.search_input {
+	padding: 0 10px;
+	width: 450px;
+	caret-color: red;
+	transition: width 0.4s linear;
 }
 
-.login_button {
-	height: 50%;
-	background-color: #D4DFE6;
-	margin-top: 30px;
-} /* 제품 목록 네비 */
-.navi_bar_area {
-	width: 100%;
-	height: 70px;
-	background-color: #7696fd;
-} /* 홈페이지 메인 제품 목록 */
-
-.content_area {
-	width: 100%;
-	background-color: #97ef97;
-	height: 1000px;
+.searchbar:hover>.search_icon {
+	background: white;
+	color: #e74c3c;
 }
 
-	/* 로그인 성공 영역 */
-.login_success_area { height : 62%;
-	width: 80%;
-	border: 2px solid #7474ad;
-	border-radius: 15px;
-	margin: 5% auto;
-	padding-top: 5%;
-}
-
-.login_success_area>span {
-	display: block;
-	text-align: left;
-	margin-left: 10%;
-}
-
-.login_success_area>a{
-    font-size: 15px;
-    font-weight: 900;
-    display: inline-block;
-    margin-top: 5px;
-    background: #e1e5e8;
-    width: 82px;
-    height: 22px;
-    line-height: 22px;
-    border-radius: 25px;
-    color: #606267;    
-}
-
-/* float 속성 해제 */
-.clearfix {
-	clear: both;
+.search_icon {
+	height: 40px;
+	width: 40px;
+	float: right;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	color: white;
+	text-decoration: none;
 }
 </style>
+</head>
 <body>
-<!-- footer 파일 포함 코드 -->
-<%@ include file="../headerfooter/hoduheader.jsp" %>
-	<div class="wrapper">
-		<div class="wrap">
-			<!-- <div class="top_gnb_area">
-				<h1>gnb area</h1>
-			</div> -->
-			<div class="top_area">
-				<div class="logo_area">
-					<h1>logo area</h1>
-				</div>
-				<div class="search_area">
-					<h1>Search area</h1>
-				</div>
-				<div class="login_area">
-				
-					<!-- 로그인 하지 않은 상태 -->
-					<c:if test="${member == null }">
-						<div class="login_button">
-							<a href="../account/login">로그인</a>
-						</div>
-						<span><a href="../account/join">회원가입</a></span>
-					</c:if>
+	<!-- footer 파일 포함 코드 -->
+	<%@ include file="../headerfooter/hoduheader.jsp"%>
+	<!-- 로그인 하지 않은 상태 -->
+	<c:if test="${member == null }">
+		<div class="login_button">
+			<a href="../account/login">로그인</a>
+		</div>
+		<span><a href="../account/join">회원가입</a></span>
+	</c:if>
 
-					<!-- 로그인 한 상태 -->
-					<c:if test="${member != null }">
-						<div class="login_success_area">
-							<span>회원 : ${member.member_name}</span>
-							<span>닉네임 : ${member.member_nickname}</span>
-							<span>충전금액 : <fmt:formatNumber value="${member.member_cash }" pattern="#,###.## 호두"/></span>
-							<a href="../mypage/mypage">마이페이지</a>
-							<a href="../account/logout">로그아웃</a>
+	<!-- 로그인 한 상태 -->
+	<c:if test="${member != null }">
+		<div class="login_success_area">
+			<span>회원 : ${member.member_name}</span> <span>닉네임 :
+				${member.member_nickname}</span> <span>충전금액 : <fmt:formatNumber
+					value="${member.member_cash }" pattern="#,###.## 호두" /></span> <a
+				href="../mypage/mypage">마이페이지</a> <a href="../account/logout">로그아웃</a>
 
-						</div>
-					</c:if>
-					
+		</div>
+	</c:if>
+
+	<div class="p-3"></div>
+	<!-- 공백 주기 -->
+	<div class="container">
+		<div class="p-3"></div>
+		<div class="container bg-dark">
+			<div class="p-5"></div>
+			<div class="p-5"></div>
+			<div class="p-5"></div>
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-3"><p style="font-size:30px;">어떤 서비스가 필요하세요?<p></div>
+				<div class="col-md-2"></div>
+				<div class="col-md-2"></div>
+				<div class="col-md-2"></div>
+				<div class="col-md-3"></div>
+			</div>
+			
+			<div class="row">
+			<div class="col-md-1"></div>
+    			<div class="col-md-5">
+    <div class="mx-auto mt-1 search-bar input-group mb-4 width: 100px">
+      <input name="q" type="text" class="form-control rounded-pill" placeholder="취미 입력" aria-label="Recipient's username" aria-describedby="button-addon2">
+      <div class="input-group-append">
+      </div>
+    </div>
+    	</div>
+				<div class="col-md-1"></div>
+				<div class="col-md-1"></div>
+				<div class="col-md-2"></div>
+				<div class="col-md-3"></div>
+    </div>
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-1">
+					<span class="material-icons"> grade </span>
 				</div>
-				<div class="clearfix"></div>
+				&nbsp; &nbsp;
+				<div class="col-md-1">
+					<span class="material-icons"> fitness_center </span>
+				</div>
+				&nbsp; &nbsp;
+				<div class="col-md-1">
+					<span class="material-icons"> roofing </span>
+				</div>
+				&nbsp; &nbsp;
+				<div class="col-md-1">
+					<span class="material-icons"> camera_enhance </span>
+				</div>
+				<div class="col-md-2"></div>
+				<div class="col-md-2"></div>
+				<div class="col-md-3"></div>
 			</div>
-			<div class="navi_bar_area">
-				<h1>navi area</h1>
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-1">
+					<span class="material-icons"> local_atm </span>
+				</div>
+				&nbsp; &nbsp;
+				<div class="col-md-1">
+					<span class="material-icons"> monitor </span>
+				</div>
+				&nbsp; &nbsp;
+				<div class="col-md-1">
+					<span class="material-icons"> photo_camera_front </span>
+				</div>
+				&nbsp; &nbsp;
+				<div class="col-md-1">
+					<span class="material-icons"> g_translate </span>
+				</div>
+				<div class="col-md-2"></div>
+				<div class="col-md-2"></div>
+				<div class="col-md-3"></div>
 			</div>
-			<div class="content_area">
-				<h1>content area</h1>
-			</div>
+				<div class="p-5"></div>
+				<div class="p-5"></div>
+				<div class="p-5"></div>
+				<div class="p-5"></div>
+				<div class="p-5"></div>
+				<div class="p-5"></div>
+				<div class="p-5"></div>
+				<div class="p-5"></div>
+				<div class="p-5"></div>
+				<div class="p-5"></div>
+				<div class="p-5"></div>
+				<div class="p-5"></div>
+				<div class="p-5"></div>
+				<div class="p-5"></div>
+				<div class="p-5"></div>
+				<div class="p-5"></div>
+
 		</div>
 	</div>
-	
-	
-<!-- footer 파일 포함 코드 -->
-<%@ include file="../headerfooter/hodufooter.jsp" %>
+
+	<div class="p-5"></div>
+	<div class="p-5"></div>
+
+
+
+
+
+
+	<!-- footer 파일 포함 코드 -->
+	<%@ include file="../headerfooter/hodufooter.jsp"%>
 </body>
 </html>
 
