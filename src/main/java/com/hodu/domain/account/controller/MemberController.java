@@ -475,5 +475,10 @@ public class MemberController {
 	public void testFooter() {
 		
 	}
+	//멘토 가입창
+	@GetMapping(value = "/hodu/account/mentor-reg")
+	public void testtHeader() {
+		
+	}
 	
 }
