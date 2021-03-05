@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +15,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.hodu.domain.model.MemberDTO;
+import com.hodu.domain.util.UserSha256;
 
 import lombok.extern.log4j.Log4j;
 
@@ -44,7 +44,12 @@ public class joinTest {
 		mem.setLevel_mentee("BRONZE");
 		mem.setLevel_mentor("BRONZE");
 		mem.setMember_nickname("abc");
-		mem.setMember_pw("1234");
+		
+		// 비밀번호 암호화 (sha256
+		String encryPassword = UserSha256.encrypt("1234");
+		mem.setMember_pw(encryPassword);
+		
+		System.out.println("두번째:" + mem.getMember_pw());
 		mem.setMember_name("홍길동");
 		mem.setMember_img(null);
 		mem.setMember_phone("010-1234-1234");
@@ -58,9 +63,9 @@ public class joinTest {
 	      
 	      SimpleDateFormat format = new SimpleDateFormat("");
 		mem.setMember_regdate(hiredate.getTime());
-		mem.setMember_enabled("1");
 		mem.setHodu_manager("Y");
 	
+		log.info(mem);
 	}
 	
 	

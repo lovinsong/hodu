@@ -5,11 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 등록 페이지</title>
-<script
-	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script 
-	src="https://code.jquery.com/jquery-3.4.1.js" 
-	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" 
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"
+	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 	crossorigin="anonymous">
 </script>
 
@@ -20,7 +18,7 @@
 	border-color: #692e1d;
 	border-radius: 5px;;
 	width: 500px;
-	height: 600px;
+	height: 650px;
 	margin: auto;
 }
 
@@ -48,7 +46,7 @@ input {
 	outline: none;
 }
 
-#signup {
+#signup, #contract, #gotojoinform {
 	text-align: center;
 	margin: 5px;
 }
@@ -70,7 +68,7 @@ input[type=button]:hover, input[type=reset]:hover {
 }
 
 #roadAddress, #detailAddress {
-	width: 170px;
+	width: 280px;
 }
 
 .regex {
@@ -149,96 +147,104 @@ input[type=button]:hover, input[type=reset]:hover {
 	color: red;
 }
 
-.id_input_re_1{
-	color:green;
-	display:none;
+.id_input_re_1 {
+	color: green;
+	display: none;
 }
 
-.id_input_re_2{
-	color:red;
-	display:none;
-}
-.id_input_re_3{
-	color:red;
-	display:none;
+.id_input_re_2 {
+	color: red;
+	display: none;
 }
 
-.nick_input_re_1{
-	color:green;
-	display:none;
-}
-.nick_input_re_2{
-	color:red;
-	display:none;
+.id_input_re_3 {
+	color: red;
+	display: none;
 }
 
-.phone_input_re_1{
-	color:green;
-	display:none;
+.nick_input_re_1 {
+	color: green;
+	display: none;
 }
-.phone_input_re_2{
-	color:red;
-	display:none;
+
+.nick_input_re_2 {
+	color: red;
+	display: none;
 }
-.mail_input_re_1{
-	color:green;
-	display:none;
+
+.phone_input_re_1 {
+	color: green;
+	display: none;
 }
-.mail_input_re_2{
-	color:red;
-	display:none;
+
+.phone_input_re_2 {
+	color: red;
+	display: none;
+}
+
+.mail_input_re_1 {
+	color: green;
+	display: none;
+}
+
+.mail_input_re_2 {
+	color: red;
+	display: none;
 }
 </style>
 <body>
-	<form action="join" method="POST" id="signform">
+	<form action="join" method="POST" id="signform" name="signform">
 		<div id="wrapper">
 			<div class="title">회원 가입 정보 입력</div>
-			
-			
-			<label>아이디 : </label><input class="id_input" type="text" name="member_id" id="member_id" maxlength="11">
-			<span class="id_input_re_1">사용 가능한 아이디입니다.</span>
-			<span class="id_input_re_2">아이디가 이미 존재합니다.</span>
-			<span class="id_input_re_3">(영문,숫자 5~11글자로만 가능)</span>
-			<div class="a"></div><!-- 일단 한칸 띄어주는 용도(아무런 기능 없음) -->
-			
-			
-			<label>패스워드 : </label><input type="password" name="member_pw" id="member_pw" maxlength="11"><br>
+
+
+			<label>아이디 : </label><input class="id_input" type="text"
+				name="member_id" id="member_id" maxlength="11"> <span
+				class="id_input_re_1">사용 가능한 아이디입니다.</span> <span
+				class="id_input_re_2">아이디가 이미 존재합니다.</span> <span
+				class="id_input_re_3">(영문,숫자 5~11글자로만 가능)</span>
+			<div class="a"></div>
+			<!-- 일단 한칸 띄어주는 용도(아무런 기능 없음) -->
+
+
+			<label>패스워드 : </label><input type="password" name="member_pw"
+				id="member_pw" maxlength="11"><br>
 			<div class="member_pw regex"></div>
 
-			<label>패스워드확인 : </label><input type="password" id="repw" maxlength="11"><br>
+			<label>패스워드확인 : </label><input type="password" id="repw"
+				maxlength="11"><br>
 			<div class="repw regex"></div>
 
-			<label>이름: </label><input type="text" name="member_name" id="member_name"><br>
+			<label>이름: </label><input type="text" name="member_name"
+				id="member_name"><br>
 			<div class="member_name regex"></div>
 
-			<label>닉네임: </label><input class="nick_input" type="text" name="member_nickname" id="member_nickname">
-			<span class="nick_input_re_1">사용 가능한 닉네임입니다.</span>
-			<span class="nick_input_re_2">닉네임이 이미 존재합니다.</span>
+			<label>닉네임: </label><input class="nick_input" type="text"
+				name="member_nickname" id="member_nickname"> <span
+				class="nick_input_re_1">사용 가능한 닉네임입니다.</span> <span
+				class="nick_input_re_2">닉네임이 이미 존재합니다.</span>
 			<div class="member_nickname regex"></div>
-			
 
-			<label>전화번호 : </label><input class="phone_input" type="text" name="member_phone"
-				id="member_phone" placeholder="- 과 공백 없이 입력" maxlength="11"><br>
+
+			<label>전화번호 : </label><input class="phone_input" type="text"
+				name="member_phone" id="member_phone" placeholder="- 과 공백 없이 입력"
+				maxlength="11"><br>
 			<div class="member_phone regex"></div>
-			<span class="phone_input_re_1">가입되지 않은 번호입니다.(사용 가능)</span>
-			<span class="phone_input_re_2">이미 가입된 번호입니다.</span>
+			<span class="phone_input_re_1">가입되지 않은 번호입니다.(사용 가능)</span> <span
+				class="phone_input_re_2">이미 가입된 번호입니다.</span>
 
-			<!-- 
-			<label>이메일 : </label><input type="text" name="member_email"
-				id="member_email"><br>
-			<div class="member_email regex"></div>
-	 -->
+		
 			<div class="mail_warp">
 				<div class="mail_name">이메일</div>
 				<div class="mail_input_box">
-					<input class="mail_input" name="member_email" id="member_email" readonly="readonly">
+					<input class="mail_input" name="member_email" id="member_email"
+						readonly="readonly">
 					<div class="member_email regex"></div>
-					<span class="mail_input_re_1">사용가능한 이메일입니다. 인증번호 전송완료</span>
-					<span class="mail_input_re_2">중복된 이메일입니다. 재입력 후 다시 인증번호 전송을 눌러주세요</span>
 				</div>
 				<div class="mail_check_wrap">
 					<div class="mail_check_input_box" id="mail_check_input_box_false">
-						<input class="mail_check_input" id="confirmnum" disabled="disabled">
+						<input class="mail_check_input" id="confirmnum"
+							disabled="disabled">
 					</div>
 					<div class="mail_check_button">
 						<span>인증번호 전송</span>
@@ -248,18 +254,51 @@ input[type=button]:hover, input[type=reset]:hover {
 				</div>
 			</div>
 
-			<!--  <label>우편번호 :</label><input type="text" id="postcode" placeholder="우편번호" name="zipcode">-->
 
-			<label>주소 : </label><input type="text" id="roadAddress"
-				placeholder="도로명주소" name="member_address"> <input
-				type="button" onclick="sample4_execDaumPostcode()" value="주소 찾기">
-			<!--<label>주소2 : </label><input type="text" id="detailAddress" placeholder="상세주소" name="detailaddress"><br>-->
+
+			<label>우편번호 :</label><input type="text" id="postcode"
+				placeholder="우편번호" name="member_postcode" readonly> <input
+				type="button" onclick="sample4_execDaumPostcode()" value="주소 찾기"><br>
+			<label>주소1 : </label><input type="text" id="roadAddress"
+				placeholder="도로명주소" name="member_address" readonly><br>
+			<label>주소2 : </label><input type="text" id="detailAddress"
+				placeholder="상세주소" name="member_detailaddress"><br> 
+			
+		
+			<div id="contract">
+				<!-- 약관 보러가기 -->
+				<input type="button" id="gotojoinform" value="약관 보기" /><br>
+				<input type="checkbox" class="req" name="req" id="req" disabled="disabled"> 개인정보 수집 및 이용에 동의합니다.
+				
+			</div>
+
+			
+
+
 			<div id="signup">
 				<input type="button" name="signup" value="가입하기" id="signupbtn">
-				<input type="button" value="메인 페이지" onclick="location.href='mainpage'"><!-- 메인페이지로 연결!!! -->
+				<input type="button" value="메인 페이지" onclick="location.href='mainpage'">
+				<!-- 메인페이지로 연결!!! -->
 			</div>
 		</div>
 	</form>
+
+	<script>
+	// 약관 보러 가기에 관한 스크립트
+	
+	var popupX = (window.screen.width / 2) - (500 / 2);
+	//&nbsp;만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
+
+	var popupY = (window.screen.height / 2) - (600 / 2);
+	//&nbsp;만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
+    
+	// 회원약관 바로가기 바로가기
+    
+        $("#gotojoinform").click(function(){
+            window.open("./joinform", "회원 약관", 'status=no, width=550, height=600, left='+ popupX + ', top='+ popupY);
+        });
+	</script>
+
 	<script>
 		var existId = "";
 		var samePw = ""; 
@@ -267,6 +306,8 @@ input[type=button]:hover, input[type=reset]:hover {
 		var existPhone = "";
 		var code = ""; // 이메일 전송인증번호 저장을 위한 코드
 		$("#member_email").attr('readonly', false);
+		var contractCheck = 0;
+		
 
 		//다음 우편번호 API
 		//본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
@@ -290,11 +331,16 @@ input[type=button]:hover, input[type=reset]:hover {
 					}
 
 					// 우편번호와 주소 정보를 해당 필드에 넣는다.
-					//document.getElementById('postcode').value = roadAddr;
+					document.getElementById('postcode').value = data.zonecode;
 					document.getElementById("roadAddress").value = roadAddr;
+					document.getElementById("detailAddress").focus();
 				}
 			}).open();
 		}
+		
+		
+		
+		
 
 		//!!!작동 아이디
 		$('.id_input').on("propertychange change keyup paste input",function(){ 
@@ -394,7 +440,7 @@ input[type=button]:hover, input[type=reset]:hover {
 		
 		/* 인증번호 이메일 전송 */
 		$(".mail_check_button").click(function() {
-			var email = $(".mail_input").val(); // 입력한 이메일
+			//var email = $(".mail_input").val(); // 입력한 이메일
 			var cehckBox = $(".mail_check_input"); // 인증번호 입력란
 			var boxWrap = $(".mail_check_input_box"); // 인증번호 입력란 박스
 			
@@ -426,15 +472,15 @@ input[type=button]:hover, input[type=reset]:hover {
 								}
 				
 							});
-							$('.mail_input_re_1').css("display","inline-block"); 
-							$('.mail_input_re_2').css("display", "none"); 
+							alert("사용가능한 이메일입니다. 인증번호 전송완료!");
 						} else { 
-							$('.mail_input_re_2').css("display","inline-block"); 
-							$('.mail_input_re_1').css("display", "none");
+							alert("중복된 이메일입니다.\n재입력 후 다시 인증번호 전송을 눌러주세요");
 						}
 					}// success 종료
 				}); // ajax 종료
-			}//if문 종료
+			}else{
+				alert("이메일을 입력해주세요");
+			}
 		});//function종료
 
 		/* 인증번호 비교 */
@@ -453,7 +499,6 @@ input[type=button]:hover, input[type=reset]:hover {
 		    }   
 		    
 		});
-
 		
 		
 		
@@ -471,8 +516,11 @@ input[type=button]:hover, input[type=reset]:hover {
 					$(".member_pw.regex").css("color", "red")
 				}
 			});
-
-			//비밀번호 확인    
+			
+			//비밀번호 확인  
+			$("#member_pw").on("propertychange change keyup paste input", function() {
+				samePw = 'fail';
+			}) 
 			$("#repw").on("keyup", function() {
 				if ($("#member_pw").val() == $("#repw").val()) {
 					$(".repw.regex").html("비밀번호가 일치합니다");
@@ -520,6 +568,10 @@ input[type=button]:hover, input[type=reset]:hover {
 					$(".member_email.regex").html("올바른 이메일 형식이 아닙니다");
 				}
 			})
+			
+			
+		
+			
 			
 			//회원가입 버튼 눌렀을 때, 빈칸 있으면 다시 유효성 검사진행    
 			$("#signupbtn").on("click", function() {
@@ -605,8 +657,17 @@ input[type=button]:hover, input[type=reset]:hover {
 					alert("주소입력을 완료해주세요");
 					return;
 				}
+			    
+			    if($('input[name=req]').is(":checked")){
+			    	contractCheck = 1;
+				}
+				if(contractCheck !=1){
+					alert("개인정보 약관에 동의하셔야 합니다.");
+					return;
+				}
 
 				//빈칸 없을 때 제출.
+				alert("가입 완료! 환영합니다\n가입하신 아이디와 비밀번호로 로그인 해주세요");
 				$("#signform").submit();
 
 			})

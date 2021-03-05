@@ -30,11 +30,12 @@
 	</bean>
 
 
-	<!-- navermail설정 -->
+	<!-- gmail설정 -->
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
         <property name="host" value="smtp.gmail.com" />
         <property name="port" value="587" />
-        <property name="username" value="hodu.manager@gmail.com"/>
+        <!--  <property name="username" value="hodu.manager@gmail.com"/>-->
+        <property name="username" value="mangisong2@gmail.com"/>
         <property name="password" value="nct5347!" />
         <property name="defaultEncoding" value="utf-8" />
         <property name="javaMailProperties">
