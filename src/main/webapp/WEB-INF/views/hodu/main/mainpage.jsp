@@ -102,7 +102,7 @@
 			<div class="p-5"></div>
 			<div class="row">
 				<div class="col-md-1"></div>
-				<div class="col-md-3"><p style="font-size:30px;">어떤 서비스가 필요하세요?<p></div>
+				<div class="col-md-3"><p style="font-size:30px;">어떤 서비스가<br> 필요하세요?<p></div>
 				<div class="col-md-2"></div>
 				<div class="col-md-2"></div>
 				<div class="col-md-2"></div>
