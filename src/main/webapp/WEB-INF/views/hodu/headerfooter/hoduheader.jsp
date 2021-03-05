@@ -22,7 +22,14 @@
 
 </head>
 <style>
-
+.dropmenu{
+background: gray;
+display:block;
+float:none;
+margin:0px;
+padding:0px;
+width:200px;
+}
 </style>
 <body>
 	
@@ -40,6 +47,9 @@
 					<a href="#"><span>클래스 찾기</span></a>
 					<a href="#"><span>돋보기</span></a>
 					
+					<div><a href="#"><span>&nbsp;</span></a></div>
+					<div><a href="#"><span>&nbsp;</span></a></div>
+					<div><a href="#"><span>&nbsp;</span></a></div>
 					<div><a href="#"><span>&nbsp;</span></a></div>
 					<div><a href="#"><span>&nbsp;</span></a></div>
 					<div><a href="#"><span>&nbsp;</span></a></div>
@@ -75,7 +85,7 @@
 								<ul>
 									<li>
 										<a href="#">${member.member_name } 고객님</a>
-										<ul>
+										<ul class="dropmenu">
 											<li><span>안녕하세요,${member.member_name }님</span></li>
 										    <li><a href="#">수정수정</a></li>
 										    <li><a href="../mypage/mypage">마이페이지</a></li><hr>
