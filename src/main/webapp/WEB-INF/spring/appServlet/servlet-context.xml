@@ -33,6 +33,14 @@
 		base-package="com.hodu.domain.account.mapper" />
 	<context:component-scan
 		base-package="com.hodu.domain.account.service" />
+	
+	<context:component-scan
+		base-package="com.hodu.domain.payment.controller" />
+	<context:component-scan
+		base-package="com.hodu.domain.payment.mapper" />
+	<context:component-scan
+		base-package="com.hodu.domain.payment.service" />
+	
 	<context:component-scan
 		base-package="com.hodu.domain.model" />
 </beans:beans>
