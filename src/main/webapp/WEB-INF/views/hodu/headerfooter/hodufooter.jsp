@@ -29,12 +29,12 @@ ul {
     padding: 0
 }
 
-ul>li {
+.foot>ul>li {
     padding: 4px;
     color: #ebdad3;
 }
 
-ul>li:hover {
+.foot>ul>li:hover {
     color: #692e1d;
     cursor: pointer
 }
@@ -74,7 +74,7 @@ hr {
 <body>
 	<hr>
 	<br>
-	<div class="container">
+	<div class="container foot">
 		<div class="bg-white mx-8">
 			<div class="row mb-4">
 				<div class="col-md-4 col-sm-4 col-xs-4">

@@ -48,5 +48,8 @@ public interface MemberService {
 
 	// 계정 비밀번호 수정
 	public void updatePw(MemberDTO member) throws Exception;
+	
+	//멘토 등록
+	public void mentorReg(String member_id) throws Exception;
 
 }

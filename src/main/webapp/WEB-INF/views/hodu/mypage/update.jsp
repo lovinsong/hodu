@@ -140,6 +140,8 @@ input[type=button]:hover, input[type=reset]:hover {
                               value="${member.member_address}" readonly><br> 
       <label>주소2 : </label><input type="text" id="detailAddress" placeholder="상세주소" name="member_detailaddress" 
                               value="${member.member_detailaddress}"><br>
+                              
+      <label>멘토: </label>&nbsp; ${member.mentor_enable}<br>
       <div id="signup">
          <input type="button" name="signup" value="수정 하기" id="signupbtn"><br>
          <input type="button" value="회원 탈퇴" id="deletebtn" onclick="location.href='delete'">
