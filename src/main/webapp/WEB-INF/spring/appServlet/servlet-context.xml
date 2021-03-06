@@ -26,6 +26,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 
 	<context:component-scan
 		base-package="com.hodu.domain.account.controller" />
@@ -33,6 +34,12 @@
 		base-package="com.hodu.domain.account.mapper" />
 	<context:component-scan
 		base-package="com.hodu.domain.account.service" />
+		<context:component-scan
+		base-package="com.hodu.domain.board.controller" />
+	<context:component-scan
+		base-package="com.hodu.domain.board.mapper" />
+	<context:component-scan
+		base-package="com.hodu.domain.board.service" />
 	<context:component-scan
 		base-package="com.hodu.domain.model" />
 </beans:beans>
