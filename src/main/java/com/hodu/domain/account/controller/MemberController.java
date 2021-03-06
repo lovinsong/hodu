@@ -484,7 +484,7 @@ public class MemberController {
 	@PostMapping(value = "/hodu/account/mentor-registing")
 	public String mentorReg(HttpServletRequest request,MemberDTO member) throws Exception {
 		HttpSession session = request.getSession();
-		service.mentorReg(member.getMember_id());
+		service.mentorReg(member);
 		MemberDTO memberdto = service.memberInfo(member.getMember_id());
 		session.setAttribute("member", memberdto);
 		System.out.println(member);

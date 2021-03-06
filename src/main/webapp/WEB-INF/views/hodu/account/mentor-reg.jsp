@@ -13,10 +13,10 @@
 <body>
 
 <h1>멘토가입</h1>
-<form action="mentor-registing" method="post" id="mentorform">
+<form action="mentor-registing" method="post" id="mentorform" enctype="multipart/form-data">
 <input type="hidden" name="member_id" id="member_id" value="${member.member_id}">
 <!-- 이미지 첨부 -->
-<input type="file">
+<input type="file" name="member_imgM">
 
 <div id="contract">
 				<!-- 약관 보러가기 -->

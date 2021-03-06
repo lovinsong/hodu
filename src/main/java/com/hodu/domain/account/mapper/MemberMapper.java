@@ -50,5 +50,5 @@ public interface MemberMapper {
 	public void updatePw(MemberDTO member);
 	
 	// 멘토 등록
-	public void mentorReg(String member_id);
+	public void mentorReg(MemberDTO member);
 }

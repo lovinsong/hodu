@@ -128,7 +128,7 @@
 		update hodu_member 
 		set 
 		mentor_enable = 'Y',
-		member_img = '멤버이미지' 
+		member_img = #{member_img}
 		where
 		member_id = #{member_id}
 	</update>

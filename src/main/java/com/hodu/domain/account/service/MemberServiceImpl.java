@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.hodu.domain.account.mapper.MemberMapper;
 import com.hodu.domain.model.MemberDTO;
+import com.hodu.domain.util.Upload;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -106,8 +107,11 @@ public class MemberServiceImpl implements MemberService {
 	
 	//멘토 등록
 	@Override
-	public void mentorReg(String member_id) throws Exception {
-		member_mapper.mentorReg(member_id);
+	public void mentorReg(MemberDTO member) throws Exception {
+		
+		
+		member.setMember_img(Upload.uploadIMG(member.getMember_imgM(), "C:\\Users\\Public\\upload\\member\\"));
+		member_mapper.mentorReg(member);
 		
 	}
 

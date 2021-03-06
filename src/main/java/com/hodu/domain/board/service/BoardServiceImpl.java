@@ -26,6 +26,8 @@ public class BoardServiceImpl implements BoardService {
 			item.setItem_one_day("N");
 		}
 		
+		
+		
 		System.out.println("item : " + item);
 		
 		return null;

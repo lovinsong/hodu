@@ -223,10 +223,14 @@
    				document.registForm.class_btn.focus();
    				document.getElementById("msgClass_btn").innerHTML = " * 일정을 선택해주세요";
    				return;
-   			}  else if (document.registForm.item_price.value === '0') {
+   			} else if (document.registForm.item_price.value === '0') {
    				document.registForm.item_price.focus();
    			} else if (document.registForm.item_place.value === '') {
    				document.registForm.btnradio1.focus();
+   			} else if (document.registForm.item_place.value === '주소 선택하기') {
+   				if (document.registForm.detail_add.value === '주소 선택하기'){
+   					
+   				}
    			} else if (document.registForm.item_content_who.value === ''){
    				document.registForm.item_content_who.focus();
    			} else if (document.registForm.item_content_what.value === ''){

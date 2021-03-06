@@ -3,6 +3,8 @@ package com.hodu.domain.model;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Data
@@ -24,4 +26,6 @@ public class MemberDTO {
 	private Integer member_postcode;
 	private String member_detailaddress;
 	private String mentor_enable;
+	
+	private MultipartFile member_imgM;
 }
