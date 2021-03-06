@@ -103,5 +103,12 @@ public class MemberServiceImpl implements MemberService {
 	public void updatePw(MemberDTO member) throws Exception {
 		member_mapper.updatePw(member);
 	}
+	
+	//멘토 등록
+	@Override
+	public void mentorReg(String member_id) throws Exception {
+		member_mapper.mentorReg(member_id);
+		
+	}
 
 }

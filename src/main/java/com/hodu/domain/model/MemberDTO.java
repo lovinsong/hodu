@@ -1,6 +1,6 @@
 package com.hodu.domain.model;
 
-import java.sql.Blob;
+
 import java.util.Date;
 
 import lombok.Data;
@@ -14,7 +14,7 @@ public class MemberDTO {
 	private String member_nickname;
 	private String member_pw;
 	private String member_name;
-	private Blob member_img;
+	private String member_img;
 	private String member_phone;
 	private String member_address;
 	private String member_email;
@@ -23,5 +23,5 @@ public class MemberDTO {
 	private String hodu_manager;
 	private Integer member_postcode;
 	private String member_detailaddress;
-
+	private String mentor_enable;
 }

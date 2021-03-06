@@ -18,18 +18,22 @@
 	rel="stylesheet"
 	integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
 	crossorigin="anonymous">
-
+<!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">  -->
 
 </head>
 <style>
 .dropmenu{
-background: gray;
+text-align: center;
+background: #f5f5f5;
 display:block;
 float:none;
 margin:0px;
 padding:0px;
 width:200px;
 }
+.ss{ font-size: 25px;}
+.welcome{color:black;}
 </style>
 <body>
 	
@@ -45,7 +49,7 @@ width:200px;
 				<c:when test="${member != null}">
 					<a href="#"><span>카테고리</span></a>
 					<a href="#"><span>클래스 찾기</span></a>
-					<a href="#"><span>돋보기</span></a>
+					<a href="#"><span class="material-icons ss">search</span></a>
 					
 					<div><a href="#"><span>&nbsp;</span></a></div>
 					<div><a href="#"><span>&nbsp;</span></a></div>
@@ -63,10 +67,10 @@ width:200px;
 					
 					<div class="row">
 						<div class="col-auto">
-							<a href="#"><span>톡</span></a>
+							<a href="#"><span class="material-icons ss">textsms</span></a>
 						</div>
 						<div class="col-auto">
-							<a href="#">종모양</a>
+							<a href="#"><span class="material-icons ss">notifications</span></a>
 						</div>
 						<div class="col-auto ">
 							<%-- <ul>
@@ -86,11 +90,11 @@ width:200px;
 									<li>
 										<a href="#">${member.member_name } 고객님</a>
 										<ul class="dropmenu">
-											<li><span>안녕하세요,${member.member_name }님</span></li>
-										    <li><a href="#">수정수정</a></li>
-										    <li><a href="../mypage/mypage">마이페이지</a></li><hr>
-										    <li><a href="../account/mentor-reg">멘토로 가입하기</a></li>
-										    <li><a href="../account/logout">로그아웃</a></li>
+											<li><span class="welcome">안녕하세요,${member.member_name }님</span></li>
+										    <li><a href="#">받은 견적</a></li>
+										    <li><a href="${pageContext.request.contextPath}/hodu/mypage/mypage">마이페이지</a></li><hr>
+										    <li><a href="${pageContext.request.contextPath}/hodu/account/mentor-reg">멘토로 가입하기</a></li>
+										    <li><a href="${pageContext.request.contextPath}/hodu/account/logout">로그아웃</a></li>
 										</ul>
 									</li>
 								</ul>
@@ -108,13 +112,13 @@ width:200px;
 							<a href="#"><span>클래스찾기</span></a>
 						</div>
 						<div class="col-auto">
-							<a href="../account/mentor-reg">멘토가입</a>
+							<a href="${pageContext.request.contextPath}/hodu/account/mentor-reg">멘토가입</a>
 						</div>
 						<div class="col-auto">
-							<a href="../account/join">회원가입</a>
+							<a href="${pageContext.request.contextPath}/hodu/account/join">회원가입</a>
 						</div>
 						<div class="col-auto">
-							<a href="../account/login">로그인</a>
+							<a href="${pageContext.request.contextPath}/hodu/account/login">로그인</a>
 						</div>
 					</div>
 				</c:when>
