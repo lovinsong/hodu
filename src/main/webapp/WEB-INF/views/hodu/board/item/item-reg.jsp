@@ -65,7 +65,8 @@
 								</tr>
 								<tr>
 	                               <td class="t-title"><strong>클래스 일정</strong></td>
-	                               <td><input id="class_btn" class="btn" type="button" onclick="popUp(); rsmsg('msgClass_btn');" value="선택하러 가기"></input><span id="msgClass_btn" class="msg"></span>
+	                               <td>
+	                               		<input style="display:inline" id="class_btn" class="btn" type="button" onclick="popUp(); rsmsg('msgClass_btn');" value="선택하러 가기"></input><span id="msgClass_btn" class="msg"></span>
 	       								<ul id="mylist" class="mylist">
 									        <li>일정 1</li>
 									        <li>일정 2</li>
