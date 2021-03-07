@@ -475,5 +475,20 @@ public class MemberController {
 	public void testFooter() {
 		
 	}
+	//멘토 가입창
+	@GetMapping(value = "/hodu/account/mentor-reg")
+	public void tomentorReg() {
+		
+	}
+	// 멘토가입 처리
+	@PostMapping(value = "/hodu/account/mentor-registing")
+	public String mentorReg(HttpServletRequest request,MemberDTO member) throws Exception {
+		HttpSession session = request.getSession();
+		service.mentorReg(member);
+		MemberDTO memberdto = service.memberInfo(member.getMember_id());
+		session.setAttribute("member", memberdto);
+		System.out.println(member);
+		return "redirect:/hodu/main/mainpage";
+	}
 	
 }

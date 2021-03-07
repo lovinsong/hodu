@@ -80,18 +80,6 @@
 	color: white;
 	text-decoration: none;
 }
-
-.owl-carousel {
-	
-}
-
-.owl-carousel .item {
-	text-align: center;
-	background: #93e0e4;
-	height: 200px;
-	line-height: 200px;
-	margin: 10px;
-}
 </style>
 </head>
 <body>
@@ -126,10 +114,12 @@
 			<div class="p-5"></div>
 			<div class="row">
 				<div class="col-md-1"></div>
+
 				<div class="col-md-3">
 					<p style="font-size: 30px;">어떤 서비스가 필요하세요?
 					<p>
 				</div>
+
 				<div class="col-md-2"></div>
 				<div class="col-md-2"></div>
 				<div class="col-md-2"></div>

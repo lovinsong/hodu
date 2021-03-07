@@ -48,4 +48,7 @@ public interface MemberMapper {
 
 	// 회원 정보 수정
 	public void updatePw(MemberDTO member);
+	
+	// 멘토 등록
+	public void mentorReg(MemberDTO member);
 }

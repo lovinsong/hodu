@@ -28,6 +28,8 @@
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	
+	
 
 
 	<!-- gmail설정 -->
@@ -47,16 +49,28 @@
             </props>
         </property>
     </bean>
+    
+    <!-- MultipartResolver 설정 --> 
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> 
+		<property name="maxUploadSize" value="100000000" /> 
+		<property name="maxInMemorySize" value="100000000" /> 
+	</bean> 
 
 	<context:component-scan base-package="com.hodu.domain.account.controller" />
 	<context:component-scan base-package="com.hodu.domain.account.mapper" />
 	<context:component-scan base-package="com.hodu.domain.account.service" />
+
 	<context:component-scan base-package="com.hodu.domain.payment.controller" />
 	<context:component-scan base-package="com.hodu.domain.payment.mapper" />
 	<context:component-scan base-package="com.hodu.domain.payment.service" />
-	
+
+	<context:component-scan base-package="com.hodu.domain.board.controller" />
+	<context:component-scan base-package="com.hodu.domain.board.mapper" />
+	<context:component-scan base-package="com.hodu.domain.board.service" />
+
 	<context:component-scan base-package="com.hodu.domain.model" />
 	<mybatis-spring:scan base-package="com.hodu.domain.account.mapper" />
+	<mybatis-spring:scan base-package="com.hodu.domain.board.mapper" />
 	
 
 </beans>

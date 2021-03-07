@@ -25,7 +25,8 @@
 		'N',
 		1,
 		#{member_postcode},
-		#{member_detailaddress}
+		#{member_detailaddress},
+		'N'
 		)
 	</insert>
 
@@ -122,4 +123,13 @@
 		from hodu_member where member_id= #{member_id}
 	</select>
 
+	<!-- 멘토 등록 -->
+	<update id="mentorReg">
+		update hodu_member 
+		set 
+		mentor_enable = 'Y',
+		member_img = #{member_img}
+		where
+		member_id = #{member_id}
+	</update>
 </mapper>
