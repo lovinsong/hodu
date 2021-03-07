@@ -9,7 +9,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class paymentController {
 
-	@GetMapping(value = "/hodu/payment/shoppingbasket")
+	@GetMapping(value = "/hodu/payment/cart")
 	public void basketGET() {
 		
 	}
