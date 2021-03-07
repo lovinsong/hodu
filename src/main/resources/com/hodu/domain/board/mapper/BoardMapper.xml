@@ -5,4 +5,48 @@
   
   <mapper namespace="com.hodu.domain.board.mapper.BoardMapper">
   
+   <insert id="regItemboard" parameterType="com.hodu.domain.model.ItemDTO">
+   <selectKey keyProperty="item_code" resultType="int" order="BEFORE">
+    select ITEM_BOARD_SEQ.nextval FROM DUAL
+  </selectKey>
+		INSERT INTO 
+			item_board 
+		VALUES 
+		(#{item_code}, #{member_id}, #{item_category}, #{item_title}, #{item_price}, #{item_place}, 'Y',sysdate,0,0,#{item_one_day},#{item_NOP},
+		#{item_content_who},#{item_content_what},#{item_content_target},#{item_content_how},sysdate, #{item_thumbnailimg})
+	</insert>
+	
+	<insert id="addBoardImg" parameterType="com.hodu.domain.model.BoardImgDTO">
+		INSERT INTO
+			board_image
+		VALUES
+			(
+			BIMAGE_SEQ.nextval,#{member_id},#{board_name},#{board_postnum},#{bimg_org_name},#{bimg_new_name},
+			#{bimg_size},sysdate
+			)
+	</insert>
+	
+	<insert id="addItemSelect" parameterType="com.hodu.domain.model.ItemSelectDTO">
+		INSERT INTO
+			item_select
+		VALUES
+			(
+			ITEM_SELECT_SEQ.nextval, #{item_people}, #{item_start_date}, #{item_end_date},  #{item_code}
+			)
+	</insert>
+	
+	<select id="getItemPage" resultType="com.hodu.domain.model.ItemDTO">
+
+		  SELECT * FROM item_board ORDER BY item_code OFFSET (#{pagenum}-1)*9 ROWS FETCH FIRST 9 ROWS ONLY
+
+	</select>
+	
+	<select id="getUserImg" resultType="String">
+
+		  SELECT member_img FROM hodu_member WHERE member_id = #{member_id}
+
+	</select>
+
+
+  
   </mapper>

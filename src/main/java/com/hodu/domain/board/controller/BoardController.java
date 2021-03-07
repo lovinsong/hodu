@@ -1,9 +1,12 @@
 package com.hodu.domain.board.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -33,8 +36,10 @@ public class BoardController {
 	
 	//글 전체 페이지로 이동하기
 	@GetMapping("item/item-category")
-	public void item_category(Model model) {
-
+	public void item_category(Model model, ItemDTO dto, int pagenum) throws Exception {
+		
+		model.addAttribute("dto",service.itempage(pagenum));
+		
 	}
 	
 	@RequestMapping(value = "item/registForm", method = RequestMethod.POST)

@@ -1,3 +1,5 @@
+<%@ include file="../../headerfooter/hoduheader.jsp"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>    
 <!DOCTYPE html>
@@ -20,7 +22,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/assets/css/board.css">
 <link href="${pageContext.request.contextPath}/resources/assets/css/style.css" rel="stylesheet" >
    <section>
-   		<%@ include file="../../headerfooter/hoduheader.jsp"%>
+   		
        <div class="container">
             <div class="row">
                 <div class="col-xs-12 content-wrap">
@@ -42,7 +44,7 @@
 	                            </tr>
 	                            <tr>
 	                                <td class="t-title"><strong>내용 이미지 첨부파일</strong></td>
-	                                <td><input type="file" value="파일 선택" name="bimg" multiple="multiple"  onclick="rsmsg('msgbimg')"/><span id="msgbimg" class="msg"></span></td>
+	                                <td><input type="file" value="파일 선택" name="b_img" multiple="multiple"  onclick="rsmsg('msgb_img')"/><span id="msgb_img" class="msg"></span></td>
 	                            </tr>	                            
 	                            <tr>
 	                                <td class="t-title" ><strong>클래스 이름</strong></td>
@@ -208,8 +210,8 @@
    				document.getElementById("msgThumbnailimg").innerHTML = " * 썸네일 이미지를 선택해주세요";
    				document.registForm.item_thumbnailimgA.focus();
    				return;
-   			} else if (document.registForm.bimg.value ===''){
-   				document.getElementById("msgbimg").innerHTML = " * 내용 이미지를 선택해주세요";
+   			} else if (document.registForm.b_img.value ===''){
+   				document.getElementById("msgb_img").innerHTML = " * 내용 이미지를 선택해주세요";
    				document.registForm.item_thumbnailimgA.focus();
    				return;
    			} else if(document.registForm.item_title.value === ''){
@@ -227,10 +229,9 @@
    				document.registForm.item_price.focus();
    			} else if (document.registForm.item_place.value === '') {
    				document.registForm.btnradio1.focus();
-   			} else if (document.registForm.item_place.value === '주소 선택하기') {
-   				if (document.registForm.detail_add.value === '주소 선택하기'){
-   					
-   				}
+   			} else if ($('input[type=radio][id="btnradio3"]:checked').val() && (document.registForm.detail_add.value === '' || document.registForm.address.value === '' || document.registForm.postcode.value === '')) {
+				document.registForm.btnradio3.focus();
+				return;
    			} else if (document.registForm.item_content_who.value === ''){
    				document.registForm.item_content_who.focus();
    			} else if (document.registForm.item_content_what.value === ''){
@@ -295,6 +296,9 @@
                      $('#multiCollapseExample1').css('display','block');
                      $('#multiCollapseExample2').css('display','none');
                      $('#multiCollapseExample3').css('display','none');
+                     $('#postcode').val(null);
+                     $('#roadAddress').val(null);
+                     $('#detailAddress').val(null);
           }
          
         });
@@ -304,6 +308,9 @@
                        $('#multiCollapseExample1').css('display','none');
                        $('#multiCollapseExample2').css('display','block');
                        $('#multiCollapseExample3').css('display','none');
+                       $('#postcode').val(null);
+                       $('#roadAddress').val(null);
+                       $('#detailAddress').val(null);
             }
            
           });

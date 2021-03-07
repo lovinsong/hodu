@@ -11,7 +11,7 @@ public class ItemDTO {
 
 	
 	// 실제 게시글 DB에 들어갈 변수들
-	private String item_code;
+	private int item_code;
 	private String member_id;
 	private String item_category;
 	private String item_title;
@@ -31,6 +31,7 @@ public class ItemDTO {
 	private Integer item_NOP;
 	
 	
+	
 	// 게시글에서 받아올 주소 정보
 	private String postcode;
 	private String address;
@@ -46,6 +47,8 @@ public class ItemDTO {
 	// 게시글에서 받아 이미지 정보
 	private MultipartFile[] b_img;
 	private MultipartFile item_thumbnailimgA;
+	
+	private String member_img;
 	
 
 }

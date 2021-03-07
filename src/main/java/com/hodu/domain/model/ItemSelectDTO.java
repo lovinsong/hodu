@@ -8,8 +8,9 @@ import lombok.Data;
 public class ItemSelectDTO {
 
 	private Integer sel_postnum;
-	private String item_code;
-	private Date item_select_date;
+	private Integer item_code;
 	private Integer item_people;
+	private Date item_start_date;
+	private Date item_end_date;
 	
 }
