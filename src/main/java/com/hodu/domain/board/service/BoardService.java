@@ -11,4 +11,6 @@ public interface BoardService {
 	public String itemRegist(ItemDTO item) throws Exception;
 	
 	public List<ItemDTO> itempage(int pagenum) throws Exception;
+	
+	public int getItemCnt() throws Exception;
 }

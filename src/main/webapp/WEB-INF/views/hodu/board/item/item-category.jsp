@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -183,14 +184,14 @@
 											<div class="inner">
 												<header>
 												    <h2 class="title_line">${dtoitem.item_title }</h2>
-														<p class="price_line">&nbsp;￦ <strong>${dtoitem.item_price}</strong>&nbsp;</p>
+														<p class="price_line">&nbsp;<strong>${dtoitem.item_price}</strong>&nbsp;호두</p>
 														<p>|</p>												
-														<p> ${dtoitem.item_place } </p>
+														<p> ${fn:length(dtoitem.item_place)  > 7 ? fn:substring(dtoitem.item_place,5,11)  : dtoitem.item_place}</p>
 														<p>|</p>
-														<p> 원데이 </p>
+														<p> ${dtoitem.item_one_day == "Y" ? "원데이" : "다회차"} </p>
 														<p class="profile"><img src="/project/upload/member/${dtoitem.member_img}" alt="" /><br>${dtoitem.member_id} 멘토</p>
 												 	<div id = "notice_review_star" class ="notice_review_star">
-														<a>★</a>
+														<a>★(${dtoitem.item_review_star })</a>
 													</div>																							
 												</header>											
 											</div>
@@ -204,20 +205,43 @@
 			
 			
 				<!-- pagination -->		
-					<div id="features-wrapper">
-						<div class="container">			
-							<nav aria-label="page" id="page">
-							  <ul class="pagination">
-							    <li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-							    <li class="page-item"><a class="page-link" href="http://localhost:8080/project/hodu/board/item/item-category?pagenum=1">1</a></li>
-							    <li class="page-item"><a class="page-link" href="http://localhost:8080/project/hodu/board/item/item-category?pagenum=2">2</a></li>
-							    <li class="page-item"><a class="page-link" href="#">3</a></li>
-							    <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-							    </li>
-							  </ul>
-							</nav>					
-						</div>
-					</div>
+	<div id="paginationBox" style="text-align:center; margin-top:3%">
+
+		<ul class="pagination">
+
+			<c:if test="${pagination.prev}">
+
+				<li class="page-item"><a class="page-link" href="#" onClick="fn_prev('${pagination.page}', '${pagination.range}', '${pagination.rangeSize}')">Previous</a></li>
+
+			</c:if>
+
+				
+
+			<c:forEach begin="${pagination.startPage}" end="${pagination.endPage}" var="idx">
+
+				<li class="page-item <c:out value="${pagination.page == idx ? 'active' : ''}"/> "><a class="page-link" href="#" onClick="fn_pagination('${idx}', '${pagination.range}', '${pagination.rangeSize}')"> ${idx} </a></li>
+
+			</c:forEach>
+
+				
+
+			<c:if test="${pagination.next}">
+
+				<li class="page-item"><a class="page-link" href="#" onClick="fn_next('${pagination.range}', '${pagination.range}', '${pagination.rangeSize}')" >Next</a></li>
+
+			</c:if>
+
+		</ul>
+
+	</div>
+
+
+
+
+
+
+
+
 
 		</div>		
 	</div>		
@@ -258,7 +282,72 @@
 	                $(this).attr('title', $(this).text());
 	        });
 	
-	        
-	     </script>
+
+	      //이전 버튼 이벤트
+	      function fn_prev(page, range, rangeSize) {
+
+	      		var page = ((range - 2) * rangeSize) + 1;
+
+	      		var range = range - 1;
+
+	      		
+
+	      		var url = "${pageContext.request.contextPath}/hodu/board/item/item-category";
+
+	      		url = url + "?page=" + page;
+
+	      		url = url + "&range=" + range;
+
+	      		
+
+	      		location.href = url;
+
+	      	}
+
+
+
+	        //페이지 번호 클릭
+
+	      	function fn_pagination(page, range, rangeSize, searchType, keyword) {
+
+	      		var url = "${pageContext.request.contextPath}/hodu/board/item/item-category";
+
+	      		url = url + "?page=" + page;
+
+	      		url = url + "&range=" + range;
+
+
+
+	      		location.href = url;	
+
+	      	}
+
+
+
+	      	//다음 버튼 이벤트
+
+	      	function fn_next(page, range, rangeSize) {
+
+	      		var page = parseInt((range * rangeSize)) + 1;
+
+	      		var range = parseInt(range) + 1;
+
+	      		
+
+	      		var url = "${pageContext.request.contextPath}/hodu/board/item/item-category";
+
+	      		url = url + "?page=" + page;
+
+	      		url = url + "&range=" + range;
+
+	      		
+
+	      		location.href = url;
+
+	      	}
+
+	      </script>
+
+
 	</body>
 </html>

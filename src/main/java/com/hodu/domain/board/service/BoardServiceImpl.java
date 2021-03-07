@@ -87,4 +87,10 @@ public class BoardServiceImpl implements BoardService {
 		return itempageinfo;
 	}
 
+	@Override
+	public int getItemCnt() throws Exception {
+		
+		return board_mapper.getItemCnt();
+	}
+
 }
