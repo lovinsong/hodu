@@ -6,9 +6,11 @@
 		<title>호두 클래스</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" >
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">		
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/hodu.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/item-category.css" />
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	
+		
 	</head>
 	<body class="is-preload homepage">
 	
@@ -94,8 +96,8 @@
 										</ul>
 									</li>
 									<li>
-									<div class="guideBox"><p>
-										<a class="category" id="category-icon"><span class="material-icons" id="textbtn">search</span></a>																												
+									<div class="guideBox" id=""><p>
+										<span class="material-icons" id="category-icon">search</span>																											
 									</p></div>											
 									</li>
 								</ul>
@@ -105,21 +107,63 @@
 				
 
 											<div class="guideBox">					
-<!-- 											  <p><span class="textbtn" style="cursor:pointer;">지역/시간 별 클래스 검색</span></p> -->
-												<div style="display:none" id="hidden_area">					 
-												    <div>
+
+												<div style="display:none" id="hidden_area">		
+															 
 												      <dl>
-												        <dd>
-												          <select id="a" name="지역">
-												            <option value="a1">A1</option>
-												            <option value="a2">A2</option>
-												            <option value="a3">A3</option>
-												          </select>
+												        <dd> <span style= "margin-right: 3em;"> 지역 · 도시</span>
+												        
+												        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+														  <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" style="width:120%">
+														  <label class="btn btn-outline-primary" for="btncheck1">전체</label>
+														
+														  <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+														  <label class="btn btn-outline-primary" for="btncheck2">서울</label>
+														
+														  <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+														  <label class="btn btn-outline-primary" for="btncheck3">경기</label>
+														  
+														  <input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off">
+														  <label class="btn btn-outline-primary" for="btncheck4">인천</label>
+														
+														  <input type="checkbox" class="btn-check" id="btncheck5" autocomplete="off">
+														  <label class="btn btn-outline-primary" for="btncheck5">부산</label>	
+														  
+														  <input type="checkbox" class="btn-check" id="btncheck6" autocomplete="off">
+														  <label class="btn btn-outline-primary" for="btncheck6">제주</label>													
+														</div>
+
+
 												        </dd>
 												      </dl>
-												    </div>					 
-												  </div>
-											</div>
+												      
+												      <dl>
+												        <dd> <span style= "margin-right: 3em;"> 수업 방식 </span>
+												        
+												        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+														  <input type="checkbox" class="btn-check" id="btncheck7" autocomplete="off" style="">
+														  <label class="btn btn-outline-primary" for="btncheck7">1 : 1 수업</label>
+														
+														  <input type="checkbox" class="btn-check" id="btncheck8" autocomplete="off">
+														  <label class="btn btn-outline-primary" for="btncheck8">온라인 LIVE</label>
+														
+														  <input type="checkbox" class="btn-check" id="btncheck9" autocomplete="off">
+														  <label class="btn btn-outline-primary" for="btncheck9">자택 수업</label>
+														  
+														  <input type="checkbox" class="btn-check" id="btncheck10" autocomplete="off">
+														  <label class="btn btn-outline-primary" for="btncheck10">원데이</label>
+														
+														  <input type="checkbox" class="btn-check" id="btncheck11" >
+														  <label class="btn btn-outline-primary" for="btncheck11">다회차</label>														
+														</div>
+
+												        </dd>
+												      </dl>
+												      
+	 
+											 </div>  					 
+										</div>
+					
 
 				
 				<hr>
@@ -369,29 +413,34 @@
 			<script src="${pageContext.request.contextPath}/resources/assets/js/util.js"></script>
 			<script src="${pageContext.request.contextPath}/resources/assets/js/main.js"></script>
 			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
 			<script>
 			
-			$(document).on("click","#textbtn",function(){
+			$(document).on("click","#category-icon",function(){
 				
 				
 			      if($("#hidden_area").css("display")=="none"){
 			        $("#hidden_area").show();
-			        $("#textbtn").text("  close  ");			       
-			     	$("#category-icon").css('background-color','#e6e6e6');
+			        $("#category-icon").text("  close  ");			       
+			     	$("#category-icon").css('background-color','#f7f7f7');
 			        
 /*  			     $(this).children("span").text("[닫기]");  */
 
 			      }else{
 			        $("#hidden_area").hide();
-			        $("#textbtn").text("  search  ");
+			        $("#category-icon").text("  search  ");
 			        $("#category-icon").css('background-color', 'white');
-			        
 /* 			        $(this).children("span").text("[열기]");  */
 			      }
 			});
 
-			</script>
 
-
+	        $('.title_line').each(function () {
+	            if (this.offsetWidth < this.scrollWidth)
+	                $(this).attr('title', $(this).text());
+	        });
+	
+	        
+	     </script>
 	</body>
 </html>

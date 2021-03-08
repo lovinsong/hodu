@@ -1,0 +1,77 @@
+﻿
+.set-radius-zero {
+    border-radius:6px;
+    -moz-border-radius:0px;
+    -webkit-border-radius:0px;
+}
+.content-wrapper {
+    margin-top: 40px;
+    min-height:800px;
+    padding-bottom:90px;
+}
+.header-line {
+    font-weight:900;
+    padding-bottom:25px;
+    border-bottom:1px solid #eeeeee;
+    text-transform:uppercase;
+}
+.pad-botm {
+    padding-bottom:30px;
+}
+
+
+.right-div {
+    float: right; 
+    padding: 20px;
+}
+
+.profile {
+    float: right;
+    margin-top:-3px;
+    text-align:center; 
+    font-size:9px;
+}
+
+.profile img{
+    border-radius: 10px;
+    height: 55px;
+    width: 55px;
+/*     box-sizing: border-box;
+	margin: 6px 6px 4px 6px; */
+}
+
+.carousel {
+	width: 80%;
+}
+
+.carousel-inner {	
+	border-radius:6px;
+}
+
+a.left.carousel-control {
+	border-radius:6px;
+}
+
+a.right.carousel-control {
+	border-radius:6px;
+}
+
+.container {
+	padding: 200px;
+}
+
+#menu-top a {
+    color:#000;
+    text-decoration:none;
+    font-weight:500;
+    padding: 25px 15px 25px 15px;
+    text-transform:uppercase;
+
+}
+
+
+.back-widget-set {
+    background-color:transparent;
+}
+
+

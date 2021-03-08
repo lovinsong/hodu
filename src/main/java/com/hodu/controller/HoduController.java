@@ -31,7 +31,6 @@ public class HoduController {
 	private NoticeService NoticeService;
 	
 	
-	
 	//글 전체 페이지로 이동하기
 	@GetMapping("board/notice/notice-category")
 	public void notice_category(Model model) {
