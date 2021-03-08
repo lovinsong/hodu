@@ -65,5 +65,18 @@ public class BoardController {
 		
         return "redirect:item-category";
     }
+	
+	//공지사항 글 작성 페이지로 이동하기
+	@GetMapping("notice/notice-reg")
+	public void notice_reg() {
+	}
+	
+	// 공지사항 전체 페이지로 이동
+	@GetMapping("notice/notice-category")
+	public void notice_category() throws Exception {
+
+
+		
+	}
 
 }

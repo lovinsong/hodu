@@ -12,7 +12,7 @@
 		INSERT INTO 
 			item_board 
 		VALUES 
-		(#{item_code}, #{member_id}, #{item_category}, #{item_title}, #{item_price}, #{item_place}, 'Y',sysdate,0,0,#{item_one_day},#{item_NOP},
+		(#{item_code}, #{member_id}, #{item_category}, #{item_title}, #{item_price}, #{item_place}, 'Y',sysdate,0,0.0,#{item_one_day},#{item_NOP},
 		#{item_content_who},#{item_content_what},#{item_content_target},#{item_content_how},sysdate, #{item_thumbnailimg})
 	</insert>
 	
