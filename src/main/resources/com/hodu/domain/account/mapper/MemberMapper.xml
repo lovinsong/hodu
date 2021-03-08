@@ -16,7 +16,6 @@
 		#{member_nickname},
 		#{member_pw},
 		#{member_name},
-		null,
 		#{member_phone},
 		#{member_address},
 		#{member_email},
@@ -26,7 +25,8 @@
 		1,
 		#{member_postcode},
 		#{member_detailaddress},
-		'N'
+		'N',
+		null
 		)
 	</insert>
 

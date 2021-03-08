@@ -1,22 +1,30 @@
 package com.hodu.domain.account.controller;
 
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hodu.domain.account.service.MemberService;
 import com.hodu.domain.model.MemberDTO;
+import com.hodu.domain.util.Upload;
 import com.hodu.domain.util.UserSha256;
 
 import lombok.extern.log4j.Log4j;
@@ -487,8 +495,26 @@ public class MemberController {
 		service.mentorReg(member);
 		MemberDTO memberdto = service.memberInfo(member.getMember_id());
 		session.setAttribute("member", memberdto);
-		System.out.println(member);
 		return "redirect:/hodu/main/mainpage";
+	}
+	
+	
+	// 회원가입 처리
+	@PostMapping(value = "/hodu/account/saveImage")
+	public String saveImage(@RequestParam HashMap<Object, Object> param,  MultipartHttpServletRequest filelist){
+		//param  --> 넘어온 파라미터
+	    //filelist --> 넘어온 파일 리스트
+	    //MultipartFile로 이름을 주어서 따로 받을 수 있다. ajax로 file1로 보냈으니 받을 때 MultipartFile file1 이런식으로도 가능하다.
+	    //MultipartHttpServletRequest로 받으면 한번에 객체를 통째로 받아서 나름 편하다.
+//		Iterator<String> iter = filelist.getFileNames(); 
+//	    MultipartFile mfile = null; 
+//	    String fieldName = "";
+//	    while (iter.hasNext()) { 
+//	        fieldName = (String) iter.next(); //파일이름, 위에서 file1과 file2로 보냈으니 file1, file2로 나온다.
+//	        mfile = filelist.getFile(fieldName);  //저장된 파일 객체
+//	    }
+//	    Upload.uploadIMG(mfile, "C:\\Users\\Public\\upload\\member\\");
+	    return "SUCC";
 	}
 	
 }

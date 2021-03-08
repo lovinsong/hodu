@@ -46,6 +46,10 @@
 		  SELECT member_img FROM hodu_member WHERE member_id = #{member_id}
 
 	</select>
+	
+	<select id="getItemCnt" resultType="int">
+		SELECT count(*) FROM item_board
+	</select>
 
 
   

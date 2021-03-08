@@ -26,7 +26,7 @@ public class ItemDTO {
 	private String item_thumbnailimg;
 	private String item_show;
 	private Integer item_like;
-	private Integer item_review_star;
+	private long item_review_star;
 	private String item_one_day;
 	private Integer item_NOP;
 	

@@ -397,7 +397,6 @@ input[type=button]:hover, input[type=reset]:hover {
 				url : "memberNickChk", 
 				data : data,
 				success : function(result){ 
-					
 					if(result != 'fail'){ 
 						$('.nick_input_re_1').css("display","inline-block"); 
 						$('.nick_input_re_2').css("display", "none"); 
@@ -456,7 +455,6 @@ input[type=button]:hover, input[type=reset]:hover {
 					url : "memberEmailChk", 
 					data : data,
 					success : function(result){ 
-						
 						if(result != 'fail'){ 
 							$.ajax({
 

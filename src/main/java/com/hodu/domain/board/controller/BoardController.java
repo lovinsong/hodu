@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hodu.domain.board.service.BoardService;
 import com.hodu.domain.model.ItemDTO;
+import com.hodu.domain.util.Pagination;
 
 import lombok.extern.log4j.Log4j;
 
@@ -33,12 +35,20 @@ public class BoardController {
 	@GetMapping("item/Datepicker")
  	public void testDatepicker1() {
  	}
-	
+
 	//글 전체 페이지로 이동하기
 	@GetMapping("item/item-category")
-	public void item_category(Model model, ItemDTO dto, int pagenum) throws Exception {
+	public void item_category(Model model, ItemDTO dto, @RequestParam(required = false,defaultValue="1") int page, @RequestParam(required = false, defaultValue = "1") int range) throws Exception {
 		
-		model.addAttribute("dto",service.itempage(pagenum));
+		int listCnt  = service.getItemCnt();
+		
+		
+	    //Pagination 객체생성
+		Pagination pagination = new Pagination();
+		pagination.pageInfo(page, range, listCnt);
+	   
+		model.addAttribute("dto",service.itempage(page));
+		model.addAttribute("pagination", pagination);
 		
 	}
 	
@@ -49,6 +59,8 @@ public class BoardController {
 		System.out.println("dto : " + dto);
 		
 		service.itemRegist(dto);
+		
+		
 		
 		
         return "redirect:item-category";

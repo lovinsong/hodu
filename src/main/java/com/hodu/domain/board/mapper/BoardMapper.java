@@ -21,5 +21,7 @@ public interface BoardMapper {
 	public List<ItemDTO> getItemPage(int pagenum);
 	
 	public String getUserImg(String member_id);
+	
+	public int getItemCnt();
 
 }
