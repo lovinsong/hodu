@@ -21,10 +21,14 @@
 	border-style: soild;
 	box-sizing: 50px;
 }
+#total{
+color: black;
+}
 </style>
 <body>
-
-	<div class="container">
+	<!-- footer 파일 포함 코드 -->
+	<%@ include file="../headerfooter/hoduheader.jsp"%>
+	<div class="container" id="total">
 		<div class="row">
 		<!-- 왼쪽 -->
 			<div class="col-6" id="leftpayment">
@@ -42,13 +46,12 @@
 			
 			<div align="right" class="col-6">
 			<p>&nbsp;</p>
-			<p>호두 받아오기</p>
+			<p>${member.member_cash } 호두</p>
 			</div> 
 			</div>
 						<div class="p-5"></div>
 			<h3>결제수단</h3>
 			<input type="button" value="충전하러가기">
-					<div class="p-5"></div>
 					<div class="p-5"></div>
 					<div class="p-5"></div>
 			</div>
@@ -95,18 +98,21 @@
 				</div>
 				<div class="col-1"></div>
 				<div class="col-1"></div>
-				<div class="col-4"><p>보유 DB호두<p> 
+				<div class="col-4"><p>${member.member_cash } 호두<p> 
 				<hr>
 				<p>가격호두</p>
 				<p>(VAT 10% / 5개)</p>
 				</div>
 				</div>
 				<div class="p-4"></div>
-				<input type="button" style="width: 550px; height: 50px; background-color: crimson; " value="결제하기"/>
+				<form action="./okpayment">
+				<input type="submit" style="width: 550px; height: 50px; background-color: crimson; " value="결제하기"/>
+				</form>
 		</div>
 	</div>
 	</div>
 
-
+		<!-- footer 파일 포함 코드 -->
+	<%@ include file="../headerfooter/hodufooter.jsp"%>
 </body>
 </html>

@@ -16,4 +16,5 @@ public class MyOrderDTO {
 	private Integer order_count;
 	private Date order_date;
 	private String order_show;
+	
 }

@@ -19,14 +19,19 @@
 #rightcart {
 	background-color: white;
 }
+#total{
+color: black;
+}
 </style>
 <body>
+	<!-- footer 파일 포함 코드 -->
+	<%@ include file="../headerfooter/hoduheader.jsp"%>
+
 <br>
-	<div class="container">
+	<div class="container" id ="total">
 		<div class="row">
 			<div class="col-6" id="leftcart">
 				왼쪽입니다.(게시판에서 받아와야합니다.)
-				<div class="p-5"></div>
 				<div class="p-5"></div>
 				<div class="p-5"></div>
 				<div class="p-5"></div>
@@ -57,7 +62,7 @@
 			<h4>연락 받으실 전화번호 :</h4>
 			</div>
 			<div align="right" class="col-6">
-			<h5>db에서 받기</h5>
+			<h5>${member.member_phone }</h5>
 			</div>
 			</div>
 			
@@ -73,15 +78,17 @@
 			<input type="radio" style="width: 23px; height: 23px;" name="chk_level">초 / 중급 &nbsp; &nbsp; &nbsp;
 			<input type="radio" style="width: 23px; height: 23px;" name="chk_level">상급 &nbsp; &nbsp; &nbsp;
 			<br>
-			<form>
+			<form action="./payment" >
      		 <textarea style="resize: none" cols="80" rows="10" placeholder="예) 처음이라 서투르지만 열심히 따라갈께요!"></textarea>
      		 <div class="p-3"></div>
-     		 <input type="submit" style="width: 584px; height: 50px; background-color: crimson; " value="다음">
+     		 <input type="submit" style="width: 500px; height: 50px; background-color: crimson; " value="다음" onclick="h">
    			</form>
    			</div>
 			</div>
 		</div>
 
 	</div>
+		<!-- footer 파일 포함 코드 -->
+	<%@ include file="../headerfooter/hodufooter.jsp"%>
 </body>
 </html>
