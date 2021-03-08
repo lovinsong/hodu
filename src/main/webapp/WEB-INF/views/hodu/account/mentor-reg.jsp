@@ -26,18 +26,17 @@
 
 <!-- header 파일 포함 코드 -->
 <%@ include file="../headerfooter/hoduheader.jsp"%>
-<style>
 
-</style>
 <body>
 
 <h1>멘토가입</h1>
+
 <form action="mentor-registing" method="post" id="mentorform" enctype="multipart/form-data">
 <input type="hidden" name="member_id" id="member_id" value="${member.member_id}">
 
 <!-- 이미지 첨부 -->
 <!-- <input type="file" name="member_imgM" class="image"> -->
-<input type="file" name="image" class="image" id="yes">
+<input type="file" name="member_imgM" class="member_imgM" id="member_imgM">
 
 <div id="contract">
 				<!-- 약관 보러가기 -->
@@ -50,8 +49,8 @@
 				<input type="button" value="메인 페이지" onclick="location.href='mainpage'">
 				<!-- 메인페이지로 연결!!! -->
 </div>
-<!-- <img id="cropped"> -->
-여기에 나타남<input type="file" id="cropped" name="cropped">
+
+<img id ="show_img" src="" alt=""  />
 
 
 
@@ -85,7 +84,7 @@
             </div>
         </div>
 
-
+</form>
 
 <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -97,7 +96,7 @@
     var cropper,reader,file;
    
 
-    $("body").on("change", ".image", function(e) {
+    $("body").on("change", ".member_imgM", function(e) {
         var files = e.target.files;
         var done = function(url) {
             image.src = url;
@@ -132,61 +131,33 @@
     });
 
     
+    var canvas;
+    var imgDataUrl;
     
-    
-    
-    
-    var isCropped = 0;
     $("#crop").click(function() {
-       var canvas = cropper.getCroppedCanvas({
-            width: 160,
+       canvas = cropper.getCroppedCanvas({
+            width: 230,
             height: 160,
         });
-      
-        //function saveImage() {
-            //var $canvas = document.createElement('canvas');
-            var imgDataUrl = canvas.toDataURL('image/png');
+      	
+       
+    
+            imgDataUrl = canvas.toDataURL('image/png'); // -> 주소
             
-         	var blobBin = atob(imgDataUrl.split(',')[1]);	// base64 데이터 디코딩
-            var array = [];
-            for (var i = 0; i < blobBin.length; i++) {
-                array.push(blobBin.charCodeAt(i));
-            }
-            var file = new Blob([new Uint8Array(array)], {type: 'image/png'});	// Blob 생성 
-            
-			document.getElementById('cropped').val = blobBin;
-            
-			//var f = document.getElementById("yes");
-			//f.type= "image";
-			isCropped = 1;
-            
+            document.getElementById("show_img").src = imgDataUrl;
+         
 			bs_modal.modal('hide');
+			
+			
             
-            /* const formdata = new FormData();	// formData 생성
-            formdata.append("file", file);	// file data 추가
-            
-            $.ajax({
-                type : 'post',
-                url : 'saveImage',
-                data : formdata,
-                processData : false,	// data 파라미터 강제 string 변환 방지!!
-                contentType : false,	// application/x-www-form-urlencoded; 방지!!
-                success : function (result) {
-                	console.log(result);
-                },
-                error : function(e){
-                    console.log(e);
-                }
-            }); */
-        //}
-        //saveImage();
+       
 
         
     });
 
 </script>
 
-</form>
+
 
 
 <script>
