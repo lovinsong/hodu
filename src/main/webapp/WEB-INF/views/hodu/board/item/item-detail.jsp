@@ -228,10 +228,14 @@
 
                         <h2>클래스 일정</h2> <br>
 
-                            <div class="schedule">
 
-                                <span>협의 후 날짜, 시간 결정<br>
-                                    <p>상세장소: 보호자 자택</p></span>               
+                            <div class="schedule">
+								 <c:forEach var="select" items="${dto.select }">
+	                              <span>
+	                              	<fmt:formatDate value="${select.item_start_date}" pattern="MM월 dd일 (E)"/>&emsp;&emsp;<fmt:formatDate value="${select.item_start_date}" pattern="HH:mm"/>:<fmt:formatDate value="${select.item_end_date}" pattern="HH:mm"/>
+	                             	<br>${fn:length(dto.item_place)  > 7 ? fn:substring(dto.item_place,5, fn:length(dto.item_place))  : dto.item_place}
+	                              </span>
+                                 </c:forEach>
                             </div>
 
                             <span class="like-content">

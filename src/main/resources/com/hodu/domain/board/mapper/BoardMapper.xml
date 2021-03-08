@@ -63,6 +63,11 @@
 
 	</select>
 
+	<select id="getItemSelect" resultType="com.hodu.domain.model.ItemSelectDTO">
+
+		  SELECT * FROM item_select WHERE item_code = #{item_code}
+
+	</select>
 
   
   </mapper>

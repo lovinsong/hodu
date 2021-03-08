@@ -108,6 +108,7 @@ public class BoardServiceImpl implements BoardService {
 		ItemDTO item = board_mapper.getItem(item_code);
 		item.setMember_img(board_mapper.getUserImg(item.getMember_id()));
 		item.setImages(images);
+		item.setSelect(board_mapper.getItemSelect(item_code));
 		
 		return item;
 		

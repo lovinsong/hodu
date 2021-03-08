@@ -27,5 +27,7 @@ public interface BoardMapper {
 	public ItemDTO getItem(int item_code);
 	
 	public List<BoardImgDTO> getItemBoardImg(int item_code);
+	
+	public List<ItemSelectDTO> getItemSelect(int item_code);
 
 }

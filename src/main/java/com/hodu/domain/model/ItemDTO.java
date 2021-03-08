@@ -52,5 +52,9 @@ public class ItemDTO {
 	private String member_img;
 	private List<String> images;
 	
+	// ItemSelect에서 받아올 시간 정보
+	
+	private List<ItemSelectDTO> select;
+	
 
 }
