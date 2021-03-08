@@ -137,7 +137,7 @@
     
     
     var isCropped = 0;
-    $("#crop").click(function() {
+    $("#crop").click(function(a) {
        var canvas = cropper.getCroppedCanvas({
             width: 160,
             height: 160,
@@ -148,12 +148,12 @@
             var imgDataUrl = canvas.toDataURL('image/png');
             
          	var blobBin = atob(imgDataUrl.split(',')[1]);	// base64 데이터 디코딩
-            var array = [];
+            /* var array = [];
             for (var i = 0; i < blobBin.length; i++) {
                 array.push(blobBin.charCodeAt(i));
             }
-            var file = new Blob([new Uint8Array(array)], {type: 'image/png'});	// Blob 생성 
-            
+            var file = new Blob([new Uint8Array(array)], {type: 'image/png'});	// Blob 생성  */
+            var files = a.target.files;
 			document.getElementById('cropped').val = blobBin;
             
 			//var f = document.getElementById("yes");
