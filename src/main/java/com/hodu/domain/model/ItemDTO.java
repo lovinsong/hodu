@@ -11,7 +11,7 @@ public class ItemDTO {
 
 	
 	// 실제 게시글 DB에 들어갈 변수들
-	private int item_code;
+	private Integer item_code;
 	private String member_id;
 	private String item_category;
 	private String item_title;
