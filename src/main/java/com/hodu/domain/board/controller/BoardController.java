@@ -66,6 +66,16 @@ public class BoardController {
         return "redirect:item-category";
     }
 	
+	//아이템 날짜 선택 페이지로 이동하기
+	@GetMapping("item/item-detail")
+ 	public void item_detail(Model model, @RequestParam(required = false,defaultValue="1") int item_code) throws Exception {
+		
+		model.addAttribute("dto", service.itemInfo(item_code));
+		
+ 	}
+	
+	
+	
 	//공지사항 글 작성 페이지로 이동하기
 	@GetMapping("notice/notice-reg")
 	public void notice_reg() {

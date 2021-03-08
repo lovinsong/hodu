@@ -91,69 +91,7 @@
 <script src="${pageContext.request.contextPath}/resources/assets/js/cropper.min.js" ></script>
 <script>
 
-    var bs_modal = $('#modal');
-    var image = document.getElementById('image');
-    var cropper,reader,file;
    
-
-    $("body").on("change", ".member_imgM", function(e) {
-        var files = e.target.files;
-        var done = function(url) {
-            image.src = url;
-            bs_modal.modal('show');
-        };
-
-
-        if (files && files.length > 0) {
-            file = files[0];
-
-            if (URL) {
-                done(URL.createObjectURL(file));
-            } else if (FileReader) {
-                reader = new FileReader();
-                reader.onload = function(e) {
-                    done(reader.result);
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-    });
-
-    bs_modal.on('shown.bs.modal', function() {
-        cropper = new Cropper(image, {
-            aspectRatio: 1,
-            viewMode: 3,
-            preview: '.preview'
-        });
-    }).on('hidden.bs.modal', function() {
-        cropper.destroy();
-        cropper = null;
-    });
-
-    
-    var canvas;
-    var imgDataUrl;
-    
-    $("#crop").click(function() {
-       canvas = cropper.getCroppedCanvas({
-            width: 230,
-            height: 160,
-        });
-      	
-       
-    
-            imgDataUrl = canvas.toDataURL('image/png'); // -> 주소
-            
-            document.getElementById("show_img").src = imgDataUrl;
-         
-			bs_modal.modal('hide');
-			
-			
-            
-       
-
-        
-    });
 
 </script>
 
@@ -186,10 +124,7 @@ $("#signupbtn").on("click", function() {
 	if($('input[name=req]').is(":checked")){
     	contractCheck = 1;
 	}
-	if(isCropped != 1){
-		alert("사진을 원하는 사이즈로 조정하세요");
-		return false;
-	}
+
 	
 	if(contractCheck !=1){
 		alert("멘토등록 약관에 동의하셔야 합니다.");

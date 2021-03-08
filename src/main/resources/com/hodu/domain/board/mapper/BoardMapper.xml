@@ -51,6 +51,18 @@
 		SELECT count(*) FROM item_board
 	</select>
 
+	<select id="getItem" resultType="com.hodu.domain.model.ItemDTO">
+
+		  SELECT * FROM item_board WHERE item_code= #{item_code}
+
+	</select>
+	
+	<select id="getItemBoardImg" resultType="com.hodu.domain.model.BoardImgDTO">
+
+		  SELECT * FROM board_image WHERE board_postnum = #{item_code} AND board_name='item_board'
+
+	</select>
+
 
   
   </mapper>

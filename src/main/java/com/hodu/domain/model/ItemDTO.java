@@ -1,6 +1,7 @@
 package com.hodu.domain.model;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -49,6 +50,7 @@ public class ItemDTO {
 	private MultipartFile item_thumbnailimgA;
 	
 	private String member_img;
+	private List<String> images;
 	
 
 }

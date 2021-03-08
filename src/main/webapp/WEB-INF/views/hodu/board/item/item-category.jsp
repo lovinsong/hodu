@@ -180,18 +180,18 @@
 										
 									
 										<section class="box feature">
-											<a href="#" class="image featured"><img src="/project/upload/Thumbnail/${dtoitem.item_thumbnailimg}" alt="" /></a>
+											<a href="./item-detail/?item_code=${dtoitem.item_code}" class="image featured"><img src="/project/upload/Thumbnail/${dtoitem.item_thumbnailimg}" alt="" /></a>
 											<div class="inner">
 												<header>
 												    <h2 class="title_line">${dtoitem.item_title }</h2>
-														<p class="price_line">&nbsp;<strong>${dtoitem.item_price}</strong>&nbsp;호두</p>
+														<p class="price_line">&nbsp;<strong>${dtoitem.item_price}</strong>&nbsp;<img src="${pageContext.request.contextPath}/resources/assets/image/hoduC.png" style="width:3.5%; vertical-align: end; "></p>
 														<p>|</p>												
 														<p> ${fn:length(dtoitem.item_place)  > 7 ? fn:substring(dtoitem.item_place,5,11)  : dtoitem.item_place}</p>
 														<p>|</p>
 														<p> ${dtoitem.item_one_day == "Y" ? "원데이" : "다회차"} </p>
 														<p class="profile"><img src="/project/upload/member/${dtoitem.member_img}" alt="" /><br>${dtoitem.member_id} 멘토</p>
 												 	<div class ="review_star">
-														<a><i class="fa fa-star" style="color:#e31240"></i></i></a><a>${dtoitem.item_review_star }(${dtoitem.item_like })</a>
+														<a><i class="fa fa-star" style="color:#e31240"></i></a><a>${dtoitem.item_review_star }&nbsp;(${dtoitem.item_like })</a>
 													</div>																							
 												</header>											
 											</div>
