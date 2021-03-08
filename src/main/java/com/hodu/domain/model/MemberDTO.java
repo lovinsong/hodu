@@ -27,5 +27,7 @@ public class MemberDTO {
 	private String member_detailaddress;
 	private String mentor_enable;
 	
-	private MultipartFile image;
+
+	// 실제 업로드한 이미지 정보가 들어가는 변수
+	private MultipartFile member_imgM;
 }
