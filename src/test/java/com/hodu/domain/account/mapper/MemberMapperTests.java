@@ -26,7 +26,7 @@ public class MemberMapperTests {
 	@Test
 	@Ignore
 	public void nickTest() {
-		String nick1 = "관리자"; // 존재하는 
+		String nick1 = "김관리"; // 존재하는 
 		String nick2 = "test123"; // 존재하지 않는  
 		membermapper.nickCheck(nick1); 
 		membermapper.nickCheck(nick2);
@@ -42,6 +42,7 @@ public class MemberMapperTests {
 	}
 	
 	@Test
+	@Ignore
 	public void emailTest() {
 		String email1 = "a@a.c"; // 존재하는
 		String email2 = "x@x.c"; // 존재하지 않는

@@ -27,5 +27,5 @@ public class MemberDTO {
 	private String member_detailaddress;
 	private String mentor_enable;
 	
-	private MultipartFile member_imgM;
+	private MultipartFile image;
 }
