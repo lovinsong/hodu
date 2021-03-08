@@ -495,6 +495,7 @@ public class MemberController {
 		service.mentorReg(member);
 		MemberDTO memberdto = service.memberInfo(member.getMember_id());
 		session.setAttribute("member", memberdto);
+		
 		return "redirect:/hodu/main/mainpage";
 	}
 	
@@ -502,18 +503,16 @@ public class MemberController {
 	// 회원가입 처리
 	@PostMapping(value = "/hodu/account/saveImage")
 	public String saveImage(@RequestParam HashMap<Object, Object> param,  MultipartHttpServletRequest filelist){
-		//param  --> 넘어온 파라미터
-	    //filelist --> 넘어온 파일 리스트
-	    //MultipartFile로 이름을 주어서 따로 받을 수 있다. ajax로 file1로 보냈으니 받을 때 MultipartFile file1 이런식으로도 가능하다.
-	    //MultipartHttpServletRequest로 받으면 한번에 객체를 통째로 받아서 나름 편하다.
-//		Iterator<String> iter = filelist.getFileNames(); 
-//	    MultipartFile mfile = null; 
-//	    String fieldName = "";
-//	    while (iter.hasNext()) { 
-//	        fieldName = (String) iter.next(); //파일이름, 위에서 file1과 file2로 보냈으니 file1, file2로 나온다.
-//	        mfile = filelist.getFile(fieldName);  //저장된 파일 객체
-//	    }
-//	    Upload.uploadIMG(mfile, "C:\\Users\\Public\\upload\\member\\");
+
+
+		Iterator<String> iter = filelist.getFileNames(); 
+	    MultipartFile mfile = null; 
+	    String fieldName = "";
+	    while (iter.hasNext()) { 
+	        fieldName = (String) iter.next(); //파일이름, 위에서 file1과 file2로 보냈으니 file1, file2로 나온다.
+	        mfile = filelist.getFile(fieldName);  //저장된 파일 객체
+	    }
+	    Upload.uploadIMG(mfile, "C:\\Users\\Public\\upload\\member\\");
 	    return "SUCC";
 	}
 	
