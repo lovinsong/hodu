@@ -132,4 +132,13 @@
 		where
 		member_id = #{member_id}
 	</update>
+	
+	<!-- 멘토 등록 -->
+	<update id="changePImg">
+		update hodu_member 
+		set 
+		member_img = #{member_img}
+		where
+		member_id = #{member_id}
+	</update>
 </mapper>

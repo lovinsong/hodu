@@ -122,7 +122,7 @@ input[type=button]:hover, input[type=reset]:hover {
       
       <label>이름: </label>&nbsp; ${member.member_name}<br>
       <div class="member_name regex"></div>
-
+      
       <label>닉네임: </label><input class="nick_input" type="text" name="member_nickname" id="member_nickname" value="${member.member_nickname}">
       <span class="nick_input_re_1">사용 가능한 닉네임입니다.</span>
       <span class="nick_input_re_2">닉네임이 이미 존재합니다.</span>
@@ -148,6 +148,7 @@ input[type=button]:hover, input[type=reset]:hover {
       </div>
    </div>
 </form>
+
 <script>
       var existNickname = "";
       
