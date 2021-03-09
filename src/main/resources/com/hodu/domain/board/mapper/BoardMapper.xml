@@ -83,7 +83,7 @@
 	</insert>
 	
 	<update id="likeChange">
-		UPDATE my_heart SET heart_show = #{likeStatue} WHERE member_id = #{user}
+		UPDATE my_heart SET heart_show = #{likeStatue} WHERE (member_id = #{user} AND item_code = #{item_code})
 	</update>
 	
 	<update id="boardLikeCount">
