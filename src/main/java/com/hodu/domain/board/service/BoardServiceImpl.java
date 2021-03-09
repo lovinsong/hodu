@@ -2,6 +2,7 @@ package com.hodu.domain.board.service;
 
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,6 +92,25 @@ public class BoardServiceImpl implements BoardService {
 	public int getItemCnt() throws Exception {
 		
 		return board_mapper.getItemCnt();
+	}
+
+	@Override
+	public ItemDTO itemInfo(int item_code) throws Exception {
+
+		List<String> images = new ArrayList();
+		
+		for (BoardImgDTO image : board_mapper.getItemBoardImg(item_code)) {
+			images.add(image.getBimg_new_name());
+		}
+		
+		
+		
+		ItemDTO item = board_mapper.getItem(item_code);
+		item.setMember_img(board_mapper.getUserImg(item.getMember_id()));
+		item.setImages(images);
+		
+		return item;
+		
 	}
 
 }

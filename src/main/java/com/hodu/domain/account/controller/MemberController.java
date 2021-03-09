@@ -496,13 +496,16 @@ public class MemberController {
 		service.mentorReg(member);
 		MemberDTO memberdto = service.memberInfo(member.getMember_id());
 		session.setAttribute("member", memberdto);
+		
 		return "redirect:/hodu/main/mainpage";
 	}
 	
+
 	//프로필 사진 변경
 	@GetMapping(value = "/hodu/mypage/account/changeProfileImg")
 	public String tochangePImg() {
 		return "redirect:/hodu/account/changeProfileImg";
+
 	}
 	@GetMapping(value = "/hodu/account/changeProfileImg")
 	public void changePImg() {
