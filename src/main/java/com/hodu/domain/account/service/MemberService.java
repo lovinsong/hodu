@@ -51,5 +51,8 @@ public interface MemberService {
 	
 	//멘토 등록
 	public void mentorReg(MemberDTO member) throws Exception;
+	
+	//멘토 등록
+	public void changePImg(MemberDTO member) throws Exception;
 
 }

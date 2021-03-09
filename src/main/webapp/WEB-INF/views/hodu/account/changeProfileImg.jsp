@@ -112,90 +112,76 @@ reader.readAsDataURL(file);
 
 }
 </script>
+
 </head>
 <style>
+/*버튼 숨기는 코드(없애면 안됨!)*/
 #resize{
 	display : none;
 }
 </style>
 <body>
-<!-- header 파일 포함 코드 -->
-<%@ include file="../headerfooter/hoduheader.jsp"%>
-<h1>멘토가입</h1>
-<form action="mentor-registing" method="post" id="mentorform" enctype="multipart/form-data">
+<h1>프로필 사진 변경</h1>
 
+<form action="changeImg" method="POST" id="changeImgform" enctype="multipart/form-data">
 <input type="hidden" name="member_id" id="member_id" value="${member.member_id}">
-
-<!-- 이미지 첨부 -->
-<div>
-	<span>프로필 사진 등록 :</span>
-	<input type="file" name="member_imgM" id="imageFile" ><br>
-	<img src="" id="output"><br>
-	<input type="button" value="Resize Image" id="resize" onclick="ResizeImage()"/>
-</div>
-<br>
-<div id="contract">
-				<!-- 약관 보러가기 -->
-				<input type="button" id="gotojoinform" value="약관 보기" /><br>
-				<input type="checkbox" class="req" name="req" id="req" disabled="disabled"> 멘토 등록 약관에 동의합니다.
-				
-</div>
-<div id="signup">
-				<input type="button" name="signup" value="가입하기" id="signupbtn">
-				<input type="button" value="메인 페이지" onclick="location.href='mainpage'">
-				<!-- 메인페이지로 연결!!! -->
-</div>
-
-</form>
-
-<script>
-	// 약관 보러 가기에 관한 스크립트
+	<label>현재 프로필 사진: </label> 
+	<!-- <img src="/project/upload/member/${member.member_img}" alt="회원이미지" id="originalImg"/><br> -->
+	<img src="/project/upload/member/${member.member_img}" style="width: 200px;height: auto;">
+	<!--<input type="image" src="" alt="바뀔 이미지" id="newImg"/>-->
+	<!-- <input type="hidden" id="newImg" name="newImg"> -->
+	<!--  <div id="image_container"></div> --> 
 	
-	var popupX = (window.screen.width / 2) - (500 / 2);
-	//&nbsp;만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
-
-	var popupY = (window.screen.height / 2) - (600 / 2);
-	//&nbsp;만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
-    
-	// 회원약관 바로가기 바로가기
-    
-        $("#gotojoinform").click(function(){
-            window.open("../account/joinform", "회원 약관", 'status=no, width=550, height=600, left='+ popupX + ', top='+ popupY);
-        });
-</script>
-
+	<input type="file" name="member_imgM" id="imageFile" ><br>
+	
+	<label>변경될 프로필 사진: </label><img src="" id="output"><br>
+	<input type="button" value="Resize Image" id="resize" onclick="ResizeImage()"/>
+	
+	<div id="signup">
+		<input type="button" name="signup" value="변경하기" id="changeImgbtn">
+		<input type="button" value="취소" onclick="goBack()">
+		 <!--메인페이지로 연결!!! -->
+	</div>
+	
+</form>
+<!-- <script> 
+var isPhoto = 0;
+	function setThumbnail(event) { 
+		var reader = new FileReader(); 
+		reader.onload = function(event) { 
+			//$('#originalImg').remove();
+			$('img').remove();
+			var img = document.createElement("img"); 
+			img.setAttribute("src", event.target.result); 
+			document.querySelector("div#image_container").appendChild(img); 
+			}; 
+		reader.readAsDataURL(event.target.files[0]);
+		isPhoto = 1;
+	} 
+</script> -->
 
 <script>
-var contractCheck = 0;
 $("#imageFile").change(function(){
 	$("#resize").trigger("click");
 	$("#resize").trigger("click");
 	
 })
-
-$("#signupbtn").on("click", function() {
-	//var croppic = $("#cropped").val();
+function goBack() {
+    window.history.back();
+}
+$("#changeImgbtn").on("click", function() {
 	
-	if($('input[name=req]').is(":checked")){
-    	contractCheck = 1;
-	}
 	if(isPhoto != 1){
-		alert("사진 등록은 필수입니다");
+		alert("사진 변경이 되지 않았습니다.");
 		return false;
 	}
 	
-	if(contractCheck !=1){
-		alert("멘토등록 약관에 동의하셔야 합니다.");
-		return;
-	}
-
-	//빈칸 없을 때 제출.
-	alert("멘토 가입 완료!");
-	$("#mentorform").submit();
+	
+	alert("사진 변경 완료!");
+	$("#changeImgform").submit();
 })
 
 
 </script>
-
 </body>
 </html>

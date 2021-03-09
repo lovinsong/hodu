@@ -23,5 +23,19 @@ public interface BoardMapper {
 	public String getUserImg(String member_id);
 	
 	public int getItemCnt();
+	
+	public ItemDTO getItem(int item_code);
+	
+	public List<BoardImgDTO> getItemBoardImg(int item_code);
+	
+	public List<ItemSelectDTO> getItemSelect(int item_code);
+	
+	public String getLikeState(ItemDTO item);
+
+	public int makeLike(ItemDTO item);
+	
+	public int likeChange(ItemDTO item);
+	
+	public int boardLikeCount(ItemDTO item);
 
 }

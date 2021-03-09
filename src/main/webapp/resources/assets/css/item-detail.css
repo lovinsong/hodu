@@ -1,0 +1,661 @@
+
+@import url('http://fonts.googleapis.com/css?family=Open Sans:300,400,700');
+@import url(font-awesome.min.css);
+@import url(bootstrap.min.css);
+@import url(flexslider.css);
+
+
+/* Styles
+--------------------------------------- */
+
+body {
+    font-size: 1em;
+    line-height: 200%;
+    font-family: 'Open Sans', sans-serif;
+    font-style: '나눔 고딕'; 
+    -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+    -webkit-text-size-adjust: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, span, p, li { font-family: 'Open Sans', sans-serif; }
+
+h3 { color: #696969; 
+    padding: 20px 0 15px 0; 
+    font-size: 28px; 
+    font-weight: bold; 
+    line-height: 180%;
+}
+
+h4 { color: #696969; 
+    padding: 20px 0 15px 0; 
+    font-size: 18px; 
+    font-weight: bold; 
+    line-height: 180%;
+}
+
+
+a { color: #FF6; }
+a:hover, a:focus { color: white; }
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+img {  vertical-align: middle; }
+
+.templatemo-content p {
+    display: inline;
+}
+
+.container-fluid {
+    margin:0;
+    margin-left: -10%;
+}
+
+.navbar-default {
+    margin-top: -20%;
+}
+
+/* 사이드바 */
+
+.sidenav {
+    text-align: center;
+    background-color: white;
+    width: 460px;
+    position: fixed;
+    z-index: 1;
+    top: 110px;
+    right: 250px;
+    overflow-x: hidden;
+    border-radius: 10px;
+    border: 1px solid;
+    border-style: thin;
+    border-color: #faf6f0;
+    padding-bottom: 60px;
+    padding-top: 35px;
+    box-shadow: 0px 0px 2px 2px #faf6f0;
+  }
+
+.sidenav a:hover {
+    color: #ca0732;
+    background-color: #faf6f0;
+    border: 1px solid;
+    border-style: thin;
+    border-color: #f7f2e9;
+  }
+
+
+.schedule {
+    width: 320px;
+    height: 360px;
+    overflow: auto;
+    text-align: left;
+    margin-left: 15%;
+    margin-bottom: 5%;
+    margin-top: 3%;
+    border: 1px solid;
+    border-style: thin;
+    border-color: #faf6f0;
+    color: black;
+}
+
+.schedule span {
+    padding: 16px;
+    text-decoration: none;
+    font-size: 15px;
+    background-color: #fcfcfc;
+    color: black;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    line-height: 200%;
+}
+
+.schedule::-webkit-scrollbar {
+    width: 15px;
+}
+.schedule::-webkit-scrollbar-thumb {
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 2px solid #eee;
+}
+.schedule::-webkit-scrollbar-track {
+    background-color: #f6ecde;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+}
+
+/* 찜하기 & 수업 신청하기 */
+
+.like-content {
+    font-size: 18px;
+    text-align: center;
+    display: inline;
+    vertical-align: middle;
+    background-color: white;
+}
+
+.like-content button {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.like-content i {
+    text-align: center;
+}
+
+.like-content p {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.like-content #like {
+    vertical-align:text-bottom;
+    margin: 30px 0 0 0px;
+    text-align: center;
+    background:  white;
+    border-radius: 6px;
+    box-shadow: 0 10px 4.5px -10px rgb(240, 75, 113);
+    padding: 17px 28px 17px 28px;
+    font-size: 15px;
+    cursor: pointer;
+    border: 1px solid #d6bac0;
+    color: #db7a7a;
+    -webkit-transition: 0.3s ease;
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+.like-content #like:focus {outline:none;}
+.like-content #order:focus {outline:none;}
+
+.like-content #order {
+    vertical-align: text-bottom;
+    margin-left: 10px;
+    margin: 30px 0 0 0;
+    text-align: center;
+    background: #db7a7a; 
+    border-radius: 6px;
+    box-shadow: 0 10px 4.5px -10px rgb(240, 75, 113);
+    padding: 17px 25px 17px 23px;
+    font-size: 15px;
+    cursor: pointer;
+    border: 1px solid #d6bac0;
+    color: white;
+    -webkit-transition: 0.2s ease;
+    transition: 0.s ease;
+    text-align: center;
+    width: 270px;   
+    height: 86px;
+    font-size: 20px;
+    letter-spacing: 0.1em;    
+}
+
+.like-content #like:hover {
+    transform: translateY(2px);
+    border: 1px solid #df627f;
+    background-color: #e31240;
+    color: white;
+}
+
+.like-content #order:hover {
+    transform: translateY(3px);
+    border: 1px solid #df627f;
+    background-color: #e31240;
+    color: white;
+}
+
+.like-content .btn-secondary .fa {
+    text-align: center;
+}
+
+.like-content .btn-secondary i {
+    margin-left: 3px;
+    margin-bottom: 5px;
+    font-size: 25px;
+}
+
+.animate-like {
+  animation-name: likeAnimation;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+}
+
+@keyframes likeAnimation {
+  0%   { transform: scale(30); }
+  100% { transform: scale(1); }
+}
+
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 1640px) {
+    .sidenav {
+      width: 100%;
+      height: auto;
+      position: relative;
+      float: bottom;
+      margin-top: -50em;
+    }
+    div {margin-right: 0;}
+  }
+  
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+    .sidenav a {
+        text-align: center;
+        float: none;
+    }
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff; /* change if the mask should have another color then white */
+    z-index: 99; /* makes sure it stays on top */
+}
+
+#status {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: -100px 0 0 -100px; /* is width and height divided by two */
+}
+
+#main-wrapper {
+    /* background-color: blue; */
+    margin-top: 5%;
+    margin-bottom: 8%; 
+}
+
+.container {
+    /* background-color: #696969; */
+    margin-right: 30%;
+}
+
+/* .row {   
+    background-color: pink;     
+} */
+
+.content_title {
+    width:100%;
+    margin-top: 5px;
+    margin-left: -15px;
+}
+
+.content_title h1 {
+    width: 100%;
+    line-height: 150%;
+    font-weight: bold;
+    color: black;
+}
+
+.content_info {
+    margin-left: -10px;
+    width: 100%;
+}
+
+.content_info #content_star {
+    float: right;
+    font-size:23px;
+    color: #e31240;
+    margin-right: 45px;
+    margin-top: -8px;
+}
+
+.profile {
+    width: 100%;
+    height: 95%;
+}
+
+.profile p {
+    margin-left: -5px;
+}
+
+.profile_img {
+    width: 100%;
+}
+
+.profile_img img{
+    border-radius: 10px;
+    height: 130px;
+    width: 130px;
+    box-sizing: border-box;
+    margin-left: 15px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.image_slide {
+    width: 80%;
+}
+
+.site-name {
+    cursor: pointer;
+    font-size: 46px;
+}
+.slogon { font-size: 24px; }
+
+
+.active { display: block; }
+
+.inactive {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+}
+.image-section {  position: fixed; }
+.image-container {  position: relative; }
+.image-container img { position: absolute; }
+
+
+/* templatemo-content
+--------------------------------------- */
+
+.templatemo-content {
+    margin: 0 auto;
+    padding-left: 30px;
+    padding-right: 10px;
+}
+
+.templatemo-content section {
+    font-family: 'Open Sans', sans-serif;
+    position: relative; 
+    top: 0;
+    width: 180%;
+    padding: 20px;
+    padding-bottom: 0;
+}
+.templatemo-content-wrapper {
+    border-radius: 6px;
+    width:80%;
+    margin-left: 5%;
+}
+
+.templatemo-content h2 {
+    color: #696969;
+    font-family: 'Open Sans', sans-serif;
+	margin-bottom: 15px;
+}
+.templatemo-content p, .templatemo-content li {
+    font-family: 'Open Sans', sans-serif;
+    color: #696969;
+    font-size: 15px;
+	padding: 5px 0px 10px 0;
+}
+
+
+/* 이미지 슬라이드 (카르셀)
+-------------------------------------------- */
+.flexslider { 
+    border-radius: 0;
+    padding:0;
+}
+.flexslider li {
+	margin: 0;
+	padding: 0;
+}
+.flexslider img {
+    height: 560px;
+}
+
+#carousel { margin: 0; padding:0; margin-bottom: 5px;}
+#carousel li { margin-right: 5px; padding:0;}
+#carousel img {
+    display: block;
+    opacity: 0.3;
+    cursor: pointer;
+    height: 150px;
+}
+#carousel img:hover {
+    opacity: 1;
+}
+#carousel .flex-active-slide img {
+    opacity: 1;
+    cursor: default;
+    height: 150px;
+}
+
+#carousel .flex-active-slide img:hover {
+    opacity: 0.4;
+}
+#carousel .flexslider img {
+    padding:0;
+    height: 150px;
+}
+
+
+/* 메뉴 버튼들 
+--------------------------------------- */
+
+.navbar .navbar-nav {
+    margin-top: 80px;
+    display: inline-block;
+    margin-left: 323px;
+  }
+  
+  .navbar .navbar-collapse {
+    text-align: center;
+    margin-left: -15%;
+    width:150%;
+  }
+  .navbar {
+      border-radius: 0;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 2em;
+  }
+  .navbar-default {
+      background: none;
+      border: none;
+  }
+  .nav>li { margin-right: 22px; }
+  .nav>li:last-child { margin-right: 0; }
+  .nav i {
+      display: block;
+      padding: 15px 0 15px 0;
+  }
+  .nav .fa { font-size: 2em; }
+
+  .navbar-default .navbar-nav > li > a {
+      color: #696969;
+      background-color: #fafafa;
+      width: 133px;
+      height: 140px;
+      font-size: 80%;
+      margin-bottom: -0.5em;
+      border-radius: 6px;
+      box-shadow: 0px 0px 2px 2px #faf6f0;
+  }
+  
+  .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+      color: #696969;
+      background-color:  white;   
+      border: 1px solid;
+      border-color: #e6e6e6e6;
+      border-style: thin; 
+      box-shadow: 1px;
+      box-shadow: #faf6f0;
+  }
+
+  .navbar-default .navbar-nav > li > a:active, .navbar-default .navbar-nav > li > a:active {
+    color: #696969;  
+    border-style: thin;
+    border-color: #e6e6e6e6;
+    background-color: white;
+    box-shadow: 1px;
+    box-shadow: #faf6f0;
+}
+  .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+      color: #696969;
+      background-color:  white;  
+      border: 1px solid;
+      border-color: #e6e6e6e6;
+      border-style: thin;
+      box-shadow: 1px;
+      box-shadow: #faf6f0;
+  }
+
+
+/* 반응형
+--------------------------------------------- */
+@media screen and (max-width: 767px) {
+
+    .navbar .navbar-nav {
+        display: inline-block;
+        margin-left: 17.5%;
+        margin-top: 2%;
+        width: 70%;
+      }
+
+    .navbar { 
+        font-size: 2em; 
+    }
+    .nav i {
+        display: inline-block;
+    }
+    .nav .fa { 
+        font-size: 1.6em; 
+    }
+    .navbar-default .navbar-nav > li > a {
+        width: 100%;
+        height: 60px;
+        background: none;
+    }
+
+    .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+        color: #696969;  
+        border-style: thin;
+        border-color: #e6e6e6e6;
+        background-color: white;
+    }
+
+    .navbar-default .navbar-nav > li > a:active, .navbar-default .navbar-nav > li > a:active {
+        color: #696969;  
+        border-style: thin;
+        border-color: #e6e6e6e6;
+        background-color: white;
+    }
+
+    .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+        color: #fcfcfc;
+        background-color: #696969;
+        box-shadow: #696969;
+    }
+
+    .navbar-default {
+        border: none;
+        padding:0;
+        margin:0;
+    }
+
+    #main-wrapper {
+        margin-left: -10%;
+        margin-right: -50%;
+   }
+   
+}
+
+@media screen and (max-width: 1200px) {
+
+    .navbar .navbar-nav {
+        display: inline-block;
+        margin-left: 17.5%;
+        margin-top: 2%;
+      }
+
+    .navbar-default .navbar-nav > li > a {
+        border-radius: 10px;
+        color: #696969;
+        width: 107px;
+        height: 110px;
+        font-size: 80%;
+        border-style: thin;
+        border-color: #696969;
+    }
+   
+}
+
+@media screen and (max-width: 990px) {
+
+    .navbar .navbar-nav {
+        display: inline-block;
+        margin-left: 16.5%;
+        margin-top: 2%;
+      }
+
+    .navbar-default .navbar-nav > li > a {
+        border-radius: 10px;
+        color: #696969;
+        width: 80px;
+        height: 110px;
+        font-size: 70%;
+        border-style: thin;
+        border-color: #696969;
+    }
+   
+}
+
+/* 클래스 정보 글씨 */
+
+.content_info p {
+    font-size: 20px;
+}
+
+#mentor_name {
+    padding:0;
+    margin:0;
+    font-size: 25px;
+    margin-right: 7px;
+    letter-spacing: 0.1rem;
+}
+
+#mentor {
+    margin-top: 3px;
+    font-size: 15px;
+}
+
+.templatemo-content-wrapper {
+    border-style: thin;
+    border-color: #696969;
+    background-color: white;
+    width:79%;
+    margin-left: 5.5%;
+}
+
+#content_top {
+    background-color: white;
+    margin-bottom: -50px;
+}
+
+.border_content {
+
+    border: 1px solid;
+    border-style: thin;
+    border-color: #faf6f0;
+    padding-bottom: 70px;
+    box-shadow: 0px 0px 2px 2px #faf6f0;
+}
+
+.sidenav h2 {
+    text-align: center;
+    color: #1a1a1a;
+    font-size: 30px;
+}
