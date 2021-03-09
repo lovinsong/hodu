@@ -240,16 +240,145 @@
 
                     <!-- 6. 리뷰 -->
                     <section id="templatemo-page6-text" class="inactive">
-                        <div class="col-sm-6 col-md-6">
-                            <h3>실제 튜티의 리뷰입니다.</h3>
-                            <p>
+                    <h3>실제 튜티의 리뷰입니다.</h3>
 
-                            </p>
+                        <div class="schedule" id="review">
+                            
+                            <!-- span 부분 반복하기 !!! -->
+                            <span>
+                                        
+                                <div id="replyList">
+                                    <div class='reply-wrap'>
+                                        <div class='reply-content'>
+                                            <div class='reply-group'>
+                                                <strong class='left'>다람쥐 멘티</strong>&ensp;<small class='left'>2021-03-09</small>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+
+
+                            </span>
+                            <span>
+                                
+                                <div id="replyList">
+                                    <div class='reply-wrap'>
+                                        <div class='reply-content'>
+                                            <div class='reply-group'>
+                                                <strong class='left'>다람쥐 멘티</strong>&ensp;<small class='left'>2021-03-09</small>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                        
+                            </span>
+                            <span>
+                                
+                                <div id="replyList">
+                                    <div class='reply-wrap'>
+                                        <div class='reply-content'>
+                                            <div class='reply-group'>
+                                                <strong class='left'>다람쥐 멘티</strong>&ensp;<small class='left'>2021-03-09</small>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+
+                            </span>
+                            <span>
+                                
+                                <div id="replyList">
+                                    <div class='reply-wrap'>
+                                        <div class='reply-content'>
+                                            <div class='reply-group'>
+                                                <strong class='left'>다람쥐 멘티</strong>&ensp;<small class='left'>2021-03-09</small>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+
+                            </span>
+                            <span>
+                                
+                                <div id="replyList">
+                                    <div class='reply-wrap'>
+                                        <div class='reply-content'>
+                                            <div class='reply-group'>
+                                                <strong class='left'>다람쥐 멘티</strong>&ensp;<small class='left'>2021-03-09</small>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+
+                            </span>
+                            <span>
+                                
+                                <div id="replyList">
+                                    <div class='reply-wrap'>
+                                        <div class='reply-content'>
+                                            <div class='reply-group'>
+                                                <strong class='left'>다람쥐 멘티</strong>&ensp;<small class='left'>2021-03-09</small>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+
+                            </span>
+                            <span>
+                                
+                                <div id="replyList">
+                                    <div class='reply-wrap'>
+                                        <div class='reply-content'>
+                                            <div class='reply-group'>
+                                                <strong class='left'>다람쥐 멘티</strong>&ensp;<small class='left'>2021-03-09</small>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+
+                            </span>
+                            <span>
+                                
+                                <div id="replyList">
+                                    <div class='reply-wrap'>
+                                        <div class='reply-content'>
+                                            <div class='reply-group'>
+                                                <strong class='left'>다람쥐 멘티</strong>&ensp;<small class='left'>2021-03-09</small>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+
+                            </span>
+                            <span>
+                                
+                                <div id="replyList">
+                                    <div class='reply-wrap'>
+                                        <div class='reply-content'>
+                                            <div class='reply-group'>
+                                                <strong class='left'>다람쥐 멘티</strong>&ensp;<small class='left'>2021-03-09</small>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+
+                            </span>
+                            <span>
+                                
+                                <div id="replyList">
+                                    <div class='reply-wrap'>
+                                        <div class='reply-content'>
+                                            <div class='reply-group'>
+                                                <strong class='left'>다람쥐 멘티</strong>&ensp;<small class='left'>2021-03-09</small>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+
+                            </span>
+                                    
                         </div>
                     </section>
-
-                </div><!-- /.templatemo-content -->  
-            </div><!-- /.templatemo-content-wrapper --> 
 
 
 <!----------------------------------------------------  사 이 드 바  ------------------------------------------------------------>
@@ -316,11 +445,78 @@
     </div> <!-- /#main-wrapper -->
 </div> <!-- features-wrapper -->
 
-	<script src="${pageContext.request.contextPath}/resources/assets_detail/js/bootstrap.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/assets_detail/js/jquery.min.js"></script>	
-	<script src="${pageContext.request.contextPath}/resources/assets_detail/js/jquery.backstretch.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/assets_detail/js/jquery.flexslider.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/assets_detail/js/templatemo_script.js"></script>	
+<script src="${pageContext.request.contextPath}/resources/assets_detail/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets_detail/js/jquery.min.js"></script>	
+<script src="${pageContext.request.contextPath}/resources/assets_detail/js/jquery.backstretch.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets_detail/js/jquery.flexslider.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets_detail/js/templatemo_script.js"></script>	
+
+<script>
+
+var pageNum =1;
+var stradd ="";
+        
+        //목록요청
+        getlist(1,false); // 상세화면 진입시에 리스트 목록을 가져옵니다.
+        
+        function getlist(page,reset) { //(stradd 초기화여부)
+            //select 구문에서 필요한 값은? notice_postnum
+            var qno = "${dto.notice_postnum}";
+            
+            console.log(pageNum);
+            //$.ajax() vs $.getJSON
+            //$.ajax() - get,post,put,delete 공용적으로 처리하는 제이쿼리기능
+            //$.getJSON(요청의 주소,콜백함수) - 단순히 get방식의 데이터만 얻어올때 사용하는 기능
+            
+            $.getJSON(
+            		"replylist/"+qno+"/"+page,function(map){
+                    
+                    var total = map.total;
+                    var data = map.list;
+                    console.log(total);
+                    console.log(data);
+                    
+                    if(reset ==true){ //맴버변수를 초기화해서 새롭게 데이터를 가져옴
+                        stradd ="";
+                        pageNum =1;
+                    }
+                    
+                    
+                    if(pageNum*20>= total){
+                        $("#morelist").css("display","none");
+                    }
+                    
+                    
+                    if(data.length <= 0){ //댓글이 없는경우 함수종료
+                        return;
+                    }
+                    for(var i=0; i<data.length; i++){
+                    	var count = data[i].notice_star;
+                    	count *= 1;
+                    	m_count = 5 - count;
+                    	
+                        stradd+="<div class='reply-wrap'>";
+                        stradd+="<div class='reply-image'>";
+                        stradd+="</div>";
+                        stradd+="<div class='notice_reply_content'>";
+                        stradd+="<div class='reply-group'>";
+                        stradd+="<strong class='left'>"+data[i].member_id+"</strong>"; 
+                        stradd+="<small class='left'>"+timeStamp(data[i].notice_reply_date)+"</small>";
+                        stradd+="<small class='left star'>"+ "★".repeat(count) + "☆".repeat(m_count) +"</small>";
+                        stradd+="<a href='"+data[i].notice_reply_postnum+" "+data[i].member_id+" " + data[i].notice_reply_content+"' class='right replyModify'><span class='glyphicon glyphicon-pencil'></span>수정</a>"
+                        stradd+="<a href='"+data[i].notice_reply_postnum+" "+data[i].member_id+"' class='right replyDelete'><span class='glyphicon glyphicon-remove'></span>삭제</a>"
+                        stradd+="</div>";
+                        stradd+="<p class='clearfix'>"+data[i].notice_reply_content+"</p>";
+                        stradd+="</div>";
+                        stradd+="</div>";
+                    }
+                    $("#replyList").html(stradd);
+                    
+                }        
+            );
+        }
+
+</script>
 	
 </body>
 </html>   

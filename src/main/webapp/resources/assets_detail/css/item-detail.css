@@ -132,6 +132,41 @@ img {  vertical-align: middle; }
     box-shadow: inset 0px 0px 5px white;
 }
 
+/* 리뷰 */
+
+#review {
+    width: 700px;
+    height: 800px;
+    overflow: auto;
+    text-align: left;
+    margin: 0;
+    margin-top: 30px;
+    color: black;
+    text-align: left;
+    border-style: hidden;
+}
+
+#review span {
+    padding: 16px;
+    text-decoration: none;
+    font-size: 15px;
+    background-color: #fcfcfc;
+    color: black;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    line-height: 200%;
+    width: auto;
+    overflow: visible;
+    border: 1px solid;
+    border-style: thin;
+    border-color: #eee;
+}
+
+#review::-webkit-scrollbar-thumb {
+    height: 2px;
+}
+
 /* 찜하기 & 수업 신청하기 */
 
 .like-content {
