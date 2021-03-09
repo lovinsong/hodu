@@ -73,6 +73,8 @@ input[type=button]:hover, input[type=reset]:hover {
 #roadAddress, #detailAddress {
    width: 280px;
 }
+
+
 #changeAddress{
    color:red;
 }
@@ -82,7 +84,7 @@ input[type=button]:hover, input[type=reset]:hover {
    text-align: center;
 }
 
-
+/*삭제하면 안되는 코드*/
 .id_input{
    background-color: #ebebe4;
 }
@@ -97,10 +99,12 @@ input[type=button]:hover, input[type=reset]:hover {
 }
 
 
+/*삭제하면 안되는 코드*/
 .nick_input_re_1{
    color:green;
    display:none;
 }
+/*삭제하면 안되는 코드*/
 .nick_input_re_2{
    color:red;
    display:none;
@@ -109,6 +113,9 @@ input[type=button]:hover, input[type=reset]:hover {
 
 </style>
 <body>
+<!-- 프로필 변경 포함시켜주는 코드 -->
+<%@ include file="../account/changeProfileImg.jsp"%>
+<hr><!-- 임시 분리 선 -->
 
 <h1>내 정보 수정</h1>
 
@@ -147,6 +154,7 @@ input[type=button]:hover, input[type=reset]:hover {
          <input type="button" value="회원 탈퇴" id="deletebtn" onclick="location.href='delete'">
       </div>
    </div>
+   <hr><!-- 밑 비밀번호 변경과 임시 분리 선 -->
 </form>
 
 <script>
@@ -252,5 +260,8 @@ input[type=button]:hover, input[type=reset]:hover {
       
 
    </script>
+
+<!-- 비번 변경 포함시키는 코드 -->
+<%@ include file="../account/changepw.jsp"%>
 </body>
 </html>

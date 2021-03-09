@@ -12,8 +12,8 @@
 <h1>마이페이지</h1>
 
 <a href="./mypage/update">정보 수정</a><br>
-<a href="./account/changepw">비밀번호 변경하기</a><br>
-<a href="./account/changeProfileImg">프로필 사진 변경하기</a><br>
+<!-- <a href="./account/changepw">비밀번호 변경하기</a><br>
+<a href="./account/changeProfileImg">프로필 사진 변경하기</a><br> -->
 
 <a href="./mypage/myinquiry">내 문의</a>
 <a href="./mypage/mylist">찜목록</a>

@@ -357,11 +357,6 @@ public class MemberController {
 
 	}
 
-	// 비밀번호 찾으러가기 =>삭제?
-	@GetMapping(value = "/hodu/account/findokpass")
-	public void findOkPwGET() {
-
-	}
 
 	/* 비밀번호 이메일 인증 */
 	@GetMapping(value = "hodu/account/mailpwCheck")
@@ -422,7 +417,7 @@ public class MemberController {
 	@GetMapping(value = "/hodu/account/changepw")
 	public void updatePw() throws Exception {
 	}
-	@PostMapping(value = "/hodu/account/updatepw")
+	@PostMapping(value = "/hodu/mypage/updatepw")
 	public String updatePwPOST(HttpServletRequest request, MemberDTO member) throws Exception {
 		HttpSession session = request.getSession();
 		
@@ -511,7 +506,7 @@ public class MemberController {
 	public void changePImg() {
 		
 	}
-	@PostMapping(value = "/hodu/account/changeImg")
+	@PostMapping(value = "/hodu/mypage/changeImg")
 	public String changePImgPost(HttpServletRequest request,MemberDTO member) throws Exception {
 		HttpSession session = request.getSession();
 		service.changePImg(member);
