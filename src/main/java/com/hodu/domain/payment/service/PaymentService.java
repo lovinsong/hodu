@@ -1,7 +1,11 @@
 package com.hodu.domain.payment.service;
 
+import java.util.List;
+
 import com.hodu.domain.model.ItemDTO;
+import com.hodu.domain.model.ItemSelectDTO;
 import com.hodu.domain.model.MemberDTO;
+import com.hodu.domain.model.PaymentDTO;
 
 public interface PaymentService {
 
@@ -11,5 +15,19 @@ public interface PaymentService {
 	// 가격 가져오기
 	public ItemDTO itemprice(int item_code);
 	
+	// 결제
+	public int changemoney(PaymentDTO dto);
+	
+	// 게시글 수강인원 받아오기
+	public PaymentDTO countpeople(int sel_postnum);	
+	
+	// 수강인원 변경하기
+	public int changepeople(PaymentDTO dto);
+	
+	// 게시글 받아오기
+	public ItemDTO boardinfo(int item_code);
+	
+	// 게시글 시간 불러오기
+	public List<ItemSelectDTO> boardtime(int item_code);
 	
 }

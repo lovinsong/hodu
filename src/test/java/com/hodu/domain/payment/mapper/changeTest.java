@@ -1,5 +1,6 @@
 package com.hodu.domain.payment.mapper;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,24 +19,24 @@ public class changeTest {
 
 	@Autowired
 	private PaymentMapper pm;
-
+	
 	@Test
-	public void update() {
-
-		MemberDTO member = new MemberDTO();
-		ItemDTO item = new ItemDTO();
-
-		member.setMember_id("master3");
-		item.setItem_code(44);
-
-//		pm.membercash("master3");
-//		pm.itemprice(44);
+	@Ignore
+	public void testinfo() {
 		
-		pm.changemoney(member, item);
-		
-		log.info(pm.itemprice(44));
-		
+		pm.boardinfo(42);
+	
+		System.out.println(pm.boardinfo(42));
 		
 	}
+	@Test
+	public void testboardtime() {
+		
+		pm.boardtime(44);
+		
+		System.out.println(pm.boardtime(44));
+		
+	}
+	
 
 }

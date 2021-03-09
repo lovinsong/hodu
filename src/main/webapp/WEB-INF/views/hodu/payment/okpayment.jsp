@@ -44,7 +44,7 @@ color: black;
 					</div>
 					<div class="col-6" align="right">
 						<p>게시판에서 받은값</p>
-						<p>DB에서 받은인원</p>
+						<p>${dto.apply_people }</p>
 
 					</div>
 				</div>
@@ -93,7 +93,7 @@ color: black;
 				결제 금액이 100% 환불됩니다. 24시간 이내에 취소하는경우<br>
 				1시간 수업료가 차감된 금액이 환불됩니다.
 				</p>
-				<input type="button" id="refundform" value="환불 약관 보기">환불 약관 보러 가기</a>
+				<input type="button" id="refundform" value="환불 약관 보기">
 			</div>
 
 		</div>

@@ -11,9 +11,12 @@
 	integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
 	crossorigin="anonymous">
 </head>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <style>
 #leftcart {
-	background-color: lime;
+	background-color: gray;
 }
 
 #rightcart {
@@ -24,7 +27,7 @@
 	color: black;
 }
 
-.qty .count {
+.apply_people .count {
 	color: #000;
 	display: inline-block;
 	vertical-align: top;
@@ -36,7 +39,7 @@
 	text-align: center;
 }
 
-.qty .plus {
+.apply_people .plus {
 	cursor: pointer;
 	display: inline-block;
 	vertical-align: top;
@@ -48,7 +51,7 @@
 	border-radius: 50%;
 }
 
-.qty .minus {
+.apply_people .minus {
 	cursor: pointer;
 	display: inline-block;
 	vertical-align: top;
@@ -98,10 +101,12 @@ input:disabled {
 	<%@ include file="../headerfooter/hoduheader.jsp"%>
 
 	<br>
+	<form action="./payment" method="POST">
 	<div class="container" id="total">
 		<div class="row">
 			<div class="col-6" id="leftcart">
 				왼쪽입니다.(게시판에서 받아와야합니다.)
+				
 				<div class="p-5"></div>
 				<div class="p-5"></div>
 				<div class="p-5"></div>
@@ -121,9 +126,10 @@ input:disabled {
 						<h4>신청 인원 :</h4>
 					</div>
 					<div align="right" class="col-6">
-						<span class="qty mt-5">
-							<span class="minus bg-dark">-</span> <input type="number"
-								class="count" name="qty" value="1" max=""> <span
+						<span class="apply_people mt-5">
+							<span class="minus bg-dark">-</span>
+							<input type="number"
+								class="count" name="apply_people" id="apply_people" value="1"> <span
 								class="plus bg-dark">+</span>
 						</span>
 					</div>
@@ -139,7 +145,6 @@ input:disabled {
 						<h5>${member.member_phone }</h5>
 					</div>
 				</div>
-
 				<br>
 				<hr>
 				<h2>튜터에게 전하는말!</h2>
@@ -155,19 +160,19 @@ input:disabled {
 					&nbsp; &nbsp; &nbsp; <input type="radio"
 						style="width: 23px; height: 23px;" name="chk_level">상급
 					&nbsp; &nbsp; &nbsp; <br>
-					<form action="./payment">
+	
 						<textarea style="resize: none" cols="80" rows="10"
 							placeholder="예) 처음이라 서투르지만 열심히 따라갈께요!"></textarea>
 						<div class="p-3"></div>
 						<input type="submit"
 							style="width: 500px; height: 50px; background-color: crimson;"
-							value="다음" onclick="h">
-					</form>
+							value="다음">
 				</div>
 			</div>
 		</div>
 
 	</div>
+					</form>
 	<!-- footer 파일 포함 코드 -->
 
 	<script>

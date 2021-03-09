@@ -11,35 +11,53 @@
 		SELECT * FROM HODU_MEMBER WHERE member_id = #{member_id}
 	</select>
 
-	<!-- 결제 하기
-	<update id="changehodu" parameterType="com.hodu.domain.model.PaymentDTO">
+	<!-- 게시글 한개 불러오기 -->
+	<select id="boardinfo"
+		resultType="com.hodu.domain.model.ItemDTO">
+		SELECT * FROM ITEM_BOARD WHERE item_code = #{item_code}
+	</select>
+	
+	<!-- 게시글의 한개의 수업시간 받아오기 -->
+	<select id="boardtime"
+		resultType="com.hodu.domain.model.ItemSelectDTO">
+		SELECT * FROM item_select WHERE item_code = #{item_code}
+	</select>
+
+	<!-- 결제 하기 -->
+	<update id="changemoney">
 		UPDATE hodu_member SET member_cash = member_cash -
-		(SELECT item_price FROM item_board WHERE item_code = {#item_code} )
+		(SELECT item_price FROM item_board WHERE item_code = #{item_code})
 		WHERE member_id = #{member_id}
-	</update> -->
+	</update>
 
 	<!-- 멤버 호두 가져오기 -->
 	<select id="membercash"
 		resultType="com.hodu.domain.model.MemberDTO">
-		SELECT member_cash FROM HODU_MEMBER WHERE member_id = #{member_id}
+		SELECT member_cash FROM HODU_MEMBER WHERE member_id =
+		#{member_id}
 	</select>
 
 	<!-- 가격 가져오기 -->
 	<select id="itemprice"
 		resultType="com.hodu.domain.model.ItemDTO">
-		SELECT item_price FROM item_board WHERE item_code = #{item_code}
+		SELECT item_price FROM item_board WHERE item_code =
+		#{item_code}
 	</select>
 
-	<!-- 수강 인원 빼기
-	<update id="changestudent">
-		UPDATE item_select SET item_people = item_people -
-		#{apply_people} WHERE sel_postnum = #{sel_postnum}
-	</update> -->
+	<!-- 수강 인원 가져오기 -->
+	<select id="countpeople"
+		resultType="com.hodu.domain.model.PaymentDTO">
+		SELECT item_people FROM item_select WHERE sel_postnum
+		=
+		#{sel_postnum}
+	</select>
 
-	<update id="changemoney">
-		UPDATE hodu_member SET member_cash = member_cash -
-		(SELECT item_price FROM item_board WHERE item_code = {#arg0} )
-		WHERE member_id = #{arg1}
+	<!-- 수강 인원 업데이트 -->
+	<update id="changepeople">
+		UPDATE item_select SET item_people = (#{item_people}
+		-
+		#{apply_people})
+		WHERE sel_postnum = #{sel_postnum}
 	</update>
 
 </mapper>
