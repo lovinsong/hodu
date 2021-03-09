@@ -1,6 +1,7 @@
 package com.hodu.domain.model;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,7 +12,7 @@ public class ItemDTO {
 
 	
 	// 실제 게시글 DB에 들어갈 변수들
-	private int item_code;
+	private Integer item_code;
 	private String member_id;
 	private String item_category;
 	private String item_title;
@@ -49,6 +50,14 @@ public class ItemDTO {
 	private MultipartFile item_thumbnailimgA;
 	
 	private String member_img;
+	private List<String> images;
 	
+	// ItemSelect에서 받아올 시간 정보
+	private List<ItemSelectDTO> select;
+	
+	// 좋아요 여부
+	private String likeStatue;
+	private String user;
+	private Integer num;
 
 }

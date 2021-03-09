@@ -2,11 +2,14 @@ package com.hodu.domain.board.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hodu.domain.board.service.BoardService;
 import com.hodu.domain.model.ItemDTO;
+import com.hodu.domain.model.MemberDTO;
 import com.hodu.domain.util.Pagination;
 
 import lombok.extern.log4j.Log4j;
@@ -61,9 +65,53 @@ public class BoardController {
 		service.itemRegist(dto);
 		
 		
-		
-		
         return "redirect:item-category";
     }
+	
+	//아이템 날짜 선택 페이지로 이동하기
+	@GetMapping("item/item-detail")
+ 	public void item_detail(Model model, @RequestParam(required = false,defaultValue="1") int item_code, HttpServletRequest req) throws Exception {
+		
+		MemberDTO member = (MemberDTO)req.getSession().getAttribute("member") == null ? null : (MemberDTO)req.getSession().getAttribute("member");
+		
+		String user = "";
+		
+		if (!(member == null)){
+			user = member.getMember_id();
+		}
+		
+		ItemDTO dto = service.itemInfo(item_code,user);
+		
+
+		
+		model.addAttribute("dto", dto);
+		
+		
+ 	}
+	
+	@PostMapping("item/changeHeart")
+	public void changeHeart(ItemDTO dto) throws Exception {
+		
+		System.out.println(dto);
+		
+		service.likeChanger(dto);
+		
+		
+	}
+	
+	
+	
+	//공지사항 글 작성 페이지로 이동하기
+	@GetMapping("notice/notice-reg")
+	public void notice_reg() {
+	}
+	
+	// 공지사항 전체 페이지로 이동
+	@GetMapping("notice/notice-category")
+	public void notice_category() throws Exception {
+
+
+		
+	}
 
 }

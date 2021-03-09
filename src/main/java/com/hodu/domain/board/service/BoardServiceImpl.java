@@ -2,6 +2,7 @@ package com.hodu.domain.board.service;
 
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,6 +92,51 @@ public class BoardServiceImpl implements BoardService {
 	public int getItemCnt() throws Exception {
 		
 		return board_mapper.getItemCnt();
+	}
+
+	@Override
+	public ItemDTO itemInfo(int item_code, String user) throws Exception {
+
+		List<String> images = new ArrayList();
+		
+		for (BoardImgDTO image : board_mapper.getItemBoardImg(item_code)) {
+			images.add(image.getBimg_new_name());
+		}
+		
+		
+		
+		ItemDTO item = board_mapper.getItem(item_code);
+		item.setMember_img(board_mapper.getUserImg(item.getMember_id()));
+		item.setImages(images);
+		item.setSelect(board_mapper.getItemSelect(item_code));
+		item.setUser(user);
+		item.setLikeStatue(board_mapper.getLikeState(item));
+		
+		return item;
+		
+	}
+
+	@Override
+	public void likeChanger(ItemDTO item) throws Exception {
+		
+		System.out.println("changer : " + item);
+		
+		if (item.getLikeStatue().isEmpty()) {
+			board_mapper.makeLike(item);
+			item.setNum(1);
+			board_mapper.boardLikeCount(item);
+		} else if (item.getLikeStatue().equals("Y")) {
+			item.setNum(-1);
+			board_mapper.boardLikeCount(item);
+			item.setLikeStatue("N");
+			board_mapper.likeChange(item);
+		} else {
+			item.setNum(1);
+			board_mapper.boardLikeCount(item);
+			item.setLikeStatue("Y");
+			board_mapper.likeChange(item);
+		}
+		
 	}
 
 }

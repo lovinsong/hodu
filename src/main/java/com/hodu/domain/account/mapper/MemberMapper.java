@@ -51,4 +51,7 @@ public interface MemberMapper {
 	
 	// 멘토 등록
 	public void mentorReg(MemberDTO member);
+	
+	//프로필 사진 변경
+	public void changePImg(MemberDTO member);
 }
