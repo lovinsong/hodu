@@ -76,10 +76,11 @@ input[type=button]:hover, input[type=reset]:hover {
 	text-align: center;
 }
 
+/*지우면 안되는 코드*/
 #mail_check_input_box_false {
 	background-color: #ebebe4;
 }
-
+/*지우면 안되는 코드*/
 #mail_check_input_box_true {
 	background-color: white;
 }
@@ -138,55 +139,55 @@ input[type=button]:hover, input[type=reset]:hover {
 	background-color: #ececf7;
 	cursor: pointer;
 }
-
+/*지우면 안되는 코드*/
 .correct {
 	color: green;
 }
-
+/*지우면 안되는 코드*/
 .incorrect {
 	color: red;
 }
-
+/*지우면 안되는 코드*/
 .id_input_re_1 {
 	color: green;
 	display: none;
 }
-
+/*지우면 안되는 코드*/
 .id_input_re_2 {
 	color: red;
 	display: none;
 }
-
+/*지우면 안되는 코드*/
 .id_input_re_3 {
 	color: red;
 	display: none;
 }
-
+/*지우면 안되는 코드*/
 .nick_input_re_1 {
 	color: green;
 	display: none;
 }
-
+/*지우면 안되는 코드*/
 .nick_input_re_2 {
 	color: red;
 	display: none;
 }
-
+/*지우면 안되는 코드*/
 .phone_input_re_1 {
 	color: green;
 	display: none;
 }
-
+/*지우면 안되는 코드*/
 .phone_input_re_2 {
 	color: red;
 	display: none;
 }
-
+/*지우면 안되는 코드*/
 .mail_input_re_1 {
 	color: green;
 	display: none;
 }
-
+/*지우면 안되는 코드*/
 .mail_input_re_2 {
 	color: red;
 	display: none;

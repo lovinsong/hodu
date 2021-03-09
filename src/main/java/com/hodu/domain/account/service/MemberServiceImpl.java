@@ -109,10 +109,16 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void mentorReg(MemberDTO member) throws Exception {
 		
-
 		member.setMember_img(Upload.uploadIMG(member.getMember_imgM(), "C:\\Users\\Public\\upload\\member\\"));
 		member_mapper.mentorReg(member);
 		
+	}
+
+	//프로필 사진 변경
+	@Override
+	public void changePImg(MemberDTO member) throws Exception {
+		member.setMember_img(Upload.uploadIMG(member.getMember_imgM(), "C:\\Users\\Public\\upload\\member\\"));
+		member_mapper.changePImg(member);
 	}
 
 }

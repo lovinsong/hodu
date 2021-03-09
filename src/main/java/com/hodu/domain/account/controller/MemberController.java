@@ -357,11 +357,6 @@ public class MemberController {
 
 	}
 
-	// 비밀번호 찾으러가기 =>삭제?
-	@GetMapping(value = "/hodu/account/findokpass")
-	public void findOkPwGET() {
-
-	}
 
 	/* 비밀번호 이메일 인증 */
 	@GetMapping(value = "hodu/account/mailpwCheck")
@@ -422,7 +417,7 @@ public class MemberController {
 	@GetMapping(value = "/hodu/account/changepw")
 	public void updatePw() throws Exception {
 	}
-	@PostMapping(value = "/hodu/account/updatepw")
+	@PostMapping(value = "/hodu/mypage/updatepw")
 	public String updatePwPOST(HttpServletRequest request, MemberDTO member) throws Exception {
 		HttpSession session = request.getSession();
 		
@@ -483,6 +478,7 @@ public class MemberController {
 	public void testFooter() {
 		
 	}
+	
 	//멘토 가입창
 	@GetMapping(value = "/hodu/account/mentor-reg")
 	public void tomentorReg() {
@@ -499,21 +495,25 @@ public class MemberController {
 		return "redirect:/hodu/main/mainpage";
 	}
 	
-	
-	// 회원가입 처리
-	@PostMapping(value = "/hodu/account/saveImage")
-	public String saveImage(@RequestParam HashMap<Object, Object> param,  MultipartHttpServletRequest filelist){
 
+	//프로필 사진 변경
+	@GetMapping(value = "/hodu/mypage/account/changeProfileImg")
+	public String tochangePImg() {
+		return "redirect:/hodu/account/changeProfileImg";
 
-		Iterator<String> iter = filelist.getFileNames(); 
-	    MultipartFile mfile = null; 
-	    String fieldName = "";
-	    while (iter.hasNext()) { 
-	        fieldName = (String) iter.next(); //파일이름, 위에서 file1과 file2로 보냈으니 file1, file2로 나온다.
-	        mfile = filelist.getFile(fieldName);  //저장된 파일 객체
-	    }
-	    Upload.uploadIMG(mfile, "C:\\Users\\Public\\upload\\member\\");
-	    return "SUCC";
 	}
+	@GetMapping(value = "/hodu/account/changeProfileImg")
+	public void changePImg() {
+		
+	}
+	@PostMapping(value = "/hodu/mypage/changeImg")
+	public String changePImgPost(HttpServletRequest request,MemberDTO member) throws Exception {
+		HttpSession session = request.getSession();
+		service.changePImg(member);
+		MemberDTO memberdto = service.memberInfo(member.getMember_id());
+		session.setAttribute("member", memberdto);
+		return "redirect:/hodu/mypage/mypage";
+	}
+
 	
 }

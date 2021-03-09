@@ -92,7 +92,11 @@ width:200px;
 											<li><span class="welcome">안녕하세요,${member.member_name }님</span></li>
 										    <li><a href="#">받은 견적</a></li>
 										    <li><a href="${pageContext.request.contextPath}/hodu/mypage/mypage">마이페이지</a></li><hr>
-										    <li><a href="${pageContext.request.contextPath}/hodu/account/mentor-reg">멘토로 가입하기</a></li>
+										    
+										    <c:if test="${member.mentor_enable eq 'N'}">
+										    	<li><a href="${pageContext.request.contextPath}/hodu/account/mentor-reg">멘토로 가입하기</a></li>
+										    </c:if>
+										    
 										    <li><a href="${pageContext.request.contextPath}/hodu/account/logout">로그아웃</a></li>
 										</ul>
 									</li>

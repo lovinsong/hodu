@@ -12,7 +12,8 @@
 </script>
 </head>
 <body>
-<h1>비밀번호 변경 페이지</h1>
+
+<h1>비밀번호 변경</h1>
 <form action="updatepw" method="POST" id="updatepwform">
 		<input type="hidden" class="id_input" name="member_id" id="member_id" value="${member.member_id}" readonly>
 		
@@ -24,7 +25,7 @@
 
 		
 		<div id="signup">
-			<input type="button" name="signup" value="변경 하기" id="signupbtn"><br>
+			<input type="button" name="signup" value="변경 하기" id="changepwbtn"><br>
 			<!--<input type="button" value="취소 하기" id="nodelete" onclick="location.href='mainpage'"> 취소하면 메인페이지로 -->
 		</div>
 	
@@ -72,7 +73,7 @@
 			})
 			
 			//회원가입 버튼 눌렀을 때, 빈칸 있으면 다시 유효성 검사진행    
-			$("#signupbtn").on("click", function() {
+			$("#changepwbtn").on("click", function() {
 				var pw = $("#member_pw").val();
 				var pwCheck = $("#repw").val();
 
