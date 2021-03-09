@@ -14,5 +14,7 @@ public interface BoardService {
 	
 	public int getItemCnt() throws Exception;
 	
-	public ItemDTO itemInfo(int item_code) throws Exception;
+	public ItemDTO itemInfo(int item_code, String user) throws Exception;
+	
+	public void likeChanger(ItemDTO item) throws Exception;
 }

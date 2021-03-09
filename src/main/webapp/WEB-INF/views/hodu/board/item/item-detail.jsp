@@ -167,9 +167,9 @@
                             </div>
 
                             <div> 
-                            <p>
+                            <pre>
                                 ${dto.item_content_who }
-                            </p>
+                            </pre>
                         </div>
 
                         </div>
@@ -179,9 +179,9 @@
                     <section id="templatemo-page3-text" class="inactive">
                         <div class="col-sm-6 col-md-6">
                             <h3>어떤 클래스인가요?</h3>
-                            <p>
+                            <pre>
                                 ${dto.item_content_what }
-                            </p>
+                            </pre>
                         </div>
                     </section>
 
@@ -189,9 +189,8 @@
                     <section id="templatemo-page4-text" class="inactive">
                         <div class="col-sm-6 col-md-6">
                             <h3>이런 분들께 추천해요.</h3>
-                            <p>
-                                 ${dto.item_content_target }
-                            </p>
+                                 <pre>${dto.item_content_target }"</pre>
+                            
                         </div>          
                     </section>
 
@@ -199,9 +198,9 @@
                     <section id="templatemo-page5-text" class="inactive">
                         <div class="col-sm-6 col-md-6">
                             <h3>클래스는 이렇게 진행됩니다.</h3>
-                            <p> 
+                            <pre> 
                                  ${dto.item_content_how }
-                            </p>
+                            </pre>
                         </div>
                     </section>
 
@@ -239,12 +238,24 @@
                             </div>
 
                             <span class="like-content">
-                                
+                               
                                 <!-- 찜하기(하트) -->
-                                <button class="btn-secondary like-review" id="like">
-                                <i class="fa fa-heart" aria-hidden="true"></i> <br>
-                                <p>${dto.item_like }</p>
-                                </button>
+                                
+                                <c:choose>
+								    <c:when test="${dto.likeStatue eq 'N' or empty dto.likeStatue}"> <!-- likecheck가0이면 빈하트-->
+								    <button class="btn-secondary like-review" id="like" onclick="changeHeart()">
+								        <i class="fa fa-heart" aria-hidden="true"></i> <br>
+		                                <p>${dto.item_like }</p>
+		                            </button>
+								    </c:when>
+								    <c:otherwise> <!-- likecheck가1이면 빨간 하트-->
+								    <button class="btn-secondary like-review" id="like2" onclick="changeHeart();">
+								        <i class="fa fa-heart" aria-hidden="true"></i> <br>
+		                                <p>${dto.item_like }</p>
+		                            </button>
+								    </c:otherwise>
+								</c:choose>
+                                
                             
                                 <!-- 수업 신청 버튼 -->
                                 <button class="btn-secondary like-review" id="order">
@@ -263,12 +274,42 @@
         </div> <!-- /.container -->
     </div> <!-- /#main-wrapper -->
 </div> <!-- features-wrapper -->
-
+	
+	<script>
+	var member = "${member.member_id}";
+	
+	function changeHeart(){ 
+	   
+		var link1 = '../changeHeart';
+		var link2 = '/project/hodu/account/login'
+	   
+		
+		if (${empty member}) {
+			alert("로그인 후 사용해주세요");
+			 window.location.href = link2;
+		} else {
+			$.ajax({
+	            type : "POST",  
+	            url : "../changeHeart",       
+	            dataType : "json",   
+	            data : "item_code="+${dto.item_code}+"&user="+member+"&likeStatue="+"${dto.likeStatue}",
+	            success : function() {
+ 
+	            }
+	        });
+			window.window.location.reload();
+		}
+	}
+	
+	
+	</script>
+	
 	<script src="${pageContext.request.contextPath}/resources/assets_detail/js/bootstrap.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets_detail/js/jquery.min.js"></script>	
 	<script src="${pageContext.request.contextPath}/resources/assets_detail/js/jquery.backstretch.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets_detail/js/jquery.flexslider.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets_detail/js/templatemo_script.js"></script>	
+
 	
 </body>
 </html>   

@@ -53,8 +53,11 @@ public class ItemDTO {
 	private List<String> images;
 	
 	// ItemSelect에서 받아올 시간 정보
-	
 	private List<ItemSelectDTO> select;
 	
+	// 좋아요 여부
+	private String likeStatue;
+	private String user;
+	private Integer num;
 
 }

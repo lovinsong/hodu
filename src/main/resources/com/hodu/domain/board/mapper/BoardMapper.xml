@@ -69,5 +69,25 @@
 
 	</select>
 
+	<select id="getLikeState" resultType="String">
+		  SELECT heart_show FROM my_heart WHERE item_code = #{item_code} AND member_id = #{user}
+	</select>
+	
+	<insert id="makeLike" parameterType="com.hodu.domain.model.ItemDTO">
+		INSERT INTO
+			my_heart
+		VALUES
+			(
+			MY_HEART_SEQ.nextval,#{user},#{item_code},sysdate,'Y'
+			)
+	</insert>
+	
+	<update id="likeChange">
+		UPDATE my_heart SET heart_show = #{likeStatue} WHERE member_id = #{user}
+	</update>
+	
+	<update id="boardLikeCount">
+		UPDATE item_board SET item_like = item_like + #{num} WHERE item_code = #{item_code}
+	</update>
   
   </mapper>
