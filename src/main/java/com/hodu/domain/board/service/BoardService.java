@@ -4,6 +4,7 @@ package com.hodu.domain.board.service;
 import java.util.List;
 
 import com.hodu.domain.model.ItemDTO;
+import com.hodu.domain.model.NoticeDTO;
 
 public interface BoardService {
 	
@@ -17,4 +18,10 @@ public interface BoardService {
 	public ItemDTO itemInfo(int item_code, String user) throws Exception;
 	
 	public void likeChanger(ItemDTO item) throws Exception;
+	
+	public void notice_regist(NoticeDTO notice) throws Exception;
+	
+	public List<NoticeDTO> noticepage(int pagenum) throws Exception;
+	
+	public NoticeDTO getNotice(int notice_postnum) throws Exception;
 }

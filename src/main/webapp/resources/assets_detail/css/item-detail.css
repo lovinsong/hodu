@@ -18,7 +18,7 @@ body {
     -webkit-text-size-adjust: 100%;
 }
 
-h1, h2, h3, h4, h5, h6, span, p, li, pre { font-family: 'Open Sans', sans-serif; }
+h1, h2, h3, h4, h5, h6, span, p, li { font-family: 'Open Sans', sans-serif; }
 
 h3 { color: #696969; 
     padding: 20px 0 15px 0; 
@@ -35,6 +35,7 @@ h4 { color: #696969;
 }
 
 
+a { color: #FF6; }
 a:hover, a:focus { color: white; }
 
 hr {
@@ -130,6 +131,40 @@ img {  vertical-align: middle; }
     border-radius: 10px;
     box-shadow: inset 0px 0px 5px white;
 }
+
+/* 리뷰 */
+
+#review {
+    width: 770px;
+    height: 800px;
+    overflow: auto;
+    text-align: left;
+    margin: 0;
+    margin-left: 10px;
+    margin-top: 30px;
+    color: black;
+    text-align: left;
+    border-style: hidden;
+}
+
+#review span {
+    padding: 16px;
+    text-decoration: none;
+    font-size: 15px;
+    background-color: #fcfcfc;
+    color: black;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    line-height: 200%;
+    width: auto;
+    overflow: visible;
+    border: 1px solid;
+    border-style: thin;
+    border-color: #eee;
+}
+
+
 
 /* 찜하기 & 수업 신청하기 */
 
@@ -248,6 +283,7 @@ img {  vertical-align: middle; }
     font-size: 25px;
 }
 
+
 .animate-like {
   animation-name: likeAnimation;
   animation-iteration-count: 1;
@@ -337,7 +373,6 @@ img {  vertical-align: middle; }
     margin-left: -10px;
     width: 100%;
 }
-
 
 .content_info #content_star {
     float: right;
@@ -685,7 +720,6 @@ img {  vertical-align: middle; }
     color: #1a1a1a;
     font-size: 30px;
 }
-
 pre {
 	background-color: white;
 	border: none;

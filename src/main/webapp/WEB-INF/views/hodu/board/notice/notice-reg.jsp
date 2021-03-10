@@ -25,11 +25,7 @@
                   </div>				             
                     <form action="registForm" method="post" name="registForm" enctype="multipart/form-data">
 	                    <table class="table">
-	                        <tbody class="t-control">
-	                            <tr>
-	                                <td class="t-title"><strong>첨부파일</strong></td>
-	                                <td><input type="file" value="파일 선택" name="content_file" multiple="multiple"/></td>
-	                            </tr>	                            
+	                        <tbody class="t-control">                            
 	                            <tr>
 	                                <td class="t-title" ><strong>제목</strong></td>
 	                                <td><input class="form-control input-sm" name="notice_title" style="width:100%;" placeholder="제목을 작성해주세요"><span id="msgTitle" class="msg"></span></td>
@@ -72,6 +68,8 @@
        			}
        			
        		}
+       		
+       		setAttribute()
 
        
        </script>

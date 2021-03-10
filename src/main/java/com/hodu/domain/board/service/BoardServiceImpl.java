@@ -13,6 +13,7 @@ import com.hodu.domain.board.mapper.BoardMapper;
 import com.hodu.domain.model.BoardImgDTO;
 import com.hodu.domain.model.ItemDTO;
 import com.hodu.domain.model.ItemSelectDTO;
+import com.hodu.domain.model.NoticeDTO;
 import com.hodu.domain.util.Upload;
 
 @Service
@@ -137,6 +138,27 @@ public class BoardServiceImpl implements BoardService {
 			board_mapper.likeChange(item);
 		}
 		
+	}
+
+	@Override
+	public void notice_regist(NoticeDTO notice) throws Exception {
+		
+		board_mapper.noticeBoardReg(notice);
+		
+	}
+
+	@Override
+	public List<NoticeDTO> noticepage(int pagenum) throws Exception {
+		List<NoticeDTO> noticepageinfo = board_mapper.getNoticePage(pagenum);
+		
+		return noticepageinfo;
+	}
+
+	@Override
+	public NoticeDTO getNotice(int notice_postnum) throws Exception {
+
+
+		return board_mapper.getNotice(notice_postnum);
 	}
 
 }

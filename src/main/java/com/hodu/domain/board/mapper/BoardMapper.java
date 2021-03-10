@@ -5,6 +5,7 @@ import java.util.List;
 import com.hodu.domain.model.BoardImgDTO;
 import com.hodu.domain.model.ItemDTO;
 import com.hodu.domain.model.ItemSelectDTO;
+import com.hodu.domain.model.NoticeDTO;
 
 public interface BoardMapper {
 	
@@ -37,5 +38,11 @@ public interface BoardMapper {
 	public int likeChange(ItemDTO item);
 	
 	public int boardLikeCount(ItemDTO item);
+	
+	public int noticeBoardReg(NoticeDTO notice);
+	
+	public List<NoticeDTO> getNoticePage(int pagenum);
+	
+	public NoticeDTO getNotice(int notice_postnum);
 
 }

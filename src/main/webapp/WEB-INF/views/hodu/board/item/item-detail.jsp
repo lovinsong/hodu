@@ -204,18 +204,30 @@
                         </div>
                     </section>
 
-                    <!-- 6. 리뷰 -->
+                                        <!-- 6. 리뷰 -->
                     <section id="templatemo-page6-text" class="inactive">
-                        <div class="col-sm-6 col-md-6">
-                            <h3>실제 튜티의 리뷰입니다.</h3>
-                            <p>
+                    <h3>실제 튜티의 리뷰입니다.</h3>
+                        <div class="schedule" id="review">
+                            
+                            <!-- span 부분 반복하기 !!! -->
+                            <span>
+                                        
+                                <div id="replyList">
+                                    <div class='reply-wrap'>
+                                        <div class='reply-content'>
+                                            <div class='reply-group'>
+                                                <strong class='left'>다람쥐 멘티</strong>&ensp;<small class='left'>2021-03-09</small>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
 
-                            </p>
+
+                            </span>
+
+                                    
                         </div>
                     </section>
-
-                </div><!-- /.templatemo-content -->  
-            </div><!-- /.templatemo-content-wrapper --> 
 
 
 <!----------------------------------------------------  사 이 드 바  ------------------------------------------------------------>
