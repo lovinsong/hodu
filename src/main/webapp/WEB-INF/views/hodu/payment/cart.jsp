@@ -115,12 +115,12 @@ input:disabled {
 
 					<div>
 						<input type="radio" id="dewey" name="oneclass" value="dewey">
-						<label for="dewey">Dewey</label>
+						<label for="dewey">수업 받아오기</label>
 					</div>
 
 					<div>
 						<input type="radio" id="louie" name="oneclass" value="louie">
-						<label for="louie">Louie</label>
+						<label for="louie">수업 받아오기</label>
 					</div>
 					<div class="p-5"></div>
 					<div class="p-5"></div>
