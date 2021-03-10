@@ -47,9 +47,9 @@
 					</div>
 					
 					<button type="button" class="btn btn-dark"
-						onclick="location.href='notice-category'">수정</button>
+						onclick="modify();">수정</button>
 					<button type="button" class="btn btn-dark"
-						onclick="location.href='notice-category'">삭제</button>
+						onclick="delete();">삭제</button>
 					<button type="button" class="btn btn-dark"
 						onclick="location.href='notice-category'">목록</button>
 				</form>
@@ -58,3 +58,19 @@
 	</div>
 
 </section>
+
+<script>
+
+	var myname = "${member.member_id}";
+	var noticename = "${dto.member_id}";
+	console.log(myname);
+	console.log(noticename);
+	function modify() {
+		if (myname == ""){
+			alert('권한이 없습니다.')
+		}
+	}
+	
+	
+
+</script>
