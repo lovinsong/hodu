@@ -45,7 +45,11 @@
 						<label>내용</label>
 						<textarea class="form-control" rows="10" name='content' readonly>${dto.notice_content }</textarea>
 					</div>
-
+					
+					<button type="button" class="btn btn-dark"
+						onclick="location.href='notice-category'">수정</button>
+					<button type="button" class="btn btn-dark"
+						onclick="location.href='notice-category'">삭제</button>
 					<button type="button" class="btn btn-dark"
 						onclick="location.href='notice-category'">목록</button>
 				</form>

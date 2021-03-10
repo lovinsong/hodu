@@ -699,4 +699,17 @@ ul.nav li.drophover:hover>ul.dropdown-menu {
 table {
 	border-radius: 12px;
 }
-  tr .ss:hover { background-color: black; }
+
+button {
+	border: solid 1px grey;
+ 	border-radius: 5px;
+ 	
+	
+}
+ 
+#notice-reg {
+	border-radius: 5px;
+	width : 4%;
+	height : 9%;
+	background-color: #f7f7f7;
+}

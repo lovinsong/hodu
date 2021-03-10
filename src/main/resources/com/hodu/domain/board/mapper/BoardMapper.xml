@@ -104,9 +104,11 @@
   	</select>
   	
   	<select id="getNotice" resultType="com.hodu.domain.model.NoticeDTO">
-
-		  SELECT * FROM notice_board WHERE notice_postnum= #{notice_postnunm}
-
+		SELECT * FROM notice_board WHERE notice_postnum= #{notice_postnunm}
+	</select>
+	
+	<select id="getReviews" resultType="com.hodu.domain.model.ReviewDTO" >
+		SELECT * FROM review_board WHERE item_code = #{item_code}
 	</select>
   
   </mapper>

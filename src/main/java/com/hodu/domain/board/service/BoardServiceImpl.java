@@ -112,6 +112,7 @@ public class BoardServiceImpl implements BoardService {
 		item.setSelect(board_mapper.getItemSelect(item_code));
 		item.setUser(user);
 		item.setLikeStatue(board_mapper.getLikeState(item));
+		item.setReview(board_mapper.getReviews(item_code));
 		
 		return item;
 		

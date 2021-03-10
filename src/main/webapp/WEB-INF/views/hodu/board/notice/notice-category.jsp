@@ -46,6 +46,7 @@
 					</tbody>
 
 				</table>
+				<div style="text-align:right" onclick="location.href='notice-reg'"><button id = "notice-reg">등록</button></div>
 
 
 

@@ -59,5 +59,8 @@ public class ItemDTO {
 	private String likeStatue;
 	private String user;
 	private Integer num;
+	
+	// 게시글의 리뷰 정보
+	private List<ReviewDTO> review;
 
 }

@@ -210,13 +210,16 @@
                         <div class="schedule" id="review">
                             
                             <!-- span 부분 반복하기 !!! -->
+                             <c:forEach var="review" items="${dto.review }">    
                             <span>
-                                        
+                                
+                                    
                                 <div id="replyList">
                                     <div class='reply-wrap'>
                                         <div class='reply-content'>
                                             <div class='reply-group'>
-                                                <strong class='left'>다람쥐 멘티</strong>&ensp;<small class='left'>2021-03-09</small>
+                                                <strong class='left'>${review.member_id } 멘티</strong>&ensp;<small class='left'><fmt:formatDate value="${review.review_regist_date}" pattern="YYYY-MM-dd HH:mm"/></small>&ensp;<c:forEach begin="1" end="${review.review_star}" step="1" varStatus="status"><p style="color:#e31240">★</p></c:forEach><br>
+                                                ${review.review_content } 
                                             </div>
                                         </div>
                                     </div> 
@@ -224,6 +227,7 @@
 
 
                             </span>
+                            </c:forEach>
 
                                     
                         </div>
@@ -321,6 +325,10 @@
 	<script src="${pageContext.request.contextPath}/resources/assets_detail/js/jquery.backstretch.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets_detail/js/jquery.flexslider.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets_detail/js/templatemo_script.js"></script>	
+
+
+
+
 
 	
 </body>
