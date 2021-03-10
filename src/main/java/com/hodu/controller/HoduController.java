@@ -65,6 +65,11 @@ public class HoduController {
     public void notice_item_detail() {
     }	
 	
+	//메인 페이지로 이동하기
+	@GetMapping("/mainpage")
+    public void mainpage() {
+    }
+	
 	
 	//글 작성하기
 	@RequestMapping(value = "board/notice/registForm", method = RequestMethod.POST)

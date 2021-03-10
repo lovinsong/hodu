@@ -360,8 +360,8 @@
 								</div>
 							</section>
 
-					</div>	
-					<div class="col-4 col-12-medium">
+						</div>	
+						<div class="col-4 col-12-medium">
 
 							<section class="box feature">
 								<a href="#" class="image featured"><img src="/project/resources/thumbnail/pic11.jpg" alt="" /></a>
@@ -381,9 +381,9 @@
 								</div>
 							</section>
 
-					</div>					
-				</div>						
-			</div>	
+						</div>					
+					</div>						
+				</div>	
 			
 				<!-- pagination -->		
 					<div id="features-wrapper">
