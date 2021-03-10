@@ -4,23 +4,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+<!-- Favicon -->
 <link rel="icon" href="../image/favicon.ico">
 <link rel="shortcut icon" href="../image/favicon.ico">
 
-<title>호두 : 생활 서비스 멘토 매칭</title>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<!-- CSS Libraries -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/assets_main/lib/slick/slick.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/assets_main/lib/slick/slick-theme.css" rel="stylesheet">
 
-	<!-- CSS Libraries -->
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-	<link href="${pageContext.request.contextPath}/resources/assets_main/lib/slick/slick.css" rel="stylesheet">
-	<link href="${pageContext.request.contextPath}/resources/assets_main/lib/slick/slick-theme.css" rel="stylesheet">
+<!-- Template Stylesheet -->
+<link href="${pageContext.request.contextPath}/resources/assets_main/css/style.css" rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/resources/assets_main/css/main.css" rel="stylesheet" />
 
-	<!-- Template Stylesheet -->
-	<link href="${pageContext.request.contextPath}/resources/assets_main/css/style.css" rel="stylesheet" />
-	<link href="${pageContext.request.contextPath}/resources/assets_main/css/main.css" rel="stylesheet" />
-	
+<title>호두 : 생활 서비스 멘토 매칭</title>	
 </head>
 
 <body class="is-preload">
@@ -33,8 +33,8 @@
 
 			<!-- Header -->
 				<header id="header" class="alt">
-					<span class="logo">
-						<!-- <img src="images/hodu.png" alt="" /> -->
+					<span class="logo" style="opacity:0.8">
+						<img src="${pageContext.request.contextPath}/resources/assets_main/images/hodu.png" alt="" />
 					</span>
 				</header>
 

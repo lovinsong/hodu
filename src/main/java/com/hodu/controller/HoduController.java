@@ -35,8 +35,7 @@ public class HoduController {
 	@GetMapping("board/notice/notice-category")
 	public void notice_category(Model model) {
 		List<NoticeDTO> list =  NoticeService.getNotice();
-		model.addAttribute("list", list);
-		
+		model.addAttribute("list", list);		
 	}
 	
 	//글 작성 페이지로 이동하기
@@ -68,6 +67,11 @@ public class HoduController {
 	//메인 페이지로 이동하기
 	@GetMapping("/mainpage")
     public void mainpage() {
+    }
+	
+	//마이 페이지로 이동하기
+	@GetMapping("mypage/mypage")
+    public void mypage() {
     }
 	
 	
