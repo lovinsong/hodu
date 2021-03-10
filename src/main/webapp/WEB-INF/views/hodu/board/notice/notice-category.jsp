@@ -33,8 +33,8 @@
 						<!-- vo란 이름으로 꺼내주기 -->
 						<c:forEach var="vo" items="${dto }">
 							<tr style = "cursor:pointer;" onClick = " location.href='notice-detail?notice_postnum=${vo.notice_postnum }' " 
-							onMouseOver = " window.status = 'notice-detail?notice_postnum=${vo.notice_postnum }'; style='background-color:#e1e1e1' "
-							onMouseOut = "style='background-color:white'" >
+							onMouseOver = " window.status = 'notice-detail?notice_postnum=${vo.notice_postnum }'; style='background-color:#e1e1e1; cursor:pointer;' "
+							onMouseOut = "style='background-color:white cursor:pointer;'" >
 								<td>${vo.notice_title }</td>
 								<td>${vo.member_id }</td>
 								<td><fmt:formatDate value="${vo.notice_regist_date}"
