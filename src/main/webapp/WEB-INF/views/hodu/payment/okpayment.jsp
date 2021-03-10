@@ -87,6 +87,10 @@ color: black;
 					<div class="col-6">총 결제</div>
 					<div class="col-6" align="right">결제 호두 받아오기</div>
 				</div>
+				<div class="row">
+					<div class="col-6">남은 호두</div>
+					<div class="col-6" align="right">남은 호두 보여주기</div>
+				</div>
 				<div class="p-5"></div>
 				<h3>꼭 숙지하세요!</h3>
 				<p>수업 진행 24시간 전에 환불 요청하는 경우 <br/>

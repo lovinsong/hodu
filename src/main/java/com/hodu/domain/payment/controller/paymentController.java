@@ -70,14 +70,28 @@ public class paymentController {
 		// 모델에 신청인원 실음
 		model.addAttribute("dto", dto);
 		
+		// 클래스 시간 받고 type = radio로 선택할수 있게 만들어줌
+		// 수업료 받아오고
+		// 
+		// 결제 수업료 받아온거 * 신청인원 받아온거 출력
 		
-		
+		// 결제 하기 눌렀을시 결제 기능 작동
 	}
 	
 	@PostMapping(value = "/hodu/payment/okpayment")
 	public void okPaymentPOST(Model model, PaymentDTO dto) {
 		
 		model.addAttribute("dto", dto);
+		
+		// 클래스 정보 받아오고
+		// payment에서 받아온 클래스 시간 (radio에서 받아온 시간)
+		// 클래스 제목 받아오고
+		// 주문번호 만들기(sysdate로 년월일 + 4자리 랜덤)
+		// 결제날짜는 당일!생성
+		
+		// 총결제는 전페이지에서 받아온 수업료 * 신청인원 받아오기
+		
+		// 남은 호두 보여주자..일단
 	}
 	
 }
