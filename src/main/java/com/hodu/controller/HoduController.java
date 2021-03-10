@@ -43,6 +43,11 @@ public class HoduController {
 	@GetMapping("board/notice/notice-reg")
 	public void notice_reg() {
 	}
+	
+	//문의 작성 페이지로 이동하기
+	@GetMapping("board/notice/notice-reg2")
+	public void notice_reg2() {
+	}
 
 
 	//날짜 선택 페이지로 이동하기
