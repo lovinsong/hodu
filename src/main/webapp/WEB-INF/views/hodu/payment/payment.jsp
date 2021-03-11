@@ -86,7 +86,7 @@
 						<div class="col-3">
 							<input type="text" name="item_price" value="${dto.item_price }"
 								style="display: none;" />
-							<h3 align="right">${dto.item_price }호두</h3>
+							<h3 align="right">${dto.item_price } <img src="${pageContext.request.contextPath}/resources/assets/image/hoduC.png"	style="width: 22%; vertical-align: middle; margin-top: -3px"></h3>
 						</div>
 						<div class="col-2"></div>
 					</div>
@@ -102,7 +102,7 @@
 						<div class="col-3">
 							<input type="text" name="apply_people"
 								value="${dto.apply_people }" style="display: none;" />
-							<h3 align="right">${dto.apply_people }명</h3>
+							<h3 align="right">${dto.apply_people } 명</h3>
 						</div>
 
 						<div class="col-1"></div>
@@ -120,9 +120,9 @@
 						</div>
 						<div class="col-1"></div>
 						<div class="col-5">
-							<h2 align="right">${member.member_cash } 호두</h2>
+							<h2 align="right">${member.member_cash } <img src="${pageContext.request.contextPath}/resources/assets/image/hoduC.png"	style="width: 15%; vertical-align: middle; margin-top: -3px"></h2>
 							<hr>
-							<h2 align="right">${dto.item_price * dto.apply_people} 호두</h2>
+							<h2 align="right">${dto.item_price * dto.apply_people} <img src="${pageContext.request.contextPath}/resources/assets/image/hoduC.png"	style="width: 15%; vertical-align: middle; margin-top: -3px"></h2>
 						</div>
 					</div>
 					<div class="p-4"></div>

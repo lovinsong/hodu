@@ -54,7 +54,7 @@
 				</div>
 				<div class="p-4"></div>
 				<div class="row">
-					<div class="col-3"><img src="/project/upload/member/${member.member_img }" width="50">
+					<div class="col-3"><img src="/project/upload/member/${member.member_img }" width="100">
 					<p>${member.member_id }님</p>
 					 </div>
 					<div class="col-9">
@@ -119,19 +119,19 @@
 				<hr>
 				<div class="p-3"></div>
 				<div class="row">
-					<div class="col-6">결제 전 호두</div>
-					<div class="col-6" align="right">${member.member_cash} 호두</div>
+					<div class="col-6">결제 전 <img src="${pageContext.request.contextPath}/resources/assets/image/hoduC.png"	style="width: 6%; vertical-align: middle; margin-top: -3px"></div>
+					<div class="col-6" align="right">${member.member_cash} <img src="${pageContext.request.contextPath}/resources/assets/image/hoduC.png"	style="width: 6%; vertical-align: middle; margin-top: -3px"></div>
 				</div>
 				<br>
 				<div class="row">
 					<div class="col-6">총 결제</div>
-					<div class="col-6" align="right">${dto.item_price * dto.apply_people} 호두</div>
+					<div class="col-6" align="right">${dto.item_price * dto.apply_people} <img src="${pageContext.request.contextPath}/resources/assets/image/hoduC.png"	style="width: 6%; vertical-align: middle; margin-top: -3px"></div>
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-6">남은 호두</div>
+					<div class="col-6">남은 <img src="${pageContext.request.contextPath}/resources/assets/image/hoduC.png"	style="width: 6%; vertical-align: middle; margin-top: -3px"></div>
 					<div class="col-6" align="right">
-					${member.member_cash -(dto.item_price * dto.apply_people)} 호두
+					${member.member_cash -(dto.item_price * dto.apply_people)} <img src="${pageContext.request.contextPath}/resources/assets/image/hoduC.png"	style="width: 6%; vertical-align: middle; margin-top: -3px">
 					</div>
 				</div>
 				<hr>

@@ -107,9 +107,10 @@ input:disabled {
 			<div class="row">
 				<div class="col-6" id="leftcart">
 					<div class="p-5"></div>
-				<p style="background-color:#f7f7f7; border-radius: 6px; border: 1px solid; border-style: thin; border-color: #eee;">
+				<p style="background-color:#f7f7f7; border-radius: 6px; border: 1px solid; border-color: #eee; font-size: 30px;">
 				&nbsp;&nbsp;<input type="text" name="item_price" value="${dto.item_price }" style="display: none;"/>
-						 ${dto.item_price } 호두
+						수업료 : ${dto.item_price }
+						 <img src="${pageContext.request.contextPath}/resources/assets/image/hoduC.png"	style="width: 6%; vertical-align: middle; margin-top: -3px">
 											<div class="p-5"></div>
                             <div class="schedule">
                             
