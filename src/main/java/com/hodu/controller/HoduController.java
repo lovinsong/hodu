@@ -74,6 +74,16 @@ public class HoduController {
     public void mypage() {
     }
 	
+	//헤더
+	@GetMapping("/header")
+    public void header() {
+    }
+	
+	//푸터
+	@GetMapping("/footer")
+    public void footer() {
+    }
+	
 	
 	//글 작성하기
 	@RequestMapping(value = "board/notice/registForm", method = RequestMethod.POST)
