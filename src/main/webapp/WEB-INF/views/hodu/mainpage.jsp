@@ -33,9 +33,9 @@
 
 			<!-- Header -->
 				<header id="header" class="alt">
-					<span class="logo" style="opacity:0.8">
+<%-- 					<span class="logo" style="opacity:0.8">
 						<img src="${pageContext.request.contextPath}/resources/assets_main/images/hodu.png" alt="" />
-					</span>
+					</span> --%>
 				</header>
 
 			<!-- Nav -->
