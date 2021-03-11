@@ -168,7 +168,6 @@ img {  vertical-align: middle; }
 }
 
 /* 찜하기 & 수업 신청하기 */
-
 .like-content {
     font-size: 18px;
     text-align: center;
@@ -210,7 +209,25 @@ img {  vertical-align: middle; }
     text-align: center;
 }
 
+.like-content #like2 {
+    vertical-align:text-bottom;
+    margin: 30px 0 0 0px;
+    text-align: center;
+    background:  white;
+    border-radius: 6px;
+    box-shadow: 0 10px 4.5px -10px rgb(240, 75, 113);
+    padding: 17px 28px 17px 28px;
+    font-size: 15px;
+    cursor: pointer;
+    border: 1px solid #d6bac0;
+    color: #e31240;
+    -webkit-transition: 0.3s ease;
+    transition: 0.3s ease;
+    text-align: center;
+}
+
 .like-content #like:focus {outline:none;}
+.like-content #like2:focus {outline:none;}
 .like-content #order:focus {outline:none;}
 
 .like-content #order {
@@ -242,6 +259,13 @@ img {  vertical-align: middle; }
     color: white;
 }
 
+.like-content #like2:hover {
+    transform: translateY(2px);
+    border: 1px solid #df627f;
+    background-color: white;
+    color: #db7a7a;
+}
+
 .like-content #order:hover {
     transform: translateY(3px);
     border: 1px solid #df627f;
@@ -265,6 +289,8 @@ img {  vertical-align: middle; }
   animation-fill-mode: forwards;
   animation-duration: 0.5s;
 }
+
+
 
 @keyframes likeAnimation {
   0%   { transform: scale(30); }
@@ -694,4 +720,13 @@ img {  vertical-align: middle; }
     text-align: center;
     color: #1a1a1a;
     font-size: 30px;
+}
+
+
+pre {
+	background-color: white;
+	border: none;
+	font-family: 'Open Sans', sans-serif;
+    color: #696969;
+    font-size: 15px;
 }
