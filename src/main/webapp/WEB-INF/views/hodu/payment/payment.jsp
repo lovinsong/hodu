@@ -92,8 +92,8 @@
 						<div class="col-2"></div>
 						
 						<div class="col-2">
-						<input type="text" name="apply_people" value= "${applydto.apply_people }" style="display: none;"/>
-						${applydto.apply_people }
+						<input type="text" name="apply_people" value= "${dto.apply_people }" style="display: none;"/>
+						${dto.apply_people }
 						</div>
 						
 						<div class="col-2"></div>

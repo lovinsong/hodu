@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hodu.domain.model.ItemDTO;
@@ -29,14 +30,18 @@ public class paymentController {
 	@GetMapping(value = "/hodu/payment/cart")
 	public void basketGET(Model model, @RequestParam(required = false,defaultValue="1") int item_code) {
 		model.addAttribute("item_code", item_code);
-		
 		model.addAttribute("dto", pay_service.boardinfo(item_code));
 		
 	}
 
 	@GetMapping(value = "/hodu/payment/payment")
-	public void paymentGET() {
-
+	public void paymentGET(Model model, @RequestParam(required = false,defaultValue="1") int item_code, @RequestParam(required = false,defaultValue="1") int apply_people) {
+		
+		ItemDTO dto = pay_service.boardinfo(item_code);
+		dto.setApply_people(apply_people);
+		model.addAttribute("dto", dto);
+		
+		
 		
 	}
 
@@ -51,29 +56,13 @@ public class paymentController {
 
 	}
 
-	@PostMapping(value = "/hodu/payment/payment")
-	public void paymentPOST(Model model, PaymentDTO paydto) {
-		
-		System.out.println(paydto);
-				
-		// 모델에 신청인원 실음
-		//model.addAttribute("applydto", dto);
-
-		
-		// 클래스 시간 받고 type = radio로 선택할수 있게 만들어줌
-		// 수업료 받아오고
-
-		// 결제 수업료 받아온거 * 신청인원 받아온거 출력
-
-		// 결제 하기 눌렀을시 결제 기능 작동
-	}
 
 	@PostMapping(value = "/hodu/payment/okpayment")
 	public void okPaymentPOST(Model model, PaymentDTO dto, HttpServletRequest req) throws Exception {
 		
 		MemberDTO member = (MemberDTO)req.getSession().getAttribute("member") == null ? null : (MemberDTO)req.getSession().getAttribute("member");
 		
-		model.addAttribute("dto", dto);
+		
 		
 		
 		// 현재 년도, 월, 일
@@ -93,6 +82,10 @@ public class paymentController {
 		
 		dto.setOrder_num(order_number);
 		pay_service.insertorder(dto);
+		
+		
+		System.out.println(dto);
+		model.addAttribute("dto", dto);
 		
 
 		// 클래스 정보 받아오고

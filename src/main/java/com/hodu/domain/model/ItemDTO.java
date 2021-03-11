@@ -61,6 +61,8 @@ public class ItemDTO {
 	private Integer num;
 	
 	// 게시글의 리뷰 정보
-	private List<ReviewDTO> review;
+	private List<ReviewDTO> review; 
+	
+	private Integer apply_people;
 
 }
