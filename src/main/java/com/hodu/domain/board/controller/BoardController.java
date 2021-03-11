@@ -63,11 +63,13 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "item/registForm", method = RequestMethod.POST)
-    public String registForm1(ItemDTO dto, RedirectAttributes ra) throws Exception {
+    public String registForm1(ItemDTO dto, RedirectAttributes ra, HttpServletRequest req) throws Exception {
 		
-	
+		MemberDTO member = (MemberDTO)req.getSession().getAttribute("member") == null ? null : (MemberDTO)req.getSession().getAttribute("member");
 		
 		service.itemRegist(dto);
+		
+		dto.setMember_id(member.getMember_id());
 		
 		
         return "redirect:item-category";
