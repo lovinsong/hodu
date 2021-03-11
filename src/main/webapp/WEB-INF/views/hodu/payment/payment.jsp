@@ -26,6 +26,7 @@
 #total {
 	color: black;
 }
+
 </style>
 <body>
 	<!-- footer 파일 포함 코드 -->

@@ -39,6 +39,7 @@ public class paymentController {
 		
 		ItemDTO dto = pay_service.boardinfo(item_code);
 		dto.setApply_people(apply_people);
+		
 		model.addAttribute("dto", dto);
 		
 		
@@ -61,9 +62,6 @@ public class paymentController {
 	public void okPaymentPOST(Model model, PaymentDTO dto, HttpServletRequest req) throws Exception {
 		
 		MemberDTO member = (MemberDTO)req.getSession().getAttribute("member") == null ? null : (MemberDTO)req.getSession().getAttribute("member");
-		
-		
-		
 		
 		// 현재 년도, 월, 일
 		Calendar cal = Calendar.getInstance();
