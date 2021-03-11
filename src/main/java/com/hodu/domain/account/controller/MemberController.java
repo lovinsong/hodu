@@ -80,10 +80,19 @@ public class MemberController {
 
 	// 메인페이지-> 마이페이지 이동
 	@GetMapping(value = "/hodu/mypage/mypage")
-	public void mypageMainGET() {
+    public void mypageMainGET(Model model, HttpServletRequest req) throws Exception {
+        MemberDTO member = (MemberDTO)req.getSession().getAttribute("member") == null ? null : (MemberDTO)req.getSession().getAttribute("member");
 
-	}
+        String member_id = "";
 
+        if (member != null) {
+            member_id = member.getMember_id();
+        }
+
+        model.addAttribute("myHeartList",board_service.getMyHeartList(member_id));
+        model.addAttribute("myInquiryList", board_service.getMyInquiryList(member_id));
+
+    }
 	// 로그인 처리
 	@PostMapping(value = "/hodu/account/login")
 	public String loginPOST(HttpServletRequest request, MemberDTO member, RedirectAttributes rttr) throws Exception {
