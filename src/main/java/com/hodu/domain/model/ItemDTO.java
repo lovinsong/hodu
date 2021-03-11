@@ -64,5 +64,7 @@ public class ItemDTO {
 	private List<ReviewDTO> review; 
 	
 	private Integer apply_people;
+	
+	private String member_nickname;
 
 }
