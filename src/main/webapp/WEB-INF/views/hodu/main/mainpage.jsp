@@ -87,10 +87,11 @@
 								<div class="auto_pic">
 									<div class="images">
 										<div class="img">
-											<img src="${pageContext.request.contextPath}/resources/assets_main/images/dog01.jpg" alt="" class="auto_img">
-											<img src="${pageContext.request.contextPath}/resources/assets_main/images/dog06.jpg" alt="" class="auto_img">
-											<img src="${pageContext.request.contextPath}/resources/assets_main/images/dog09.jpg" alt="" class="auto_img">
-											<img src="${pageContext.request.contextPath}/resources/assets_main/images/dog01.jpg" alt="" class="auto_img">
+											<img src="${pageContext.request.contextPath}/resources/assets_main/images/move1.png" alt="" class="auto_img">
+											<img src="${pageContext.request.contextPath}/resources/assets_main/images/move2.png" alt="" class="auto_img">
+											<img src="${pageContext.request.contextPath}/resources/assets_main/images/move3.png" alt="" class="auto_img">
+											<img src="${pageContext.request.contextPath}/resources/assets_main/images/move4.png" alt="" class="auto_img">
+											<img src="${pageContext.request.contextPath}/resources/assets_main/images/move5.png" alt="" class="auto_img">										
 										</div>
 									</div>
 								</div>					
@@ -263,7 +264,7 @@
 		
 				var indexValue = 0;
 				function slideShow(){
-				  setTimeout(slideShow, 2000);
+				  setTimeout(slideShow, 1500);
 				  var x;
 				  const img = document.querySelectorAll(".auto_img");				  
 				  for(x = 0; x < img.length; x++){
@@ -277,9 +278,11 @@
 				
 		</script>		
 		
+	
 		
 		<!-- 사진 슬라이드 -->
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/assets_main/lib/easing/easing.min.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/assets_main/lib/slick/slick.min.js"></script>
