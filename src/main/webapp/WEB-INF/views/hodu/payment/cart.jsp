@@ -115,7 +115,7 @@ input:disabled {
                             
 								 <c:forEach var="select" items="${dto.select }">
 	                              <span>
-	                              <input type="radio" style="width:30px;height:30px;border:5px; c">
+	                              <input type="radio" name="classchoice" style="width:30px;height:30px;border:5px; c">
 	                              <label>
 	                              	<fmt:formatDate value="${select.item_start_date}" pattern="MM월 dd일 (E)"/>&emsp;&emsp;<fmt:formatDate value="${select.item_start_date}" pattern="HH:mm"/>:<fmt:formatDate value="${select.item_end_date}" pattern="HH:mm"/>
 	                             	<br>${fn:length(dto.item_place)  > 7 ? fn:substring(dto.item_place,5, fn:length(dto.item_place))  : dto.item_place}
@@ -182,8 +182,8 @@ input:disabled {
 						<input type="text" name="item_code" value= "${dto.item_code }" style="display: none;"/>
 						
 						<input type="submit"
-							style="width: 500px; height: 50px; background-color: crimson;"
 							value="다음" >
+							style="width: 500px; height: 50px; background-color: #696969;"
 					</div>
 				</div>
 			</div>
