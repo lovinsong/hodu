@@ -110,7 +110,6 @@ public class MemberServiceImpl implements MemberService {
 	public void mentorReg(MemberDTO member) throws Exception {
 		
 		member.setMember_img(Upload.uploadIMG(member.getMember_imgM(), "C:\\Users\\Public\\upload\\member\\"));
-
 		member_mapper.mentorReg(member);
 		
 	}
@@ -120,6 +119,12 @@ public class MemberServiceImpl implements MemberService {
 	public void changePImg(MemberDTO member) throws Exception {
 		member.setMember_img(Upload.uploadIMG(member.getMember_imgM(), "C:\\Users\\Public\\upload\\member\\"));
 		member_mapper.changePImg(member);
+	}
+
+	//호두충전금액
+	@Override
+	public void chargehodu(MemberDTO member) throws Exception {
+		member_mapper.chargehodu(member);
 	}
 
 }

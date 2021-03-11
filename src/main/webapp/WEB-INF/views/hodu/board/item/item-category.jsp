@@ -192,7 +192,7 @@
 														<p> ${fn:length(dtoitem.item_place)  > 7 ? fn:substring(dtoitem.item_place,5,11)  : dtoitem.item_place}</p>
 														<p>|</p>
 														<p> ${dtoitem.item_one_day == "Y" ? "원데이" : "다회차"} </p>
-														<p class="profile"><img src="/project/upload/member/${dtoitem.member_img}" alt="" /><br>${dtoitem.member_id} 멘토</p>
+														<p class="profile"><img src="/project/upload/member/${dtoitem.member_img}" alt="" /><br>${dtoitem.member_nickname} 멘토</p>
 												 	<div class ="review_star">
 														<a><i class="fa fa-star" style="color:#e31240"></i></a><a>${dtoitem.item_review_star }&nbsp;(${dtoitem.item_like })</a>
 													</div>																							

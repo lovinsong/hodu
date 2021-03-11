@@ -52,7 +52,10 @@ public interface MemberService {
 	//멘토 등록
 	public void mentorReg(MemberDTO member) throws Exception;
 	
-	//멘토 등록
+	//프로필 사진 수정
 	public void changePImg(MemberDTO member) throws Exception;
+	
+	//호두충전금액
+	public void chargehodu(MemberDTO member) throws Exception;
 
 }

@@ -30,4 +30,7 @@ public class MemberDTO {
 
 	// 실제 업로드한 이미지 정보가 들어가는 변수
 	private MultipartFile member_imgM;
+
+	private Integer moneyforhodu;
+
 }
