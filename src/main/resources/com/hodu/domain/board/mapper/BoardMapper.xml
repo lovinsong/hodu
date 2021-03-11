@@ -37,7 +37,7 @@
 	
 	<select id="getItemPage" resultType="com.hodu.domain.model.ItemDTO">
 
-		  SELECT * FROM item_board ORDER BY item_code OFFSET (#{pagenum}-1)*9 ROWS FETCH FIRST 9 ROWS ONLY
+		  SELECT * FROM item_board WHERE ITEM_CATEGORY LIKE(#{item_type}) ORDER BY item_code OFFSET (#{page}-1)*9 ROWS FETCH FIRST 9 ROWS ONLY
 
 	</select>
 	
@@ -48,7 +48,7 @@
 	</select>
 	
 	<select id="getItemCnt" resultType="int">
-		SELECT count(*) FROM item_board
+		SELECT count(*) FROM item_board WHERE ITEM_CATEGORY LIKE(#{item_type})
 	</select>
 
 	<select id="getItem" resultType="com.hodu.domain.model.ItemDTO">
@@ -83,11 +83,69 @@
 	</insert>
 	
 	<update id="likeChange">
-		UPDATE my_heart SET heart_show = #{likeStatue} WHERE member_id = #{user}
+		UPDATE my_heart SET heart_show = #{likeStatue} WHERE (member_id = #{user} AND item_code = #{item_code})
 	</update>
 	
 	<update id="boardLikeCount">
 		UPDATE item_board SET item_like = item_like + #{num} WHERE item_code = #{item_code}
 	</update>
   
+  	<insert id="noticeBoardReg" parameterType="com.hodu.domain.model.NoticeDTO">
+  		INSERT INTO
+			notice_board
+		VALUES
+			(
+			NOTICE_BOARD_SEQ.nextval,#{member_id},#{notice_title},#{notice_content},sysdate,sysdate,'Y'
+			)
+  	</insert>
+  	
+  	<select id="getNoticePage" resultType="com.hodu.domain.model.NoticeDTO">
+  		SELECT * FROM notice_board WHERE notice_show = 'Y' ORDER BY notice_postnum OFFSET (#{pagenum}-1)*9 ROWS FETCH FIRST 9 ROWS ONLY
+  	</select>
+  	
+  	<select id="getNotice" resultType="com.hodu.domain.model.NoticeDTO">
+		SELECT * FROM notice_board WHERE notice_postnum= #{notice_postnunm}
+	</select>
+	
+	<select id="getReviews" resultType="com.hodu.domain.model.ReviewDTO" >
+		SELECT * FROM review_board WHERE item_code = #{item_code}
+	</select>
+	
+	<update id="updateNotice">
+		UPDATE notice_board SET notice_content = #{notice_content}, notice_title = #{notice_title}, notice_modify_date = sysdate WHERE notice_postnum = #{notice_postnum}
+	</update>
+  	
+  	<update id="noticeChangeShow">
+		UPDATE notice_board SET notice_show = 'N' WHERE notice_postnum = #{notice_postnum}
+	</update>
+	
+	<select id ="getMainItemLike" resultType="com.hodu.domain.model.ItemDTO">
+		SELECT * FROM item_board WHERE item_one_day = #{item_one_day} ORDER BY item_like DESC FETCH FIRST 3 ROWS ONLY
+	</select>
+	
+	<select id ="getMainItemNew" resultType="com.hodu.domain.model.ItemDTO">
+		SELECT * FROM item_board WHERE item_one_day = #{item_one_day} ORDER BY item_code DESC FETCH FIRST 3 ROWS ONLY
+	</select>
+	
+	<select id ="getMyHeartInfo" resultType="com.hodu.domain.model.MyHeartDTO">
+		SELECT * FROM my_heart WHERE member_id = #{member_id} AND heart_show = 'Y' ORDER BY heart_date DESC
+	</select> 
+	
+	<insert id="regInquiry" parameterType="com.hodu.domain.model.InquiryDTO">
+  		INSERT INTO
+			inquiry_board
+		VALUES
+			(
+			INQUIRY_BOARD_SEQ.nextval,#{member_id},#{inquiry_group},#{inquiry_title},#{inquiry_content},sysdate,'Y',sysdate,#{inquiry_img}
+			)
+  	</insert>
+  	
+  	<select id ="inquiryList" resultType="com.hodu.domain.model.InquiryDTO">
+		SELECT * FROM inquiry_board WHERE member_id = #{member_id} AND inquiry_show = 'Y' ORDER BY inquiry_date DESC
+	</select> 
+	
+	 <select id ="getInquiry" resultType="com.hodu.domain.model.InquiryDTO">
+		SELECT * FROM inquiry_board WHERE inquiry_postnum = #{inquiry_postnum}
+	</select> 
+	
   </mapper>

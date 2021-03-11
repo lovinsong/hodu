@@ -69,7 +69,7 @@ width:200px;
 							<a href="#"><span class="material-icons ss">textsms</span></a>
 						</div>
 						<div class="col-auto">
-							<a href="#"><span class="material-icons ss">notifications</span></a>
+							<a href="/project/hodu/board/notice/notice-category"><span class="material-icons ss">notifications</span></a>
 						</div>
 						<div class="col-auto ">
 							<%-- <ul>

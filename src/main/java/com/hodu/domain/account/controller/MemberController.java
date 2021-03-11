@@ -14,8 +14,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,6 +26,9 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hodu.domain.account.service.MemberService;
+import com.hodu.domain.board.service.BoardService;
+import com.hodu.domain.model.InquiryDTO;
+import com.hodu.domain.model.ItemDTO;
 import com.hodu.domain.model.MemberDTO;
 import com.hodu.domain.util.Upload;
 import com.hodu.domain.util.UserSha256;
@@ -35,13 +41,22 @@ public class MemberController {
 
 	@Autowired
 	private MemberService service;
+	
+	@Autowired
+	private BoardService board_service;
+	
 
 	@Autowired
 	private JavaMailSender mailSender;
 
 	// 메인 페이지 이동
 	@GetMapping(value = "/hodu/main/mainpage")
-	public void mainPageGET() {
+	public void mainPageGET(Model model) throws Exception {
+		
+		model.addAttribute("oneday_pop",board_service.getMainItemLike("Y"));
+		model.addAttribute("days_pop",board_service.getMainItemLike("N"));
+		model.addAttribute("oneday_new",board_service.getMainItemNew("Y"));
+		model.addAttribute("days_new",board_service.getMainItemNew("N"));
 
 	}
 
@@ -69,9 +84,30 @@ public class MemberController {
 
 	// 메인페이지-> 마이페이지 이동
 	@GetMapping(value = "/hodu/mypage/mypage")
-	public void mypageMainGET() {
-
+	public void mypageMainGET(Model model, HttpServletRequest req) throws Exception {
+		MemberDTO member = (MemberDTO)req.getSession().getAttribute("member") == null ? null : (MemberDTO)req.getSession().getAttribute("member");
+		
+		String member_id = "";
+		
+		if (member != null) {
+			member_id = member.getMember_id();
+		}
+		
+		model.addAttribute("myHeartList",board_service.getMyHeartList(member_id));
+		model.addAttribute("myInquiryList", board_service.getMyInquiryList(member_id));
+		
 	}
+	
+	// 메인페이지 -> 문의 등록
+	@RequestMapping(value = "hodu/mypage/inquiryregistForm", method = RequestMethod.POST)
+    public String inquiryregistForm(InquiryDTO dto, RedirectAttributes ra) throws Exception {
+				
+		
+		board_service.regInquiry(dto);
+		
+        return "redirect:mypage#question";
+    }
+	
 
 	// 로그인 처리
 	@PostMapping(value = "/hodu/account/login")
