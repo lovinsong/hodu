@@ -285,8 +285,11 @@
 		<script src="${pageContext.request.contextPath}/resources/assets_main/lib/slick/slick.min.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/assets_main/js/main2.js"></script>
 		
-		<a style="display:scroll;position:fixed;bottom:20px;right:20px; color:black;" href="#" title=”top"><i class="fas fa-arrow-up" style="color:gray"></i></a>
-
+		<ul class="actions">
+			<li>
+				<a style="display:scroll;position:fixed;bottom:20px;right:20px; font-size:60%" href="#" title=”top"><i class="fas fa-arrow-up" style="color:gray"></i></a>
+			</li>
+		</ul>
 
 
 <%@ include file="./footer.jsp"%>
