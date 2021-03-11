@@ -27,40 +27,23 @@ public class paymentController {
 	PaymentService pay_service;
 
 	@GetMapping(value = "/hodu/payment/cart")
-	public void basketGET() {
-
+	public void basketGET(Model model, @RequestParam(required = false,defaultValue="1") int item_code) {
+		model.addAttribute("item_code", item_code);
+		
+		model.addAttribute("dto", pay_service.boardinfo(item_code));
+		
 	}
 
 	@GetMapping(value = "/hodu/payment/payment")
 	public void paymentGET() {
 
+		
 	}
 
 	@GetMapping(value = "/hodu/payment/okpayment")
 	public void okPaymentGET(Model model, PaymentDTO dto) {
 
-		// model.addAttribute("dto", dto);
 
-		/*
-		 * // 받은 DTO를 계산하고 service통해 db 업데이트
-		 * 
-		 * PaymentDTO dto = new PaymentDTO();
-		 * 
-		 * pay_service.countpeople(18);
-		 * 
-		 * System.out.println(pay_service.countpeople(18)); // 클래스 총인원 나옴
-		 * 
-		 * // 총 인원(paymentDTO O) - DTO 받아온 인원수(paymentDTO DB 컬럼 X) = 바뀐 인원 수(paymentDTO)
-		 * // 바뀐 인원수(paymentDTO) -> 조회 한걸 update // 바뀐 인원수를 가지고 첫페이지에 maxvalue 를 설정
-		 * 
-		 * dto.setItem_people(14); dto.setSel_postnum(18);
-		 * 
-		 * dto.setApply_people(5); // 뺄인원 셋팅
-		 * 
-		 * System.out.println(dto.getApply_people()); // 뺄인원 보자
-		 * 
-		 * pay_service.changepeople(dto);
-		 */
 	}
 
 	@GetMapping(value = "/hodu/payment/refundform")
@@ -69,14 +52,14 @@ public class paymentController {
 	}
 
 	@PostMapping(value = "/hodu/payment/payment")
-	public void paymentPOST(Model model, PaymentDTO dto, ItemSelectDTO item_dto) {
-
+	public void paymentPOST(Model model, PaymentDTO paydto) {
+		
+		System.out.println(paydto);
+				
 		// 모델에 신청인원 실음
-		model.addAttribute("dto", dto);
+		//model.addAttribute("applydto", dto);
 
-		//
-		model.addAttribute("select", item_dto);
-
+		
 		// 클래스 시간 받고 type = radio로 선택할수 있게 만들어줌
 		// 수업료 받아오고
 
@@ -86,7 +69,9 @@ public class paymentController {
 	}
 
 	@PostMapping(value = "/hodu/payment/okpayment")
-	public void okPaymentPOST(Model model, PaymentDTO dto) throws Exception {
+	public void okPaymentPOST(Model model, PaymentDTO dto, HttpServletRequest req) throws Exception {
+		
+		MemberDTO member = (MemberDTO)req.getSession().getAttribute("member") == null ? null : (MemberDTO)req.getSession().getAttribute("member");
 		
 		model.addAttribute("dto", dto);
 		
@@ -104,7 +89,7 @@ public class paymentController {
 		String day = Integer.toString(year) + Integer.toString(month) + Integer.toString(date);
 		int order_number = Integer.parseInt(day + order_num);
 
-		dto.setMember_id(dto.getMember_id());
+		dto.setMember_id(member.getMember_id());
 		
 		dto.setOrder_num(order_number);
 		pay_service.insertorder(dto);

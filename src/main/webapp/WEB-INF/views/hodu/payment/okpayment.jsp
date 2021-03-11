@@ -46,7 +46,7 @@
 					</div>
 					<div class="col-6" align="right">
 						<p>게시판에서 받은값</p>
-						<p>${dto.apply_people }</p>
+						<p>${applydto.apply_people }</p>
 
 					</div>
 				</div>

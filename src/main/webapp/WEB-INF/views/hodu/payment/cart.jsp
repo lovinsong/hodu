@@ -10,13 +10,14 @@
 	rel="stylesheet"
 	integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
 	crossorigin="anonymous">
+		    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets_detail/css/item-detail.css">
 </head>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <style>
 #leftcart {
-	background-color: gray;
+
 }
 
 #rightcart {
@@ -101,21 +102,28 @@ input:disabled {
 	<%@ include file="../headerfooter/hoduheader.jsp"%>
 
 	<br>
-	<form action="./payment" method="POST">
+	<form action="./payment" method="GET">
 		<div class="container" id="total">
 			<div class="row">
 				<div class="col-6" id="leftcart">
-				<p style="background-color:#f7f7f7; border-radius: 6px; border: 1px solid; border-style: thin; border-color: #eee;">&nbsp;&nbsp;<strong>${dto.item_price }</strong>
-                   
+				<p style="background-color:#f7f7f7; border-radius: 6px; border: 1px solid; border-style: thin; border-color: #eee;">
+				&nbsp;&nbsp;<input type="text" name="item_price" value="${dto.item_price }" style="display: none;"/>
+						${dto.item_price } 호두
+						
                             <div class="schedule">
+                            
 								 <c:forEach var="select" items="${dto.select }">
 	                              <span>
+	                              <input type="radio" style="width:30px;height:30px;border:5px; c">
+	                              <label>
 	                              	<fmt:formatDate value="${select.item_start_date}" pattern="MM월 dd일 (E)"/>&emsp;&emsp;<fmt:formatDate value="${select.item_start_date}" pattern="HH:mm"/>:<fmt:formatDate value="${select.item_end_date}" pattern="HH:mm"/>
 	                             	<br>${fn:length(dto.item_place)  > 7 ? fn:substring(dto.item_place,5, fn:length(dto.item_place))  : dto.item_place}
+	                              </label>
 	                              </span>
                                  </c:forEach>
                             </div>
                                         
+					
 					<div class="p-5"></div>
 					<div class="p-5"></div>
 					<div class="p-5"></div>
@@ -136,7 +144,8 @@ input:disabled {
 						</div>
 						<div align="right" class="col-6">
 							<span class="apply_people mt-5"> <span
-								class="minus bg-dark">-</span> <input type="number"
+								class="minus bg-dark">-</span>
+								<input type="number"
 								class="count" name="apply_people" id="apply_people" value="1">
 								<span class="plus bg-dark">+</span>
 							</span>
@@ -170,11 +179,12 @@ input:disabled {
 						&nbsp; &nbsp; &nbsp; <br>
 
 						<textarea style="resize: none" cols="80" rows="10"
-							placeholder="예) 처음이라 서투르지만 열심히 따라갈께요!"></textarea>
+							placeholder="예) 처음이라 서투르지만 열심히 따라갈께요!">
+							</textarea>
 						<div class="p-3"></div>
 						<input type="submit"
 							style="width: 500px; height: 50px; background-color: crimson;"
-							value="다음">
+							value="다음" >
 					</div>
 				</div>
 			</div>

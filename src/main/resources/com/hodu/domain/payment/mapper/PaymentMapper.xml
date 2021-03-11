@@ -13,7 +13,7 @@
 
 	<!-- 게시글 한개 불러오기 -->
 	<select id="getItem"
-		resultType="com.hodu.domain.model.ItemSelectDTO">
+		resultType="com.hodu.domain.model.ItemDTO">
 		SELECT * FROM ITEM_BOARD WHERE item_code = #{item_code}
 	</select>
 	

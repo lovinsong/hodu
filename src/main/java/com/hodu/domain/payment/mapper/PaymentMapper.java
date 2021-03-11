@@ -30,9 +30,6 @@ public interface PaymentMapper {
 	// 수강인원 변경하기
 	public int changepeople(PaymentDTO dto);
 
-	// 게시글 시간 불러오기
-	public List<ItemSelectDTO> boardtime(int item_code);
-
 	// 영수증 생성후 넣기
 	public int insertorder(PaymentDTO payment);
 }

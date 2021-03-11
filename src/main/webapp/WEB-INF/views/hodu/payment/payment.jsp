@@ -78,7 +78,10 @@
 						<div class="col-2">수업료</div>
 						<div class="col-2"></div>
 						<div class="col-2"></div>
-						<div class="col-2">DB가격</div>
+						<div class="col-2">
+						<input type="text" name="item_price" value="${dto.item_price }" style="display: none;"/>
+						${dto.item_price } 호두
+						</div>
 						<div class="col-2"></div>
 					</div>
 					<br>
@@ -89,8 +92,8 @@
 						<div class="col-2"></div>
 						
 						<div class="col-2">
-						<input type="text" name="apply_people" value= "${dto.apply_people }" style="display: none;"/>
-						${dto.apply_people }
+						<input type="text" name="apply_people" value= "${applydto.apply_people }" style="display: none;"/>
+						${applydto.apply_people }
 						</div>
 						
 						<div class="col-2"></div>
@@ -121,7 +124,7 @@
 
 					<input type="submit"
 						style="width: 550px; height: 50px; background-color: crimson;"
-						value="결제하기" />
+						value="결제하기"/>
 				</div>
 			</div>
 		</div>
