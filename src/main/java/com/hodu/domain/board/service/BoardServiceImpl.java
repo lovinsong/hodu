@@ -88,6 +88,7 @@ public class BoardServiceImpl implements BoardService {
 		for (ItemDTO item : itempageinfo) {
 			
 			item.setMember_img(board_mapper.getUserImg(item.getMember_id()));
+			item.setMember_nickname(board_mapper.getUserNickname(item.getMember_id()));
 		}
 		
 		return itempageinfo;
@@ -117,6 +118,7 @@ public class BoardServiceImpl implements BoardService {
 		item.setUser(user);
 		item.setLikeStatue(board_mapper.getLikeState(item));
 		item.setReview(board_mapper.getReviews(item_code));
+		item.setMember_nickname(board_mapper.getUserNickname(item.getMember_id()));
 		
 		return item;
 		

@@ -163,7 +163,7 @@
                                 <p class="profile_img"><img src="/project/upload/member/${dto.member_img}" alt="" /></p>   
 
                                 <!-- 멘토 이름 -->
-                                <p id="mentor_name">${dto.member_id }</p> 
+                                <p id="mentor_name">${dto.member_nickname }</p> 
                                 <p id="mentor">멘토</p>
 
                             </div>
@@ -276,7 +276,7 @@
                                 
                             
                                 <!-- 수업 신청 버튼 -->
-                                <button class="btn-secondary like-review" id="order">
+                                <button class="btn-secondary like-review" id="order" onclick="location.href='/project/hodu/payment/cart?item_code=' + ${dto.item_code } "> 
                                 수업 신청하기
                                 </button>
                                                                                                 

@@ -16,88 +16,6 @@
 
 </head>
 <style>
-#wrapper {
-   border: 2px solid;
-   border-color: #692e1d;
-   border-radius: 5px;;
-   width: 500px;
-   height: 600px;
-   margin: auto;
-}
-
-.title {
-   text-align: center;
-   font-size: 20px;
-   font-weight: bold;
-   color: #692e1d;
-   margin: 20px 0px 20px 0px;
-}
-
-label {
-   width: 95px;
-   display: inline-block;
-   text-align: right;
-   font-size: 13px;
-}
-
-input {
-   margin: 3px 5px;
-   border-radius: 3px;
-   background-color: transparent;
-   border: 1px solid darkgray;
-   height: 20px;
-   outline: none;
-}
-
-#signup {
-   text-align: center;
-   margin: 5px;
-}
-
-input[type=button], input[type=reset] {
-   border: 1px solid salmon;
-   border-radius: 3px;
-   background-color: transparent;
-   margin: 0px;
-   height: 24px;
-   color: salmon;
-}
-
-input[type=button]:hover, input[type=reset]:hover {
-   background-color: salmon;
-   transition-duration: 1s;
-   color: white;
-   outline: none;
-}
-
-#roadAddress, #detailAddress {
-   width: 280px;
-}
-
-
-#changeAddress{
-   color:red;
-}
-
-.regex {
-   font-size: 12px;
-   text-align: center;
-}
-
-/*삭제하면 안되는 코드*/
-.id_input{
-   background-color: #ebebe4;
-}
-
-
-.correct {
-   color: green;
-}
-
-.incorrect {
-   color: red;
-}
-
 
 /*삭제하면 안되는 코드*/
 .nick_input_re_1{
@@ -115,47 +33,83 @@ input[type=button]:hover, input[type=reset]:hover {
 <body>
 <!-- 프로필 변경 포함시켜주는 코드 -->
 <%@ include file="../account/changeProfileImg.jsp"%>
-<hr><!-- 임시 분리 선 -->
 
-<h1>내 정보 수정</h1>
 
-<form action="update" method="POST" id="updateform">
-   <div id="wrapper">
-      <div class="title"><p>${member.member_name }님의 회원정보</p></div>
-      
-      
-      <label>아이디 :</label><input class="id_input" name="member_id" id="member_id" value="${member.member_id}" readonly>
-      <div class="a"></div><!-- 일단 한칸 띄어주는 용도(아무런 기능 없음)-->
-      
-      <label>이름: </label>&nbsp; ${member.member_name}<br>
-      <div class="member_name regex"></div>
-      
-      <label>닉네임: </label><input class="nick_input" type="text" name="member_nickname" id="member_nickname" value="${member.member_nickname}">
-      <span class="nick_input_re_1">사용 가능한 닉네임입니다.</span>
-      <span class="nick_input_re_2">닉네임이 이미 존재합니다.</span>
-      <div class="member_nickname regex"></div>
+<h1 class="p-3 mb-2 bg-secondary text-white" style="text-align:center;">내 정보 수정</h1><br>
 
-      <label>전화번호 : </label>&nbsp; ${member.member_phone}<br>
-      <div class="member_phone regex"></div>
+<div class="titlebox">																
+	<form action="update" method="POST" id="updateform">
+		<table class="table">
+			<tbody class="t-control">
+				<tr>
+					<td class="t-title"><strong>아이디</strong></td>
+					<td><input class="form-control input-sm id_input" name="member_id" id="member_id" 
+							style="width:100%;" value="${member.member_id}" readonly></td>
+				</tr>	                            
+				<tr>
+					<td class="t-title"><strong>이름</strong></td>
+					<td>${member.member_name}</td>
+				</tr>
+				<tr>
+					<td class="t-title"><strong>닉네임</strong></td>
+					<td><input class="form-control input-sm nick_input" name="member_nickname" id="member_nickname" 
+							style="width:100%;" value="${member.member_nickname}">
+						<span class="nick_input_re_1">사용 가능한 닉네임입니다.</span>
+      					<span class="nick_input_re_2">닉네임이 이미 존재합니다.</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="t-title"><strong>전화번호</strong></td>
+					<td>${member.member_phone}</td>
+				</tr>
+				<tr>
+					<td class="t-title"><strong>이메일</strong></td>
+					<td>${member.member_email}</td>
+				</tr> 
+				<tr>
+					<td class="t-title"><strong>우편번호</strong></td>
+					<td><input class="form-control input-sm" name="member_postcode" id="postcode" placeholder="우편번호"
+							style="width:30%;display: inline;" value="${member.member_postcode}" readonly>&nbsp;
+						<input class="btn btn-reg" type="button" onclick="sample4_execDaumPostcode()" value="주소 찾기">
+					</td>
+				</tr>
+				<tr>
+					<td class="t-title"><strong>주소</strong></td>
+					<td><input class="form-control input-sm" name="member_address" id="roadAddress" placeholder="도로명주소"
+							style="width:100%;" value="${member.member_address}" readonly>
+					</td>
+				</tr>
+				<tr>
+					<td class="t-title"><strong>상세주소</strong></td>
+					<td><input class="form-control input-sm" name="member_detailaddress" id="detailAddress" 
+							placeholder="상세주소" style="width:100%;" value="${member.member_detailaddress}">
+					</td>
+				</tr>
+				<tr>
+					<td class="t-title"><strong>멘토</strong></td>
+					<td>${member.mentor_enable}</td>
+				</tr>
+				
+				<tr></tr>	                                                                                   
+		</tbody>
+	</table> <br><br>
+	
+	
+		<div class="container" >
+			<div class="row row-cols-6" >
+			
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"><input class="btn btn-reg" type="button" name="signup" value="수정 하기" id="signupbtn"></div>	
+				<div class="col"><input class="btn btn-reg" type="button" value="회원 탈퇴" id="deletebtn" onclick="location.href='delete'"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+					
+			</div>
+		</div>
+	</form>                    
+</div>	
 
-      <label>이메일: </label>&nbsp; ${member.member_email}<br>
-
-      <label>우편번호 :</label><input type="text" id="postcode" placeholder="우편번호" name="member_postcode" 
-                              value="${member.member_postcode}" readonly>
-      <input type="button" onclick="sample4_execDaumPostcode()" value="주소 찾기"><br>
-      <label>주소1 : </label><input type="text" id="roadAddress" placeholder="도로명주소" name="member_address" 
-                              value="${member.member_address}" readonly><br> 
-      <label>주소2 : </label><input type="text" id="detailAddress" placeholder="상세주소" name="member_detailaddress" 
-                              value="${member.member_detailaddress}"><br>
-                              
-      <label>멘토: </label>&nbsp; ${member.mentor_enable}<br>
-      <div id="signup">
-         <input type="button" name="signup" value="수정 하기" id="signupbtn"><br>
-         <input type="button" value="회원 탈퇴" id="deletebtn" onclick="location.href='delete'">
-      </div>
-   </div>
-   <hr><!-- 밑 비밀번호 변경과 임시 분리 선 -->
-</form>
 
 <script>
       var existNickname = "";

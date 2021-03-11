@@ -54,4 +54,7 @@ public interface MemberMapper {
 	
 	//프로필 사진 변경
 	public void changePImg(MemberDTO member);
+	
+	//호두충전금액
+	public void chargehodu(MemberDTO member);
 }

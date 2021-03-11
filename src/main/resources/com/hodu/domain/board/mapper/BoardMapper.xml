@@ -47,6 +47,12 @@
 
 	</select>
 	
+	<select id="getUserNickname" resultType="String">
+
+		  SELECT member_nickname FROM hodu_member WHERE member_id = #{member_id}
+
+	</select>
+	
 	<select id="getItemCnt" resultType="int">
 		SELECT count(*) FROM item_board WHERE ITEM_CATEGORY LIKE(#{item_type})
 	</select>

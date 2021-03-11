@@ -28,6 +28,8 @@ public interface BoardMapper {
 	
 	public String getUserImg(String member_id);
 	
+	public String getUserNickname(String member_id);
+	
 	public int getItemCnt(String item_type);
 	
 	public ItemDTO getItem(int item_code);

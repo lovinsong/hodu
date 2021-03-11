@@ -47,7 +47,7 @@
 						<header>
 							<p>프로필</p>
 						</header>
-
+						<%@ include file="../mypage/update.jsp"%>
 					</article>
 
 
