@@ -36,17 +36,19 @@
 				<div class="p-5"></div>
 				<div class="p-3" align="center">${member.member_name }님의결제 정보를
 					확인해주세요</div>
-				<div class="p-5">클래스 정보 받아오기</div>
+					<div align="center">
+					<img src="/project/upload/Thumbnail/${dto.item_thumbnailimg}"  width="200"/>
+					</div>
+					<br>
+					<p align="center">${dto.item_title }</p>
 				<div class="p-5"></div>
 
 				<div class="row">
 					<div class="col-6">
-						<p>수업 시간</p>
 						<p>신청 인원</p>
 					</div>
 					<div class="col-6" align="right">
-						<p>게시판에서 받은값</p>
-						<p>${dto.apply_people }</p>
+						<p>${dto.apply_people } 명</p>
 
 					</div>
 				</div>
@@ -54,7 +56,7 @@
 				<div class="row">
 					<div class="col-3">프로필</div>
 					<div class="col-9">
-						<p>[게시판에서 받은 제목]</p>
+						<p>${dto.item_title }</p>
 						<h3>신청해주셔서 감사합니다.</h3>
 					</div>
 
@@ -109,14 +111,22 @@
 					<div class="col-6" align="right">${member.member_phone }</div>
 				</div>
 				<br>
-				<div class="p-5"></div>
+				<div class="p-3"></div>
+				<div class="row">
+					<div class="col-6">결제 전 호두</div>
+					<div class="col-6" align="right">${member.member_cash} 호두</div>
+				</div>
+				<br>
 				<div class="row">
 					<div class="col-6">총 결제</div>
-					<div class="col-6" align="right">결제 호두 받아오기</div>
+					<div class="col-6" align="right">${dto.item_price * dto.apply_people} 호두</div>
 				</div>
+				<br>
 				<div class="row">
 					<div class="col-6">남은 호두</div>
-					<div class="col-6" align="right">${member.member_cash }</div>
+					<div class="col-6" align="right">
+					${member.member_cash -(dto.item_price * dto.apply_people)} 호두
+					</div>
 				</div>
 				<div class="p-5"></div>
 				<h3>꼭 숙지하세요!</h3>

@@ -31,7 +31,7 @@
 <body>
 	<!-- footer 파일 포함 코드 -->
 	<%@ include file="../headerfooter/hoduheader.jsp"%>
-	<form action="./okpayment" method="POST">
+	<form action="./okpayment" method="GET">
 		<div class="container" id="total">
 			<div class="row">
 				<!-- 왼쪽 -->
@@ -39,7 +39,11 @@
 					<div class="p-2"></div>
 					<h3>수업신청</h3>
 					<hr>
-					<div class="p-5">클래스 받아오기</div>
+					<div>
+					<img src="/project/upload/Thumbnail/${dto.item_thumbnailimg}"  width="400"/>
+					</div>
+					<br>
+					<p>${dto.item_title }</p>
 					<div class="p-5"></div>
 					<div class="row">
 						<hr>
@@ -53,10 +57,6 @@
 							<p>${member.member_cash }호두</p>
 						</div>
 					</div>
-					<div class="p-5"></div>
-					<h3>결제수단</h3>
-					<input type="button" value="충전하러가기">
-					<div class="p-5"></div>
 					<div class="p-5"></div>
 				</div>
 
@@ -117,12 +117,13 @@
 							<p>${member.member_cash }호두
 							<p>
 							<hr>
-							<p>결제호두</p>
+							${dto.item_price * dto.apply_people}
 							<p></p>
 						</div>
 					</div>
 					<div class="p-4"></div>
-
+						<input type="text" name="item_code" value= "${dto.item_code }" style="display: none;"/>
+						<input type="text" name="item_code" value= "${member.member_id }" style="display: none;"/>
 					<input type="submit"
 						style="width: 550px; height: 50px; background-color: crimson;"
 						value="결제하기"/>

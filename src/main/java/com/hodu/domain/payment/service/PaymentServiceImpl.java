@@ -50,13 +50,14 @@ public class PaymentServiceImpl implements PaymentService {
 	}
 
 	@Override
-	public ItemDTO boardinfo(int item_code) {
-		
-		ItemDTO item = pay_mapper.getItem(item_code);
-		
-		item.setSelect(pay_mapper.getItemSelect(item_code));
-		return item;
-	}
+    public ItemDTO boardinfo(int item_code) {
+
+        ItemDTO item = pay_mapper.getItem(item_code);
+
+        item.setSelect(pay_mapper.getItemSelect(item_code));
+        
+        return item;
+    }
 
 	@Override
 	public List<ItemSelectDTO> boardtime(int item_code){
