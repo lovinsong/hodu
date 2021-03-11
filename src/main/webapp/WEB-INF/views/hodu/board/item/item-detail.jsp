@@ -68,7 +68,7 @@
                         <li class="active"><a href="#templatemo-page1"><i class="fa fa-camera"></i>PHOTO</a></li>
                         <li><a href="#templatemo-page2"><i class="fa fa-user"></i>멘토 소개</a></li>
                         <li><a href="#templatemo-page3"><i class="fa fa-book"></i>수업 소개</a></li>
-                        <li><a href="#templatemo-page4"><i class="fa fa-thumbs-o-up"></i>추천 대상</a></li>
+                        <li><a href="#templatemo-page4"><i class="fa fa-thumbs-up"></i>추천 대상</a></li>
                         <li><a href="#templatemo-page5"><i class="fa fa-tasks"></i>진행 방식</a></li>
                         <li><a href="#templatemo-page6"><i class="fa fa-comment"></i>리뷰</a></li>
                     </ul>

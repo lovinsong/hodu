@@ -7,7 +7,6 @@
 <html>
 <head>
 
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
@@ -42,10 +41,11 @@
 
 			<!-- Header -->
 				<header id="header" class="alt">
-<%-- 					<span class="logo" style="opacity:0.8">
+					<span class="logo" style="opacity:0.8; margin-top:-80px">
 						<img src="${pageContext.request.contextPath}/resources/assets_main/images/hodu.png" alt="" />
-					</span> --%>
+					</span> 
 				</header>
+				<hr style="border: 1px solid; border-color:#eee; margin-top:-10px;">
 
 			<!-- Nav -->
 				<nav id="nav">
@@ -148,11 +148,7 @@
 						</div>
 						<!-- Category News End-->
 
-						<footer class="major">
-							<ul class="up">
-								<a href="#" class="button">↑</a>
-							</ul>
-						</footer>
+						<footer class="major"></footer>
 					</section>
 
 					<!-- NEW 클래스 -->
@@ -206,11 +202,7 @@
 						<!-- Category News End-->
 
 
-						<footer class="major">
-							<ul class="up">
-								<a href="#" class="button">↑</a>
-							</ul>
-						</footer>
+						<footer class="major"></footer>
 					</section>
 
 					<!-- 사용법 -->
@@ -235,11 +227,7 @@
 								<p>거래가 시작되는 시점부터 완료되는 시점까지 멘토의 클래스를 정한 후 '구매 확정' 하시면 마이페이지에 보관되어 있던 호두 캐쉬가 멘토에게 전달됩니다.</p>
 							</li>
 						</ul>
-						<footer class="major">
-							<ul class="up">
-								<a href="#" class="button">↑</a>
-							</ul>
-						</footer>
+						<footer class="major"></footer>
 					</section>
 
 				</div>
