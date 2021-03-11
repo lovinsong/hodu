@@ -3,8 +3,10 @@ package com.hodu.domain.board.service;
 
 import java.util.List;
 
+import com.hodu.domain.model.InquiryDTO;
 import com.hodu.domain.model.ItemDTO;
 import com.hodu.domain.model.MainItemDTO;
+import com.hodu.domain.model.MyHeartDTO;
 import com.hodu.domain.model.NoticeDTO;
 import com.hodu.domain.model.SearchDTO;
 
@@ -34,4 +36,12 @@ public interface BoardService {
 	public List<ItemDTO> getMainItemLike(String item_one_day) throws Exception;
 	
 	public List<ItemDTO> getMainItemNew(String item_one_day) throws Exception;
+	
+	public List<ItemDTO> getMyHeartList(String member_id) throws Exception;
+	
+	public void regInquiry(InquiryDTO inquiry) throws Exception;
+	
+	public List<InquiryDTO> getMyInquiryList(String member_id) throws Exception;
+	
+	public InquiryDTO getInquiry(int inquiry_postnum) throws Exception;
 }

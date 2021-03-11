@@ -97,7 +97,6 @@ public class BoardController {
 	@PostMapping("item/changeHeart")
 	public void changeHeart(ItemDTO dto) throws Exception {
 		
-		System.out.println(dto);
 		
 		service.likeChanger(dto);
 		
@@ -169,6 +168,13 @@ public class BoardController {
 		
 		service.notice_change_show(notice_postnum);
 		return "redirect:notice-category";
+		
+ 	}
+	
+	@GetMapping("inquiry/inquiry-detail")
+ 	public void inquiry_detail(Model model, @RequestParam(required = false,defaultValue="1") int inquiry_postnum, HttpServletRequest req) throws Exception {
+		
+		model.addAttribute("dto", service.getInquiry(inquiry_postnum));
 		
  	}
 

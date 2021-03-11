@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
+<%@ include file="/WEB-INF/views/hodu/main/header.jsp"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -58,6 +59,12 @@
 						<header>
 							<p>찜 목록</p>
 						</header>
+						<c:forEach var="myHeart" items="${myHeartList }">
+							<div>
+								<a href="/project/hodu/board/item/item-detail?item_code=${myHeart.item_code}"><img src="/project/upload/Thumbnail/${myHeart.item_thumbnailimg}" width=30% alt="" /> ${myHeart.item_title }</a>
+							</div>
+						</c:forEach>
+						
 											
 					</article>
 
@@ -112,33 +119,35 @@
 								<hr style="border-color:rgb(199, 199, 199); margin-bottom: 5%;">
 					   
 									<div class="titlebox">																
-										<form action="registForm" method="post" name="registForm" enctype="multipart/form-data">
+										<form action="inquiryregistForm" method="post" name="inquiryregistForm" enctype="multipart/form-data">
 											<table class="table">
 												<tbody class="t-control">
+													<tr style="display:none"><input style="display:none" name = "member_id" value="${member.member_id}"></tr>
 													<tr>
 														<td class="t-title"><strong>첨부파일</strong></td>
-														<td><input type="file" value="파일 선택" name="content_file" multiple="multiple" style="font-size: 15px;"/></td>
+														<td><input type="file" value="파일 선택" name="inquiry_imgs" style="font-size: 15px;"/></td>
 													</tr>	                            
 													<tr>
 														<td class="t-title"><strong>제목</strong></td>
-														<td><input class="form-control input-sm" name="notice_title" style="width:100%;" placeholder="제목을 입력해주세요"><span id="msgTitle"></span></td>
+														<td><input class="form-control input-sm" name="inquiry_title" style="width:100%;" placeholder="제목을 입력해주세요"><span id="msgTitle"></span></td>
 													</tr>
 													<tr>
 														<td class="t-title"><strong>문의 분류</strong></td>
-														<td><select class="form-select" aria-label="multiple select example">
-															<option disabled selected style="color: #eee" >-  필수 선택 -</option>
-															<option value="1">충전 · 결제</option>
-															<option value="2">회원정보 조회 · 수정</option>
-															<option value="3">사이트 이용</option>
-															<option value="4">탈퇴 · 재가입</option>
-															<option value="5">취소 · 환불</option>
-															<option value="6">아이디 · 비밀번호 찾기</option>
+														<td><select class="form-select" id="inquiry_group" name="inquiry_group" aria-label="multiple select example">
+															<option disabled="disabled" selected style="color: #eee" >- 필수 선택 -</option>
+															<option value="충전 · 결제">충전 · 결제</option>
+															<option value="회원정보 조회 · 수정">회원정보 조회 · 수정</option>
+															<option value="사이트 이용">사이트 이용</option>
+															<option value="탈퇴 · 재가입">탈퇴 · 재가입</option>
+															<option value="취소 · 환불">취소 · 환불</option>
+															<option value="아이디 · 비밀번호 찾기">아이디 · 비밀번호 찾기</option>
 														</select></td>
 													</tr>                            	  	                                   	                            
 													<tr>
 														<td class="t-title"><strong>문의 내용</strong></td>
 														<td>
-														<textarea class="form-control" rows="13" placeholder="문의 내용을 작성해주세요" name="notice_content"></textarea>
+														<span id="msgContent"></span>
+														<textarea class="form-control" rows="13" placeholder="문의 내용을 작성해주세요" name="inquiry_content"></textarea>
 														</td>                 
 													</tr>
 													<tr>
@@ -164,70 +173,33 @@
 									</div>	
 
 							</article>
-
-
-
-						<div id="show_question_board" style="display: none;"> 					
-
-							<header>
-								<hr>
-								<p>문의내역</p>
-								<br>
-							</header>
-	
-							   
-								<div class="titlebox">																
-									<form action="registForm" method="post" name="registForm" enctype="multipart/form-data">
-										<table class="table">
-											<tbody class="t-control">
-												<tr>
-													<td class="t-title"><strong>첨부파일</strong></td>
-													<td><input type="file" value="파일 선택" name="content_file" multiple="multiple" style="font-size: 15px;"/></td>
-												</tr>	                            
-												<tr>
-													<td class="t-title"><strong>제목</strong></td>
-													<td><input class="form-control input-sm" name="notice_title" style="width:100%;" placeholder="제목을 입력해주세요"><span id="msgTitle"></span></td>
-												</tr>
-												<tr>
-													<td class="t-title"><strong>문의 분류</strong></td>
-													<td><select class="form-select" aria-label="multiple select example">
-														<option disabled selected style="color: #eee" >-  필수 선택 -</option>
-														<option value="1">충전 · 결제</option>
-														<option value="2">회원정보 조회 · 수정</option>
-														<option value="3">사이트 이용</option>
-														<option value="4">탈퇴 · 재가입</option>
-														<option value="5">취소 · 환불</option>
-														<option value="6">아이디 · 비밀번호 찾기</option>
-													</select></td>
-												</tr>                            	  	                                   	                            
-												<tr>
-													<td class="t-title"><strong>문의 내용</strong></td>
-													<td>
-													<textarea class="form-control" rows="13" placeholder="문의 내용을 작성해주세요" name="notice_content"></textarea>
-													</td>                 
-												</tr>
-												<tr>
-											</tr>	                                                                                   
-											</tbody>
-										</table>
-	
-										<br><br>
-											<div class="container" >
-												<div class="row row-cols-6" >
-												
-												<div class="col"></div>
-												<div class="col"></div>
-												<div class="col"><button class = "btn btn-reg" type="button" onclick="regist()"> 등록 </button></div>							    
-												<div class="col"><button class = "btn btn-reg" type="button" onclick="location.href='notice-category'">목록</button></div>
-												<div class="col"></div>
-												<div class="col"></div>
-												
-												</div>
-											</div>	                    
-										</form>                    
-									</div>	
-								   
-							</div>
+							
+							<article>
+								<table class="table table-bordered tablestyle">
+									<thead>
+										<tr>
+											<th class="board-title">제목</th>
+											<th>문의분류</th>
+											<th>등록일</th>
+											<th>수정일</th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach var="myInquiry" items="${myInquiryList }">
+											<tr style = "cursor:pointer;" onClick = "window.open('/project/hodu/board/inquiry/inquiry-detail?inquiry_postnum=${myInquiry.inquiry_postnum }','gi','width = 600, height = 600, top = 100, left = 200, location = no') " 
+											onMouseOver = " window.status = '/project/hodu/board/inquiry/inquiry-detail?inquiry_postnum=${myInquiry.inquiry_postnum }'; style='background-color:#e1e1e1; cursor:pointer;' "
+											onMouseOut = "style='background-color:white cursor:pointer;'" >
+												<td>${myInquiry.inquiry_title }</td>
+												<td>${myInquiry.inquiry_group }</td>
+												<td><fmt:formatDate value="${myInquiry.inquiry_date}"
+														pattern="yyyy년MM월dd일 " /></td>
+												<td><fmt:formatDate value="${myInquiry.inquiry_modifydate}"
+														pattern="yyyy년MM월dd일" /></td>
+											</tr>
+										</c:forEach>
+									</tbody>
+								</table>
+							</article>
 
 
 					</div>	
@@ -248,21 +220,25 @@
 	<script type="text/javascript">
 	
 		function regist(){//문의 등록할 때
-			if(document.registForm.member_id.value === ''){
-				document.getElementById("msgId").innerHTML = " 아이디는 필수입니다";
-				document.registForm.writer.focus();
-				return;
-			} else if(document.registForm.notice_title.value === ''){
-				document.getElementById("msgTitle").innerHTML = " 제목은 필수입니다";
-				document.registForm.title.focus();
-				return;
-			} else{
-				document.registForm.submit();//입력 완료시 서브밋
-			}
-			
+		if(document.inquiryregistForm.inquiry_title.value === ''){
+			document.getElementById("msgTitle").innerHTML = " 제목은 필수입니다";
+			document.inquiryregistForm.inquiry_title.focus();
+			return;
+		} else if(document.inquiryregistForm.inquiry_group.value === '- 필수 선택 -'){
+			document.inquiryregistForm.inquiry_group.focus();
+			return;
+		} else if(document.inquiryregistForm.inquiry_content.value === ''){
+			document.getElementById("msgContent").innerHTML = " 내용은 필수입니다";
+			document.inquiryregistForm.inquiry_content.focus();
+			return;
+		} else{
+			alert('등록 성공!');
+			document.inquiryregistForm.submit();//입력 완료시 서브밋
 		}
 		
-	</script>
+	}
 
+	</script>
+<%@ include file="/WEB-INF/views/hodu/main/footer.jsp"%>
 	</body>
 </html>

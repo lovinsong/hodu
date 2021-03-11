@@ -3,6 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE HTML>
+
+<%@ include file="/WEB-INF/views/hodu/main/header.jsp"%>
+
 <html>
 	<head>
 		<title>호두 클래스</title>
@@ -353,7 +356,7 @@
 	      	}
 
 	      </script>
-
+<%@ include file="/WEB-INF/views/hodu/main/footer.jsp"%>
 
 	</body>
 </html>

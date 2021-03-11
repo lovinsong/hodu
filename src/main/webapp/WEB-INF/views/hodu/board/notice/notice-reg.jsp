@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>    
 <!DOCTYPE html>
+<%@ include file="/WEB-INF/views/hodu/main/header.jsp"%>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -74,7 +75,7 @@
        			
        		}
        		
-       		setAttribute()
+
 
        
        </script>
@@ -82,3 +83,5 @@
        
        
     </section>
+    
+    <%@ include file="/WEB-INF/views/hodu/main/footer.jsp"%>

@@ -3,9 +3,11 @@ package com.hodu.domain.board.mapper;
 import java.util.List;
 
 import com.hodu.domain.model.BoardImgDTO;
+import com.hodu.domain.model.InquiryDTO;
 import com.hodu.domain.model.ItemDTO;
 import com.hodu.domain.model.ItemSelectDTO;
 import com.hodu.domain.model.MainItemDTO;
+import com.hodu.domain.model.MyHeartDTO;
 import com.hodu.domain.model.NoticeDTO;
 import com.hodu.domain.model.ReviewDTO;
 import com.hodu.domain.model.SearchDTO;
@@ -57,5 +59,13 @@ public interface BoardMapper {
 	public List<ItemDTO> getMainItemLike(String item_one_day);
 	
 	public List<ItemDTO> getMainItemNew(String item_one_day);
+	
+	public List<MyHeartDTO> getMyHeartInfo(String member_id);
+	
+	public int regInquiry(InquiryDTO inquiry);
+	
+	public List<InquiryDTO> inquiryList (String member_id);
+	
+	public InquiryDTO getInquiry(int inquiry_postnum);
 
 }

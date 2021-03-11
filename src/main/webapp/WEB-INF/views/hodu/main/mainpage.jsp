@@ -6,8 +6,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+<%@ include file="./header.jsp"%>
 
 <!-- Favicon -->
 <link rel="icon" href="../image/favicon.ico">
@@ -25,6 +29,8 @@
 
 <title>호두 : 생활 서비스 멘토 매칭</title>	
 </head>
+
+
 
 <body class="is-preload">
 
@@ -278,7 +284,12 @@
 		<script src="${pageContext.request.contextPath}/resources/assets_main/lib/easing/easing.min.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/assets_main/lib/slick/slick.min.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/assets_main/js/main2.js"></script>
+		
+		<a style="display:scroll;position:fixed;bottom:20px;right:20px; color:black;" href="#" title=”top"><i class="fas fa-arrow-up" style="color:gray"></i></a>
 
+
+
+<%@ include file="./footer.jsp"%>
 	</body>
 </html>
 

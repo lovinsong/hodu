@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
+<%@ include file="/WEB-INF/views/hodu/main/header.jsp"%>
 <link
 	href="${pageContext.request.contextPath }/resources/assets/css/style2.css"
 	rel="stylesheet">
@@ -85,3 +85,5 @@
 	
 
 </script>
+
+<%@ include file="/WEB-INF/views/hodu/main/footer.jsp"%>

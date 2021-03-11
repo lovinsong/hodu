@@ -127,4 +127,25 @@
 		SELECT * FROM item_board WHERE item_one_day = #{item_one_day} ORDER BY item_code DESC FETCH FIRST 3 ROWS ONLY
 	</select>
 	
+	<select id ="getMyHeartInfo" resultType="com.hodu.domain.model.MyHeartDTO">
+		SELECT * FROM my_heart WHERE member_id = #{member_id} AND heart_show = 'Y' ORDER BY heart_date DESC
+	</select> 
+	
+	<insert id="regInquiry" parameterType="com.hodu.domain.model.InquiryDTO">
+  		INSERT INTO
+			inquiry_board
+		VALUES
+			(
+			INQUIRY_BOARD_SEQ.nextval,#{member_id},#{inquiry_group},#{inquiry_title},#{inquiry_content},sysdate,'Y',sysdate,#{inquiry_img}
+			)
+  	</insert>
+  	
+  	<select id ="inquiryList" resultType="com.hodu.domain.model.InquiryDTO">
+		SELECT * FROM inquiry_board WHERE member_id = #{member_id} AND inquiry_show = 'Y' ORDER BY inquiry_date DESC
+	</select> 
+	
+	 <select id ="getInquiry" resultType="com.hodu.domain.model.InquiryDTO">
+		SELECT * FROM inquiry_board WHERE inquiry_postnum = #{inquiry_postnum}
+	</select> 
+	
   </mapper>

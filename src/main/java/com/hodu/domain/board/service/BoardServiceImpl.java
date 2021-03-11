@@ -11,9 +11,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.hodu.domain.board.mapper.BoardMapper;
 import com.hodu.domain.model.BoardImgDTO;
+import com.hodu.domain.model.InquiryDTO;
 import com.hodu.domain.model.ItemDTO;
 import com.hodu.domain.model.ItemSelectDTO;
 import com.hodu.domain.model.MainItemDTO;
+import com.hodu.domain.model.MyHeartDTO;
 import com.hodu.domain.model.NoticeDTO;
 import com.hodu.domain.model.SearchDTO;
 import com.hodu.domain.util.Upload;
@@ -187,6 +189,39 @@ public class BoardServiceImpl implements BoardService {
 	public List<ItemDTO> getMainItemNew(String item_one_day) throws Exception {
 
 		return board_mapper.getMainItemNew(item_one_day);
+	}
+
+	@Override
+	public List<ItemDTO> getMyHeartList(String member_id) throws Exception {
+		
+		List<MyHeartDTO> myHeartInfo = board_mapper.getMyHeartInfo(member_id);
+		List<ItemDTO> myHeartList = new ArrayList();
+		
+		for (MyHeartDTO heart : myHeartInfo) {
+			myHeartList.add(board_mapper.getItem(heart.getItem_code()));
+		}
+		
+		return myHeartList;
+	}
+
+	@Override
+	public void regInquiry(InquiryDTO inquiry) throws Exception {
+		inquiry.setInquiry_img((Upload.uploadIMG(inquiry.getInquiry_imgs(), "C:\\Users\\Public\\upload\\Inquiry\\")));
+		
+		board_mapper.regInquiry(inquiry);
+		
+	}
+
+	@Override
+	public List<InquiryDTO> getMyInquiryList(String member_id) throws Exception {
+		
+		return board_mapper.inquiryList(member_id);
+	}
+
+	@Override
+	public InquiryDTO getInquiry(int inquiry_postnum) throws Exception {
+		
+		return board_mapper.getInquiry(inquiry_postnum);
 	}
 	
 

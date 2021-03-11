@@ -5,9 +5,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
+
+<%@ include file="/WEB-INF/views/hodu/main/header.jsp"%>
+
 <html>
 	<head>
-	    <title>클래스 하나 누르면 이게 나옴</title>
 	    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />       
 	    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets_detail/css/item-detail.css">
 	</head>
@@ -296,7 +298,7 @@
 	
 	function changeHeart(){ 
 	   
-		var link1 = '../changeHeart';
+		var link1 = '/project/hodu/board/item/changeHeart';
 		var link2 = '/project/hodu/account/login'
 	   
 		
@@ -306,7 +308,7 @@
 		} else {
 			$.ajax({
 	            type : "POST",  
-	            url : "../changeHeart",       
+	            url : "/project/hodu/board/item/changeHeart",       
 	            dataType : "json",   
 	            data : "item_code="+${dto.item_code}+"&user="+member+"&likeStatue="+"${dto.likeStatue}",
 	            success : function() {
@@ -327,9 +329,7 @@
 	<script src="${pageContext.request.contextPath}/resources/assets_detail/js/templatemo_script.js"></script>	
 
 
+<%@ include file="/WEB-INF/views/hodu/main/footer.jsp"%>
 
-
-
-	
 </body>
 </html>   
