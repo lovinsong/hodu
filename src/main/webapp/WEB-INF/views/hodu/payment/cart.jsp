@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>호두 : 생활 서비스 멘토 매칭</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -105,23 +105,17 @@ input:disabled {
 		<div class="container" id="total">
 			<div class="row">
 				<div class="col-6" id="leftcart">
-					게시판 만들어야 하고 조건문 사용해서 글을 받아와서(반복문)
-					라디오 형식으로 보여줘야함
-
-					<div>
-						<input type="radio" id="huey" name="oneclass" value="huey">
-						<label for="huey">수업 받아오기</label>
-					</div>
-
-					<div>
-						<input type="radio" id="dewey" name="oneclass" value="dewey">
-						<label for="dewey">수업 받아오기</label>
-					</div>
-
-					<div>
-						<input type="radio" id="louie" name="oneclass" value="louie">
-						<label for="louie">수업 받아오기</label>
-					</div>
+				<p style="background-color:#f7f7f7; border-radius: 6px; border: 1px solid; border-style: thin; border-color: #eee;">&nbsp;&nbsp;<strong>${dto.item_price }</strong>
+                   
+                            <div class="schedule">
+								 <c:forEach var="select" items="${dto.select }">
+	                              <span>
+	                              	<fmt:formatDate value="${select.item_start_date}" pattern="MM월 dd일 (E)"/>&emsp;&emsp;<fmt:formatDate value="${select.item_start_date}" pattern="HH:mm"/>:<fmt:formatDate value="${select.item_end_date}" pattern="HH:mm"/>
+	                             	<br>${fn:length(dto.item_place)  > 7 ? fn:substring(dto.item_place,5, fn:length(dto.item_place))  : dto.item_place}
+	                              </span>
+                                 </c:forEach>
+                            </div>
+                                        
 					<div class="p-5"></div>
 					<div class="p-5"></div>
 					<div class="p-5"></div>

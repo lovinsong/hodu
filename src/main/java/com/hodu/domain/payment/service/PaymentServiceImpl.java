@@ -1,10 +1,12 @@
 package com.hodu.domain.payment.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hodu.domain.model.BoardImgDTO;
 import com.hodu.domain.model.ItemDTO;
 import com.hodu.domain.model.ItemSelectDTO;
 import com.hodu.domain.model.MemberDTO;
@@ -49,14 +51,23 @@ public class PaymentServiceImpl implements PaymentService {
 
 	@Override
 	public ItemDTO boardinfo(int item_code) {
-
-		return pay_mapper.boardinfo(item_code);
+		
+		ItemDTO item = pay_mapper.getItem(item_code);
+		item.setSelect(pay_mapper.getItemSelect(item_code));
+		
+		return item;
 	}
 
 	@Override
 	public List<ItemSelectDTO> boardtime(int item_code){
 		
 		return pay_mapper.boardtime(item_code);
+	}
+
+	@Override
+	public void insertorder(PaymentDTO payment) throws Exception {
+		
+		pay_mapper.insertorder(payment);
 	}
 
 }

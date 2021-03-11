@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>호두 : 생활 서비스 멘토 매칭</title>
 </head>
 <body>
 1. 취소/환불 신청 기간 

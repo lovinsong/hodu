@@ -258,7 +258,7 @@
                                 
                             
                                 <!-- 수업 신청 버튼 -->
-                                <button class="btn-secondary like-review" id="order">
+                                <button class="btn-secondary like-review" id="order" onclick="location.href='./../../../payment/cart'"><!-- 결제창 정보  + 아이템 코드 POST처리 --> 
                                 수업 신청하기
                                 </button>
                                                                                                 

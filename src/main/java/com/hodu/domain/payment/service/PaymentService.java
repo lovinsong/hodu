@@ -30,4 +30,6 @@ public interface PaymentService {
 	// 게시글 시간 불러오기
 	public List<ItemSelectDTO> boardtime(int item_code);
 	
+	// 영수증 생성후 넣기
+	public void insertorder(PaymentDTO payment) throws Exception;
 }

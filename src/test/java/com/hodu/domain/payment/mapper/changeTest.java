@@ -1,5 +1,9 @@
 package com.hodu.domain.payment.mapper;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Random;
+
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,19 +27,34 @@ public class changeTest {
 	@Test
 	@Ignore
 	public void testinfo() {
-		
-		pm.boardinfo(42);
-	
-		System.out.println(pm.boardinfo(42));
-		
+
+
 	}
 	@Test
 	public void testboardtime() {
 		
-		pm.boardtime(44);
+		Calendar cal = Calendar.getInstance();
+		 
+		//현재 년도, 월, 일
+		int year = cal.get ( cal.YEAR );
+		int month = cal.get ( cal.MONTH ) + 1 ;
+		int date = cal.get ( cal.DATE ) ;
+
+		Random random = new Random();
+		int order_num = (int) (Math.random() * 100000 + 1);
 		
-		System.out.println(pm.boardtime(44));
+//		System.out.println(Integer.toString(year) + Integer.toString(month) + Integer.toString(date));
+	
+//		System.out.println(order_num);
 		
+		String day = Integer.toString(year) + Integer.toString(month) + Integer.toString(date);
+
+		System.out.println(day);
+		
+		System.out.println(day + order_num);
+		
+		long su2 =  Long.parseLong(day + order_num);
+		System.out.println(su2);
 	}
 	
 
