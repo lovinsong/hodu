@@ -106,8 +106,16 @@ public class BoardController {
 	public void notice_reg() {
 	}
 	
+	@GetMapping("notice/notice-modify")
+	public void notice_modify(Model model, @RequestParam(required = false,defaultValue="1") int notice_postnum) throws Exception {
+		
+		NoticeDTO dto = service.getNotice(notice_postnum);
+		
+		model.addAttribute("dto",dto);
+	}
+	
 	@RequestMapping(value = "notice/registForm", method = RequestMethod.POST)
-    public String registForm1(NoticeDTO dto, RedirectAttributes ra, HttpServletRequest req) throws Exception {
+    public String registForm(NoticeDTO dto, RedirectAttributes ra, HttpServletRequest req) throws Exception {
 		
 		MemberDTO member = (MemberDTO)req.getSession().getAttribute("member") == null ? null : (MemberDTO)req.getSession().getAttribute("member");
 		
@@ -116,6 +124,16 @@ public class BoardController {
 		}
 		
 		service.notice_regist(dto);
+		
+		
+        return "redirect:notice-category";
+    }
+	
+	@RequestMapping(value = "notice/modifyForm", method = RequestMethod.POST)
+    public String modifyForm(NoticeDTO dto, RedirectAttributes ra, HttpServletRequest req) throws Exception {
+		
+		
+		service.notice_update(dto);
 		
 		
         return "redirect:notice-category";
@@ -138,6 +156,14 @@ public class BoardController {
 		
 		model.addAttribute("dto",dto);
 		
+ 	}
+	
+	@GetMapping("notice/notice-delete")
+ 	public String notice_delete(@RequestParam(required = false,defaultValue="1") int notice_postnum) throws Exception {
+		
+		
+		service.notice_change_show(notice_postnum);
+		return "redirect:notice-category";
 		
  	}
 

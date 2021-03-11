@@ -24,4 +24,8 @@ public interface BoardService {
 	public List<NoticeDTO> noticepage(int pagenum) throws Exception;
 	
 	public NoticeDTO getNotice(int notice_postnum) throws Exception;
+	
+	public void notice_update(NoticeDTO notice) throws Exception;
+	
+	public void notice_change_show(int notice_postnum) throws Exception;
 }

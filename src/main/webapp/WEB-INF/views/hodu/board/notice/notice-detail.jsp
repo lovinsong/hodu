@@ -29,10 +29,6 @@
 						</p>
 					</div>
 					<div class="form-group">
-						<label>번호</label> <input class="form-control" name='bno' readonly
-							value="${dto.notice_postnum }">
-					</div>
-					<div class="form-group">
 						<label>작성자</label> <input class="form-control" name='writer'
 							readonly value="${dto.member_id }">
 					</div>
@@ -49,7 +45,7 @@
 					<button type="button" class="btn btn-dark"
 						onclick="modify();">수정</button>
 					<button type="button" class="btn btn-dark"
-						onclick="delete();">삭제</button>
+						onclick="del();">삭제</button>
 					<button type="button" class="btn btn-dark"
 						onclick="location.href='notice-category'">목록</button>
 				</form>
@@ -67,6 +63,21 @@
 	console.log(noticename);
 	function modify() {
 		if (myname == ""){
+			alert('권한이 없습니다.')
+		} else if (myname == noticename){
+			window.location.href = 'notice-modify?notice_postnum='+${dto.notice_postnum};
+		} else {
+			alert('권한이 없습니다.')
+		}
+	}
+	
+	function del() {
+		if (myname == ""){
+			alert('권한이 없습니다.')
+		} else if (myname == noticename){
+			alert('삭제 성공')
+			window.location.href = 'notice-delete?notice_postnum='+${dto.notice_postnum};
+		} else {
 			alert('권한이 없습니다.')
 		}
 	}

@@ -100,7 +100,7 @@
   	</insert>
   	
   	<select id="getNoticePage" resultType="com.hodu.domain.model.NoticeDTO">
-  		SELECT * FROM notice_board ORDER BY notice_postnum OFFSET (#{pagenum}-1)*9 ROWS FETCH FIRST 9 ROWS ONLY
+  		SELECT * FROM notice_board WHERE notice_show = 'Y' ORDER BY notice_postnum OFFSET (#{pagenum}-1)*9 ROWS FETCH FIRST 9 ROWS ONLY
   	</select>
   	
   	<select id="getNotice" resultType="com.hodu.domain.model.NoticeDTO">
@@ -110,5 +110,12 @@
 	<select id="getReviews" resultType="com.hodu.domain.model.ReviewDTO" >
 		SELECT * FROM review_board WHERE item_code = #{item_code}
 	</select>
-  
+	
+	<update id="updateNotice">
+		UPDATE notice_board SET notice_content = #{notice_content}, notice_title = #{notice_title}, notice_modify_date = sysdate WHERE notice_postnum = #{notice_postnum}
+	</update>
+  	
+  	<update id="noticeChangeShow">
+		UPDATE notice_board SET notice_show = 'N' WHERE notice_postnum = #{notice_postnum}
+	</update>
   </mapper>

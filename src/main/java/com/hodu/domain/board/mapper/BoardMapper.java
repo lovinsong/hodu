@@ -42,6 +42,10 @@ public interface BoardMapper {
 	
 	public int noticeBoardReg(NoticeDTO notice);
 	
+	public int updateNotice(NoticeDTO notice);
+	
+	public int noticeChangeShow(int notice_postnum);
+	
 	public List<NoticeDTO> getNoticePage(int pagenum);
 	
 	public NoticeDTO getNotice(int notice_postnum);

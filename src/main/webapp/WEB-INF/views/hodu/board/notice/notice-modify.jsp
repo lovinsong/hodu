@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <link
 	href="${pageContext.request.contextPath }/resources/assets/css/style2.css"
 	rel="stylesheet">
@@ -23,22 +25,23 @@
                         <h2><strong>공지사항</strong></h2>
                     </div>    
                   </div>				             
-                    <form action="registForm" method="post" name="registForm" enctype="multipart/form-data">
+                    <form action="modifyForm" method="post" name="modifyForm" enctype="multipart/form-data">
 	                    <table class="table">
-	                        <tbody class="t-control">
-	                        	<tr>
+	                        <tbody class="t-control">   
+	                        	 <tr>
 	                        		<td class="t-title"><Strong>작성자</Strong> </td>
 									<td><input class="form-control input-sm" name="member_id" readonly value="${member.member_id }"></td>		
 									
-	                        	</tr>                            
+	                        	</tr>                          
 	                            <tr>
 	                                <td class="t-title" ><strong>제목</strong></td>
-	                                <td><input class="form-control input-sm" name="notice_title" style="width:100%;" placeholder="제목을 작성해주세요"><span id="msgTitle" class="msg"></span></td>
+	                                <td><input class="form-control input-sm" name="notice_title" style="width:100%;" placeholder="제목을 작성해주세요" value=${dto.notice_title }><span id="msgTitle" class="msg"></span></td>
 	                            </tr>                           	  	                                   	                            
                                 <tr>
 	                                <td class="t-title"><strong>내용</strong></td>
 	                                <td>
-	                                <textarea class="form-control" rows="13" placeholder="내용을 작성해주세요" name="notice_content"></textarea>
+	                                <textarea class="form-control" rows="13" placeholder="내용을 작성해주세요" name="notice_content">${dto.notice_content }</textarea>
+	                                <input name="notice_postnum" value="${dto.notice_postnum }" style="display:none;">
 	                                </td>                 
 	                            </tr>
 	                           <tr>
@@ -64,17 +67,18 @@
        
        <script type="text/javascript">
        		function regist(){
-       			 if(document.registForm.notice_title.value === ''){
+       			 if(document.modifyForm.notice_title.value === ''){
        				document.getElementById("msgTitle").innerHTML = " 제목은 필수입니다";
-       				document.registForm.title.focus();
+       				document.modifyForm.title.focus();
        				return;
        			} else{
-       				document.registForm.submit();//입력 완료시 서브밋
+       				alert("수정 완료");
+       				document.modifyForm.submit();//입력 완료시 서브밋
        			}
        			
        		}
        		
-       		setAttribute()
+       		
 
        
        </script>

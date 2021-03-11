@@ -162,4 +162,17 @@ public class BoardServiceImpl implements BoardService {
 		return board_mapper.getNotice(notice_postnum);
 	}
 
+	@Override
+	public void notice_update(NoticeDTO notice) throws Exception {
+		board_mapper.updateNotice(notice);
+		
+	}
+
+	@Override
+	public void notice_change_show(int notice_postnum) throws Exception {
+		board_mapper.noticeChangeShow(notice_postnum);
+		
+	}
+	
+
 }
