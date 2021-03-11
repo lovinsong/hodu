@@ -11,13 +11,13 @@
 	integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
 	crossorigin="anonymous">
 </head>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets_payment/css/cart-detail.css">
 <style>
 #leftokpayment {
-	background-color: #b1b5a1
+	background-color: #ccc;
 }
 
 #rightokpayment {
-	background-color: #d1bad6
 }
 
 #total {
@@ -29,32 +29,36 @@
 	<%@ include file="../headerfooter/hoduheader.jsp"%>
 	<div class="container" id="total">
 		<div class="p-2"></div>
-		<h3>신청완료</h3>
+		<h2>수업 신청완료</h2>
 		<hr>
 		<div class="row">
 			<div class="col-6" id="leftokpayment">
 				<div class="p-5"></div>
-				<div class="p-3" align="center">${member.member_name }님의결제 정보를
-					확인해주세요</div>
-				<div class="p-5">클래스 정보 받아오기</div>
+				<div class="p-3" align="center">${member.member_name } 님의 결제 정보를 
+					확인해 주세요</div>
+					<div align="center">
+					<img src="/project/upload/Thumbnail/${dto.item_thumbnailimg}"  width="200"/>
+					</div>
+					<br>
+					<p align="center">${dto.item_title }</p>
 				<div class="p-5"></div>
 
 				<div class="row">
 					<div class="col-6">
-						<p>수업 시간</p>
 						<p>신청 인원</p>
 					</div>
-					<div class="col-6" align="right">
-						<p>게시판에서 받은값</p>
-						<p>${dto.apply_people }</p>
-
+					<div class="col-5" align="right">
+						<p>${dto.apply_people } 명</p>
 					</div>
+					<div class="col-1" align="right"></div>
 				</div>
 				<div class="p-4"></div>
 				<div class="row">
-					<div class="col-3">프로필</div>
+					<div class="col-3"><img src="/project/upload/member/${member.member_img }" width="100">
+					<p>${member.member_id }님</p>
+					 </div>
 					<div class="col-9">
-						<p>[게시판에서 받은 제목]</p>
+						<p>${dto.item_title }</p>
 						<h3>신청해주셔서 감사합니다.</h3>
 					</div>
 
@@ -63,12 +67,16 @@
 				<div class="p-5"></div>
 			</div>
 			<div class="col-6" id="rightokpayment">
-				<div class="p-5"></div>
+				<div class="p-2"></div>
 				<div class="row">
-					<div class="col-6">주문 번호</div>
-					<div class="col-6" align="right">
-					${dto.order_num }
+					<div class="col-6">
+					<h2>주문 번호</h2>
+					<hr>
 					</div>
+					<div class="col-6" align="right">
+					<h2>${dto.order_num }</h2>
+					</div>
+					
 				</div>
 				<br>
 				<div class="row">
@@ -108,17 +116,26 @@
 					<div class="col-6">전화번호</div>
 					<div class="col-6" align="right">${member.member_phone }</div>
 				</div>
+				<hr>
+				<div class="p-3"></div>
+				<div class="row">
+					<div class="col-6">결제 전 <img src="${pageContext.request.contextPath}/resources/assets/image/hoduC.png"	style="width: 6%; vertical-align: middle; margin-top: -3px"></div>
+					<div class="col-6" align="right">${member.member_cash} <img src="${pageContext.request.contextPath}/resources/assets/image/hoduC.png"	style="width: 6%; vertical-align: middle; margin-top: -3px"></div>
+				</div>
 				<br>
-				<div class="p-5"></div>
 				<div class="row">
 					<div class="col-6">총 결제</div>
-					<div class="col-6" align="right">결제 호두 받아오기</div>
+					<div class="col-6" align="right">${dto.item_price * dto.apply_people} <img src="${pageContext.request.contextPath}/resources/assets/image/hoduC.png"	style="width: 6%; vertical-align: middle; margin-top: -3px"></div>
 				</div>
+				<br>
 				<div class="row">
-					<div class="col-6">남은 호두</div>
-					<div class="col-6" align="right">${member.member_cash }</div>
+					<div class="col-6">남은 <img src="${pageContext.request.contextPath}/resources/assets/image/hoduC.png"	style="width: 6%; vertical-align: middle; margin-top: -3px"></div>
+					<div class="col-6" align="right">
+					${member.member_cash -(dto.item_price * dto.apply_people)} <img src="${pageContext.request.contextPath}/resources/assets/image/hoduC.png"	style="width: 6%; vertical-align: middle; margin-top: -3px">
+					</div>
 				</div>
-				<div class="p-5"></div>
+				<hr>
+				<div class="p-2"></div>
 				<h3>꼭 숙지하세요!</h3>
 				<p>
 					수업 진행 24시간 전에 환불 요청하는 경우 <br /> 결제 금액이 100% 환불됩니다. 24시간 이내에 취소하는경우<br>

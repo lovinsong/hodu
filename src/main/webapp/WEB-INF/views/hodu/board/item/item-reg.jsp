@@ -93,7 +93,7 @@
 	                            </tr>    
                                 <tr>
 	                                <td class="t-title"><strong>회차 당 가격</strong></td>
-	                                <td><input type="number" id = "item_price" class="form-control input-sm" name="item_price"  value=0  min="1" max="1000" onchange="this.value = Math.floor(Math.max(this.value,1)); this.value = Math.floor(Math.min(this.value,1000));" style="text-align:right;" /> <strong>&emsp;호두 </strong><img src="/project/resources/assets/image/favicon.ico"></td>
+	                                <td><input type="number" id = "item_price" class="form-control input-sm" name="item_price" value="0" min="1" max="1000" onchange="this.value = Math.floor(Math.max(this.value,1)); this.value = Math.floor(Math.min(this.value,1000));" style="text-align:right;" /> <strong>&emsp;호두 </strong><img src="/project/resources/assets/image/favicon.ico"></td>
 	                            </tr>		                            
 	                            <tr>
 	                                <td class="t-title" id="place"><strong>수업 예정 장소</strong></td>
