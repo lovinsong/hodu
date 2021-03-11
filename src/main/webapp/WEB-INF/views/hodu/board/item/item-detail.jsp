@@ -276,7 +276,7 @@
                                 
                             
                                 <!-- 수업 신청 버튼 -->
-                                <button class="btn-secondary like-review" id="order">
+                                <button class="btn-secondary like-review" id="order" onclick="location.href='/project/hodu/payment/cart?item_code=' + ${dto.item_code } "> 
                                 수업 신청하기
                                 </button>
                                                                                                 
