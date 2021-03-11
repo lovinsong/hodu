@@ -10,7 +10,7 @@
 	rel="stylesheet"
 	integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
 	crossorigin="anonymous">
-		    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets_payment/css/cart-detail.css">
+		    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets_detail/css/item-detail.css">
 </head>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -106,16 +106,15 @@ input:disabled {
 		<div class="container" id="total">
 			<div class="row">
 				<div class="col-6" id="leftcart">
-					<div class="p-5"></div>
 				<p style="background-color:#f7f7f7; border-radius: 6px; border: 1px solid; border-style: thin; border-color: #eee;">
 				&nbsp;&nbsp;<input type="text" name="item_price" value="${dto.item_price }" style="display: none;"/>
-						 ${dto.item_price } 호두
-											<div class="p-5"></div>
+						${dto.item_price } 호두
+						
                             <div class="schedule">
                             
 								 <c:forEach var="select" items="${dto.select }">
 	                              <span>
-	                              <input type="radio" name="classchoice" style="width:30px;height:30px;border:5px; c">
+	                              <input type="radio" style="width:30px;height:30px;border:5px; c">
 	                              <label>
 	                              	<fmt:formatDate value="${select.item_start_date}" pattern="MM월 dd일 (E)"/>&emsp;&emsp;<fmt:formatDate value="${select.item_start_date}" pattern="HH:mm"/>:<fmt:formatDate value="${select.item_end_date}" pattern="HH:mm"/>
 	                             	<br>${fn:length(dto.item_place)  > 7 ? fn:substring(dto.item_place,5, fn:length(dto.item_place))  : dto.item_place}
@@ -123,6 +122,12 @@ input:disabled {
 	                              </span>
                                  </c:forEach>
                             </div>
+                                        
+					
+					<div class="p-5"></div>
+					<div class="p-5"></div>
+					<div class="p-5"></div>
+					<div class="p-5"></div>
 					<div class="p-5"></div>
 					<div class="p-5"></div>
 					<div class="p-5"></div>
@@ -135,10 +140,9 @@ input:disabled {
 					<hr>
 					<div class="row">
 						<div class="col-6">
-							<h3>신청 인원 :</h3>
+							<h4>신청 인원 :</h4>
 						</div>
 						<div align="right" class="col-6">
-						<br>
 							<span class="apply_people mt-5"> <span
 								class="minus bg-dark">-</span>
 								<input type="number"
@@ -155,12 +159,11 @@ input:disabled {
 							<h4>연락 받으실 전화번호 :</h4>
 						</div>
 						<div align="right" class="col-6">
-							<h4>${member.member_phone }</h4>
+							<h5>${member.member_phone }</h5>
 						</div>
 					</div>
 					<br>
 					<hr>
-					<br>
 					<h2>튜터에게 전하는말!</h2>
 					<h4>튜어에게 간단히 자신을 소개하고, 신청 목적에 대해 알려주세요.</h4>
 					<div class="p-3"></div>
@@ -174,16 +177,14 @@ input:disabled {
 						중급 &nbsp; &nbsp; &nbsp; <input type="radio"
 							style="width: 23px; height: 23px;" name="chk_level">상급
 						&nbsp; &nbsp; &nbsp; <br>
-		
-						<textarea style="resize: none" cols="60" rows="10"
+
+						<textarea style="resize: none" cols="80" rows="10"
 							placeholder="예) 처음이라 서투르지만 열심히 따라갈께요!">
 							</textarea>
 						<div class="p-3"></div>
-						<input type="text" name="item_code" value= "${dto.item_code }" style="display: none;"/>
-						
 						<input type="submit"
+							style="width: 500px; height: 50px; background-color: crimson;"
 							value="다음" >
-							style="width: 500px; height: 50px; background-color: #696969;"
 					</div>
 				</div>
 			</div>
