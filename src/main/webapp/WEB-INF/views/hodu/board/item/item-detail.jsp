@@ -163,7 +163,7 @@
                                 <p class="profile_img"><img src="/project/upload/member/${dto.member_img}" alt="" /></p>   
 
                                 <!-- 멘토 이름 -->
-                                <p id="mentor_name">${dto.member_id }</p> 
+                                <p id="mentor_name">${dto.member_nickname }</p> 
                                 <p id="mentor">멘토</p>
 
                             </div>
