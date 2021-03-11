@@ -5,9 +5,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
+
+<%@ include file="/WEB-INF/views/hodu/main/header.jsp"%>
+
 <html>
 	<head>
-	    <title>클래스 하나 누르면 이게 나옴</title>
 	    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />       
 	    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets_detail/css/item-detail.css">
 	</head>
@@ -204,18 +206,34 @@
                         </div>
                     </section>
 
-                    <!-- 6. 리뷰 -->
+                                        <!-- 6. 리뷰 -->
                     <section id="templatemo-page6-text" class="inactive">
-                        <div class="col-sm-6 col-md-6">
-                            <h3>실제 튜티의 리뷰입니다.</h3>
-                            <p>
+                    <h3>실제 튜티의 리뷰입니다.</h3>
+                        <div class="schedule" id="review">
+                            
+                            <!-- span 부분 반복하기 !!! -->
+                             <c:forEach var="review" items="${dto.review }">    
+                            <span>
+                                
+                                    
+                                <div id="replyList">
+                                    <div class='reply-wrap'>
+                                        <div class='reply-content'>
+                                            <div class='reply-group'>
+                                                <strong class='left'>${review.member_id } 멘티</strong>&ensp;<small class='left'><fmt:formatDate value="${review.review_regist_date}" pattern="YYYY-MM-dd HH:mm"/></small>&ensp;<c:forEach begin="1" end="${review.review_star}" step="1" varStatus="status"><p style="color:#e31240">★</p></c:forEach><br>
+                                                ${review.review_content } 
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
 
-                            </p>
+
+                            </span>
+                            </c:forEach>
+
+                                    
                         </div>
                     </section>
-
-                </div><!-- /.templatemo-content -->  
-            </div><!-- /.templatemo-content-wrapper --> 
 
 
 <!----------------------------------------------------  사 이 드 바  ------------------------------------------------------------>
@@ -280,7 +298,7 @@
 	
 	function changeHeart(){ 
 	   
-		var link1 = '../changeHeart';
+		var link1 = '/project/hodu/board/item/changeHeart';
 		var link2 = '/project/hodu/account/login'
 	   
 		
@@ -290,7 +308,7 @@
 		} else {
 			$.ajax({
 	            type : "POST",  
-	            url : "../changeHeart",       
+	            url : "/project/hodu/board/item/changeHeart",       
 	            dataType : "json",   
 	            data : "item_code="+${dto.item_code}+"&user="+member+"&likeStatue="+"${dto.likeStatue}",
 	            success : function() {
@@ -310,6 +328,8 @@
 	<script src="${pageContext.request.contextPath}/resources/assets_detail/js/jquery.flexslider.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets_detail/js/templatemo_script.js"></script>	
 
-	
+
+<%@ include file="/WEB-INF/views/hodu/main/footer.jsp"%>
+
 </body>
 </html>   

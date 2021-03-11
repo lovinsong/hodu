@@ -11,8 +11,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.hodu.domain.board.mapper.BoardMapper;
 import com.hodu.domain.model.BoardImgDTO;
+import com.hodu.domain.model.InquiryDTO;
 import com.hodu.domain.model.ItemDTO;
 import com.hodu.domain.model.ItemSelectDTO;
+import com.hodu.domain.model.MainItemDTO;
+import com.hodu.domain.model.MyHeartDTO;
+import com.hodu.domain.model.NoticeDTO;
+import com.hodu.domain.model.SearchDTO;
 import com.hodu.domain.util.Upload;
 
 @Service
@@ -76,9 +81,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<ItemDTO> itempage(int pagenum) throws Exception {
+	public List<ItemDTO> itempage(SearchDTO search) throws Exception {
 		
-		List<ItemDTO> itempageinfo = board_mapper.getItemPage(pagenum);
+		List<ItemDTO> itempageinfo = board_mapper.getItemPage(search);
 		
 		for (ItemDTO item : itempageinfo) {
 			
@@ -89,9 +94,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int getItemCnt() throws Exception {
+	public int getItemCnt(String item_type) throws Exception {
 		
-		return board_mapper.getItemCnt();
+		return board_mapper.getItemCnt(item_type);
 	}
 
 	@Override
@@ -111,6 +116,7 @@ public class BoardServiceImpl implements BoardService {
 		item.setSelect(board_mapper.getItemSelect(item_code));
 		item.setUser(user);
 		item.setLikeStatue(board_mapper.getLikeState(item));
+		item.setReview(board_mapper.getReviews(item_code));
 		
 		return item;
 		
@@ -138,5 +144,85 @@ public class BoardServiceImpl implements BoardService {
 		}
 		
 	}
+
+	@Override
+	public void notice_regist(NoticeDTO notice) throws Exception {
+		
+		board_mapper.noticeBoardReg(notice);
+		
+	}
+
+	@Override
+	public List<NoticeDTO> noticepage(int pagenum) throws Exception {
+		List<NoticeDTO> noticepageinfo = board_mapper.getNoticePage(pagenum);
+		
+		return noticepageinfo;
+	}
+
+	@Override
+	public NoticeDTO getNotice(int notice_postnum) throws Exception {
+
+
+		return board_mapper.getNotice(notice_postnum);
+	}
+
+	@Override
+	public void notice_update(NoticeDTO notice) throws Exception {
+		board_mapper.updateNotice(notice);
+		
+	}
+
+	@Override
+	public void notice_change_show(int notice_postnum) throws Exception {
+		board_mapper.noticeChangeShow(notice_postnum);
+		
+	}
+
+
+	@Override
+	public List<ItemDTO> getMainItemLike(String item_one_day) throws Exception {
+		
+		return board_mapper.getMainItemLike(item_one_day);
+	}
+
+	@Override
+	public List<ItemDTO> getMainItemNew(String item_one_day) throws Exception {
+
+		return board_mapper.getMainItemNew(item_one_day);
+	}
+
+	@Override
+	public List<ItemDTO> getMyHeartList(String member_id) throws Exception {
+		
+		List<MyHeartDTO> myHeartInfo = board_mapper.getMyHeartInfo(member_id);
+		List<ItemDTO> myHeartList = new ArrayList();
+		
+		for (MyHeartDTO heart : myHeartInfo) {
+			myHeartList.add(board_mapper.getItem(heart.getItem_code()));
+		}
+		
+		return myHeartList;
+	}
+
+	@Override
+	public void regInquiry(InquiryDTO inquiry) throws Exception {
+		inquiry.setInquiry_img((Upload.uploadIMG(inquiry.getInquiry_imgs(), "C:\\Users\\Public\\upload\\Inquiry\\")));
+		
+		board_mapper.regInquiry(inquiry);
+		
+	}
+
+	@Override
+	public List<InquiryDTO> getMyInquiryList(String member_id) throws Exception {
+		
+		return board_mapper.inquiryList(member_id);
+	}
+
+	@Override
+	public InquiryDTO getInquiry(int inquiry_postnum) throws Exception {
+		
+		return board_mapper.getInquiry(inquiry_postnum);
+	}
+	
 
 }
