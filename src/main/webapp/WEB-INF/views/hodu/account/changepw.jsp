@@ -13,23 +13,48 @@
 </head>
 <body>
 
-<h1>비밀번호 변경</h1>
-<form action="updatepw" method="POST" id="updatepwform">
-		<input type="hidden" class="id_input" name="member_id" id="member_id" value="${member.member_id}" readonly>
-		
-		<label>변경할 패스워드 : </label><input type="password" name="member_pw" id="member_pw" maxlength="11"><br>
-		<div class="member_pw regex"></div>
-		
-		<label>패스워드확인 : </label><input type="password" id="repw" maxlength="11"><br>
-		<div class="repw regex"></div>
+<h1 class="p-3 mb-2 bg-secondary text-white" style="text-align:center;">비밀번호 변경</h1><br>
 
-		
-		<div id="signup">
-			<input type="button" name="signup" value="변경 하기" id="changepwbtn"><br>
-			<!--<input type="button" value="취소 하기" id="nodelete" onclick="location.href='mainpage'"> 취소하면 메인페이지로 -->
-		</div>
+<div class="titlebox">																
+	<form action="updatepw" method="POST" id="updatepwform">
+	<input type="hidden" name="member_id" id="member_id" value="${member.member_id}">
+		<table class="table">
+			<tbody class="t-control">
+				<tr>
+					<td class="t-title"><strong>변경할 패스워드</strong></td>
+					<td>
+						<input class="form-control input-sm" type="password" name="member_pw" id="member_pw" style="width:100%;" maxlength="11">
+						<div class="member_pw regex"></div>
+					</td>
+				</tr>	                            
+				<tr>
+					<td class="t-title"><strong>패스워드 확인</strong></td>
+					<td>
+						<input class="form-control input-sm" type="password" id="repw" style="width:100%;" maxlength="11">
+						<div class="repw regex"></div>
+					</td>
+				</tr>
+				<tr></tr>	                                                                                   
+		</tbody>
+		</table> <br><br>
 	
-</form>
+	
+		<div class="container" >
+			<div class="row row-cols-7" >
+			
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"><input class="btn btn-reg" type="button" name="signup" value="변경 하기" id="changepwbtn"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+					
+			</div>
+		</div>
+	</form>                    
+</div>	
+
 <script>
 		var samePw = ""; 
 		

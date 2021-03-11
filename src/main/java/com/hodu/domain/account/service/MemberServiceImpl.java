@@ -121,4 +121,10 @@ public class MemberServiceImpl implements MemberService {
 		member_mapper.changePImg(member);
 	}
 
+	//호두충전금액
+	@Override
+	public void chargehodu(MemberDTO member) throws Exception {
+		member_mapper.chargehodu(member);
+	}
+
 }

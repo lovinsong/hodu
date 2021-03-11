@@ -22,7 +22,7 @@
 
     <!-- 왼쪽 -->
     <div class="logo">
-      <a href="${pageContext.request.contextPath}/hodu/mainpage"><em>HO</em>DU</a> &emsp; &emsp;
+      <a href="${pageContext.request.contextPath}/hodu/main/mainpage"><em>HO</em>DU</a> &emsp; &emsp;
     </div>  
 
 
@@ -67,13 +67,13 @@
             <li class="has-submenu" id="header_my">
                         
 	          	<!-- 프로필 사진: "/project/upload/member/${member.member_img}"  -->
-	          	<img id="profile_img" src="/project/upload/member/${member.member_img}"> <a href="#">${member.member_name } 회원님</a>
+	          	<img id="profile_img" onerror="this.style.display='none'" src="/project/upload/member/${member.member_img}"> <a href="#">${member.member_name } 회원님</a>
 	                    
 	              <ul class="sub-menu" id="header_my_sub">
 	              
 	                <li style="border-bottom: none;"><a>닉네임 : ${member.member_nickname}</a></li>
 	                
-	                <li><a>보유 호두 : <fmt:formatNumber value="${member.member_cash }" pattern="#,###.## 호두" /></a><br></li>
+	                <li><a href="${pageContext.request.contextPath}/hodu/util/chargehodu">보유 호두 : <fmt:formatNumber value="${member.member_cash }" pattern="#,###.## 호두" /></a><br></li>
 	                
 	                <div id="sub_button">
 	                              

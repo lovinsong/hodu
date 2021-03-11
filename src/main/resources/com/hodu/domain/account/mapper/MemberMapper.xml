@@ -133,11 +133,20 @@
 		member_id = #{member_id}
 	</update>
 	
-	<!-- 멘토 등록 -->
+	<!-- 프로필 사진 바꾸기 -->
 	<update id="changePImg">
 		update hodu_member 
 		set 
 		member_img = #{member_img}
+		where
+		member_id = #{member_id}
+	</update>
+	
+	<!-- 호두충전 -->
+	<update id="chargehodu">
+		update hodu_member 
+		set 
+		moneyforhodu = #{moneyforhodu}
 		where
 		member_id = #{member_id}
 	</update>

@@ -54,9 +54,9 @@ reader.onload = function(e) {
 
         // 최대폭을 넘어가는 경우 canvas 크기를 변경해 줍니다.
 
-        var MAX_WIDTH = 400;
+        var MAX_WIDTH = 300;
 
-        var MAX_HEIGHT = 400;
+        var MAX_HEIGHT = 300;
 
         var width = img.width;
 
@@ -119,11 +119,52 @@ reader.readAsDataURL(file);
 #resize{
 	display : none;
 }
+
 </style>
 <body>
-<h1>프로필 사진 변경</h1>
+<!--<hr> 임시 분리 선 -->
+<h1 class="p-3 mb-2 bg-secondary text-white" style="text-align:center;">프로필 사진 변경</h1><br>
 
-<form action="changeImg" method="POST" id="changeImgform" enctype="multipart/form-data">
+<div class="titlebox">																
+	<form action="changeImg" method="POST" id="changeImgform" enctype="multipart/form-data">
+	<input type="hidden" name="member_id" id="member_id" value="${member.member_id}">
+		<table class="table">
+			<tbody class="t-control">
+				<tr>
+					<td class="t-title"><strong>현재 프로필 사진</strong></td>
+					<td>
+						<img src="/project/upload/member/${member.member_img}" onerror="this.style.display='none'" style="width: 200px;height: auto;"><br><br>
+						<input type="file" name="member_imgM" id="imageFile" ><br>
+					</td>
+				</tr>	                            
+				<tr>
+					<td class="t-title"><strong>변경될 프로필 사진</strong></td>
+					<td>
+						<img src="" id="output">
+						<input type="button" value="Resize Image" id="resize" onclick="ResizeImage()"/>
+					</td>
+				</tr>	                                                                                   
+		</tbody>
+		</table> <br><br>
+	
+	
+		<div class="container" >
+			<div class="row row-cols-7" >
+			
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"><input class="btn btn-reg" type="button" value="변경 하기" id="changeImgbtn"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+					
+			</div>
+		</div>
+	</form>                    
+</div>	
+
+<%-- <form action="changeImg" method="POST" id="changeImgform" enctype="multipart/form-data">
 <input type="hidden" name="member_id" id="member_id" value="${member.member_id}">
 	<label>현재 프로필 사진: </label> 
 	<!-- <img src="/project/upload/member/${member.member_img}" alt="회원이미지" id="originalImg"/><br> -->
@@ -139,11 +180,10 @@ reader.readAsDataURL(file);
 	
 	<div id="signup">
 		<input type="button" name="signup" value="변경하기" id="changeImgbtn">
-		<input type="button" value="취소" onclick="goBack()">
-		 <!--메인페이지로 연결!!! -->
+		<!-- <input type="button" value="취소" onclick="goBack()"> -->
 	</div>
 	
-</form>
+</form> --%>
 <!-- <script> 
 var isPhoto = 0;
 	function setThumbnail(event) { 
