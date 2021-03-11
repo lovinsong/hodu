@@ -22,7 +22,7 @@
 
     <!-- 왼쪽 -->
     <div class="logo">
-      <a href="${pageContext.request.contextPath}/hodu/mainpage"><em>HO</em>DU</a> &emsp; &emsp;
+      <a href="${pageContext.request.contextPath}/hodu/main/mainpage"><em>HO</em>DU</a> &emsp; &emsp;
     </div>  
 
 
