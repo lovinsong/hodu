@@ -25,7 +25,7 @@
 							<nav id="nav">
 								<ul>
 									<li>
-										<a href="#">☆인기</a>
+										<a href="/project/hodu/board/item/item-category">☆인기</a>
 										<ul>
 											<li><a href="#">퍼스널컬러</a></li>
 											<li><a href="#">마케팅</a></li>
@@ -34,7 +34,7 @@
 										</ul>
 									</li>
 									<li>
-										<a href="#">뷰티/헬스</a>
+										<a href="/project/hodu/board/item/item-category?item_type=뷰티/헬스">뷰티/헬스</a>
 										<ul>
 											<li><a href="#">메이크업</a></li>
 											<li><a href="#">퍼스널컬러</a></li>
@@ -44,7 +44,7 @@
 										</ul>
 									</li>
 									<li>
-										<a href="#">홈/리빙</a>
+										<a href="/project/hodu/board/item/item-category?item_type=홈/리빙">홈/리빙</a>
 										<ul>
 											<li><a href="#">반려동물</a></li>
 											<li><a href="#">인테리어</a></li>
@@ -53,7 +53,7 @@
 										</ul>
 									</li>
 									<li>
-										<a href="#">취미/공예</a>
+										<a href="/project/hodu/board/item/item-category?item_type=취미/공예">취미/공예</a>
 										<ul>
 											<li><a href="#">사진</a></li>
 											<li><a href="#">미술/목공/공예</a></li>
@@ -62,7 +62,7 @@
 										</ul>
 									</li>
 									<li>
-										<a href="#">머니</a>
+										<a href="/project/hodu/board/item/item-category?item_type=머니">머니</a>
 										<ul>
 											<li><a href="#">투잡</a></li>
 											<li><a href="#">마케팅/창업</a></li>
@@ -71,7 +71,7 @@
 										</ul>
 									</li>
 									<li>
-										<a href="#">IT/커리어</a>
+										<a href="/project/hodu/board/item/item-category?item_type=IT/커리어">IT/커리어</a>
 										<ul>
 											<li><a href="#">취업/이직</a></li>
 											<li><a href="#">엑셀/파워포인트</a></li>
@@ -80,7 +80,7 @@
 										</ul>
 									</li>
 									<li>
-										<a href="#">디자인/영상</a>
+										<a href="/project/hodu/board/item/item-category?item_type=디자인/영상">디자인/영상</a>
 										<ul>
 											<li><a href="#">UX/UI</a></li>
 											<li><a href="#">그래픽</a></li>
@@ -89,7 +89,7 @@
 										</ul>
 									</li>
 									<li>
-										<a href="#">외국어</a>
+										<a href="/project/hodu/board/item/item-category?item_type=외국어">외국어</a>
 										<ul>
 											<li><a href="#">영어</a></li>
 											<li><a href="#">중국어</a></li>
@@ -219,7 +219,7 @@
 
 			<c:forEach begin="${pagination.startPage}" end="${pagination.endPage}" var="idx">
 
-				<li class="page-item <c:out value="${pagination.page == idx ? 'active' : ''}"/> "><a class="page-link" href="#" onClick="fn_pagination('${idx}', '${pagination.range}', '${pagination.rangeSize}')"> ${idx} </a></li>
+				<li class="page-item <c:out value="${pagination.page == idx ? 'active' : ''}"/> "><a class="page-link" href="#" onClick="fn_pagination('${idx}', '${pagination.range}', '${pagination.rangeSize}','${item_type }')"> ${idx} </a></li>
 
 			</c:forEach>
 
@@ -289,6 +289,8 @@
 	      		var page = ((range - 2) * rangeSize) + 1;
 
 	      		var range = range - 1;
+	      		
+	      		var item_type = "${item_type}"
 
 	      		
 
@@ -297,6 +299,7 @@
 	      		url = url + "?page=" + page;
 
 	      		url = url + "&range=" + range;
+	      	
 
 	      		
 
@@ -315,7 +318,8 @@
 	      		url = url + "?page=" + page;
 
 	      		url = url + "&range=" + range;
-
+	      		
+	      		url = url + "&item_type=" + searchType;
 
 
 	      		location.href = url;	
@@ -339,6 +343,8 @@
 	      		url = url + "?page=" + page;
 
 	      		url = url + "&range=" + range;
+	      		
+	      		url = url + "&item_type=" + item_type;
 
 	      		
 

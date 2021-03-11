@@ -4,16 +4,18 @@ package com.hodu.domain.board.service;
 import java.util.List;
 
 import com.hodu.domain.model.ItemDTO;
+import com.hodu.domain.model.MainItemDTO;
 import com.hodu.domain.model.NoticeDTO;
+import com.hodu.domain.model.SearchDTO;
 
 public interface BoardService {
 	
 	// itemboard 글 작성 서비스
 	public String itemRegist(ItemDTO item) throws Exception;
 	
-	public List<ItemDTO> itempage(int pagenum) throws Exception;
+	public List<ItemDTO> itempage(SearchDTO search) throws Exception;
 	
-	public int getItemCnt() throws Exception;
+	public int getItemCnt(String item_type) throws Exception;
 	
 	public ItemDTO itemInfo(int item_code, String user) throws Exception;
 	
@@ -28,4 +30,8 @@ public interface BoardService {
 	public void notice_update(NoticeDTO notice) throws Exception;
 	
 	public void notice_change_show(int notice_postnum) throws Exception;
+	
+	public List<ItemDTO> getMainItemLike(String item_one_day) throws Exception;
+	
+	public List<ItemDTO> getMainItemNew(String item_one_day) throws Exception;
 }

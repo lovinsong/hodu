@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,6 +24,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hodu.domain.account.service.MemberService;
+import com.hodu.domain.board.service.BoardService;
 import com.hodu.domain.model.MemberDTO;
 import com.hodu.domain.util.Upload;
 import com.hodu.domain.util.UserSha256;
@@ -35,13 +37,22 @@ public class MemberController {
 
 	@Autowired
 	private MemberService service;
+	
+	@Autowired
+	private BoardService board_service;
+	
 
 	@Autowired
 	private JavaMailSender mailSender;
 
 	// 메인 페이지 이동
 	@GetMapping(value = "/hodu/main/mainpage")
-	public void mainPageGET() {
+	public void mainPageGET(Model model) throws Exception {
+		
+		model.addAttribute("oneday_pop",board_service.getMainItemLike("Y"));
+		model.addAttribute("days_pop",board_service.getMainItemLike("N"));
+		model.addAttribute("oneday_new",board_service.getMainItemNew("Y"));
+		model.addAttribute("days_new",board_service.getMainItemNew("N"));
 
 	}
 

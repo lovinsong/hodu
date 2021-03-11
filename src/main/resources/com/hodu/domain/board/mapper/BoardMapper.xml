@@ -37,7 +37,7 @@
 	
 	<select id="getItemPage" resultType="com.hodu.domain.model.ItemDTO">
 
-		  SELECT * FROM item_board ORDER BY item_code OFFSET (#{pagenum}-1)*9 ROWS FETCH FIRST 9 ROWS ONLY
+		  SELECT * FROM item_board WHERE ITEM_CATEGORY LIKE(#{item_type}) ORDER BY item_code OFFSET (#{page}-1)*9 ROWS FETCH FIRST 9 ROWS ONLY
 
 	</select>
 	
@@ -48,7 +48,7 @@
 	</select>
 	
 	<select id="getItemCnt" resultType="int">
-		SELECT count(*) FROM item_board
+		SELECT count(*) FROM item_board WHERE ITEM_CATEGORY LIKE(#{item_type})
 	</select>
 
 	<select id="getItem" resultType="com.hodu.domain.model.ItemDTO">
@@ -118,4 +118,13 @@
   	<update id="noticeChangeShow">
 		UPDATE notice_board SET notice_show = 'N' WHERE notice_postnum = #{notice_postnum}
 	</update>
+	
+	<select id ="getMainItemLike" resultType="com.hodu.domain.model.ItemDTO">
+		SELECT * FROM item_board WHERE item_one_day = #{item_one_day} ORDER BY item_like DESC FETCH FIRST 3 ROWS ONLY
+	</select>
+	
+	<select id ="getMainItemNew" resultType="com.hodu.domain.model.ItemDTO">
+		SELECT * FROM item_board WHERE item_one_day = #{item_one_day} ORDER BY item_code DESC FETCH FIRST 3 ROWS ONLY
+	</select>
+	
   </mapper>

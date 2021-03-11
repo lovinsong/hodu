@@ -19,6 +19,7 @@ import com.hodu.domain.board.service.BoardService;
 import com.hodu.domain.model.ItemDTO;
 import com.hodu.domain.model.MemberDTO;
 import com.hodu.domain.model.NoticeDTO;
+import com.hodu.domain.model.SearchDTO;
 import com.hodu.domain.util.Pagination;
 
 import lombok.extern.log4j.Log4j;
@@ -43,16 +44,20 @@ public class BoardController {
 
 	//글 전체 페이지로 이동하기
 	@GetMapping("item/item-category")
-	public void item_category(Model model, ItemDTO dto, @RequestParam(required = false,defaultValue="1") int page, @RequestParam(required = false, defaultValue = "1") int range) throws Exception {
+	public void item_category(Model model, ItemDTO dto, @RequestParam(required = false,defaultValue="1") int page, @RequestParam(required = false, defaultValue = "1") int range, @RequestParam(required = false,defaultValue="%") String item_type) throws Exception {
 		
-		int listCnt  = service.getItemCnt();
+		int listCnt  = service.getItemCnt(item_type);
 		
+		SearchDTO search = new SearchDTO();
+		search.setItem_type(item_type);
+		search.setPage(page);
 		
 	    //Pagination 객체생성
 		Pagination pagination = new Pagination();
 		pagination.pageInfo(page, range, listCnt);
 	   
-		model.addAttribute("dto",service.itempage(page));
+		model.addAttribute("dto",service.itempage(search));
+		model.addAttribute("item_type",item_type);
 		model.addAttribute("pagination", pagination);
 		
 	}

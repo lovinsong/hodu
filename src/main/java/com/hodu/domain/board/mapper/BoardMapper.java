@@ -5,8 +5,10 @@ import java.util.List;
 import com.hodu.domain.model.BoardImgDTO;
 import com.hodu.domain.model.ItemDTO;
 import com.hodu.domain.model.ItemSelectDTO;
+import com.hodu.domain.model.MainItemDTO;
 import com.hodu.domain.model.NoticeDTO;
 import com.hodu.domain.model.ReviewDTO;
+import com.hodu.domain.model.SearchDTO;
 
 public interface BoardMapper {
 	
@@ -20,11 +22,11 @@ public interface BoardMapper {
 	// item_select 추가
 	public Integer addItemSelect(ItemSelectDTO itemSelect);
 	
-	public List<ItemDTO> getItemPage(int pagenum);
+	public List<ItemDTO> getItemPage(SearchDTO search);
 	
 	public String getUserImg(String member_id);
 	
-	public int getItemCnt();
+	public int getItemCnt(String item_type);
 	
 	public ItemDTO getItem(int item_code);
 	
@@ -51,5 +53,9 @@ public interface BoardMapper {
 	public NoticeDTO getNotice(int notice_postnum);
 	
 	public List<ReviewDTO> getReviews(int item_code);
+	
+	public List<ItemDTO> getMainItemLike(String item_one_day);
+	
+	public List<ItemDTO> getMainItemNew(String item_one_day);
 
 }

@@ -13,7 +13,9 @@ import com.hodu.domain.board.mapper.BoardMapper;
 import com.hodu.domain.model.BoardImgDTO;
 import com.hodu.domain.model.ItemDTO;
 import com.hodu.domain.model.ItemSelectDTO;
+import com.hodu.domain.model.MainItemDTO;
 import com.hodu.domain.model.NoticeDTO;
+import com.hodu.domain.model.SearchDTO;
 import com.hodu.domain.util.Upload;
 
 @Service
@@ -77,9 +79,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<ItemDTO> itempage(int pagenum) throws Exception {
+	public List<ItemDTO> itempage(SearchDTO search) throws Exception {
 		
-		List<ItemDTO> itempageinfo = board_mapper.getItemPage(pagenum);
+		List<ItemDTO> itempageinfo = board_mapper.getItemPage(search);
 		
 		for (ItemDTO item : itempageinfo) {
 			
@@ -90,9 +92,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public int getItemCnt() throws Exception {
+	public int getItemCnt(String item_type) throws Exception {
 		
-		return board_mapper.getItemCnt();
+		return board_mapper.getItemCnt(item_type);
 	}
 
 	@Override
@@ -172,6 +174,19 @@ public class BoardServiceImpl implements BoardService {
 	public void notice_change_show(int notice_postnum) throws Exception {
 		board_mapper.noticeChangeShow(notice_postnum);
 		
+	}
+
+
+	@Override
+	public List<ItemDTO> getMainItemLike(String item_one_day) throws Exception {
+		
+		return board_mapper.getMainItemLike(item_one_day);
+	}
+
+	@Override
+	public List<ItemDTO> getMainItemNew(String item_one_day) throws Exception {
+
+		return board_mapper.getMainItemNew(item_one_day);
 	}
 	
 
