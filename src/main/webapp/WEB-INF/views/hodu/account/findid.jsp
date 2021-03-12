@@ -9,19 +9,22 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"
 	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 	crossorigin="anonymous"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <style>
-* {
+/* * {
 	margin: 0;
 	padding: 0;
-} /* 화면 전체 렙 */
+} 
 .wrapper {
 	width: 1900px;
-} /* content 랩 */
+} 
 .wrap {
 	width: 800px;
 	margin: auto;
-} /* 페이지 로고 */
+} 
 .logo_wrap {
 	text-align: center;
 	margin: 150px 0;
@@ -30,7 +33,7 @@
 .logo_wrap>span {
 	font-size: 50px;
 	font-weight: 900;
-} /* 로그인 area */
+} 
 .id_input_box {
 	border: 1px solid black;
 	height: 31px;
@@ -80,21 +83,85 @@
 	font-weight: 900;
 	color: white;
 	margin: auto;
-}
+}*/
 
 .find_warn {
 	margin-top: 30px;
 	text-align: center;
 	color: red;
-}
+	font-weight : bold;
+} 
 
+
+.login-dark {
+    background: linear-gradient(145deg, #575b5d, #252b2d);
+}
+body {
+    font-size: 13px;
+}
 .clearfix {
 	clear: both;
 }
 </style>
 
 <body>
-	<div class="wrapper">
+
+
+<div class="container">
+    <div class="row">
+    	<div class="col-4"></div>
+        <div class="col-4">
+            <div class="login-dark p-3 shadow-lg rounded">
+                <div class="pt-3">
+                    <h2 class="text-white">아이디 찾기</h2>
+                </div>
+
+                <form class="mt-5" id="find_form" method="post"> 
+                    <div class="form-group">
+                        <input class="form-control form-control-sm bg-light id_input" name="member_name" placeholder="이름">
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control form-control-sm bg-light email_input" name="member_email" placeholder="이메일">
+                    </div>
+                    
+                    <c:if test="${result == 0 }">
+						<div class="find_warn">사용자 이름 또는 이메일을 잘못 입력하셨습니다.</div>
+					</c:if>
+
+                    
+                    <div class="mt-5">
+                        <input type="button" class="btn btn-sm btn-light col find_button" value="아이디찾기">
+                    </div>
+
+                   
+                    
+                    
+                </form>
+            </div>
+        </div>
+   </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<%-- <div class="wrapper">
 		<div class="wrap">
 			<form id="find_form" method="post">
 				<div class="logo_wrap">
@@ -127,7 +194,7 @@
 			</form>
 
 		</div>
-	</div>
+	</div> --%>
 
 	<script>
 		/* 찾기 버튼 클릭 메서드 */

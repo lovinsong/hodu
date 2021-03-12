@@ -143,7 +143,7 @@ reader.readAsDataURL(file);
 				<tr>
 					<td class="t-title"><strong>프로필 사진 등록</strong></td>
 					<td>
-						<img src="" id="output"><br>
+						<img src="" id="output">
 						<input type="file" name="member_imgM" id="imageFile" >
 						<input type="button" value="Resize Image" id="resize" onclick="ResizeImage()"/>
 					</td>

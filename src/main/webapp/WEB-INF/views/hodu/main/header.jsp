@@ -48,7 +48,7 @@
           <ul class="main-menu">
             <li><a href="${pageContext.request.contextPath}/hodu/account/login">로그인</a></li>        
             <li><a href="${pageContext.request.contextPath}/hodu/account/join">회원가입</a></li>
-            <li><a href="${pageContext.request.contextPath}/hodu/account/mentor-reg">멘토 가입하기</a></li>
+            <!-- <li><a href="${pageContext.request.contextPath}/hodu/account/mentor-reg">멘토 가입하기</a></li> -->
           </ul>
         </nav>
 
@@ -88,7 +88,7 @@
 
           </ul>
           
-          <hr>
+          
         </nav>
 
       </c:when>
