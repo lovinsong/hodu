@@ -21,10 +21,10 @@
 <title>호두 : 생활 서비스 멘토 매칭</title>
 </head>
 
-<body class="is-preload">
+<body class="is-preload"  >
 	
 	<!-- Wrapper-->
-	<div id="wrapper">
+	<div id="wrapper" style="margin-right:-2%;" >
 
 		<p>마이 페이지</p>
 
@@ -45,7 +45,7 @@
 					<article id="user" class="panel">
 						
 						<header>
-							<p>프로필</p>
+							<p>프로필 변경</p>
 						</header>
 						<%@ include file="../mypage/update.jsp"%>
 					</article>

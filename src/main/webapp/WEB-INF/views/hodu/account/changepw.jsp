@@ -13,15 +13,13 @@
 </head>
 <body>
 
-<h1 class="p-3 mb-2 bg-secondary text-white" style="text-align:center;">비밀번호 변경</h1><br>
-
 <div class="titlebox">																
 	<form action="updatepw" method="POST" id="updatepwform">
 	<input type="hidden" name="member_id" id="member_id" value="${member.member_id}">
 		<table class="table">
 			<tbody class="t-control">
 				<tr>
-					<td class="t-title"><strong>변경할 패스워드</strong></td>
+					<td class="t-title" style="padding:0;"><strong>변경할 패스워드</strong></td>
 					<td>
 						<input class="form-control input-sm" type="password" name="member_pw" id="member_pw" style="width:100%;" maxlength="11">
 						<div class="member_pw regex"></div>
