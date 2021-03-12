@@ -9,19 +9,22 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"
 	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 	crossorigin="anonymous"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <style>
-* {
+/* * {
 	margin: 0;
 	padding: 0;
-} /* 화면 전체 렙 */
+} 
 .wrapper {
 	width: 1900px;
-} /* content 랩 */
+} 
 .wrap {
 	width: 800px;
 	margin: auto;
-} /* 페이지 로고 */
+} 
 .logo_wrap {
 	text-align: center;
 	margin: 150px 0;
@@ -30,7 +33,7 @@
 .logo_wrap>span {
 	font-size: 50px;
 	font-weight: 900;
-} /* 로그인 area */
+} 
 .id_input_box {
 	border: 1px solid black;
 	height: 31px;
@@ -102,16 +105,8 @@
 	margin-top: 30px;
 	text-align: center;
 	color: red;
-}
-
-#mail_check_input_box_false {
-	background-color: #ebebe4;
-}
-
-#mail_check_input_box_true {
-	background-color: white;
-}
-.mail_check_button {
+} */
+/* .mail_check_button {
 	border: 1px solid black;
 	height: 51px;
 	width: 30%;
@@ -121,7 +116,24 @@
 	font-weight: 900;
 	background-color: #ececf7;
 	cursor: pointer;
+} */
+
+
+
+.login-dark {
+    background: linear-gradient(145deg, #575b5d, #252b2d);
 }
+body {
+    font-size: 13px;
+}
+
+/* #mail_check_input_box_false {
+	background-color: #ebebe4;
+}
+
+#mail_check_input_box_true {
+	background-color: white;
+} */
 
 .correct {
 	color: green;
@@ -137,7 +149,62 @@
 </style>
 
 <body>
-	<div class="wrapper">
+<div class="container">
+    <div class="row">
+    	<div class="col-4"></div>
+        <div class="col-4">
+            <div class="login-dark p-3 shadow-lg rounded">
+                <div class="pt-3">
+                    <h2 class="text-white">비밀번호 찾기</h2>
+                </div>
+
+                <form class="mt-5" id="find_form" method="post"> 
+                    <div class="form-group id_input_box">
+                        <input class="form-control form-control-sm bg-light id_input" name="member_id" id="member_id" placeholder="아이디">
+                    </div>
+
+                    <div class="form-group mail_input_box">
+                        <input class="form-control form-control-sm bg-light mail_input" name="member_email" id="member_email" 
+                        		readonly="readonly" placeholder="이메일">
+                    </div>
+                    
+                    <div class="form-group mail_check_input_box">
+								<input class="form-control form-control-sm bg-light mail_check_input" disabled="disabled" placeholder="인증번호">
+					</div>	
+					
+							<input type="button" class="btn btn-secondary col mail_check_button" value="인증번호 전송">
+					
+                    
+                    <div class="clearfix"></div>
+					<span id="mail_check_input_box_warn"></span>
+                    
+                    
+                    <div class="mt-5">
+                        <input type="button" class="btn btn-sm btn-light col find_button" value="비밀번호 변경하기">
+                    </div>
+
+                   
+                    
+                    
+                </form>
+            </div>
+        </div>
+   </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- <div class="wrapper">
 		<div class="wrap">
 			<form id="find_form" method="post">
 				<div class="logo_wrap">
@@ -167,9 +234,9 @@
 						<span id="mail_check_input_box_warn"></span>
 					</div>
 
-					<!--<c:if test="${result == 0 }">
+					<c:if test="${result == 0 }">
 						<div class="find_warn">ID를 잘못 입력하셨거나 없는 ID입니다.</div>
-					</c:if>-->
+					</c:if>
 
 					<div class="find_button_wrap">
 						<input type="button" class="find_button" value="비밀번호 변경하기">
@@ -180,7 +247,7 @@
 			</form>
 
 		</div>
-	</div>
+	</div> -->
 
 	<script>
 		var code = ""; //이메일전송 인증번호 저장위한 코드
@@ -191,7 +258,7 @@
 
 			var email = $(".mail_input").val(); // 입력한 이메일
 			var cehckBox = $(".mail_check_input"); // 인증번호 입력란
-			var boxWrap = $(".mail_check_input_box"); // 인증번호 입력란 박스
+			//var boxWrap = $(".mail_check_input_box"); // 인증번호 입력란 박스
 			
 			if(email !=""){
 				
@@ -212,9 +279,9 @@
 								url : "mailCheck?email=" + email,
 								success : function(data) {
 				
-								//console.log("data : " + data); //console값 으로 이메일 데이터 비교
+								console.log("data : " + data); //console값 으로 이메일 데이터 비교
 								cehckBox.attr("disabled", false);
-								boxWrap.attr("id", "mail_check_input_box_true");
+								//boxWrap.attr("id", "mail_check_input_box_true");
 								code = data;
 			
 								}
