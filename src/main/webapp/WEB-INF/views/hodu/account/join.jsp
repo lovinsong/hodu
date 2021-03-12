@@ -9,136 +9,29 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"
 	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 	crossorigin="anonymous">
-</script>
+</script> 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 
 </head>
 <style>
-#wrapper {
-	border: 2px solid;
-	border-color: #692e1d;
-	border-radius: 5px;;
-	width: 500px;
-	height: 650px;
-	margin: auto;
-}
 
-.title {
-	text-align: center;
-	font-size: 20px;
-	font-weight: bold;
-	color: #692e1d;
-	margin: 20px 0px 20px 0px;
-}
 
-label {
-	width: 95px;
-	display: inline-block;
-	text-align: right;
-	font-size: 13px;
-}
-
-input {
-	margin: 3px 5px;
-	border-radius: 3px;
-	background-color: transparent;
-	border: 1px solid darkgray;
-	height: 20px;
-	outline: none;
-}
-
-#signup, #contract, #gotojoinform {
-	text-align: center;
-	margin: 5px;
-}
-
-input[type=button], input[type=reset] {
-	border: 1px solid salmon;
-	border-radius: 3px;
-	background-color: transparent;
-	margin: 0px;
-	height: 24px;
-	color: salmon;
-}
-
-input[type=button]:hover, input[type=reset]:hover {
-	background-color: salmon;
-	transition-duration: 1s;
-	color: white;
-	outline: none;
-}
-
-#roadAddress, #detailAddress {
-	width: 280px;
-}
-
-.regex {
-	font-size: 12px;
-	text-align: center;
-}
-
-/*지우면 안되는 코드*/
+/*지우면 안되는 코드
 #mail_check_input_box_false {
 	background-color: #ebebe4;
-}
-/*지우면 안되는 코드*/
+}*/
+/*지우면 안되는 코드
 #mail_check_input_box_true {
 	background-color: white;
-}
-/* 메일 영역 */
-.mail_wrap {
-	width: 100%;
-	margin-top: 20px;
-}
+}*/
 
-.mail_name {
-	font-size: 25px;
-	font-weight: bold;
-}
 
-.mail_input_box {
-	border: 1px solid black;
-	height: 31px;
-	padding: 10px 14px;
-}
 
-.mail_input {
-	width: 100%;
-	height: 100%;
-	border: none;
-	font-size: 28px;
-}
 
-.mail_check_wrap {
-	margin-top: 20px;
-}
 
-.mail_check_input_box {
-	border: 1px solid black;
-	height: 31px;
-	padding: 10px 14px;
-	width: 61%;
-	float: left;
-}
-
-.mail_check_input {
-	width: 100%;
-	height: 100%;
-	border: none;
-	font-size: 28px;
-}
-
-.mail_check_button {
-	border: 1px solid black;
-	height: 51px;
-	width: 30%;
-	float: right;
-	line-height: 50px;
-	text-align: center;
-	font-size: 30px;
-	font-weight: 900;
-	background-color: #ececf7;
-	cursor: pointer;
-}
 /*지우면 안되는 코드*/
 .correct {
 	color: green;
@@ -194,7 +87,158 @@ input[type=button]:hover, input[type=reset]:hover {
 }
 </style>
 <body>
-	<form action="join" method="POST" id="signform" name="signform">
+<main class="my-form">
+    <div class="cotainer">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">회원 가입 정보 입력</div>
+                        <div class="card-body">
+                            <form action="join" method="POST" id="signform" name="signform">
+                                <div class="form-group row">
+                                    <label for="member_id" class="col-md-4 col-form-label text-md-right">아이디</label>
+                                    <div class="col-md-6">
+                                        <input class="form-control id_input" type="text" name="member_id" id="member_id" maxlength="11"> 
+                                        <span class="id_input_re_1">사용 가능한 아이디입니다.</span> 
+                                        <span class="id_input_re_2">아이디가 이미 존재합니다.</span> 
+                                        <span class="id_input_re_3">(영문,숫자 5~11글자로만 가능)</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="member_pw" class="col-md-4 col-form-label text-md-right">패스워드</label>
+                                    <div class="col-md-6">
+                                        <input class="form-control" type="password" name="member_pw" id="member_pw" maxlength="11"><br>
+										<div class="member_pw regex"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <label for="repw" class="col-md-4 col-form-label text-md-right">패스워드 확인</label>
+                                    <div class="col-md-6">
+                                        <input class="form-control" type="password" id="repw" maxlength="11"><br>
+										<div class="repw regex"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="member_name" class="col-md-4 col-form-label text-md-right">이름</label>
+                                    <div class="col-md-6">
+                                        <input class="form-control" type="text" name="member_name"id="member_name"><br>
+										<div class="member_name regex"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="member_nickname" class="col-md-4 col-form-label text-md-right">닉네임</label>
+                                    <div class="col-md-6">
+                                        <input class="form-control nick_input" type="text"name="member_nickname" id="member_nickname"> 
+                                        <span class="nick_input_re_1">사용 가능한 닉네임입니다.</span> 
+                                        <span class="nick_input_re_2">닉네임이 이미 존재합니다.</span>
+										<div class="member_nickname regex"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="present_address" class="col-md-4 col-form-label text-md-right">전화번호</label>
+                                    <div class="col-md-6">
+                                        <input class="form-control phone_input" type="text" name="member_phone" id="member_phone" placeholder="- 과 공백 없이 입력" maxlength="11"><br>
+										<div class="member_phone regex"></div>
+										<span class="phone_input_re_1">가입되지 않은 번호입니다.(사용 가능)</span> 
+										<span class="phone_input_re_2">이미 가입된 번호입니다.</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="permanent_address" class="col-md-4 col-form-label text-md-right">이메일</label>
+                                    <div class="col-md-6 mail_input_box">
+                                        <input class="form-control mail_input" name="member_email" id="member_email" readonly="readonly">
+										<div class="member_email regex"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="permanent_address" class="col-md-4 col-form-label text-md-right">인증번호</label>
+                                    <div class="col-md-6 mail_check_wrap">
+                                        <!-- <div class="mail_check_input_box" id="mail_check_input_box_false"> -->
+											<input class="form-control mail_check_input" id="confirmnum" style="width:40%;display: inline;" disabled="disabled">
+											
+										<!-- </div> -->
+										<input class="btn btn-reg mail_check_button" type="button" value="인증번호 전송">
+										
+										
+										<div class="clearfix"></div>
+										<span id="mail_check_input_box_warn"></span>
+                                    </div>
+                                </div>
+                
+                
+                				<div class="form-group row">
+                                    <label for="member_name" class="col-md-4 col-form-label text-md-right">우편번호</label>
+                                    <div class="col-md-6">
+                                        <input class="form-control"type="text" id="postcode"placeholder="우편번호" name="member_postcode" 
+                                        		style="width:40%;display: inline;" readonly> 
+                                        <input class="btn btn-reg" type="button" onclick="sample4_execDaumPostcode()" value="주소 찾기">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <label for="member_name" class="col-md-4 col-form-label text-md-right">주소</label>
+                                    <div class="col-md-6">
+                                        <input class="form-control" type="text" id="roadAddress" placeholder="도로명주소" name="member_address" readonly>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <label for="member_name" class="col-md-4 col-form-label text-md-right">상세주소</label>
+                                    <div class="col-md-6">
+                                        <input class="form-control"type="text" id="detailAddress" placeholder="상세주소" name="member_detailaddress">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <label for="member_name" class="col-md-4 col-form-label text-md-right">약관동의</label>
+                                    <div class="col-md-6">
+                                        <input class="btn btn-reg" type="button" id="gotojoinform" value="약관 보기" />
+                                        <input type="checkbox" class="req" name="req" id="req" disabled="disabled"> 개인정보 수집 및 이용에 동의합니다.
+                                    </div>
+                                </div>
+                                
+                                    <div class="col-md-6 offset-md-4" id="signup">
+                                        <input class="btn btn-primary" type="button" name="signup" value="가입하기" id="signupbtn">
+										<input class="btn btn-primary" type="button" value="메인 페이지" onclick="location.href='mainpage'">
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- <form action="join" method="POST" id="signform" name="signform">
 		<div id="wrapper">
 			<div class="title">회원 가입 정보 입력</div>
 
@@ -205,7 +249,7 @@ input[type=button]:hover, input[type=reset]:hover {
 				class="id_input_re_2">아이디가 이미 존재합니다.</span> <span
 				class="id_input_re_3">(영문,숫자 5~11글자로만 가능)</span>
 			<div class="a"></div>
-			<!-- 일단 한칸 띄어주는 용도(아무런 기능 없음) -->
+			일단 한칸 띄어주는 용도(아무런 기능 없음)
 
 
 			<label>패스워드 : </label><input type="password" name="member_pw"
@@ -267,7 +311,7 @@ input[type=button]:hover, input[type=reset]:hover {
 			
 		
 			<div id="contract">
-				<!-- 약관 보러가기 -->
+				약관 보러가기
 				<input type="button" id="gotojoinform" value="약관 보기" /><br>
 				<input type="checkbox" class="req" name="req" id="req" disabled="disabled"> 개인정보 수집 및 이용에 동의합니다.
 				
@@ -279,10 +323,10 @@ input[type=button]:hover, input[type=reset]:hover {
 			<div id="signup">
 				<input type="button" name="signup" value="가입하기" id="signupbtn">
 				<input type="button" value="메인 페이지" onclick="location.href='mainpage'">
-				<!-- 메인페이지로 연결!!! -->
+				메인페이지로 연결!!!
 			</div>
 		</div>
-	</form>
+	</form> -->
 
 	<script>
 	// 약관 보러 가기에 관한 스크립트
@@ -465,7 +509,7 @@ input[type=button]:hover, input[type=reset]:hover {
 				
 								//console.log("data : " + data); //console값 으로 이메일 데이터 비교
 								cehckBox.attr("disabled", false);
-								boxWrap.attr("id", "mail_check_input_box_true");
+								//boxWrap.attr("id", "mail_check_input_box_true");
 								code = data;
 			
 								}
@@ -675,6 +719,8 @@ input[type=button]:hover, input[type=reset]:hover {
 		
 
 	</script>
-
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -26,6 +26,7 @@
 		#{member_postcode},
 		#{member_detailaddress},
 		'N',
+		null,
 		null
 		)
 	</insert>
