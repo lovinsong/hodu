@@ -17,6 +17,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,7 +27,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hodu.domain.account.service.MemberService;
 import com.hodu.domain.board.service.BoardService;
+import com.hodu.domain.model.InquiryDTO;
 import com.hodu.domain.model.MemberDTO;
+import com.hodu.domain.model.NoticeDTO;
 import com.hodu.domain.util.Upload;
 import com.hodu.domain.util.UserSha256;
 
@@ -93,6 +97,24 @@ public class MemberController {
         model.addAttribute("myInquiryList", board_service.getMyInquiryList(member_id));
 
     }
+	
+	@RequestMapping(value = "hodu/mypage/inquiryregistForm", method = RequestMethod.POST)
+    public String inquiryregistForm(InquiryDTO dto, RedirectAttributes ra, HttpServletRequest req) throws Exception {
+		
+		MemberDTO member = (MemberDTO)req.getSession().getAttribute("member") == null ? null : (MemberDTO)req.getSession().getAttribute("member");
+		
+		if (member != null) {
+			dto.setMember_id(member.getMember_id());
+		}
+		
+		board_service.regInquiry(dto);
+		
+		
+		
+		
+        return "redirect:mypage#question";
+    }
+	
 	// 로그인 처리
 	@PostMapping(value = "/hodu/account/login")
 	public String loginPOST(HttpServletRequest request, MemberDTO member, RedirectAttributes rttr) throws Exception {

@@ -13,13 +13,10 @@
 </head>
 <style>
 #leftpayment {
-	background-color: #b8c8e3;
+	
 }
 
 #rightpayment {
-	background-color: #b8e3d5;
-	border-color: gray;
-	border-style: soild;
 	box-sizing: 50px;
 }
 
@@ -30,32 +27,37 @@
 <body>
 	<!-- footer 파일 포함 코드 -->
 	<%@ include file="../headerfooter/hoduheader.jsp"%>
-	<form action="./okpayment" method="POST">
+	<form action="./okpayment" method="GET">
 		<div class="container" id="total">
 			<div class="row">
 				<!-- 왼쪽 -->
 				<div class="col-6" id="leftpayment">
-					<div class="p-2"></div>
-					<h3>수업신청</h3>
-					<hr>
-					<div class="p-5">클래스 받아오기</div>
+					<div class="p-4">
+					</div>
+						<h3>수업신청</h3>
+						<hr>
+						<br>
+					<div>
+						<img src="/project/upload/Thumbnail/${dto.item_thumbnailimg}"
+							width="400" />
+					</div>
+					<br>
+					<h2>${dto.item_title }</h2>
 					<div class="p-5"></div>
 					<div class="row">
-						<hr>
-						<div class="col-6">
-							<p>호두</p>
-							<p>보유</p>
+						<div class="col-10">
+							<hr>
+							<br>
+							<h2>다시 한번 알려드립니다.</h2>
+							<br>
+							<h4>이 강의는 이런분들에게 어울립니다.</h4>
+							<br>
+							<div>${dto.item_content_target }</div>
 						</div>
+						<div></div>
 
-						<div align="right" class="col-6">
-							<p>&nbsp;</p>
-							<p>${member.member_cash }호두</p>
-						</div>
+						<div align="right" class="col-2"></div>
 					</div>
-					<div class="p-5"></div>
-					<h3>결제수단</h3>
-					<input type="button" value="충전하러가기">
-					<div class="p-5"></div>
 					<div class="p-5"></div>
 				</div>
 
@@ -65,66 +67,72 @@
 
 					<div class="row">
 						<div class="col-2"></div>
-						<div class="col-5">
-							<h3>최종 결제 금액</h3>
+						<div class="col-6">
+							<h2>최종 결제 금액</h2>
+							<hr>
 						</div>
-						<div class="col-3"></div>
+						<div class="col-2"></div>
 						<div class="col-2"></div>
 					</div>
 					<div class="p-3"></div>
 
 					<div class="row">
+						<div class="col-1"></div>
+						<div class="col-3">
+							<h3>수업료</h3>
+						</div>
 						<div class="col-2"></div>
-						<div class="col-2">수업료</div>
-						<div class="col-2"></div>
-						<div class="col-2"></div>
-						<div class="col-2">
-						<input type="text" name="item_price" value="${dto.item_price }" style="display: none;"/>
-						${dto.item_price } 호두
+						<div class="col-1"></div>
+						<div class="col-3">
+							<input type="text" name="item_price" value="${dto.item_price }"
+								style="display: none;" />
+							<h3 align="right">${dto.item_price } <img src="${pageContext.request.contextPath}/resources/assets/image/hoduC.png"	style="width: 22%; vertical-align: middle; margin-top: -3px"></h3>
 						</div>
 						<div class="col-2"></div>
 					</div>
 					<br>
 					<div class="row">
-						<div class="col-2"></div>
-						<div class="col-3">신청 인원</div>
 						<div class="col-1"></div>
-						<div class="col-2"></div>
-						
-						<div class="col-2">
-						<input type="text" name="apply_people" value= "${dto.apply_people }" style="display: none;"/>
-						${dto.apply_people }
+						<div class="col-4">
+							<h3>신청 인원</h3>
 						</div>
-						
-						<div class="col-2"></div>
+						<div class="col-1"></div>
+						<div class="col-1"></div>
+
+						<div class="col-3">
+							<input type="text" name="apply_people"
+								value="${dto.apply_people }" style="display: none;" />
+							<h3 align="right">${dto.apply_people } 명</h3>
+						</div>
+
+						<div class="col-1"></div>
 					</div>
-					<div class="p-5"></div>
-					<div class="p-4"></div>
+					<div class="p-2"></div>
 					<hr>
 					<div class="row">
 						<div class="p-5"></div>
-						<div class="col-2"></div>
-						<div class="col-4">
-							<p>보유 호두</p>
+						<div class="col-1"></div>
+						<div class="col-5">
+							<h2>보유 호두</h2>
 							<hr>
-							<p>총 결제 호두</p>
+							<h2>총 결제 호두</h2>
 
 						</div>
 						<div class="col-1"></div>
-						<div class="col-1"></div>
-						<div class="col-4">
-							<p>${member.member_cash }호두
-							<p>
+						<div class="col-5">
+							<h2 align="right">${member.member_cash } <img src="${pageContext.request.contextPath}/resources/assets/image/hoduC.png"	style="width: 15%; vertical-align: middle; margin-top: -3px"></h2>
 							<hr>
-							<p>결제호두</p>
-							<p></p>
+							<h2 align="right">${dto.item_price * dto.apply_people} <img src="${pageContext.request.contextPath}/resources/assets/image/hoduC.png"	style="width: 15%; vertical-align: middle; margin-top: -3px"></h2>
 						</div>
 					</div>
 					<div class="p-4"></div>
-
-					<input type="submit"
-						style="width: 550px; height: 50px; background-color: crimson;"
-						value="결제하기"/>
+					<input type="text" name="item_code" value="${dto.item_code }"
+						style="display: none;" /> <input type="text" name="item_code"
+						value="${member.member_id }" style="display: none;" /> <input
+						type="submit"
+						style="width: 530px; height: 50px; background-color: #696969;"
+						value="결제하기" />
+					<div class="p-2"></div>
 				</div>
 			</div>
 		</div>

@@ -122,8 +122,6 @@ reader.readAsDataURL(file);
 
 </style>
 <body>
-<!--<hr> 임시 분리 선 -->
-<h1 class="p-3 mb-2 bg-secondary text-white" style="text-align:center;">프로필 사진 변경</h1><br>
 
 <div class="titlebox">																
 	<form action="changeImg" method="POST" id="changeImgform" enctype="multipart/form-data">
@@ -131,19 +129,15 @@ reader.readAsDataURL(file);
 		<table class="table">
 			<tbody class="t-control">
 				<tr>
-					<td class="t-title"><strong>현재 프로필 사진</strong></td>
-					<td>
-						<img src="/project/upload/member/${member.member_img}" onerror="this.style.display='none'" style="width: 200px;height: auto;"><br><br>
-						<input type="file" name="member_imgM" id="imageFile" ><br>
+					
+					<td style="text-align:center; margin-left: -50px; font-size:15px;">
+						<img src="/project/upload/member/${member.member_img}" onerror="this.style.display='none'" style="width: 200px;height: auto; border-radius:50%; opacity:0.95;"><br><br>
+						사진 업로드하기: &emsp;<input type="file" name="member_imgM" id="imageFile" style="font-size: 15px; margin-bottom:0;">
+					   <input type="button" value="Resize Image" id="resize" onclick="ResizeImage()"/>
+					
 					</td>
 				</tr>	                            
-				<tr>
-					<td class="t-title"><strong>변경될 프로필 사진</strong></td>
-					<td>
-						<img src="" id="output">
-						<input type="button" value="Resize Image" id="resize" onclick="ResizeImage()"/>
-					</td>
-				</tr>	                                                                                   
+	                                                                                   
 		</tbody>
 		</table> <br><br>
 	

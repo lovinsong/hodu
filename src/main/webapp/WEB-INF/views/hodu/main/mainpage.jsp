@@ -7,7 +7,6 @@
 <html>
 <head>
 
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
@@ -42,10 +41,11 @@
 
 			<!-- Header -->
 				<header id="header" class="alt">
-<%-- 					<span class="logo" style="opacity:0.8">
+					<span class="logo" style="opacity:0.8; margin-top:-80px">
 						<img src="${pageContext.request.contextPath}/resources/assets_main/images/hodu.png" alt="" />
-					</span> --%>
+					</span> 
 				</header>
+				<hr style="border: 1px solid; border-color:#eee; margin-top:-10px;">
 
 			<!-- Nav -->
 				<nav id="nav">
@@ -87,10 +87,11 @@
 								<div class="auto_pic">
 									<div class="images">
 										<div class="img">
-											<img src="${pageContext.request.contextPath}/resources/assets_main/images/dog01.jpg" alt="" class="auto_img">
-											<img src="${pageContext.request.contextPath}/resources/assets_main/images/dog06.jpg" alt="" class="auto_img">
-											<img src="${pageContext.request.contextPath}/resources/assets_main/images/dog09.jpg" alt="" class="auto_img">
-											<img src="${pageContext.request.contextPath}/resources/assets_main/images/dog01.jpg" alt="" class="auto_img">
+											<img src="${pageContext.request.contextPath}/resources/assets_main/images/move1.png" alt="" class="auto_img">
+											<img src="${pageContext.request.contextPath}/resources/assets_main/images/move2.png" alt="" class="auto_img">
+											<img src="${pageContext.request.contextPath}/resources/assets_main/images/move3.png" alt="" class="auto_img">
+											<img src="${pageContext.request.contextPath}/resources/assets_main/images/move4.png" alt="" class="auto_img">
+											<img src="${pageContext.request.contextPath}/resources/assets_main/images/move5.png" alt="" class="auto_img">										
 										</div>
 									</div>
 								</div>					
@@ -147,11 +148,7 @@
 						</div>
 						<!-- Category News End-->
 
-						<footer class="major">
-							<ul class="up">
-								<a href="#" class="button">↑</a>
-							</ul>
-						</footer>
+						<footer class="major"></footer>
 					</section>
 
 					<!-- NEW 클래스 -->
@@ -205,11 +202,7 @@
 						<!-- Category News End-->
 
 
-						<footer class="major">
-							<ul class="up">
-								<a href="#" class="button">↑</a>
-							</ul>
-						</footer>
+						<footer class="major"></footer>
 					</section>
 
 					<!-- 사용법 -->
@@ -234,11 +227,7 @@
 								<p>거래가 시작되는 시점부터 완료되는 시점까지 멘토의 클래스를 정한 후 '구매 확정' 하시면 마이페이지에 보관되어 있던 호두 캐쉬가 멘토에게 전달됩니다.</p>
 							</li>
 						</ul>
-						<footer class="major">
-							<ul class="up">
-								<a href="#" class="button">↑</a>
-							</ul>
-						</footer>
+						<footer class="major"></footer>
 					</section>
 
 				</div>
@@ -263,7 +252,7 @@
 		
 				var indexValue = 0;
 				function slideShow(){
-				  setTimeout(slideShow, 2000);
+				  setTimeout(slideShow, 1500);
 				  var x;
 				  const img = document.querySelectorAll(".auto_img");				  
 				  for(x = 0; x < img.length; x++){
@@ -277,9 +266,11 @@
 				
 		</script>		
 		
+	
 		
 		<!-- 사진 슬라이드 -->
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/assets_main/lib/easing/easing.min.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/assets_main/lib/slick/slick.min.js"></script>

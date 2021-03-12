@@ -2553,12 +2553,11 @@ input, select, textarea {
 			border-color: #e6e6e6;
 			border-radius: 10px;
 			width: 90px;
-			background-color: #dddddd;
 			background-image: -moz-linear-gradient(90deg, #948973, #a7928f, #b8b39a);
 			background-image: -webkit-linear-gradient(90deg, #948973, #a7928f, #b8b39a);
 			background-image: -ms-linear-gradient(90deg, #948973, #a7928f, #b8b39a);
 			background-image: linear-gradient(90deg, #948973, #a7928f, #b8b39a);
-			opacity: 0.3;
+			opacity: 0.9;
 			color: white;
 		}
 

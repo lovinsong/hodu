@@ -9,8 +9,10 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets_headfoot/css/header.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets_detail/css/font-awesome.min.css">
+	
   </head>
 
 <body>
@@ -20,9 +22,9 @@
   <header class="main-header clearfix" role="header" >
 
 
-    <!-- 왼쪽 -->
+<!------------------------------------------------------- 왼쪽 ------------------------------------------------------------------------->
     <div class="logo">
-      <a href="${pageContext.request.contextPath}/hodu/main/mainpage"><em>HO</em>DU</a> &emsp; &emsp;
+      <a href="${pageContext.request.contextPath}/hodu/main/mainpage"><em>HO</em>DU</a> &emsp; 
     </div>  
 
 
@@ -30,7 +32,7 @@
       <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
 
 
-    <nav id="menu-left" class="main-nav" role="navigation">
+    <nav id="hodu_left" class="main-nav" role="navigation">
       <ul class="main-menu" style="float:left; vertical-align: bottom;" >
         <input id="find_class" name="q" type="text" class="form-control" placeholder="🔍" aria-label="Recipient's username" aria-describedby="button-addon2" onfocus="this.placeholder=''">       
       </ul>
@@ -44,9 +46,9 @@
 
         <nav id="menu" class="main-nav" role="navigation">
           <ul class="main-menu">
-            <li><a href="${pageContext.request.contextPath}/hodu/account/mentor-reg">로그인</a></li>        
+            <li><a href="${pageContext.request.contextPath}/hodu/account/login">로그인</a></li>        
             <li><a href="${pageContext.request.contextPath}/hodu/account/join">회원가입</a></li>
-            <li><a href="${pageContext.request.contextPath}/hodu/account/login">멘토 가입하기</a></li>
+            <li><a href="${pageContext.request.contextPath}/hodu/account/mentor-reg">멘토 가입하기</a></li>
           </ul>
         </nav>
 
@@ -57,6 +59,7 @@
 
     <c:choose>
       <c:when test="${member != null}">
+              
         
         <nav id="menu" class="main-nav" role="navigation">
           <ul class="main-menu">
@@ -67,40 +70,34 @@
             <li class="has-submenu" id="header_my">
                         
 	          	<!-- 프로필 사진: "/project/upload/member/${member.member_img}"  -->
-	          	<img id="profile_img" onerror="this.style.display='none'" src="/project/upload/member/${member.member_img}"> <a href="#">${member.member_name } 회원님</a>
+	          	<img id="profile_img" onerror="this.style.display='none'" src="/project/upload/member/${member.member_img}"> 
+	          	<a href="#" id="member_name">${member.member_name } 회원님</a>
 	                    
 	              <ul class="sub-menu" id="header_my_sub">
-	              
-	                <li style="border-bottom: none;"><a>닉네임 : ${member.member_nickname}</a></li>
-	                
-	                <li><a href="${pageContext.request.contextPath}/hodu/util/chargehodu">보유 호두 : <fmt:formatNumber value="${member.member_cash }" pattern="#,###.## 호두" /></a><br></li>
-	                
-	                <div id="sub_button">
-	                              
-		                <li style="text-align:center; border-bottom: none;"><a href="${pageContext.request.contextPath}/hodu/mypage/mypage">마이페이지</a></li>   
-		                             
-		                <c:if test="${member.mentor_enable eq 'N'}">
-		                  <li style="text-align:center;"><a href="${pageContext.request.contextPath}/hodu/account/mentor-reg">멘토 가입하기</a></li>
-		                </c:if>                
-		                
-		                <li style="text-align:center;"><a href="${pageContext.request.contextPath}/hodu/account/logout">로그아웃</a></li>
-	              
-	              	</div>
+	                           
+                	<li><a href="${pageContext.request.contextPath}/hodu/util/chargehodu">보유 호두 : <fmt:formatNumber value="${member.member_cash }" pattern="#,###.## 호두" /></a></li>                              
+	                <li><a href="${pageContext.request.contextPath}/hodu/mypage/mypage" class="list_mypage">마이페이지</a></li>   	                             
+	                <c:if test="${member.mentor_enable eq 'N'}">
+	                  <li id="list_mentor"><a href="${pageContext.request.contextPath}/hodu/account/mentor-reg">멘토 가입하기</a></li>
+	                </c:if>                	                
+	                <li id="list_logout"><a href="${pageContext.request.contextPath}/hodu/account/logout">로그아웃</a></li>
 	              
 	              </ul>
               
             </li>
 
           </ul>
+          
+          <hr>
         </nav>
 
       </c:when>
     </c:choose>
+    
+    
 
     
   </header>
-
-
 
 </body>
 

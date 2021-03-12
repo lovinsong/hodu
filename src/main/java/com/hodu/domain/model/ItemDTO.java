@@ -64,7 +64,14 @@ public class ItemDTO {
 	private List<ReviewDTO> review; 
 	
 	private Integer apply_people;
+	//Item_Select
+	private Integer sel_postnum; // 아이템
+	private Integer item_people; //멘토의 최대 인원수
+	private Date item_start_date;
 	
 	private String member_nickname;
 
+	private Integer order_num; //주문 번호
+	private Date order_day;	// 주문 일
+	
 }

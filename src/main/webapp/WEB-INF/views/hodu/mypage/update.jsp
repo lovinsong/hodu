@@ -34,9 +34,6 @@
 <!-- 프로필 변경 포함시켜주는 코드 -->
 <%@ include file="../account/changeProfileImg.jsp"%>
 
-
-<h1 class="p-3 mb-2 bg-secondary text-white" style="text-align:center;">내 정보 수정</h1><br>
-
 <div class="titlebox">																
 	<form action="update" method="POST" id="updateform">
 		<table class="table">
