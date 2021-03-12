@@ -444,6 +444,7 @@ public class MemberController {
 		String result = service.availableEmailCheck(member_id);
 
 		log.info("결과값 = " + result);
+		System.out.println(result);
 		if (result.equals(member_email)) {
 			return "success";
 		} else {

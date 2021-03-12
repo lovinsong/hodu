@@ -127,13 +127,13 @@ body {
     font-size: 13px;
 }
 
-#mail_check_input_box_false {
+/* #mail_check_input_box_false {
 	background-color: #ebebe4;
 }
 
 #mail_check_input_box_true {
 	background-color: white;
-}
+} */
 
 .correct {
 	color: green;
@@ -159,23 +159,22 @@ body {
                 </div>
 
                 <form class="mt-5" id="find_form" method="post"> 
-                    <div class="form-group">
+                    <div class="form-group id_input_box">
                         <input class="form-control form-control-sm bg-light id_input" name="member_id" id="member_id" placeholder="아이디">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mail_input_box">
                         <input class="form-control form-control-sm bg-light mail_input" name="member_email" id="member_email" 
                         		readonly="readonly" placeholder="이메일">
                     </div>
                     
-                    <div class="form-group">
-	                    <div class="mail_check_input_box">
+                    <div class="form-group mail_check_input_box">
 								<input class="form-control form-control-sm bg-light mail_check_input" disabled="disabled" placeholder="인증번호">
-						</div>
-						<div class="mail_check_button">
-							<input type="button" class="btn btn-secondary col" value="인증번호 전송">
-						</div>
-                    </div>
+					</div>	
+					
+							<input type="button" class="btn btn-secondary col mail_check_button" value="인증번호 전송">
+					
+                    
                     <div class="clearfix"></div>
 					<span id="mail_check_input_box_warn"></span>
                     
