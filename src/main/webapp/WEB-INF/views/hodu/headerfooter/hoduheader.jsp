@@ -39,96 +39,10 @@ width:200px;
 	<nav class="row navbar no-gutters align-items-center is-guest"><!-- navbar navbar-expand-lg navbar-light bg-light -->
 	
 		<div class="container-fluid"><!---->
-			<a class="navbar-brand" href="#"> 
-				<img src="/project/static/hodu.jpg" alt="" width="130" height="50">
-			</a>
 			
 
-			<c:choose>
-				<c:when test="${member != null}">
-					<a href="#"><span>카테고리</span></a>
-					<a href="#"><span>클래스 찾기</span></a>
-					<a href="#"><span class="material-icons ss">search</span></a>
-					
-					<div><a href="#"><span>&nbsp;</span></a></div>
-					<div><a href="#"><span>&nbsp;</span></a></div>
-					<div><a href="#"><span>&nbsp;</span></a></div>
-					<div><a href="#"><span>&nbsp;</span></a></div>
-					<div><a href="#"><span>&nbsp;</span></a></div>
-					<div><a href="#"><span>&nbsp;</span></a></div>
-					<div><a href="#"><span>&nbsp;</span></a></div>
-					<div><a href="#"><span>&nbsp;</span></a></div>
-					<div><a href="#"><span>&nbsp;</span></a></div>
-					<div><a href="#"><span>&nbsp;</span></a></div>
-					<div><a href="#"><span>&nbsp;</span></a></div>
-					<div><a href="#"><span>&nbsp;</span></a></div>
-					<div><a href="#"><span>&nbsp;</span></a></div>
-					
-					<div class="row">
-						<div class="col-auto">
-							<a href="#"><span class="material-icons ss">textsms</span></a>
-						</div>
-						<div class="col-auto">
-							<a href="/project/hodu/board/notice/notice-category"><span class="material-icons ss">notifications</span></a>
-						</div>
-						<div class="col-auto ">
-							<%-- <ul>
-							<li><a href="#" id="current">${member.member_name } 고객님</a>
-								<ul>
-								     <li><span>안녕하세요,${member.member_name }님</span></li>
-								     <li><a href="#">받은 견적</a></li>
-								     <li><a href="../mypage/mypage">마이페이지</a></li><hr>
-								     <li><a href="../account/mentor-reg">멘토로 가입하기</a></li>
-								     <li><a href="../account/logout">로그아웃</a></li>
-							    </ul>
-						    </li>
-						    </ul> --%>
-						    
-						   <nav id="nav">
-								<ul>
-									<li>
-										<a href="#">${member.member_name } 고객님</a>
-										<ul class="dropmenu">
-											<li><span class="welcome">안녕하세요,${member.member_name }님</span></li>
-										    <li><a href="#">받은 견적</a></li>
-										    <li><a href="${pageContext.request.contextPath}/hodu/mypage/mypage">마이페이지</a></li><hr>
-										    
-										    <c:if test="${member.mentor_enable eq 'N'}">
-										    	<li><a href="${pageContext.request.contextPath}/hodu/account/mentor-reg">멘토로 가입하기</a></li>
-										    </c:if>
-										    
-										    <li><a href="${pageContext.request.contextPath}/hodu/account/logout">로그아웃</a></li>
-										</ul>
-									</li>
-								</ul>
-							</nav> 
-						</div>
-						
-					</div>
-				</c:when>
-			</c:choose>
-
-			<c:choose>
-				<c:when test="${member == null}">
-					<div class="row">
-						<div class="col-auto">
-							<a href="#"><span>클래스찾기</span></a>
-						</div>
-						<div class="col-auto">
-							<a href="${pageContext.request.contextPath}/hodu/account/mentor-reg">멘토가입</a>
-						</div>
-						<div class="col-auto">
-							<a href="${pageContext.request.contextPath}/hodu/account/join">회원가입</a>
-						</div>
-						<div class="col-auto">
-							<a href="${pageContext.request.contextPath}/hodu/account/login">로그인</a>
-						</div>
-					</div>
-				</c:when>
-			</c:choose>
 		</div>
 	</nav>
-	<hr>
 
 	<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets/js/jquery.dropotron.min.js"></script>

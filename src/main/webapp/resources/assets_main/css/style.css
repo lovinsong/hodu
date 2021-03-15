@@ -408,7 +408,7 @@ button.btn:hover {
 .top-news .tn-title a {
     display: block;
     width: 100%;
-    color: #ffffff;
+    color: #000000;
     font-size: 18px;
     font-weight: 400;
     transition: .3s;
@@ -442,8 +442,7 @@ button.btn:hover {
     height: 28px;
     z-index: 1;
     transition: .5s;
-    color: #ffffff;
-    background: #000000;
+    color: #000000;
     border-radius: 4px;
 }
 
@@ -459,8 +458,8 @@ button.btn:hover {
 .top-news .slick-prev:focus,
 .top-news .slick-next:hover,
 .top-news .slick-next:focus {
-    color: #ffffff;
-    background: #FF6F61;
+    color: #000000;
+    background: #000000;
 }
 
 .top-news .slick-prev::before,
@@ -468,7 +467,7 @@ button.btn:hover {
     font-family: "Font Awesome 5 Free";
     font-size: 18px;
     font-weight: 900;
-    color: #ffffff;
+    color: #000000;
 }
 
 .top-news .slick-prev::before {
@@ -487,6 +486,7 @@ button.btn:hover {
     position: relative;
     width: 100%;
     padding: 0;
+    color: white;
 }
 
 .cat-news .col-md-6 {
@@ -522,6 +522,7 @@ button.btn:hover {
     left: 0;
     padding: 15px 10px 15px 20px;
     background-image: linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0, .3), rgba(0, 0, 0, .9));
+    color : white;
     display: flex;
     align-items: flex-end;
 }
@@ -529,7 +530,7 @@ button.btn:hover {
 .cat-news .cn-title a {
     display: block;
     width: 100%;
-    color: #ffffff;
+    color: #000000;
     font-size: 18px;
     font-weight: 400;
     transition: .3s;
@@ -546,7 +547,7 @@ button.btn:hover {
     height: 28px;
     z-index: 1;
     transition: .5s;
-    color: #ffffff;
+    color: #000000;
     background: #000000;
     border-radius: 4px;
 }
@@ -575,7 +576,7 @@ button.btn:hover {
     font-family: "Font Awesome 5 Free";
     font-size: 18px;
     font-weight: 900;
-    color: #ffffff;
+    color: #000000;
 }
 
 .cat-news .slick-prev::before {
@@ -599,14 +600,14 @@ button.btn:hover {
 }
 
 .tab-news .nav.nav-pills .nav-link {
-    color: #ffffff;
+    color: #000000;
     background: #000000;
     border-radius: 0;
 }
 
 .tab-news .nav.nav-pills .nav-link:hover,
 .tab-news .nav.nav-pills .nav-link.active {
-    color: #ffffff;
+    color: #000000;
     background: #FF6F61;
 }
 
@@ -689,7 +690,7 @@ button.btn:hover {
 .main-news .mn-title a {
     display: block;
     width: 100%;
-    color: #ffffff;
+    color: #000000;
     font-size: 18px;
     font-weight: 400;
     transition: .3s;
@@ -839,7 +840,7 @@ button.btn:hover {
 .single-news .sn-slider .sn-title a {
     display: block;
     width: 100%;
-    color: #ffffff;
+    color: #000000;
     font-size: 18px;
     font-weight: 400;
     transition: .3s;
@@ -856,7 +857,7 @@ button.btn:hover {
     height: 28px;
     z-index: 1;
     transition: .5s;
-    color: #ffffff;
+    color: #000000;
     background: #000000;
     border-radius: 4px;
 }
@@ -873,7 +874,7 @@ button.btn:hover {
 .single-news .sn-slider .slick-prev:focus,
 .single-news .sn-slider .slick-next:hover,
 .single-news .sn-slider .slick-next:focus {
-    color: #ffffff;
+    color: #000000;
     background: #FF6F61;
 }
 
@@ -882,7 +883,7 @@ button.btn:hover {
     font-family: "Font Awesome 5 Free";
     font-size: 18px;
     font-weight: 900;
-    color: #ffffff;
+    color: #000000;
 }
 
 .single-news .sn-slider .slick-prev::before {
@@ -955,7 +956,7 @@ button.btn:hover {
 }
 
 .sidebar .tab-news .nav.nav-pills .nav-link {
-    color: #ffffff;
+    color: #000000;
     background: #000000;
     border-radius: 0;
 }

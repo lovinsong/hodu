@@ -97,43 +97,6 @@
         </div>
 				<!----------------------------------------------------  메    뉴  ------------------------------------------------------------>
 
-
-				<div class="navbar navbar-default" role="navigation"
-					id="menu_buttons">
-					<div class="container-fluid">
-
-						<!-- 버튼 -->
-						<div class="navbar-collapse collapse">
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="#templatemo-page1"><i
-										class="fa fa-camera"></i>PHOTO</a></li>
-								<li><a href="#templatemo-page2"><i class="fa fa-user"></i>멘토
-										소개</a></li>
-								<li><a href="#templatemo-page3"><i class="fa fa-book"></i>수업
-										소개</a></li>
-								<li><a href="#templatemo-page4"><i
-										class="fa fa-thumbs-o-up"></i>추천 대상</a></li>
-								<li><a href="#templatemo-page5"><i class="fa fa-tasks"></i>진행
-										방식</a></li>
-								<li><a href="#templatemo-page6"><i
-										class="fa fa-comment"></i>리뷰</a></li>
-							</ul>
-						</div>
-
-						<!-- 버튼 반응형 -->
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle"
-								data-toggle="collapse" data-target=".navbar-collapse">
-								<span class="sr-only">Toggle navigation</span> <span
-									class="icon-bar"></span> <span class="icon-bar"></span> <span
-									class="icon-bar"></span>
-							</button>
-						</div>
-
-					</div>
-				</div>
-
-
 				<!-- 메뉴 페이지 슬라이드 -->
 				<div class="image-section">
 					<div class="image-container">
@@ -367,7 +330,7 @@
 			</div>
 			<!-- features-wrapper -->
 
-			<script>
+	<script>
 	var member = "${member.member_id}";
 	
 	function changeHeart(){ 
@@ -375,11 +338,21 @@
 		var link1 = '/project/hodu/board/item/changeHeart';
 		var link2 = '/project/hodu/account/login'
 	   
+		
 		if (${empty member}) {
 			alert("로그인 후 사용해주세요");
 			 window.location.href = link2;
 		} else {
-			
+			$.ajax({
+	            type : "POST",  
+	            url : "/project/hodu/board/item/changeHeart",       
+	            dataType : "json",   
+	            data : "item_code="+${dto.item_code}+"&user="+member+"&likeStatue="+"${dto.likeStatue}",
+	            success : function() {
+ 
+	            }
+	        });
+			window.window.location.reload();
 		}
 	}
 	
