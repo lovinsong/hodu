@@ -22,8 +22,10 @@
 <link href="${pageContext.request.contextPath}/resources/assets_main/css/main.css" rel="stylesheet" />
 
 <!-- Favicon -->
-<link href="${pageContext.request.contextPath}/resources/image/hodu.ico" rel="icon" />
-<link href="${pageContext.request.contextPath}/resources/image/hodu.ico" rel="shortcut icon" />
+<link href="${pageContext.request.contextPath}/resources/hodu.ico" rel="icon" />
+<link href="${pageContext.request.contextPath}/resources/hodu.ico" rel="shortcut icon" />
+<link href="${pageContext.request.contextPath}/resources/assets/favicon.ico" rel="icon" />
+<link href="${pageContext.request.contextPath}/resources/assets/favicon.ico" rel="shortcut icon" />
 
 <title>호두 : 생활 서비스 멘토 매칭</title>	
 <style>
