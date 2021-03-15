@@ -569,13 +569,26 @@ public class MemberController {
 	public void chargehodu() {
 		
 	}
+
+	/*
+	 * @PostMapping(value="/hodu/util/charge") public String
+	 * chargeAlert(HttpServletRequest request, MemberDTO member) throws Exception{
+	 * HttpSession session = request.getSession(); service.chargehodu(member);
+	 * MemberDTO memberdto = service.memberInfo(member.getMember_id());
+	 * session.setAttribute("member", memberdto); return "/hodu/util/chargealert"; }
+	 */
+	@GetMapping(value="/hodu/util/kakaopay")
+	public void charge() throws Exception{
+		
+	}
 	@PostMapping(value="/hodu/util/charge")
-	public String chargeAlert(HttpServletRequest request, MemberDTO member) throws Exception{
-		HttpSession session = request.getSession();
-		service.chargehodu(member);
-		MemberDTO memberdto = service.memberInfo(member.getMember_id());
-		session.setAttribute("member", memberdto);
-		return "/hodu/util/chargealert";
+	public String chargeAlert() throws Exception{
+		/*
+		 * HttpSession session = request.getSession(); //service.chargehodu(member);
+		 * MemberDTO memberdto = service.memberInfo(member.getMember_id());
+		 * session.setAttribute("member", memberdto);
+		 */
+		return "/hodu/util/kakaopay";
 	}
 
 	
