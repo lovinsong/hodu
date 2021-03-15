@@ -12,10 +12,6 @@
 
 <%@ include file="./header.jsp"%>
 
-<!-- Favicon -->
-<link rel="icon" href="../image/favicon.ico">
-<link rel="shortcut icon" href="../image/favicon.ico">
-
 <!-- CSS Libraries -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -25,6 +21,10 @@
 <!-- Template Stylesheet -->
 <link href="${pageContext.request.contextPath}/resources/assets_main/css/style.css" rel="stylesheet" />
 <link href="${pageContext.request.contextPath}/resources/assets_main/css/main.css" rel="stylesheet" />
+
+<!-- Favicon -->
+<link rel="icon" href="./favicon.ico">
+<link rel="shortcut icon" href="./favicon.ico">
 
 <title>호두 : 생활 서비스 멘토 매칭</title>	
 <style>
@@ -46,11 +46,10 @@ color:white;
 
 			<!-- Header -->
 				<header id="header" class="alt">
-					<span class="logo" style="opacity:0.8; margin-top:-80px">
+					<span class="logo">
 						<img src="${pageContext.request.contextPath}/resources/assets_main/images/hodu.png" alt="" />
 					</span> 
 				</header>
-				<hr style="border: 1px solid; border-color:#eee; margin-top:-10px;">
 
 			<!-- Nav -->
 				<nav id="nav">
