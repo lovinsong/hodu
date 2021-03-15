@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ include file="/WEB-INF/views/hodu/main/header.jsp"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -139,6 +140,6 @@
 	</form>
 
 	<!-- footer 파일 포함 코드 -->
-	<%@ include file="../headerfooter/hodufooter.jsp"%>
+			<%@ include file="/WEB-INF/views/hodu/main/footer.jsp"%>
 </body>
 </html>

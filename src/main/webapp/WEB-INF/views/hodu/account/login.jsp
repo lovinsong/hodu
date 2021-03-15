@@ -11,21 +11,24 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"
 	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 	crossorigin="anonymous"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <style>
 @charset "UTF-8";
 
-* {
+/* * {
 	margin: 0;
 	padding: 0;
-} /* 화면 전체 렙 */
+} 
 .wrapper {
 	width: 1900px;
-} /* content 랩 */
+} 
 .wrap {
 	width: 800px;
 	margin: auto;
-} /* 페이지 로고 */
+} 
 .logo_wrap {
 	text-align: center;
 	margin: 150px 0;
@@ -34,7 +37,7 @@
 .logo_wrap>span {
 	font-size: 50px;
 	font-weight: 900;
-} /* 로그인 area */
+} 
 .id_input_box {
 	border: 1px solid black;
 	height: 31px;
@@ -94,7 +97,88 @@
 	font-weight: 900;
 	color: white;
 	margin: auto;
+} */
+
+body {
+    font-family: "Lato", sans-serif;
 }
+
+
+
+.main-head{
+    height: 150px;
+    background: #FFF;
+   
+}
+
+.sidenav {
+    height: 100%;
+    background-color: #faf6f0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+
+.main {
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+}
+
+@media screen and (max-width: 450px) {
+    .login-form{
+        margin-top: 10%;
+    }
+
+    .register-form{
+        margin-top: 10%;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .main{
+        margin-left: 40%; 
+    }
+
+    .sidenav{
+        width: 40%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+
+    .login-form{
+        margin-top: 80%;
+    }
+
+    .register-form{
+        margin-top: 20%;
+    }
+}
+
+
+.login-main-text{
+    margin-top: 20%;
+    padding: 60px;
+    color: #000;
+    font-weight : bold;
+}
+.login-main-text>h2{
+	font-weight : bold;
+}
+
+/* .login-main-text h2{
+    font-weight: 300;
+} */
+
+.btn-black{
+    background-color: #000 !important;
+    color: #fff;
+}
+
 /* 로그인 실패시 경고글 */
 .login_warn {
 	margin-top: 30px;
@@ -107,12 +191,49 @@
 }
 </style>
 <body>
-	<div class="wrapper">
+
+<div class="sidenav">
+         <div class="login-main-text">
+            <h2>HODU<br> Login Page</h2>
+            <p>Login or find your information here to access.</p>
+         </div>
+</div>
+<div class="main">
+   <div class="col-md-6 col-sm-12">
+      <div class="login-form">
+         <form id="login_form" method="post">
+            <div class="form-group">
+               <label>아이디</label>
+               <input type="text" class="form-control id_input" name="member_id" placeholder="ID">
+            </div>
+            <div class="form-group">
+               <label>비밀번호</label>
+               <input type="password" class="form-control pw_iput" name="member_pw" placeholder="Password">
+            </div>
+            
+            <c:if test="${result == 0 }">
+						<div class="login_warn">사용자 ID 또는 비밀번호를 잘못 입력하셨습니다.</div><br>
+			</c:if>
+            
+            
+			<input type="button" class="btn btn-black login_button" value="로그인">
+			<input type="button" class="btn btn-secondary" onclick="location.href='findid'" value="아이디 찾기">
+			<input type="button" class="btn btn-secondary" onclick="location.href='findpass'" value="비밀번호 찾기">
+			<input type="button" class="btn btn-black" onclick="location.href='../main/mainpage'" value="Home">
+         </form>
+      </div>
+   </div>
+</div>
+
+
+
+
+	<%-- <div class="wrapper">
 
 		<div class="wrap">
 			<form id="login_form" method="post">
 				<div class="logo_wrap">
-					<span>더이상의 호두는 없다...</span>
+					<span>로그인 페이지</span>
 				</div>
 				<div class="login_wrap">
 					<div class="id_wrap">
@@ -141,7 +262,7 @@
 			
 		</div>
 
-	</div>
+	</div> --%>
 
 	<script>
 		/* 로그인 버튼 클릭 메서드 */

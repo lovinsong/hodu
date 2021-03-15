@@ -27,6 +27,11 @@
 <link href="${pageContext.request.contextPath}/resources/assets_main/css/main.css" rel="stylesheet" />
 
 <title>호두 : 생활 서비스 멘토 매칭</title>	
+<style>
+.cn-title a {
+color:white;
+}
+</style>
 </head>
 
 
@@ -119,7 +124,7 @@
 												<div class="cn-img">
 													<img src="/project/upload/Thumbnail/${op1.item_thumbnailimg}" />
 													<div class="cn-title">
-														<a href="/project/hodu/board/item/item-detail/?item_code=${op1.item_code}">${op1.item_title }</a>
+														<a href="/project/hodu/board/item/item-detail/?item_code=${op1.item_code}" style="color: white;">${op1.item_title }</a>
 													</div>
 												</div>
 											</div>
@@ -135,7 +140,7 @@
 												<div class="cn-img">
 													<img src="/project/upload/Thumbnail/${op2.item_thumbnailimg}" />
 													<div class="cn-title">
-														<a href="/project/hodu/board/item/item-detail/?item_code=${op2.item_code}">${op2.item_title }</a>
+														<a href="/project/hodu/board/item/item-detail/?item_code=${op2.item_code}" style="color: white;">${op2.item_title }</a>
 													</div>
 												</div>
 											</div>
@@ -171,7 +176,7 @@
 													<div class="cn-img">
 														<img src="/project/upload/Thumbnail/${op3.item_thumbnailimg}" />
 														<div class="cn-title">
-															<a href="/project/hodu/board/item/item-detail/?item_code=${op3.item_code}">${op3.item_title }</a>
+															<a href="/project/hodu/board/item/item-detail/?item_code=${op3.item_code}" style="color: white;">${op3.item_title }</a>
 														</div>
 													</div>
 												</div>
@@ -188,7 +193,7 @@
 												<div class="cn-img">
 													<img src="/project/upload/Thumbnail/${op4.item_thumbnailimg}" />
 													<div class="cn-title">
-														<a href="/project/hodu/board/item/item-detail/?item_code=${op4.item_code}">${op4.item_title }</a>
+														<a href="/project/hodu/board/item/item-detail/?item_code=${op4.item_code}" style="color: white;">${op4.item_title }</a>
 													</div>
 												</div>
 											</div>

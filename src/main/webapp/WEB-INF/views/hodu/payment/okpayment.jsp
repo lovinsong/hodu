@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ include file="/WEB-INF/views/hodu/main/header.jsp"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -14,7 +15,7 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets_payment/css/cart-detail.css">
 <style>
 #leftokpayment {
-	background-color: #ccc;
+
 }
 
 #rightokpayment {
@@ -33,9 +34,10 @@
 		<hr>
 		<div class="row">
 			<div class="col-6" id="leftokpayment">
-				<div class="p-5"></div>
-				<div class="p-3" align="center">${member.member_name } 님의 결제 정보를 
-					확인해 주세요</div>
+				<div class="p-2"></div>
+				<div class="p-3" align="center">
+				<h4>${member.member_name } 님의 결제 정보를 확인해 주세요</h4>
+					</div>
 					<div align="center">
 					<img src="/project/upload/Thumbnail/${dto.item_thumbnailimg}"  width="200"/>
 					</div>
@@ -52,6 +54,7 @@
 					</div>
 					<div class="col-1" align="right"></div>
 				</div>
+				<hr>
 				<div class="p-4"></div>
 				<div class="row">
 					<div class="col-3"><img src="/project/upload/member/${member.member_img }" width="100">
@@ -170,6 +173,6 @@
 
 </script>
 	<!-- footer 파일 포함 코드 -->
-	<%@ include file="../headerfooter/hodufooter.jsp"%>
+			<%@ include file="/WEB-INF/views/hodu/main/footer.jsp"%>
 </body>
 </html>
