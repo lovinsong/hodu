@@ -1,20 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ include file="./header.jsp"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-
-<%@ include file="./header.jsp"%>
-
-<!-- Favicon -->
-<link rel="icon" href="../image/favicon.ico">
-<link rel="shortcut icon" href="../image/favicon.ico">
 
 <!-- CSS Libraries -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
@@ -25,6 +20,12 @@
 <!-- Template Stylesheet -->
 <link href="${pageContext.request.contextPath}/resources/assets_main/css/style.css" rel="stylesheet" />
 <link href="${pageContext.request.contextPath}/resources/assets_main/css/main.css" rel="stylesheet" />
+
+<!-- Favicon -->
+<link href="${pageContext.request.contextPath}/resources/hodu.ico" rel="icon" />
+<link href="${pageContext.request.contextPath}/resources/hodu.ico" rel="shortcut icon" />
+<link href="${pageContext.request.contextPath}/resources/assets/favicon.ico" rel="icon" />
+<link href="${pageContext.request.contextPath}/resources/assets/favicon.ico" rel="shortcut icon" />
 
 <title>호두 : 생활 서비스 멘토 매칭</title>	
 <style>
@@ -46,11 +47,10 @@ color:white;
 
 			<!-- Header -->
 				<header id="header" class="alt">
-					<span class="logo" style="opacity:0.8; margin-top:-80px">
+					<span class="logo">
 						<img src="${pageContext.request.contextPath}/resources/assets_main/images/hodu.png" alt="" />
 					</span> 
 				</header>
-				<hr style="border: 1px solid; border-color:#eee; margin-top:-10px;">
 
 			<!-- Nav -->
 				<nav id="nav">
