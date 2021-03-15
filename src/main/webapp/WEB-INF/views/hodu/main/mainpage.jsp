@@ -1,16 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ include file="./header.jsp"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-
-<%@ include file="./header.jsp"%>
 
 <!-- CSS Libraries -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
@@ -23,8 +22,8 @@
 <link href="${pageContext.request.contextPath}/resources/assets_main/css/main.css" rel="stylesheet" />
 
 <!-- Favicon -->
-<link rel="icon" href="./favicon.ico">
-<link rel="shortcut icon" href="./favicon.ico">
+<link href="${pageContext.request.contextPath}/resources/image/hodu.ico" rel="icon" />
+<link href="${pageContext.request.contextPath}/resources/image/hodu.ico" rel="shortcut icon" />
 
 <title>호두 : 생활 서비스 멘토 매칭</title>	
 <style>
