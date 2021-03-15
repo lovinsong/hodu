@@ -1919,7 +1919,7 @@ input, select, textarea {
 	.button {
 		background-color: transparent;
 		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
-		color: #f7f2e9 !important;
+		color: #000000 !important;
 	}
 
 		input[type="submit"]:hover,
@@ -1943,7 +1943,7 @@ input, select, textarea {
 		input[type="button"].icon:before,
 		button.icon:before,
 		.button.icon:before {
-			color: rgba(255, 255, 255, 0.5);
+			color: rgba(0, 0, 0, 0.5);
 		}
 
 		input[type="submit"].primary,
@@ -1952,7 +1952,7 @@ input, select, textarea {
 		button.primary,
 		.button.primary {
 			background-color: #8cc9f0;
-			color: #f7f2e9 !important;
+			color: black !important;
 			box-shadow: none;
 		}
 
