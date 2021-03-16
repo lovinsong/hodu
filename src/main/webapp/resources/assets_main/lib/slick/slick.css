@@ -52,10 +52,9 @@
 {
     position: relative;
     top: 0;
-    left: 0;
 
     display: block;
-    margin-left: auto;
+    margin-left: -20px;
     margin-right: auto;
 }
 .slick-track:before,
@@ -81,6 +80,7 @@
 
     height: 100%;
     min-height: 1px;
+    margin-left: -10px;
 }
 [dir='rtl'] .slick-slide
 {

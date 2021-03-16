@@ -28,11 +28,7 @@
 <link href="${pageContext.request.contextPath}/resources/assets/favicon.ico" rel="shortcut icon" />
 
 <title>호두 : 생활 서비스 멘토 매칭</title>	
-<style>
-.cn-title a {
-color:white;
-}
-</style>
+
 </head>
 
 
@@ -45,7 +41,7 @@ color:white;
 		<!-- Body -->
 			<div id="background">
 
-			<!-- Header -->
+			<!-- 호두 로고 -->
 				<header id="header" class="alt">
 					<span class="logo">
 						<img src="${pageContext.request.contextPath}/resources/assets_main/images/hodu.png" alt="" />
@@ -88,7 +84,9 @@ color:white;
 
 							</div>
 							
-							<span class="auto_images">
+							
+							<!-- 자동 움직이는 사진 -->					
+							<div class="auto_images">
 								<div class="auto_pic">
 									<div class="images">
 										<div class="img">
@@ -100,7 +98,7 @@ color:white;
 										</div>
 									</div>
 								</div>					
-							</span>
+							</div>
 
 						</div>
 					</section>
@@ -113,30 +111,41 @@ color:white;
 						</header>
 
 						<!-- 사진 슬라이드 -->
-						<div class="cat-news">
+						<div class="class-news">
 							<div class="news">
 								<div class="row">
-									<div class="col-md-6">
+								
+									<!-- 인기 원데이 -->
+									
+									
+									<div class="col-md-10">
 										<h6>원데이</h6>
 										<div class="row cn-slider">
+										
 										<c:forEach var="op1" items="${oneday_pop }">
-											<div class="col-md-6">
+											<div class="col-md-10">
 												<div class="cn-img">
 													<img src="/project/upload/Thumbnail/${op1.item_thumbnailimg}" />
 													<div class="cn-title">
 														<a href="/project/hodu/board/item/item-detail/?item_code=${op1.item_code}" style="color: white;">${op1.item_title }</a>
 													</div>
 												</div>
-											</div>
+											</div>											
 										</c:forEach>
+										
 										</div>
 									</div>
-									<div class="col-md-6">
+									
+									
+									<!-- 인기 다회차 -->
+									
+									
+									<div class="col-md-10">
 										<h6>다회차</h6>
-										<div class="row cn-slider">
-										
+										<div class="row cn-slider">	
+																			
 										<c:forEach var="op2" items="${days_pop }">
-											<div class="col-md-6">
+											<div class="col-md-10">
 												<div class="cn-img">
 													<img src="/project/upload/Thumbnail/${op2.item_thumbnailimg}" />
 													<div class="cn-title">
@@ -145,15 +154,14 @@ color:white;
 												</div>
 											</div>
 										</c:forEach>
-
+										
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<!-- Category News End-->
 
-						<footer class="major"></footer>
+
 					</section>
 
 					<!-- NEW 클래스 -->
@@ -164,15 +172,15 @@ color:white;
 						</header>
 
 						<!-- 사진 슬라이드 -->
-						<div class="cat-news">
+						<div class="class-news">
 							<div class="news">
 								<div class="row">
-									<div class="col-md-6">
+									<div class="col-md-10">
 										<h6>원데이</h6>
 										<div class="row cn-slider">
 										
 											<c:forEach var="op3" items="${oneday_new }">
-												<div class="col-md-6">
+												<div class="col-md-10">
 													<div class="cn-img">
 														<img src="/project/upload/Thumbnail/${op3.item_thumbnailimg}" />
 														<div class="cn-title">
@@ -184,12 +192,12 @@ color:white;
 											
 										</div>
 									</div>
-									<div class="col-md-6">
+									<div class="col-md-10">
 										<h6>다회차</h6>
 										<div class="row cn-slider">
 										
 										<c:forEach var="op4" items="${days_new }">
-											<div class="col-md-6">
+											<div class="col-md-10">
 												<div class="cn-img">
 													<img src="/project/upload/Thumbnail/${op4.item_thumbnailimg}" />
 													<div class="cn-title">
@@ -204,10 +212,8 @@ color:white;
 								</div>
 							</div>
 						</div>
-						<!-- Category News End-->
 
 
-						<footer class="major"></footer>
 					</section>
 
 					<!-- 사용법 -->
