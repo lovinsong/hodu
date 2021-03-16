@@ -14,6 +14,7 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/assets_detail/css/item-detail.css">
+
 </head>
 <body>
 	<div id="features-wrapper">
@@ -196,7 +197,7 @@
 
 									<div>
 										<pre>
-                                ${dto.item_content_who }
+                                <c:out value="${dto.item_content_who }" />
                             </pre>
 									</div>
 
@@ -208,7 +209,7 @@
 								<div class="col-sm-6 col-md-6">
 									<h3>어떤 클래스인가요?</h3>
 									<pre>
-                                ${dto.item_content_what }
+                                <c:out value="${dto.item_content_what }" />
                             </pre>
 								</div>
 							</section>
@@ -217,7 +218,7 @@
 							<section id="templatemo-page4-text" class="inactive">
 								<div class="col-sm-6 col-md-6">
 									<h3>이런 분들께 추천해요.</h3>
-									<pre>${dto.item_content_target }"</pre>
+									<pre> <c:out value="${dto.item_content_target }" /></pre>
 
 								</div>
 							</section>
@@ -227,7 +228,7 @@
 								<div class="col-sm-6 col-md-6">
 									<h3>클래스는 이렇게 진행됩니다.</h3>
 									<pre> 
-                                 ${dto.item_content_how }
+                                 <c:out value="${dto.item_content_how }" />
                             </pre>
 								</div>
 							</section>
@@ -282,14 +283,14 @@
 
 
 										<div class="schedule">
-											<c:forEach var="select" items="${dto.select }">
+											<c:forEach var="select" items="${dto.select }">  
 												<span> <fmt:formatDate
 														value="${select.item_start_date}" pattern="MM월 dd일 (E)" />&emsp;&emsp;<fmt:formatDate
 														value="${select.item_start_date}" pattern="HH:mm" />:<fmt:formatDate
-														value="${select.item_end_date}" pattern="HH:mm" /> <br>${fn:length(dto.item_place)  > 7 ? fn:substring(dto.item_place,5, fn:length(dto.item_place))  : dto.item_place}
+														value="${select.item_end_date}" pattern="HH:mm" /> <br><c:out value = "${fn:length(dto.item_place)  > 7 ? fn:substring(dto.item_place,5, fn:length(dto.item_place))  : dto.item_place}" />
 												</span>
 											</c:forEach>
-										</div>
+										</div> 
 
 										<span class="like-content"> <!-- 찜하기(하트) --> <c:choose>
 												<c:when
@@ -378,6 +379,8 @@
 	
 	
 	</script>
+	
+	
 
 			<script
 				src="${pageContext.request.contextPath}/resources/assets_detail/js/bootstrap.min.js"></script>

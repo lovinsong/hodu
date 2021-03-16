@@ -16,6 +16,9 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/hodu.css" />
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	
 		
+		<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/assets/image/favicon.ico">
+
+		
 	</head>
 	<body class="is-preload homepage">
 	
@@ -204,9 +207,13 @@
 								</div>
 							</c:forEach>
 						</div>					
-					</div>						
-			
-			
+					</div>			
+					
+					<div class="container">	
+						<div class="row">
+							<div class="col-4 col-12-medium col-md-offset-8" align="right"><div><button class="regbutton" onclick="regist()">글쓰기</button></div></div>
+						</div>
+					</div>
 				<!-- pagination -->		
 	<div id="paginationBox" style="text-align:center; margin-top:3%">
 
@@ -353,6 +360,14 @@
 
 	      		location.href = url;
 
+	      	}
+	      	
+	      	function regist() {
+	      		
+	      		var url = "${pageContext.request.contextPath}/hodu/board/item/item-reg";
+	      		
+	      		location.href = url;	
+	      		
 	      	}
 
 	      </script>
