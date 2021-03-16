@@ -16,6 +16,9 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/hodu.css" />
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	
 		
+		<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/assets/image/favicon.ico">
+
+		
 	</head>
 	<body class="is-preload homepage">
 	

@@ -2250,7 +2250,6 @@ input, select, textarea {
 		}
 
 		.icon.major {
-			border: solid 1px;
 			display: inline-block;
 			border-radius: 100%;
 			padding: 0.65em;
@@ -2271,7 +2270,6 @@ input, select, textarea {
 
 		.icon.alt {
 			display: inline-block;
-			border: solid 1px;
 			border-radius: 100%;
 		}
 
@@ -2285,37 +2283,26 @@ input, select, textarea {
 			}
 
 		.icon.style1 {
-			border: 1px solid;
-			border-style: thin;
-			border-color: #302f2f;
-			background-color: #dddddd;
-			background-image: -moz-linear-gradient(90deg, #e4e4e4, #e6e2d8, #f3eee7);
-			background-image: -webkit-linear-gradient(90deg, #e4e4e4, #e6e2d8, #f3eee7);
-			background-image: -ms-linear-gradient(90deg, #e4e4e4, #e6e2d8, #f3eee7);
-			background-image: linear-gradient(90deg, #e4e4e4, #e6e2d8, #f3eee7);
-			opacity: 0.5;
-			color: #9b9a94;
+			background-image: -moz-linear-gradient(90deg, #ffffff, #e6e2d8, #f7f7f7);
+			background-image: -webkit-linear-gradient(90deg, #ffffff, #e6e2d8, #f7f7f7);
+			background-image: -ms-linear-gradient(90deg, #ffffff, #e6e2d8, #f7f7f7);
+			background-image: linear-gradient(90deg, #ffffff, #e6e2d8, #f7f7f7);
+			opacity: 0.3;
+			color: black;
 			font-weight:lighter;
 		}
 
 		.icon.style2 {
 			border: 1px solid;
 			border-style: thin;
-			border-color: #302f2f;
-			color: #9b9a94;
 		}
 
 		.icon.style3 {
 			border: 1px solid;
 			border-style: thin;
-			border-color: #302f2f;
-			color: #b8b7b2;
 		}
 
 		.icon.style4 {
-			border: 1px solid;
-			border-style: thin;
-			border-color: #302f2f;
 			background-color: #dddddd;
 			background-image: -moz-linear-gradient(90deg, #948973, #6c6980, #93b4c8);
 			background-image: -webkit-linear-gradient(90deg, #948973, #6c6980, #93b4c8);
@@ -2553,10 +2540,10 @@ input, select, textarea {
 			border-color: #e6e6e6;
 			border-radius: 10px;
 			width: 90px;
-			background-image: -moz-linear-gradient(90deg, #948973, #a7928f, #b8b39a);
-			background-image: -webkit-linear-gradient(90deg, #948973, #a7928f, #b8b39a);
-			background-image: -ms-linear-gradient(90deg, #948973, #a7928f, #b8b39a);
-			background-image: linear-gradient(90deg, #948973, #a7928f, #b8b39a);
+		    background-image: -moz-linear-gradient(90deg, #d6c7a8, #dac1be, #d6d1b7);
+		    background-image: -webkit-linear-gradient(90deg, #d6c7a8, #dac1be, #d6d1b7);
+		    background-image: -ms-linear-gradient(90deg, #d6c7a8, #dac1be, #d6d1b7);
+		    background-image: linear-gradient(90deg, #d6c7a8, #dac1be, #d6d1b7);
 			opacity: 0.9;
 			color: white;
 		}
@@ -3183,13 +3170,21 @@ input, select, textarea {
 				transition-delay: 0s;
 				display: block;
 				margin: 0 0 1.5em 0;
+				margin-top: -90px;
+				margin-bottom: -50px;
 			}
 
 				#header.alt .logo img {
 					display: block;
 					margin: 0 auto;
+					width:30%;
+					height: auto;
 					max-width: 75%;
+					filter: drop-shadow(5px 5px 20px #c9c8c7);
+					opacity: 0.9;
 				}
+				
+				
 
 		@media screen and (max-width: 1280px) {
 
@@ -3845,18 +3840,8 @@ input, select, textarea {
 
 		}
 
-/* auto */
+  
+/* 호두 로고 사진 */
 
-.auto_images {  
-	overflow: hidden;
-	/* box-shadow: 1px 1px 15px rgba(0,0,0,0.4); */
-  }
-  .auto_images .images{
-	height: 100%;
-	width: 100%;
-  }
-  .images img{
-	height: 70%;
-  }
 
 
