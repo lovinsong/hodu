@@ -44,4 +44,8 @@ public interface BoardService {
 	public List<InquiryDTO> getMyInquiryList(String member_id) throws Exception;
 	
 	public InquiryDTO getInquiry(int inquiry_postnum) throws Exception;
+	
+	public void delItem(ItemDTO item) throws Exception;
+	
+	public ItemDTO itemInfo_modify(int item_code) throws Exception;
 }

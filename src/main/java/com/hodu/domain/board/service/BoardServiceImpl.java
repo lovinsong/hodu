@@ -123,6 +123,15 @@ public class BoardServiceImpl implements BoardService {
 		return item;
 		
 	}
+	
+	@Override
+	public ItemDTO itemInfo_modify(int item_code) throws Exception {
+		
+		ItemDTO item = board_mapper.getItem(item_code);
+		
+		return item;
+		
+	}
 
 	@Override
 	public void likeChanger(ItemDTO item) throws Exception {
@@ -224,6 +233,13 @@ public class BoardServiceImpl implements BoardService {
 	public InquiryDTO getInquiry(int inquiry_postnum) throws Exception {
 		
 		return board_mapper.getInquiry(inquiry_postnum);
+	}
+
+	@Override
+	public void delItem(ItemDTO item) throws Exception {
+		
+		board_mapper.delItem(item);
+		
 	}
 	
 

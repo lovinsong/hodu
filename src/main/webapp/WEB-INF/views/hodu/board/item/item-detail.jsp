@@ -58,7 +58,19 @@
 
 								<!-- 클래스 제목 -->
 								<h1>${dto.item_title }</h1>
-
+								
+								<!-- 수정 삭제 버튼 -->
+<!-- 								<div class="container">	
+									<div class="row">
+										<div class="col-4 col-12-medium col-md-offset-4" align="center">
+											<div>
+												<p><input type="button"  class="ModifyBtn" onclick="modifyBtn()" value="수정"></p>
+												<p><input type="button"  class="DelBtn" onclick="deleteBtn()" value="삭제"></p>
+											</div>
+										</div>
+									</div>
+								</div> -->
+								
 								<br>
 								<hr style="width: 108%; margin-left: -3.5%;">
 							</div>
@@ -83,7 +95,7 @@
                         <li><a href="#templatemo-page6"><i class="fa fa-comment"></i>리뷰</a></li>
                     </ul>
                 </div>
-
+				
                 <!-- 버튼 반응형 -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -121,7 +133,7 @@
 
 				<!----------------------------------------------------  내    용  ------------------------------------------------------------>
 
-
+				
 
 				<div class="row">
 					<div
@@ -319,6 +331,8 @@
 									</div>
 								</div>
 							</div>
+							</div>
+							</div>
 
 							<!----------------------------------------------------     끝     ------------------------------------------------------------>
 
@@ -360,7 +374,7 @@
 	
 	</script>
 
-			<script>
+	<script>
 	var member = "${member.member_id}";
 	
 	function yetlogin(){ 
@@ -375,6 +389,33 @@
 			}else{
 				window.location.href = link1;
 			}
+	}
+	
+	var item_code = "${dto.item_code}";
+	
+	function deleteBtn() {
+		
+
+        if (confirm('삭제하시겠습니까?')) {
+        	$.ajax({
+                type : "POST",  
+                url : "/project/hodu/board/item/deleteItem",       
+                dataType : "json",   
+                data : "item_code="+${dto.item_code},
+                success : function() {
+
+                }
+            });
+        	
+        	window.location.href = '/project/hodu/board/item/item-category';
+        } else {
+            
+		}
+			
+	}
+	
+	function modifyBtn() {
+		window.location.href = '/project/hodu/board/item/item-modify?item_code='+ '${dto.item_code}';
 	}
 	
 	
@@ -393,7 +434,21 @@
 			<script
 				src="${pageContext.request.contextPath}/resources/assets_detail/js/templatemo_script.js"></script>
 
-
+			<!-- 임시 수정삭제 버튼 -->
+			<c:if test="${member.member_id eq dto.member_id}">
+				<div class="container">	
+					<div class="row">
+						<div class="col-4 col-12-medium col-md-offset-4" align="center">
+							<div>
+								<input type="button"  class="ModifyBtn" onclick="modifyBtn()" value="수정">
+								<input type="button"  class="DelBtn" onclick="deleteBtn()" value="삭제">
+							</div>
+						</div>
+					</div>
+				</div>
+			</c:if>
 			<%@ include file="/WEB-INF/views/hodu/main/footer.jsp"%>
+			
+			
 </body>
 </html>

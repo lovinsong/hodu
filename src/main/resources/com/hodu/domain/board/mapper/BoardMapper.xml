@@ -37,7 +37,7 @@
 	
 	<select id="getItemPage" resultType="com.hodu.domain.model.ItemDTO">
 
-		  SELECT * FROM item_board WHERE ITEM_CATEGORY LIKE(#{item_type}) ORDER BY item_code OFFSET (#{page}-1)*9 ROWS FETCH FIRST 9 ROWS ONLY
+		  SELECT * FROM item_board WHERE (ITEM_CATEGORY LIKE(#{item_type}) AND item_show='Y') ORDER BY item_code OFFSET (#{page}-1)*9 ROWS FETCH FIRST 9 ROWS ONLY
 
 	</select>
 	
@@ -153,5 +153,9 @@
 	 <select id ="getInquiry" resultType="com.hodu.domain.model.InquiryDTO">
 		SELECT * FROM inquiry_board WHERE inquiry_postnum = #{inquiry_postnum}
 	</select> 
+	
+	<update id="delItem">
+		UPDATE item_board SET item_show = 'N' WHERE item_code = #{item_code}
+	</update>
 	
   </mapper>
