@@ -6,7 +6,6 @@
 	<meta charset="utf-8">	
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets_headfoot/css/footer.css">
- 
  <style>
  #find_class {
  	border-style:none;
@@ -87,3 +86,4 @@
 	</body>
  
 </html>
+

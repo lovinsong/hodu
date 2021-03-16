@@ -1698,6 +1698,17 @@ input, select, textarea {
 			padding: 0.8em 0.9em;
 		}
 		
+		.regbutton {
+			margin-top : 10px;
+			padding : 5px;
+			padding-bottom : 45px;
+			color: black;
+			height: 40px;
+			width: 110px;
+			font-size: 17px;
+			vertical-align: top;
+		}
+		
 /* 맞춤 검색 */
 #hidden_area {
     width:60%;

@@ -1,5 +1,6 @@
 package com.hodu.domain.board.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,15 +14,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hodu.domain.board.service.BoardService;
 import com.hodu.domain.model.ItemDTO;
+import com.hodu.domain.model.ItemSelectDTO;
 import com.hodu.domain.model.MemberDTO;
 import com.hodu.domain.model.NoticeDTO;
+import com.hodu.domain.model.ReviewDTO;
 import com.hodu.domain.model.SearchDTO;
 import com.hodu.domain.util.Pagination;
+import com.nhncorp.lucy.security.xss.XssPreventer;
 
+import lombok.Data;
 import lombok.extern.log4j.Log4j;
 
 @Controller
@@ -87,9 +93,15 @@ public class BoardController {
 			user = member.getMember_id();
 		}
 		
+		
+	
+		
+		
 		ItemDTO dto = service.itemInfo(item_code,user);
 		
+		
 
+		
 		
 		model.addAttribute("dto", dto);
 		
