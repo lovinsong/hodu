@@ -30,6 +30,7 @@ public class ItemDTO {
 	private long item_review_star;
 	private String item_one_day;
 	private Integer item_NOP;
+	private Integer item_num_of_people;
 	
 	
 	

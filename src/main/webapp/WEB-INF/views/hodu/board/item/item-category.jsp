@@ -208,12 +208,13 @@
 							</c:forEach>
 						</div>					
 					</div>			
-					
+					<c:if test="${member.mentor_enable eq 'Y'}">
 					<div class="container">	
 						<div class="row">
 							<div class="col-4 col-12-medium col-md-offset-8" align="right"><div><button class="regbutton" onclick="regist()">글쓰기</button></div></div>
 						</div>
 					</div>
+					</c:if>
 				<!-- pagination -->		
 	<div id="paginationBox" style="text-align:center; margin-top:3%">
 

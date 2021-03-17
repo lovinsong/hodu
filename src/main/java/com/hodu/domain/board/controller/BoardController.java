@@ -82,6 +82,14 @@ public class BoardController {
         return "redirect:item-category";
     }
 	
+	@GetMapping("item/item-modify")
+    public void modifyForm(Model model, @RequestParam(required = false,defaultValue="1") int item_code, HttpServletRequest req) throws Exception {
+		
+		ItemDTO dto = service.itemInfo_modify(item_code);
+		model.addAttribute("dto", dto);
+		
+    }
+	
 	//아이템 날짜 선택 페이지로 이동하기
 	@GetMapping("item/item-detail")
  	public void item_detail(Model model, @RequestParam(required = false,defaultValue="1") int item_code, HttpServletRequest req) throws Exception {
@@ -112,9 +120,14 @@ public class BoardController {
 	@PostMapping("item/changeHeart")
 	public void changeHeart(ItemDTO dto) throws Exception {
 		
-		
 		service.likeChanger(dto);
 		
+	}
+	
+	@PostMapping("item/deleteItem")
+	public void deleteItem(ItemDTO dto) throws Exception {
+		
+		service.delItem(dto);
 		
 	}
 	
@@ -192,5 +205,7 @@ public class BoardController {
 		model.addAttribute("dto", service.getInquiry(inquiry_postnum));
 		
  	}
+	
+	
 
 }
