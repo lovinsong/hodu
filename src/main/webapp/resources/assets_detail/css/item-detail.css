@@ -730,3 +730,13 @@ pre {
     color: #696969;
     font-size: 15px;
 }
+
+.ModifyBtn, .DelBtn {
+	margin-left:6px;
+	margin-bottom:-10px;
+	width: 60px;
+	height: 35px;
+	background: #f7f7f7;
+	border: 1px solid #faf6f0 ;
+	border-radius: 6px;
+}

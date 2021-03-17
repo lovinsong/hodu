@@ -69,5 +69,7 @@ public interface BoardMapper {
 	public List<InquiryDTO> inquiryList (String member_id);
 	
 	public InquiryDTO getInquiry(int inquiry_postnum);
+	
+	public int delItem(ItemDTO item);
 
 }
