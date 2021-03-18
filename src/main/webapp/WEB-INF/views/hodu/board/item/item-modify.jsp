@@ -145,33 +145,25 @@
                                 <tr>
 	                                <td class="t-title"><strong>멘토님은 어떤 분이신가요?</strong></td>
 	                                <td>
-	                                <textarea class="form-control" rows="10" placeholder="멘토 자신에 대해 소개해주세요. 이력사항과 자기소개로 자신을 홍보할 수 있는 기회입니다." name="item_content_who" id="item_content_who">
-	                                	<c:out value="${dto.item_content_who }" />
-	                                </textarea>
+	                                <textarea class="form-control" rows="10" placeholder="멘토 자신에 대해 소개해주세요. 이력사항과 자기소개로 자신을 홍보할 수 있는 기회입니다." name="item_content_who" id="item_content_who"><c:out value="${dto.item_content_who }" /></textarea>
 	                                </td>                 
 	                            </tr>
 	                            <tr>
 	                                <td class="t-title"><strong>무엇을 하는 클래스인가요?</strong></td>
 	                                <td>
-	                                <textarea class="form-control" rows="10" placeholder="어떤 클래스인지 수업 내용과 수업 목표에 대해 소개해주세요. " name="item_content_what" id="item_content_what">
-	                                	<c:out value="${dto.item_content_what }" />
-	                                </textarea>
+	                                <textarea class="form-control" rows="10" placeholder="어떤 클래스인지 수업 내용과 수업 목표에 대해 소개해주세요. " name="item_content_what" id="item_content_what"><c:out value="${dto.item_content_what }" /></textarea>
 	                                </td>                 
 	                            </tr>	    
 	                            <tr>
 	                                <td class="t-title"><strong>누구에게 추천하고 싶나요?</strong></td>
 	                                <td>
-	                                <textarea class="form-control" rows="10" placeholder="추천하실 분들을 써주세요. (클래스 홍보에 도움이 됩니다.)" name="item_content_target" id="item_content_target">
-	                                	<c:out value="${dto.item_content_target }" />
-	                                </textarea>
+	                                <textarea class="form-control" rows="10" placeholder="추천하실 분들을 써주세요. (클래스 홍보에 도움이 됩니다.)" name="item_content_target" id="item_content_target"><c:out value="${dto.item_content_target }" /></textarea>
 	                                </td>                 
 	                            </tr>		                                                    
 	                            <tr>
 	                                <td class="t-title"><strong>어떻게 진행되나요?</strong></td>
 	                                <td>
-	                                <textarea class="form-control" rows="10" placeholder="간단한 1회차 커리큘럼 소개와 함께 클래스 진행방식을 써주세요." name="item_content_how" id="item_content_how">
-	                                	<c:out value="${dto.item_content_how }" />
-	                                </textarea>
+	                                <textarea class="form-control" rows="10" placeholder="간단한 1회차 커리큘럼 소개와 함께 클래스 진행방식을 써주세요." name="item_content_how" id="item_content_how"><c:out value="${dto.item_content_how }" /></textarea>
 	                                </td>                 
 	                            </tr>	
 	                           <tr>
