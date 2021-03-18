@@ -15,9 +15,8 @@ public class MemberMapperTests {
 	private MemberMapper membermapper;
 	
 	@Test
-	@Ignore
 	public void idTest() {
-		String id = "master"; // 존재하는 아이디 
+		String id = "hhhhh"; // 존재하는 아이디 
 		String id2 = "test123"; // 존재하지 않는 아이디 
 		membermapper.idCheck(id); 
 		membermapper.idCheck(id2);

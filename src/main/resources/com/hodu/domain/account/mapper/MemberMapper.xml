@@ -143,11 +143,11 @@
 		member_id = #{member_id}
 	</update>
 	
-	<!-- 호두충전 -->
+	<!-- 호두충전 parameterType="com.hodu.domain.model.MemberDTO"-->
 	<update id="chargehodu">
 		update hodu_member 
 		set 
-		moneyforhodu = #{moneyforhodu}
+		member_cash = member_cash + (#{moneyforhodu}/100)
 		where
 		member_id = #{member_id}
 	</update>
