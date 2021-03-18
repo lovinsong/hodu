@@ -48,4 +48,6 @@ public interface BoardService {
 	public void delItem(ItemDTO item) throws Exception;
 	
 	public ItemDTO itemInfo_modify(int item_code) throws Exception;
+	
+	public String itemModify(ItemDTO item) throws Exception;
 }

@@ -158,4 +158,8 @@
 		UPDATE item_board SET item_show = 'N' WHERE item_code = #{item_code}
 	</update>
 	
+	<delete id="delBoardImg">
+		DELETE FROM board_image WHERE board_postnum = #{item_code} AND board_name = 'item_board'
+	</delete>
+	
   </mapper>

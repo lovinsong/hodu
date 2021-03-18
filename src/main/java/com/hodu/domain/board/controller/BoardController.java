@@ -71,12 +71,10 @@ public class BoardController {
 	@RequestMapping(value = "item/registForm", method = RequestMethod.POST)
     public String registForm1(ItemDTO dto, RedirectAttributes ra, HttpServletRequest req) throws Exception {
 		
-		MemberDTO member = (MemberDTO)req.getSession().getAttribute("member") == null ? null : (MemberDTO)req.getSession().getAttribute("member");
+		//MemberDTO member = (MemberDTO)req.getSession().getAttribute("member") == null ? null : (MemberDTO)req.getSession().getAttribute("member");
+		//dto.setMember_id(member.getMember_id());
 		
 		service.itemRegist(dto);
-		
-		dto.setMember_id(member.getMember_id());
-		
 		
         return "redirect:item-category";
     }
@@ -86,8 +84,19 @@ public class BoardController {
 		
 		ItemDTO dto = service.itemInfo_modify(item_code);
 		model.addAttribute("dto", dto);
-		
     }
+	
+	@RequestMapping(value = "item/modifyForm", method = RequestMethod.POST)
+    public String modifyForm(ItemDTO dto, RedirectAttributes ra, HttpServletRequest req) throws Exception {
+		
+		// MemberDTO member = (MemberDTO)req.getSession().getAttribute("member") == null ? null : (MemberDTO)req.getSession().getAttribute("member");
+		// dto.setMember_id(member.getMember_id());
+		
+		service.itemRegist(dto);
+		
+        return "redirect:item-category";
+    }
+	
 	
 	//아이템 날짜 선택 페이지로 이동하기
 	@GetMapping("item/item-detail")

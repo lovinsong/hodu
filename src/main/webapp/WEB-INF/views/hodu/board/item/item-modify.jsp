@@ -34,11 +34,12 @@
                     </div>    
                   </div>				             
                     
-                    <form action="registForm" method="post" name="registForm" enctype="multipart/form-data">
+                    <form action="modifyForm" method="post" name="registForm" enctype="multipart/form-data">
 	                    <table class="table">
 	                        <tbody class="t-control">
 	                        	<tr style="display:none">
 	                        		<td><input type="text" name = "member_id" value= "${member.member_id}"></td>
+	                        		<td><input type="text" name = "item_code" value= "${dto.item_code}"></td>
 	                        	</tr>
 	                            <tr>
 	                                <td class="t-title"><strong>썸네일 이미지 첨부파일</strong></td>
