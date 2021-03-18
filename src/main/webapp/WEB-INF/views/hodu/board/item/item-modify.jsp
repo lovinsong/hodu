@@ -51,7 +51,7 @@
 	                            </tr>	                            
 	                            <tr>
 	                                <td class="t-title" ><strong>클래스 이름</strong></td>
-	                                <td><input class="form-control input-sm" name="item_title" style="width:100%;" onclick="rsmsg('msgTitle')" value = "<c:out value="${dto.item_title }"/>" ><span id="msgTitle" class="msg"></span></td>
+	                                <td><input class="form-control input-sm" name="item_title" style="width:100%;" onclick="rsmsg('msgTitle')" value ="<c:out value="${dto.item_title }"/>" ><span id="msgTitle" class="msg"></span></td>
 	                            </tr>
 	                            <tr>
                                   <td class="t-title"><strong>카테고리</strong></td>

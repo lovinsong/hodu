@@ -245,6 +245,9 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public String itemModify(ItemDTO item) throws Exception {
 		
+		board_mapper.delBoardImg(item.getItem_code());
+		board_mapper.delItemSelect(item.getItem_code());
+		
 		BoardImgDTO[] images = new BoardImgDTO[item.getB_img().length];
 		String[] days = new String[5];
 		ItemSelectDTO itemSelect = new ItemSelectDTO();
@@ -263,9 +266,8 @@ public class BoardServiceImpl implements BoardService {
 			item.setItem_place(item.getPostcode() + item.getAddress() + item.getDetail_add());
 		}		
 		// 글 등록 -> 하면서 item_code 받아옴
-		board_mapper.regItemboard(item);
+		board_mapper.modifyItem(item);
 		
-		System.out.println(item);
 		images = Upload.uploadIMGS(item.getB_img(), "C:\\Users\\Public\\upload\\images\\", item, "item_board");
 		
 		for (BoardImgDTO image : images) {

@@ -93,7 +93,7 @@ public class BoardController {
 		// MemberDTO member = (MemberDTO)req.getSession().getAttribute("member") == null ? null : (MemberDTO)req.getSession().getAttribute("member");
 		// dto.setMember_id(member.getMember_id());
 		
-		service.itemRegist(dto);
+		service.itemModify(dto);
 		
         return "redirect:item-category";
     }
