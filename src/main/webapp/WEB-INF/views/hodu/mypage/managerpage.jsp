@@ -78,6 +78,11 @@
 						<header>
 							<p>유저 관리</p>
 						</header>
+						
+						<c:forEach var="memberOne" items="${memberList }">
+							<p>${memberOne }</p>
+						</c:forEach>
+						
 
 					</article>
 

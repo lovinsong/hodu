@@ -151,4 +151,10 @@
 		where
 		member_id = #{member_id}
 	</update>
+	
+	<!-- 멤버 리스트 불러오기(관리자용) -->
+	<select id="memberList"
+		resultType="com.hodu.domain.model.MemberDTO">
+		SELECT * FROM HODU_MEMBER WHERE hodu_manager = 'N'
+	</select>
 </mapper>

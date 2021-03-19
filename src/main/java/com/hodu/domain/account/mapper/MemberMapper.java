@@ -60,4 +60,7 @@ public interface MemberMapper {
 	
 	//호두충전금액
 	public void chargehodu(MemberDTO member);
+	
+	//회원정보 불러오기
+	public List<MemberDTO> memberList();
 }

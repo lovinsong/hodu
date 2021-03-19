@@ -59,4 +59,7 @@ public interface MemberService {
 	
 	//호두충전금액
 	public void chargehodu(MemberDTO member) throws Exception;
+	
+	//맴버 리스트
+	public List<MemberDTO> memberList() throws Exception;
 }

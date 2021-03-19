@@ -1,5 +1,7 @@
 package com.hodu.domain.account.service;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -126,6 +128,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void chargehodu(MemberDTO member) throws Exception {
 		member_mapper.chargehodu(member);
+	}
+
+	@Override
+	public List<MemberDTO> memberList() throws Exception {
+		return member_mapper.memberList();
 	}
 
 }
