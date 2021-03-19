@@ -34,8 +34,8 @@
 		}
 		#btn button{
 				border-radius: 3px;
-				background-color: #876c5c;	
-				color: white;
+				background-color: #f7f7f7;	
+				color: black;
 				margin: 2 2 2 2;
 				text-align: center;	
 				transition: border-color 0.15s ease-out, color 0.25s ease-out, background-color 0.15s ease-out, box-shadow 0.15s ease-out;
@@ -78,7 +78,7 @@
 		<div id="btn" class="row">
 			<button onclick="addPicker();">+ 추가</button>
 			<button onclick="deletePicker();">- 삭제</button>
-			<button style='background-color: black'onclick="reg()">등록</button>
+			<button style='background-color: black; color: white;'onclick="reg()">등록</button>
 		</div>
 	</body>
 

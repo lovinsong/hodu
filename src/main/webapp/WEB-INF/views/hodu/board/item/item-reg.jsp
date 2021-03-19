@@ -101,15 +101,15 @@
 	                                <div class="btn-group" id="class_place" role="group" aria-label="Basic radio toggle button group"  >
 									 <p>
 									  <input type="radio" class="btn-check" name="item_place" id="btnradio1" autocomplete="off" value="온라인 수업">
-									  <label class="btn btn-outline-primary" for="btnradio1">온라인 수업</label>
+									  <label class="btn " for="btnradio1">온라인 수업</label>
 									</p>&nbsp;
 									<p>
 									  <input type="radio" class="btn-check" name="item_place" id="btnradio2" autocomplete="off" value="자택 수업">
-									  <label class="btn btn-outline-primary" for="btnradio2">자택 수업</label>
+									  <label class="btn " for="btnradio2">자택 수업</label>
 									</p>&nbsp;
 									<p>
 									  <input type="radio" class="btn-check" name="item_place" id="btnradio3" autocomplete="off" >
-									  <label class="btn btn-outline-primary" for="btnradio3">주소 선택하기</label>
+									  <label class="btn " for="btnradio3">주소 선택하기</label>
 									</p>
 									</div>
 									<div class="row">
