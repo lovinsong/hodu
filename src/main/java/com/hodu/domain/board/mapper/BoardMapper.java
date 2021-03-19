@@ -71,5 +71,11 @@ public interface BoardMapper {
 	public InquiryDTO getInquiry(int inquiry_postnum);
 	
 	public int delItem(ItemDTO item);
+	
+	public int delBoardImg(int item_code);
+	
+	public int delItemSelect(int item_code);
+	
+	public int modifyItem(ItemDTO item);
 
 }

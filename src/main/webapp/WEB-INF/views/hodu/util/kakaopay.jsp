@@ -7,7 +7,7 @@
     String email = (String)request.getAttribute("member_email");
     String phone = (String)request.getAttribute("member_phone");
     //String address = (String)request.getAttribute("member_address");
-  	int totalPrice = Integer.parseInt(request.getParameter("totalPrice")); //(int)request.getAttribute("totalPrice");   
+  	int totalPrice = Integer.parseInt(request.getParameter("moneyforhodu")); //(int)request.getAttribute("totalPrice");   
 %>
 <!DOCTYPE html>
 <html>
@@ -18,6 +18,10 @@
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 </head>
 <body>
+<form action="realHodu" method="POST" id="realhoduform">
+<input type="text" name="member_id" id="member_id" value="${member.member_id}">
+<input type="text" name="moneyforhodu"id="moneyforhodu" value=<%=totalPrice%>>
+</form>
     <script>
     $(function(){
         var IMP = window.IMP; // 생략가능
@@ -39,18 +43,7 @@
  	       //m_redirect_url : '/khx/payEnd.action'	// 결제 완료 후 보낼 컨트롤러의 메소드명
         }, function(rsp) {
             if ( rsp.success ) {
-                //[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
-                jQuery.ajax({
-                    url: "/payments/complete", //cross-domain error가 발생하지 않도록 주의해주세요
-                    type: 'POST',
-                    dataType: 'json',
-                    data: {
-                        imp_uid : rsp.imp_uid
-                        //기타 필요한 데이터가 있으면 추가 전달
-                    }
-                }).done(function(data) {
-                    //[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
-                    if ( everythings_fine ) {
+                
                         msg = '결제가 완료되었습니다.';
                         msg += '\n고유ID : ' + rsp.imp_uid;
                         msg += '\n상점 거래ID : ' + rsp.merchant_uid;
@@ -58,18 +51,15 @@
                         msg += '카드 승인번호 : ' + rsp.apply_num;
                         
                         alert(msg);
-                    } else {
-                        //[3] 아직 제대로 결제가 되지 않았습니다.
-                        //[4] 결제된 금액이 요청한 금액과 달라 결제를 자동취소처리하였습니다.
-                    }
-                });
+                
                 //성공시 이동할 페이지
-                location.href='<%=request.getContextPath()%>/order/paySuccess?msg='+msg;
+                $("#realhoduform").submit();
+                <%-- location.href='<%=request.getContextPath()%>/hodu/util/paySuccess?msg='+msg; --%>
             } else {
                 msg = '결제에 실패하였습니다.';
                 msg += '에러내용 : ' + rsp.error_msg;
                 //실패시 이동할 페이지
-                location.href="<%=request.getContextPath()%>/order/payFail";
+                location.href="<%=request.getContextPath()%>/hodu/util/payFail";
                 alert(msg);
             }
         });
