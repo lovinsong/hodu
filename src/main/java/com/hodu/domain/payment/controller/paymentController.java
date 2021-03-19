@@ -75,11 +75,11 @@ public class paymentController {
 		member_dto.setOrder_num(order_number);
 		
 		dto.setOrder_num(order_number);
-		
+				
 		pay_service.insertorder(member_dto);
 
-		pay_service.changemoney(member_dto);
-		
+		pay_service.changemoney(member_dto);	
+
 	}
 
 	@GetMapping(value = "/hodu/payment/refundform")

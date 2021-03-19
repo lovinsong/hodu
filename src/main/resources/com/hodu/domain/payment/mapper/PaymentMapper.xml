@@ -23,14 +23,7 @@
 		SELECT * FROM item_select WHERE item_code = #{item_code}
 	</select>
 
-	<!-- 결제 하기 -->
-	<update id="changemoney">
-		UPDATE hodu_member SET member_cash = member_cash - (
-		(SELECT item_price FROM item_board WHERE item_code = #{item_code})
-		* #{apply_people}
-		)
-		WHERE member_id = #{member_id}
-	</update>
+
 
 	<!-- 멤버 호두 가져오기 -->
 	<select id="membercash"
@@ -60,6 +53,15 @@
 		-
 		#{apply_people})
 		WHERE sel_postnum = #{sel_postnum}
+	</update>
+
+	<!-- 결제 하기 -->
+	<update id="changemoney">
+		UPDATE hodu_member SET member_cash = member_cash - (
+		(SELECT item_price FROM item_board WHERE item_code = #{item_code})
+		* #{apply_people}
+		)
+		WHERE member_id = #{member_id}
 	</update>
 
 	<insert id="insertorder">
