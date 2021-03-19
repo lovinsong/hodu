@@ -98,22 +98,6 @@ public class MemberController {
 
     }
 	
-	// 메인페이지-> 관리자페이지 이동
-		@GetMapping(value = "/hodu/mypage/managerpage")
-	    public void managerpage(Model model, HttpServletRequest req) throws Exception {
-	        MemberDTO member = (MemberDTO)req.getSession().getAttribute("member") == null ? null : (MemberDTO)req.getSession().getAttribute("member");
-
-	        String member_id = "";
-
-	        if (member != null) {
-	            member_id = member.getMember_id();
-	        }
-
-	        model.addAttribute("myHeartList",board_service.getMyHeartList(member_id));
-	        model.addAttribute("myInquiryList", board_service.getMyInquiryList(member_id));
-
-	    }
-	
 	@RequestMapping(value = "hodu/mypage/inquiryregistForm", method = RequestMethod.POST)
     public String inquiryregistForm(InquiryDTO dto, RedirectAttributes ra, HttpServletRequest req) throws Exception {
 		
