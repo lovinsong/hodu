@@ -601,7 +601,7 @@ public class MemberController {
 		service.chargehodu(member);
 		MemberDTO memberdto = service.memberInfo(member.getMember_id());
 		session.setAttribute("member", memberdto);
-		return "/hodu/util/paySuccess";
+		return "/hodu/main/mainpage";
 	}
 	@GetMapping(value="/hodu/util/paySuccess")
 	public void chargeSuccess() throws Exception{ 
