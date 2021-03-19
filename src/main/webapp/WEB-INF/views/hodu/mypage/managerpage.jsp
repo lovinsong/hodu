@@ -26,15 +26,15 @@
 	<!-- Wrapper-->
 	<div id="wrapper" style="margin-right:-2%;" >
 
-		<p>마이 페이지</p>
+		<p>관리 페이지</p>
 
 		<!-- Nav -->
 		<nav id="nav">
 			<a href="#user" class="icon solid fa-user"><span>프로필</span></a>
-			<a href="#heart" class="icon solid fa-heart"><span>찜 목록</span></a>
-			<a href="#wallet" class="icon solid fa-wallet"><span>수강 내역</span></a>
+			<a href="#heart" class="icon solid fa-tasks"><span>멘토 관리</span></a>
+			<a href="#wallet" class="icon solid fa-address-card"><span>유저 관리</span></a>
 			<a href="#comments" class="icon solid fa-comments"><span>톡 (talk)</span></a>
-			<a href="#question" class="icon solid fa-question"><span>고객센터</span></a>				
+			<a href="#question" class="icon solid fa-question"><span>문의 관리</span></a>				
 		</nav>	
 
 			<div id="main">
@@ -51,13 +51,13 @@
 					</article>
 
 
-<!----------------------------------------------------------- 찜 목록 ----------------------------------------------------------->
+<!----------------------------------------------------------- 멘토 관리 ----------------------------------------------------------->
 					
 
 					<article id="heart" class="panel">
 
 						<header>
-							<p>찜 목록</p>
+							<p>멘토 관리</p>
 						</header>
 						<c:forEach var="myHeart" items="${myHeartList }">
 							<div>
@@ -70,13 +70,13 @@
 
 
 
-<!----------------------------------------------------------- 수강 내역 ----------------------------------------------------------->
+<!----------------------------------------------------------- 유저 관리 ----------------------------------------------------------->
 
 
 					<article id="wallet" class="panel">
 
 						<header>
-							<p>수강 내역</p>
+							<p>유저 관리</p>
 						</header>
 
 					</article>
@@ -102,7 +102,7 @@
 
 					</article>
 
-<!-------------------------------------------------------------- 고객센터 --------------------------------------------------------------------->
+<!-------------------------------------------------------------- 문의 관리 --------------------------------------------------------------------->
 					
 
 					<article id="question" class="panel">
@@ -112,7 +112,7 @@
 							<article id="write_question_board"> 					
 
 								<header>
-									<p>[ 문의하기 ]</p>
+									<p>문의 관리</p>
 									<br>
 								</header>
 
