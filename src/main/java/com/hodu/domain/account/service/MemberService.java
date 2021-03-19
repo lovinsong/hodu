@@ -1,5 +1,7 @@
 package com.hodu.domain.account.service;
 
+import java.util.List;
+
 import com.hodu.domain.model.MemberDTO;
 
 public interface MemberService {
@@ -57,5 +59,4 @@ public interface MemberService {
 	
 	//호두충전금액
 	public void chargehodu(MemberDTO member) throws Exception;
-
 }

@@ -1,5 +1,8 @@
 package com.hodu.domain.account.mapper;
 
+import java.util.List;
+
+import com.hodu.domain.model.ItemDTO;
 import com.hodu.domain.model.MemberDTO;
 
 public interface MemberMapper {
