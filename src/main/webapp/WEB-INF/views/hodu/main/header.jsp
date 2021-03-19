@@ -88,9 +88,18 @@
 										호두 : <fmt:formatNumber value="${member.member_cash }"
 											pattern="#,###.## 호두" />
 								</a></li>
-								<li><a
-									href="${pageContext.request.contextPath}/hodu/mypage/mypage"
-									class="list_mypage">마이페이지</a></li>
+								<c:choose>
+									<c:when test="${member.hodu_manager eq 'Y'}">
+										<li><a
+											href="${pageContext.request.contextPath}/hodu/mypage/managerpage"
+											class="list_mypage">관리페이지</a></li>
+									</c:when>
+									<c:otherwise>
+										<li><a
+											href="${pageContext.request.contextPath}/hodu/mypage/mypage"
+											class="list_mypage">마이페이지</a></li>
+									</c:otherwise>
+								</c:choose>
 								<c:if test="${member.mentor_enable eq 'N'}">
 									<li id="list_mentor"><a
 										href="${pageContext.request.contextPath}/hodu/account/mentor-reg">멘토
