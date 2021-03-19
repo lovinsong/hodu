@@ -78,8 +78,8 @@ textarea {resize: none;}
 /* BUTTON STYLING 버튼*/
 .btn {
 	border-radius: 6px;
-	background-color: #876c5c;	
-	color: white;
+	background-color: #f7f7f7;	
+	color: black;
 	margin: 1.5 1.5 1.5 1.5;
 	text-align: center;	
 	transition: border-color 0.15s ease-out, color 0.25s ease-out, background-color 0.15s ease-out, box-shadow 0.15s ease-out;
@@ -196,7 +196,7 @@ input[type=range]::-ms-thumb {
     cursor: pointer;
     display: inline-block;
     vertical-align: center;
-    color: white;
+    color: black;
     width: 30px;
     height: 30px;
     font: 30px/1 Arial,sans-serif;
@@ -207,7 +207,7 @@ input[type=range]::-ms-thumb {
     cursor: pointer;
     display: inline-block;
     vertical-align: center;
-    color: white;
+    color: black;
     width: 30px;
     height: 30px;
     font: 30px/1 Arial,sans-serif;
@@ -218,12 +218,12 @@ input[type=range]::-ms-thumb {
 
 .minus {
     vertical-align: center;
-	background-color: #876c5c;
+	background-color: #f7f7f7;
 	box-shadow: 0 0 5px rgba(135, 108, 92, .5);
 }
 .plus {
     vertical-align: center;
-	background-color: #876c5c;
+	background-color: #f7f7f7;
 	box-shadow: 0 0 5px rgba(135, 108, 92, .5);
 }
 
@@ -1037,5 +1037,4 @@ ul.mylist li {
     font-size: 12px;
     cursor: pointer;
 }
-
 
