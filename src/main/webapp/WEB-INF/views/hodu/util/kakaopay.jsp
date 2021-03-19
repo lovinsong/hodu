@@ -19,8 +19,8 @@
 </head>
 <body>
 <form action="realHodu" method="POST" id="realhoduform">
-<input type="text" name="member_id" id="member_id" value="${member.member_id}">
-<input type="text" name="moneyforhodu"id="moneyforhodu" value=<%=totalPrice%>>
+<input type="hidden" name="member_id" id="member_id" value="${member.member_id}">
+<input type="hidden" name="moneyforhodu"id="moneyforhodu" value=<%=totalPrice%>>
 </form>
     <script>
     $(function(){

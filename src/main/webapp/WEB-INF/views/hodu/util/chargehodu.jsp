@@ -32,8 +32,6 @@
 <body>
 
 <form action="charge" method="POST" id="chargeform">
-<%--<input type="text" name="moneyforhodu"id="moneyforhodu"><input type="hidden" name="member_id" id="member_id" value="${member.member_id}">
-<input type="hidden" name="member_address"value="${member.member_address}">--%>
   
 <input type="hidden" name="member_name" id="member_name" value="${member.member_name}">
 <input type="hidden" name="member_email"id="member_email"value="${member.member_email}">
@@ -73,114 +71,9 @@
 			  </div>
 			</div>
 		</div>
-		
-		<%-- <div class="col-3">
-			<div class="card bg-danger" style="width: 19rem;">
-			<div class="card-header fw-bold border-5" style="text-align: center; background-color : white;">페이코</div>
-			  <img src="${pageContext.request.contextPath}/resources/assets/image/payco.png" class="card-img-top" alt="...">
-			  <div class="card-body">
-			    <div class="form-check">
-				  <input class="form-check-input" type="radio" id="flexRadio1"name="moneyforhodu">
-				  <label class="fw-bold form-check-label" for="flexRadio1">50호두 - 5,000원</label>
-				  
-				  <input class="form-check-input" type="radio" id="flexRadio2"name="moneyforhodu">
-				  <label class="fw-bold form-check-label" for="flexRadio2">100호두 - 10,000원</label>
-				  
-				  <input class="form-check-input" type="radio" id="flexRadio3"name="moneyforhodu">
-				  <label class="fw-bold form-check-label" for="flexRadio3">200호두 - 20,000원</label>
-				  
-				  <input class="form-check-input" type="radio" id="flexRadio4"name="moneyforhodu">
-				  <label class="fw-bold form-check-label" for="flexRadio4">300호두 - 30,000원</label>
-				  
-				  <input class="form-check-input" type="radio" id="flexRadio5"name="moneyforhodu">
-				  <label class="fw-bold form-check-label" for="flexRadio5">500호두 - 50,000원</label>
-				  
-				  <input class="form-check-input" type="radio" id="flexRadio6"name="moneyforhodu">
-				  <label class="fw-bold form-check-label" for="flexRadio6">1000호두 - 100,000원</label>
-				</div>
-	           
-	            <!-- <p class="fw-bold" style="color: #ffffff; display: flex;justify-content: center;margin-top: 30px">최소 충전금액은 5,000원이며 <br/>최대 충전금액은 100,000원 입니다.</p> -->
-	            <div style="display: flex;justify-content: center;margin-top: 30px">
-	            	<button type="button" class="btn btn-primary" id="charge_payco">충 전 하 기</button>
-	            </div>
-			  </div>
-			</div>
-		</div> --%>
-		
-		<%-- <div class="col-3">
-			<div class="card bg-success" style="width: 19rem;">
-			<div class="card-header fw-bold border-5" style="text-align: center; background-color : white;">네이버페이</div>
-			  <img src="${pageContext.request.contextPath}/resources/assets/image/npay.jpg" class="card-img-top" alt="...">
-			  <div class="card-body">
-			    <div class="form-check">
-				  <input class="form-check-input" type="radio" id="flexRadio1"name="moneyforhodu">
-				  <label class="fw-bold form-check-label" for="flexRadio1">50호두 - 5,000원</label>
-				  
-				  <input class="form-check-input" type="radio" id="flexRadio2"name="moneyforhodu">
-				  <label class="fw-bold form-check-label" for="flexRadio2">100호두 - 10,000원</label>
-				  
-				  <input class="form-check-input" type="radio" id="flexRadio3"name="moneyforhodu">
-				  <label class="fw-bold form-check-label" for="flexRadio3">200호두 - 20,000원</label>
-				  
-				  <input class="form-check-input" type="radio" id="flexRadio4"name="moneyforhodu">
-				  <label class="fw-bold form-check-label" for="flexRadio4">300호두 - 30,000원</label>
-				  
-				  <input class="form-check-input" type="radio" id="flexRadio5"name="moneyforhodu">
-				  <label class="fw-bold form-check-label" for="flexRadio5">500호두 - 50,000원</label>
-				  
-				  <input class="form-check-input" type="radio" id="flexRadio6"name="moneyforhodu">
-				  <label class="fw-bold form-check-label" for="flexRadio6">1000호두 - 100,000원</label>
-				</div>
-	           
-	            <!-- <p class="fw-bold" style="color: #ffffff; display: flex;justify-content: center;margin-top: 30px">최소 충전금액은 5,000원이며 <br/>최대 충전금액은 100,000원 입니다.</p> -->
-	            <div style="display: flex;justify-content: center;margin-top: 30px">
-	            	<button type="button" class="btn btn-primary" id="charge_npay">충 전 하 기</button>
-	            </div>
-			  </div>
-			</div>
-		</div> --%>
-		
-		<%-- <div class="col-3">
-			<div class="card bg-white" style="width: 19rem;">
-			<div class="card-header fw-bold border-5" style="text-align: center; background-color : white;">무통장 입금</div>
-			  <img src="${pageContext.request.contextPath}/resources/assets/image/bank.png" class="card-img-top" alt="무통장입금이미지">
-			  <div class="card-body">
-	            <div class="form-check">
-				  <input class="form-check-input" type="radio" name="moneyforhodu" value="5000" id="flexRadio1" >
-				  <label class="fw-bold form-check-label bb" for="flexRadio1">50호두 - 5,000원</label>
-				  
-				  <input class="form-check-input" type="radio" name="moneyforhodu" value="10000" id="flexRadio2">
-				  <label class="fw-bold form-check-label bb" for="flexRadio2">100호두 - 10,000원</label>
-				  
-				  <input class="form-check-input" type="radio" name="moneyforhodu" value="20000" id="flexRadio3">
-				  <label class="fw-bold form-check-label bb" for="flexRadio3">200호두 - 20,000원</label>
-				  
-				  <input class="form-check-input" type="radio" name="moneyforhodu" value="30000" id="flexRadio4">
-				  <label class="fw-bold form-check-label bb" for="flexRadio4">300호두 - 30,000원</label>
-				  
-				  <input class="form-check-input" type="radio" name="moneyforhodu" value="50000" id="flexRadio5">
-				  <label class="fw-bold form-check-label bb" for="flexRadio5">500호두 - 50,000원</label>
-				  
-				  <input class="form-check-input" type="radio" name="moneyforhodu" value="100000" id="flexRadio6">
-				  <label class="fw-bold form-check-label bb" for="flexRadio6">1000호두 - 100,000원</label>
-				</div>
-	           
-	            <!-- <p class="fw-bold" style="color: #000000; display: flex;justify-content: center;margin-top: 30px">최소 충전금액은 5,000원이며 <br/>최대 충전금액은 100,000원 입니다.</p> -->
-	            <div style="display: flex;justify-content: center;margin-top: 30px">
-	            	<button type="button" class="btn btn-primary" id="charge_yes">충 전 하 기</button>
-	            </div>
-			  </div>
-			</div>
-		</div> --%>	
+			
 	</div>
 </form>
-
-<!-- Scripts
-	<script src="${pageContext.request.contextPath}/resources/assets_mypage/assets/js/jquery.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/assets_mypage/assets/js/browser.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/assets_mypage/assets/js/breakpoints.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/assets_mypage/assets/js/util.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/assets_mypage/assets/js/main.js"></script> -->
 
 <script>
 var checked = 0;
@@ -203,16 +96,7 @@ $("#charge_kakao").on("click",function(){
 	}
 	$("#chargeform").submit();
 })
-/* $("#charge_payco").on("click",function(){
-	alert("추후 업데이트 예정\n무통장 입금을 이용해주세요");
-})
-$("#charge_npay").on("click",function(){
-	alert("추후 업데이트 예정\n무통장 입금을 이용해주세요");
-})
-$("#charge_yes").click(function(){
-	
-	$("#chargeform").submit();
-}) */
+
 </script>
 </body>
 <%----%> <%@ include file="../main/footer.jsp"%> 
