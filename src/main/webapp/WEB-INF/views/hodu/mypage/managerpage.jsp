@@ -79,10 +79,24 @@
 							<p>유저 관리</p>
 						</header>
 						
-						<c:forEach var="memberOne" items="${memberList }">
-							<p>${memberOne }</p>
-						</c:forEach>
-						
+						<table>
+							<thead>
+								<tr>
+									<th class="board-title">ID</th>
+									<th>닉네임</th>
+									<th>이름</th>
+									<th>멘토여부</th>
+								</tr>
+							</thead>
+							<c:forEach var="memberOne" items="${memberList }">
+								<tr>
+									<td>${memberOne.member_id }</td>
+									<td>${memberOne.member_nickname }</td>
+									<td>${memberOne.member_name }</td>
+									<td>${memberOne.mentor_enable }</td>
+								</tr>
+							</c:forEach>
+						</table>
 
 					</article>
 
@@ -127,7 +141,7 @@
 										<form action="inquiryregistForm" method="post" name="inquiryregistForm" enctype="multipart/form-data">
 											<table class="table">
 												<tbody class="t-control">
-													<tr style="display:none"><input style="display:none" name = "member_id" value="${member.member_id}"></tr>
+													<tr style="display:none"><td><input style="display:none" name = "member_id" value="${member.member_id}"></td></tr>
 													<tr>
 														<td class="t-title"><strong>첨부파일</strong></td>
 														<td><input type="file" value="파일 선택" name="inquiry_imgs" style="font-size: 15px;"/></td>

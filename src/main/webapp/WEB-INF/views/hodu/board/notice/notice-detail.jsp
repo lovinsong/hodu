@@ -25,29 +25,31 @@
 					<div>
 						<label>DATE</label>
 						<p>
-							<fmt:formatDate value="${dto.notice_regist_date }" pattern="yyyy년MM월dd일" />
+							<fmt:formatDate value="${dto.notice_regist_date }" pattern="yyyy년MM월dd일"  />
 						</p>
 					</div>
 					<div class="form-group">
 						<label>작성자</label> <input class="form-control" name='writer'
-							readonly value="${dto.member_id }">
+							disabled="disabled" value="${dto.member_id }" style='background-color: white'>
 					</div>
 					<div class="form-group">
 						<label>제목</label> <input class="form-control" name='title'
-							readonly value="${dto.notice_title }">
+							disabled="disabled" value="${dto.notice_title }" style='background-color: white'>
 					</div>
 
 					<div class="form-group">
 						<label>내용</label>
-						<textarea class="form-control" rows="10" name='content' readonly>${dto.notice_content }</textarea>
+						<textarea class="form-control" rows="10" name='content' disabled="disabled" style='background-color: white'>${dto.notice_content }</textarea>
 					</div>
 					
-					<button type="button" class="btn btn-dark"
-						onclick="modify();">수정</button>
-					<button type="button" class="btn btn-dark"
-						onclick="del();">삭제</button>
-					<button type="button" class="btn btn-dark"
-						onclick="location.href='notice-category'">목록</button>
+					<div class="btn_group">
+						<button type="button" class="btn btn-dark"
+							onclick="modify();">수정</button>
+						<button type="button" class="btn btn-dark"
+							onclick="del();">삭제</button>
+						<button type="button" class="btn btn-dark"
+							onclick="location.href='notice-category'">목록</button>
+					</div>
 				</form>
 			</div>
 		</div>

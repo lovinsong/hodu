@@ -48,8 +48,12 @@
 					</tbody>
 
 				</table>
-				<div style="text-align:right" onclick="location.href='notice-reg'"><button id = "notice-reg">등록</button></div>
-
+			
+				<c:choose>
+					<c:when test="${member.hodu_manager eq 'Y'}">
+							<div style="text-align:right" onclick="location.href='notice-reg'"><button id = "notice-reg">등록</button></div>
+					</c:when>
+				</c:choose>
 
 
 
@@ -58,18 +62,5 @@
 	</div>
 </section>
 
-<script>
-	
-</script>
 
 <%@ include file="/WEB-INF/views/hodu/main/footer.jsp"%>
-
-
-
-
-
-
-
-
-
-

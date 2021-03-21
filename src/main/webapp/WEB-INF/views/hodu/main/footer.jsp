@@ -34,7 +34,7 @@
 						·
 						<a href="#">채용안내</a>
 						·
-						<a href="#">공지사항</a>
+						<a href="/project/hodu/board/notice/notice-category">공지사항</a>
 						·
 						<a href="#">자주묻는질문</a>
 					</p>
