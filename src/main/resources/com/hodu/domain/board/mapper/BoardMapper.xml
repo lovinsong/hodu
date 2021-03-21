@@ -126,11 +126,11 @@
 	</update>
 	
 	<select id ="getMainItemLike" resultType="com.hodu.domain.model.ItemDTO">
-		SELECT * FROM item_board WHERE item_one_day = #{item_one_day} ORDER BY item_like DESC FETCH FIRST 3 ROWS ONLY
+		SELECT * FROM item_board WHERE (item_one_day = #{item_one_day} AND item_show='Y') ORDER BY item_like DESC FETCH FIRST 3 ROWS ONLY
 	</select>
 	
 	<select id ="getMainItemNew" resultType="com.hodu.domain.model.ItemDTO">
-		SELECT * FROM item_board WHERE item_one_day = #{item_one_day} ORDER BY item_code DESC FETCH FIRST 3 ROWS ONLY
+		SELECT * FROM item_board WHERE (item_one_day = #{item_one_day} AND item_show='Y')  ORDER BY item_code DESC FETCH FIRST 3 ROWS ONLY
 	</select>
 	
 	<select id ="getMyHeartInfo" resultType="com.hodu.domain.model.MyHeartDTO">
