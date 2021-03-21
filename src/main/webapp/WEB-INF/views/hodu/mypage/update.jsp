@@ -33,6 +33,10 @@
 <body>
 <!-- 프로필 변경 포함시켜주는 코드 -->
 <%@ include file="../account/changeProfileImg.jsp"%>
+<!-- 보유 호두 포함시켜주는 코드 -->
+<hr>
+<span id="myhoducount"><%@ include file="../account/myhoducount.jsp"%></span>
+<hr>
 
 <div class="titlebox">																
 	<form action="update" method="POST" id="updateform">
@@ -213,6 +217,7 @@
    </script>
 
 <!-- 비번 변경 포함시키는 코드 -->
+<hr>
 <%@ include file="../account/changepw.jsp"%>
 </body>
 </html>
