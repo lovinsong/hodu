@@ -43,11 +43,11 @@
 	                        	</tr>
 	                            <tr>
 	                                <td class="t-title"><strong>썸네일 이미지 첨부파일</strong></td>
-	                                <td><input type="file" value="파일 선택" name="item_thumbnailimgA" onclick="rsmsg('msgThumbnailimg')"/><span id="msgThumbnailimg" class="msg"></span></td> 
+	                                <td><input type="file" value="파일 선택" name="item_thumbnailimgA" id="item_thumbnailimgA" onclick="rsmsg('msgThumbnailimg')" onchange="chk_file_type(this)" accept="image/*"/><span id="msgThumbnailimg" class="msg"></span></td> 
 	                            </tr>
 	                            <tr>
 	                                <td class="t-title"><strong>내용 이미지 첨부파일</strong></td>
-	                                <td><input type="file" value="파일 선택" name="b_img" multiple="multiple"  onclick="rsmsg('msgb_img')"/><span id="msgb_img" class="msg"></span></td>
+	                                <td><input type="file" value="파일 선택" name="b_img" id="b_img" multiple="multiple"  onclick="rsmsg('msgb_img')" onchange="chk_file_type(this)" accept="image/*"/><span id="msgb_img" class="msg"></span></td>
 	                            </tr>	                            
 	                            <tr>
 	                                <td class="t-title" ><strong>클래스 이름</strong></td>
@@ -327,6 +327,41 @@
             }
            
           });
+        
+        function chk_file_type(obj) {
+
+        	var file_kind = obj.value.lastIndexOf('.');
+
+        	var file_name = obj.value.substring(file_kind+1,obj.length);
+
+        	var file_type = file_name.toLowerCase();
+
+
+        	check_file_type=['jpg','gif','png','jpeg','bmp','tif'];
+
+
+
+        	if(check_file_type.indexOf(file_type)==-1) {
+
+        		alert('이미지 파일만 업로드 해주세요');
+
+        		var parent_Obj=obj.parentNode;
+
+        		var node=parent_Obj.replaceChild(obj.cloneNode(true),obj);
+
+
+
+        		document.getElementById(obj.getAttribute('id')).value = "";    //초기화를 위한 추가 코드
+
+        		document.getElementById(obj.getAttribute('id')).select();        //초기화를 위한 추가 코드
+
+        		document.execCommand('Delete');                                                //일부 브라우저 미지원
+
+        		return false;
+
+        	}
+
+        }
     
 
        
