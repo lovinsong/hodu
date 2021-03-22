@@ -86,19 +86,20 @@
 	display: none;
 }
 </style>
+<%@ include file="../main/header.jsp"%>
 <body>
 <main class="my-form">
     <div class="cotainer">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                    <div class="card">
+        <div class="row justify-content-center"><!--  -->
+            <div class="col-md-6">
+                    <div class="card" style="border : none;">
                         <div class="card-header">회원 가입 정보 입력</div>
-                        <div class="card-body">
-                            <form action="join" method="POST" id="signform" name="signform">
-                                <div class="form-group row">
+                        <div class="card-body" >
+                            <form action="join" method="POST" id="signform" name="signform" >
+                                <div class="form-group row" style="padding : 0px 0px 20px 0px">
                                     <label for="member_id" class="col-md-4 col-form-label text-md-right">아이디</label>
                                     <div class="col-md-6">
-                                        <input class="form-control id_input" type="text" name="member_id" id="member_id" maxlength="11"> 
+                                        <input class="form-control id_input" type="text" name="member_id" id="member_id" maxlength="11" > 
                                         <span class="id_input_re_1">사용 가능한 아이디입니다.</span> 
                                         <span class="id_input_re_2">아이디가 이미 존재합니다.</span> 
                                         <span class="id_input_re_3">(영문,숫자 5~11글자로만 가능)</span>
@@ -129,7 +130,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
+                                <div class="form-group row" style="padding : 0px 0px 20px 0px">
                                     <label for="member_nickname" class="col-md-4 col-form-label text-md-right">닉네임</label>
                                     <div class="col-md-6">
                                         <input class="form-control nick_input" type="text"name="member_nickname" id="member_nickname"> 
@@ -156,7 +157,7 @@
 										<div class="member_email regex"></div>
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="form-group row" style="padding : 0px 0px 20px 0px">
                                     <label for="permanent_address" class="col-md-4 col-form-label text-md-right">인증번호</label>
                                     <div class="col-md-6 mail_check_wrap">
                                         <!-- <div class="mail_check_input_box" id="mail_check_input_box_false"> -->
@@ -188,24 +189,24 @@
                                     </div>
                                 </div>
                                 
-                                <div class="form-group row">
+                                <div class="form-group row" style="padding : 0px 0px 20px 0px">
                                     <label for="member_name" class="col-md-4 col-form-label text-md-right">상세주소</label>
                                     <div class="col-md-6">
                                         <input class="form-control"type="text" id="detailAddress" placeholder="상세주소" name="member_detailaddress">
                                     </div>
                                 </div>
                                 
-                                <div class="form-group row">
+                                <div class="form-group row" >
                                     <label for="member_name" class="col-md-4 col-form-label text-md-right">약관동의</label>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6"style="padding : 0px 0px 20px 0px">
                                         <input class="btn btn-reg" type="button" id="gotojoinform" value="약관 보기" />
                                         <input type="checkbox" class="req" name="req" id="req" disabled="disabled"> 개인정보 수집 및 이용에 동의합니다.
                                     </div>
                                 </div>
                                 
                                     <div class="col-md-6 offset-md-4" id="signup">
-                                        <input class="btn btn-primary" type="button" name="signup" value="가입하기" id="signupbtn">
-										<input class="btn btn-primary" type="button" value="메인 페이지" onclick="location.href='mainpage'">
+                                        <input class="btn btn-reg" type="button" name="signup" value="가입하기" id="signupbtn">
+										<input class="btn btn-reg" type="button" value="메인 페이지" onclick="location.href='mainpage'">
                                     </div>
                             </form>
                         </div>
@@ -723,4 +724,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </body>
+<%@ include file="../main/footer.jsp"%> 
 </html>

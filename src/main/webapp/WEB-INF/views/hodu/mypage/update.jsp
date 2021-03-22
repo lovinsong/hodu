@@ -33,6 +33,8 @@
 <body>
 <!-- 프로필 변경 포함시켜주는 코드 -->
 <%@ include file="../account/changeProfileImg.jsp"%>
+<!-- 보유 호두 포함시켜주는 코드 -->
+<span id="myhoducount"><%@ include file="../account/myhoducount.jsp"%></span>
 
 <div class="titlebox">																
 	<form action="update" method="POST" id="updateform">
@@ -92,7 +94,7 @@
 	</table> <br><br>
 	
 	
-		<div class="container" >
+		<div class="container" style="border-bottom: 1px solid rgba(222, 222, 222, 0.25); padding-bottom: 20px" >
 			<div class="row row-cols-6" >
 			
 				<div class="col"></div>

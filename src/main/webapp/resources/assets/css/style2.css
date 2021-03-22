@@ -39,11 +39,13 @@ ul, ol, dl, li {
 
 .btn {
 	border-radius: 0px;
+	background-color: #f1f1f1;
+	color: black;
 }
 
 /*=========헤더=========*/
 .carousel-control.right, .carousel-control.left {
-	background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0%,
+	background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0%,W
 		rgba(0, 0, 0, 0) 100%)
 }
 

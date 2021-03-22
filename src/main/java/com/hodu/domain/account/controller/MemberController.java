@@ -618,11 +618,15 @@ public class MemberController {
 		service.chargehodu(member);
 		MemberDTO memberdto = service.memberInfo(member.getMember_id());
 		session.setAttribute("member", memberdto);
-		return "/hodu/main/mainpage";
+		return "redirect:/hodu/mypage/mypage#myhoducount";
 	}
 	@GetMapping(value="/hodu/util/paySuccess")
 	public void chargeSuccess() throws Exception{ 
 		//return "/hodu/util/paySuccess";
+	}
+	@GetMapping(value = "/hodu/mypage/chargehodu")
+	public String toChargePage() throws Exception {
+		return "redirect:/hodu/util/chargehodu";
 	}
 	
 	
