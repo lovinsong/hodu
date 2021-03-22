@@ -14,7 +14,6 @@
 <link rel="shortcut icon" href="../image/favicon.ico">
 
 <!-- CSS Libraries -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">	
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets_mypage/assets/css/main.css" />
 
@@ -24,7 +23,8 @@
 <body class="is-preload"  >
 	
 	<!-- Wrapper-->
-	<div id="wrapper" style="margin-right:-50%;" >
+	<div id="wrapper" style="margin:0; margin-left:20%;">
+
 
 		<p>마이 페이지</p>
 
@@ -216,10 +216,7 @@
 	</div>
 
 <!-- Scripts -->
-	<script src="${pageContext.request.contextPath}/resources/assets_mypage/assets/js/jquery.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/assets_mypage/assets/js/browser.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets_mypage/assets/js/breakpoints.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/assets_mypage/assets/js/util.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/assets_mypage/assets/js/main.js"></script>
 
 	<script type="text/javascript">
