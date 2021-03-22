@@ -27,6 +27,9 @@
 .bb{
 	color : black;
 }
+.form-check-label{
+	font-size : 20px;
+}
 </style>
  <%@ include file="../main/header.jsp"%>
 <body>
@@ -38,7 +41,8 @@
 <input type="hidden" name="member_phone"id="member_phone"value="${member.member_phone}">
 
 	<div class="card-group container">
-		<div class="col-3">
+	<div class="col-4"></div>
+		<div class="col-4">
 			<div class="card bg-warning" style="width: 19rem;">
 				<div class="card-header fw-bold border-5" style="text-align: center; background-color : white;">카카오페이</div>
 			  <img src="${pageContext.request.contextPath}/resources/assets/image/kakao.png" class="card-img-top" alt="...">
@@ -71,7 +75,7 @@
 			  </div>
 			</div>
 		</div>
-			
+	<div class="col-4"></div>		
 	</div>
 </form>
 
