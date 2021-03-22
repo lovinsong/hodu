@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div class="titlebox">										
+<div class="titlebox" style="border-bottom: 1px solid rgba(222, 222, 222, 0.25); padding-bottom: 20px">										
 		<table class="table">
 			<tbody class="t-control">
 				<tr>

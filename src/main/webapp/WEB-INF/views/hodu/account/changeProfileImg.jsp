@@ -123,7 +123,7 @@ reader.readAsDataURL(file);
 </style>
 <body>
 
-<div class="titlebox">																
+<div class="titlebox" style="border-bottom: 1px solid rgba(222, 222, 222, 0.25); padding-bottom: 20px">																
 	<form action="changeImg" method="POST" id="changeImgform" enctype="multipart/form-data">
 	<input type="hidden" name="member_id" id="member_id" value="${member.member_id}">
 		<table class="table">

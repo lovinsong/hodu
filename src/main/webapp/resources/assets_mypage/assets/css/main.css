@@ -2357,3 +2357,36 @@ input, select, textarea {
 
 
 
+/*th의 순차적 접근 색상변경 */
+.table-bordered>thead>tr>th {
+	background-color: #f7f7f7;
+	color: #003366;
+	text-align: center;
+}
+
+.tablestyle {
+	text-align: center;
+	border-radius: 12px;
+}
+
+.table-bordered {
+	border: 1px solid rgba(222, 222, 222, 0.55);
+	font-size: 15px;
+}
+
+.table-bordered * {
+	border: 1px solid rgba(222, 222, 222, 0.55);
+}
+
+.table-bordered th {
+	font-weight: bold;
+	padding: 0;
+}
+
+.table-bordered td {
+	padding: 0;
+}
+
+
+
+

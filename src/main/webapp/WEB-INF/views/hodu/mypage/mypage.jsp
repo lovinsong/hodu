@@ -118,7 +118,7 @@
 
 								<hr style="border-color:rgb(199, 199, 199); margin-bottom: 5%;">
 					   
-									<div class="titlebox">																
+									<div class="titlebox" style="border-bottom: 1px solid rgba(222, 222, 222, 0.25);">																
 										<form action="inquiryregistForm" method="post" name="inquiryregistForm" enctype="multipart/form-data">
 											<table class="table">
 												<tbody class="t-control">
@@ -175,7 +175,12 @@
 							</article>
 							
 							<article>
-								<table class="table table-bordered tablestyle">
+								<header style="border-bottom: 1px solid rgba(222, 222, 222, 0.25);">
+									<p> [ 문의내역 ] </p>
+									<br>
+								</header>
+								
+								<table class="table table-bordered tablestyle" >
 									<thead>
 										<tr>
 											<th class="board-title">제목</th>
@@ -184,7 +189,7 @@
 											<th>수정일</th>
 										</tr>
 									</thead>
-									<tbody>
+									<tbody  class="table-bordered">
 										<c:forEach var="myInquiry" items="${myInquiryList }">
 											<tr style = "cursor:pointer;" onClick = "window.open('/project/hodu/board/inquiry/inquiry-detail?inquiry_postnum=${myInquiry.inquiry_postnum }','gi','width = 600, height = 600, top = 100, left = 200, location = no') " 
 											onMouseOver = " window.status = '/project/hodu/board/inquiry/inquiry-detail?inquiry_postnum=${myInquiry.inquiry_postnum }'; style='background-color:#e1e1e1; cursor:pointer;' "
