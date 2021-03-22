@@ -191,8 +191,8 @@
 									</thead>
 									<tbody  class="table-bordered">
 										<c:forEach var="myInquiry" items="${myInquiryList }">
-											<tr style = "cursor:pointer;" onClick = "window.open('/project/hodu/board/inquiry/inquiry-detail?inquiry_postnum=${myInquiry.inquiry_postnum }','gi','width = 600, height = 600, top = 100, left = 200, location = no') " 
-											onMouseOver = " window.status = '/project/hodu/board/inquiry/inquiry-detail?inquiry_postnum=${myInquiry.inquiry_postnum }'; style='background-color:#e1e1e1; cursor:pointer;' "
+											<tr style = "cursor:pointer;" onclick = "inquiryD(${myInquiry.inquiry_postnum});"
+											onMouseOver = "style='background-color:#e1e1e1; cursor:pointer;'"
 											onMouseOut = "style='background-color:white cursor:pointer;'" >
 												<td>${myInquiry.inquiry_title }</td>
 												<td>${myInquiry.inquiry_group }</td>
@@ -241,6 +241,17 @@
 			document.inquiryregistForm.submit();//입력 완료시 서브밋
 		}
 		
+	}
+		
+	function inquiryD(inquiry_postnum) {
+		
+		var popupX = (document.body.offsetWidth / 2) - (600 / 2);
+			var popupY= (document.body.offsetHeight / 5) - (600 / 2);
+
+			var url = "/project/hodu/board/inquiry/inquiry-detail?inquiry_postnum=" + inquiry_postnum;
+			var name = "gi";
+			window.open(url,name,'status=no, height=600, width=620, left='+ popupX + ', top='+ popupY);
+			
 	}
 
 	</script>
