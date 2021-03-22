@@ -56,15 +56,15 @@
 
 					<article id="heart" class="panel">
 
-						<header>
+						<header style="border-bottom: 1px solid rgba(222, 222, 222, 0.25); padding-bottom: 20px">
 							<p>찜 목록</p>
 						</header>
+						
 						<c:forEach var="myHeart" items="${myHeartList }">
-							<div>
-								<a href="/project/hodu/board/item/item-detail?item_code=${myHeart.item_code}"><img src="/project/upload/Thumbnail/${myHeart.item_thumbnailimg}" width=30% alt="" /> ${myHeart.item_title }</a>
+							<div class="heartBox" onclick="location.href='/project/hodu/board/item/item-detail?item_code=${myHeart.item_code}'">
+								<img src="/project/upload/Thumbnail/${myHeart.item_thumbnailimg}" width=15%  /> <p><b><c:out value="${myHeart.item_title }" /></b></p>
 							</div>
 						</c:forEach>
-						
 											
 					</article>
 

@@ -43,12 +43,12 @@
 					</div>
 					
 					<div class="btn_group">
-						<button type="button" class="btn btn-dark"
-							onclick="modify();">수정</button>
-						<button type="button" class="btn btn-dark"
-							onclick="del();">삭제</button>
-						<button type="button" class="btn btn-dark"
-							onclick="location.href='notice-category'">목록</button>
+						<button type="button" class="btn"
+							onclick="modify();" style='background-color: #f1f1f1'>수정</button>
+						<button type="button" class="btn"
+							onclick="del();" style='background-color: #f1f1f1'>삭제</button>
+						<button type="button" class="btn"
+							onclick="location.href='notice-category'" style='background-color: #f1f1f1'>목록</button>
 					</div>
 				</form>
 			</div>

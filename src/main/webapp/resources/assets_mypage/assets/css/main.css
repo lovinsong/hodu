@@ -2330,3 +2330,30 @@ input, select, textarea {
 			}
 
 		}
+		
+
+.heartBox {
+	font-size: 23px; 
+	margin: 40px 0px; 
+	border:  2.5px solid rgba(222, 222, 222, 0.25); 
+	padding: 15px;
+	cursor: pointer;
+}
+
+.heartBox:hover {
+	background: rgba(222, 222, 222, 0.25); 
+}
+
+.heartBox p {
+	display: inline;
+	vertical-align: middle;
+	
+}
+
+.heartBox img {
+	display: inline;
+	vertical-align: middle;
+}
+
+
+
