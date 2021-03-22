@@ -33,6 +33,15 @@
 
 
 /*지우면 안되는 코드*/
+*, ::after, ::before {
+	box-sizing: content-box;
+}
+#signupbtn{
+    background-color:rgba(0,0,0,.03); 
+    color: #5e5e5e; 
+    font-size:20px;
+    border-radius:0px;
+}
 .correct {
 	color: green;
 }
@@ -91,13 +100,13 @@
 <main class="my-form">
     <div class="cotainer">
         <div class="row justify-content-center"><!--  -->
-            <div class="col-md-6">
-                    <div class="card" style="border : none;">
-                        <div class="card-header">회원 가입 정보 입력</div>
-                        <div class="card-body" >
+            <div class="col-md-4">
+                    <div class="card" style="border : none; margin: 100px 0 10px -150px">
+                        <div class="card-header" style="text-align:center; color: #5e5e5e;">회원 정보 입력</div>
+                        <div class="card-body">
                             <form action="join" method="POST" id="signform" name="signform" >
-                                <div class="form-group row" style="padding : 0px 0px 20px 0px">
-                                    <label for="member_id" class="col-md-4 col-form-label text-md-right">아이디</label>
+                                <div class="form-group row">
+                                    <label for="member_id" class="col-md-4 col-form-label ">아이디</label>
                                     <div class="col-md-6">
                                         <input class="form-control id_input" type="text" name="member_id" id="member_id" maxlength="11" > 
                                         <span class="id_input_re_1">사용 가능한 아이디입니다.</span> 
@@ -107,7 +116,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="member_pw" class="col-md-4 col-form-label text-md-right">패스워드</label>
+                                    <label for="member_pw" class="col-md-4 col-form-label ">패스워드</label>
                                     <div class="col-md-6">
                                         <input class="form-control" type="password" name="member_pw" id="member_pw" maxlength="11"><br>
 										<div class="member_pw regex"></div>
@@ -115,7 +124,7 @@
                                 </div>
                                 
                                 <div class="form-group row">
-                                    <label for="repw" class="col-md-4 col-form-label text-md-right">패스워드 확인</label>
+                                    <label for="repw" class="col-md-4 col-form-label">패스워드 확인</label>
                                     <div class="col-md-6">
                                         <input class="form-control" type="password" id="repw" maxlength="11"><br>
 										<div class="repw regex"></div>
@@ -123,15 +132,15 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="member_name" class="col-md-4 col-form-label text-md-right">이름</label>
+                                    <label for="member_name" class="col-md-4 col-form-label ">이름</label>
                                     <div class="col-md-6">
                                         <input class="form-control" type="text" name="member_name"id="member_name"><br>
 										<div class="member_name regex"></div>
                                     </div>
                                 </div>
 
-                                <div class="form-group row" style="padding : 0px 0px 20px 0px">
-                                    <label for="member_nickname" class="col-md-4 col-form-label text-md-right">닉네임</label>
+                                <div class="form-group row">
+                                    <label for="member_nickname" class="col-md-4 col-form-label ">닉네임</label>
                                     <div class="col-md-6">
                                         <input class="form-control nick_input" type="text"name="member_nickname" id="member_nickname"> 
                                         <span class="nick_input_re_1">사용 가능한 닉네임입니다.</span> 
@@ -141,7 +150,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="present_address" class="col-md-4 col-form-label text-md-right">전화번호</label>
+                                    <label for="present_address" class="col-md-4 col-form-label ">전화번호</label>
                                     <div class="col-md-6">
                                         <input class="form-control phone_input" type="text" name="member_phone" id="member_phone" placeholder="- 과 공백 없이 입력" maxlength="11"><br>
 										<div class="member_phone regex"></div>
@@ -151,14 +160,14 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="permanent_address" class="col-md-4 col-form-label text-md-right">이메일</label>
+                                    <label for="permanent_address" class="col-md-4 col-form-label ">이메일</label>
                                     <div class="col-md-6 mail_input_box">
                                         <input class="form-control mail_input" name="member_email" id="member_email" readonly="readonly">
 										<div class="member_email regex"></div>
                                     </div>
                                 </div>
-                                <div class="form-group row" style="padding : 0px 0px 20px 0px">
-                                    <label for="permanent_address" class="col-md-4 col-form-label text-md-right">인증번호</label>
+                                <div class="form-group row">
+                                    <label for="permanent_address" class="col-md-4 col-form-label ">인증번호</label>
                                     <div class="col-md-6 mail_check_wrap">
                                         <!-- <div class="mail_check_input_box" id="mail_check_input_box_false"> -->
 											<input class="form-control mail_check_input" id="confirmnum" style="width:40%;display: inline;" disabled="disabled">
@@ -174,7 +183,7 @@
                 
                 
                 				<div class="form-group row">
-                                    <label for="member_name" class="col-md-4 col-form-label text-md-right">우편번호</label>
+                                    <label for="member_name" class="col-md-4 col-form-label ">우편번호</label>
                                     <div class="col-md-6">
                                         <input class="form-control"type="text" id="postcode"placeholder="우편번호" name="member_postcode" 
                                         		style="width:40%;display: inline;" readonly> 
@@ -183,30 +192,32 @@
                                 </div>
                                 
                                 <div class="form-group row">
-                                    <label for="member_name" class="col-md-4 col-form-label text-md-right">주소</label>
+                                    <label for="member_name" class="col-md-4 col-form-label ">주소</label>
                                     <div class="col-md-6">
                                         <input class="form-control" type="text" id="roadAddress" placeholder="도로명주소" name="member_address" readonly>
                                     </div>
                                 </div>
                                 
-                                <div class="form-group row" style="padding : 0px 0px 20px 0px">
-                                    <label for="member_name" class="col-md-4 col-form-label text-md-right">상세주소</label>
+                                <div class="form-group row">
+                                    <label for="member_name" class="col-md-4 col-form-label ">상세주소</label>
                                     <div class="col-md-6">
                                         <input class="form-control"type="text" id="detailAddress" placeholder="상세주소" name="member_detailaddress">
                                     </div>
                                 </div>
                                 
                                 <div class="form-group row" >
-                                    <label for="member_name" class="col-md-4 col-form-label text-md-right">약관동의</label>
-                                    <div class="col-md-6"style="padding : 0px 0px 20px 0px">
-                                        <input class="btn btn-reg" type="button" id="gotojoinform" value="약관 보기" />
-                                        <input type="checkbox" class="req" name="req" id="req" disabled="disabled"> 개인정보 수집 및 이용에 동의합니다.
+                                    <label for="member_name" class="col-md-4 col-form-label ">약관동의</label>
+                                    <div class="col-md-6">
+                                        <input class="btn btn-reg" type="button" id="gotojoinform" value="약관 보기" style="margin:0px 10px 0px 0px;"/>
+                                        <input type="checkbox" class="req" name="req" id="req" disabled="disabled">  개인정보 수집 및 이용에 동의합니다.
                                     </div>
                                 </div>
+                                <div>
+                                <br><br>
+                                </div>
                                 
-                                    <div class="col-md-6 offset-md-4" id="signup">
-                                        <input class="btn btn-reg" type="button" name="signup" value="가입하기" id="signupbtn">
-										<input class="btn btn-reg" type="button" value="메인 페이지" onclick="location.href='mainpage'">
+                                    <div class="col-md-6 offset-md-3" id="signup" style="text-align:center;">
+                                        <input class="btn btn-reg" type="button" name="signup" value="가입하기" id="signupbtn"> 
                                     </div>
                             </form>
                         </div>

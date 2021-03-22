@@ -3842,8 +3842,10 @@ input, select, textarea {
 
 		}
 
-  
-/* 호두 로고 사진 */
+/* 로그인 페이지 */
+#login_main {
+	margin: 500px;
+}
 
 
 
