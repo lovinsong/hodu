@@ -24,7 +24,7 @@
 <body class="is-preload"  >
 	
 	<!-- Wrapper-->
-	<div id="wrapper" style="margin-right:-2%;" >
+	<div id="wrapper" style="margin-right:-50%;" >
 
 		<p>마이 페이지</p>
 

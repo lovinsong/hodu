@@ -28,7 +28,9 @@
    display:none;
 }
 
-
+td {
+font-size:16px;
+}
 </style>
 <body>
 <!-- 프로필 변경 포함시켜주는 코드 -->

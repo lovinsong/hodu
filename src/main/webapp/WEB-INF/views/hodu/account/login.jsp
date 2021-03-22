@@ -120,7 +120,8 @@ body {
 
 
 .main {
-    padding: 0px 10px;
+    padding: 50px; 
+    /* 0px 10px; */
 }
 
 @media screen and (max-height: 450px) {
@@ -190,14 +191,15 @@ body {
 	clear: both;
 }
 </style>
+<%@ include file="../main/header.jsp"%>
 <body>
 
-<div class="sidenav">
+<!-- <div class="sidenav">
          <div class="login-main-text">
             <h2>HODU<br> Login Page</h2>
             <p>Login or find your information here to access.</p>
          </div>
-</div>
+</div> -->
 <div class="main">
    <div class="col-md-6 col-sm-12">
       <div class="login-form">
@@ -215,11 +217,12 @@ body {
 						<div class="login_warn">사용자 ID 또는 비밀번호를 잘못 입력하셨습니다.</div><br>
 			</c:if>
             
-            
+            <div style="text-align:center;">
 			<input type="button" class="btn btn-black login_button" value="로그인">
 			<input type="button" class="btn btn-secondary" onclick="location.href='findid'" value="아이디 찾기">
 			<input type="button" class="btn btn-secondary" onclick="location.href='findpass'" value="비밀번호 찾기">
-			<input type="button" class="btn btn-black" onclick="location.href='../main/mainpage'" value="Home">
+			<!-- <input type="button" class="btn btn-black" onclick="location.href='../main/mainpage'" value="Home"> -->
+			</div>
          </form>
       </div>
    </div>
@@ -279,5 +282,6 @@ body {
 
 
 </body>
+<%@ include file="../main/footer.jsp"%> 
 </html>
 
