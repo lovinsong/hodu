@@ -144,7 +144,7 @@ reader.readAsDataURL(file);
 					<td class="t-title"><strong>프로필 사진 등록</strong></td>
 					<td>
 						<img src="" id="output">
-						<input type="file" name="member_imgM" id="imageFile" >
+						<input type="file" name="member_imgM" id="imageFile" onchange="chk_file_type(this)" accept="image/*">
 						<input type="button" value="Resize Image" id="resize" onclick="ResizeImage()"/>
 					</td>
 				</tr>
@@ -250,6 +250,41 @@ $("#mentorbtn").on("click", function() {
 	alert("멘토 가입 완료!");
 	$("#mentorform").submit();
 })
+
+function chk_file_type(obj) {
+
+        	var file_kind = obj.value.lastIndexOf('.');
+
+        	var file_name = obj.value.substring(file_kind+1,obj.length);
+
+        	var file_type = file_name.toLowerCase();
+
+
+        	check_file_type=['jpg','gif','png','jpeg','bmp','tif'];
+
+
+
+        	if(check_file_type.indexOf(file_type)==-1) {
+
+        		alert('이미지 파일만 업로드 해주세요');
+
+        		var parent_Obj=obj.parentNode;
+
+        		var node=parent_Obj.replaceChild(obj.cloneNode(true),obj);
+
+
+
+        		document.getElementById(obj.getAttribute('id')).value = "";    //초기화를 위한 추가 코드
+
+        		document.getElementById(obj.getAttribute('id')).select();        //초기화를 위한 추가 코드
+
+        		document.execCommand('Delete');                                                //일부 브라우저 미지원
+
+        		return false;
+
+        	}
+
+        }
 
 
 </script>
