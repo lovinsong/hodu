@@ -125,7 +125,7 @@
 													<tr style="display:none"><input style="display:none" name = "member_id" value="${member.member_id}"></tr>
 													<tr>
 														<td class="t-title"><strong>첨부파일</strong></td>
-														<td><input type="file" value="파일 선택" name="inquiry_imgs" style="font-size: 15px;"/></td>
+														<td><input type="file" value="파일 선택" name="inquiry_imgs" id = "inquiry_imgs" onchange="chk_file_type(this)" style="font-size: 15px;" accept="image/*"/></td>
 													</tr>	                            
 													<tr>
 														<td class="t-title"><strong>제목</strong></td>
@@ -250,6 +250,41 @@
 			window.open(url,name,'status=no, height=600, width=620, left='+ popupX + ', top='+ popupY);
 			
 	}
+	
+	 function chk_file_type(obj) {
+
+     	var file_kind = obj.value.lastIndexOf('.');
+
+     	var file_name = obj.value.substring(file_kind+1,obj.length);
+
+     	var file_type = file_name.toLowerCase();
+
+
+     	check_file_type=['jpg','gif','png','jpeg','bmp','tif'];
+
+
+
+     	if(check_file_type.indexOf(file_type)==-1) {
+
+     		alert('이미지 파일만 업로드 해주세요');
+
+     		var parent_Obj=obj.parentNode;
+
+     		var node=parent_Obj.replaceChild(obj.cloneNode(true),obj);
+
+
+
+     		document.getElementById(obj.getAttribute('id')).value = "";    //초기화를 위한 추가 코드
+
+     		document.getElementById(obj.getAttribute('id')).select();        //초기화를 위한 추가 코드
+
+     		document.execCommand('Delete');                                                //일부 브라우저 미지원
+
+     		return false;
+
+     	}
+
+     }
 
 	</script>
 <%@ include file="/WEB-INF/views/hodu/main/footer.jsp"%>

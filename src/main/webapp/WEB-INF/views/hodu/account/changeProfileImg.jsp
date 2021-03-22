@@ -132,7 +132,7 @@ reader.readAsDataURL(file);
 					
 					<td style="text-align:center; margin-left: -50px; font-size:15px;">
 						<img src="/project/upload/member/${member.member_img}" onerror="this.style.display='none'" style="width: 200px;height: auto; border-radius:50%; opacity:0.95;"><br><br>
-						사진 업로드하기: &emsp;<input type="file" name="member_imgM" id="imageFile" style="font-size: 15px; margin-bottom:0;">
+						사진 업로드하기: &emsp;<input type="file" name="member_imgM" id="imageFile" style="font-size: 15px; margin-bottom:0;" onchange="chk_file_type(this)" accept="image/*">
 					   <input type="button" value="Resize Image" id="resize" onclick="ResizeImage()"/>
 					
 					</td>
@@ -214,6 +214,41 @@ $("#changeImgbtn").on("click", function() {
 	alert("사진 변경 완료!");
 	$("#changeImgform").submit();
 })
+
+ function chk_file_type(obj) {
+
+     	var file_kind = obj.value.lastIndexOf('.');
+
+     	var file_name = obj.value.substring(file_kind+1,obj.length);
+
+     	var file_type = file_name.toLowerCase();
+
+
+     	check_file_type=['jpg','gif','png','jpeg','bmp','tif'];
+
+
+
+     	if(check_file_type.indexOf(file_type)==-1) {
+
+     		alert('이미지 파일만 업로드 해주세요');
+
+     		var parent_Obj=obj.parentNode;
+
+     		var node=parent_Obj.replaceChild(obj.cloneNode(true),obj);
+
+
+
+     		document.getElementById(obj.getAttribute('id')).value = "";    //초기화를 위한 추가 코드
+
+     		document.getElementById(obj.getAttribute('id')).select();        //초기화를 위한 추가 코드
+
+     		document.execCommand('Delete');                                                //일부 브라우저 미지원
+
+     		return false;
+
+     	}
+
+     }
 
 
 </script>
