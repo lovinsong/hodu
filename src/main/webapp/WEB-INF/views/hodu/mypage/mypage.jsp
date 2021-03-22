@@ -56,15 +56,15 @@
 
 					<article id="heart" class="panel">
 
-						<header>
+						<header style="border-bottom: 1px solid rgba(222, 222, 222, 0.25); padding-bottom: 20px">
 							<p>찜 목록</p>
 						</header>
+						
 						<c:forEach var="myHeart" items="${myHeartList }">
-							<div>
-								<a href="/project/hodu/board/item/item-detail?item_code=${myHeart.item_code}"><img src="/project/upload/Thumbnail/${myHeart.item_thumbnailimg}" width=30% alt="" /> ${myHeart.item_title }</a>
+							<div class="heartBox" onclick="location.href='/project/hodu/board/item/item-detail?item_code=${myHeart.item_code}'">
+								<img src="/project/upload/Thumbnail/${myHeart.item_thumbnailimg}" width=15%  /> <p><b><c:out value="${myHeart.item_title }" /></b></p>
 							</div>
 						</c:forEach>
-						
 											
 					</article>
 
@@ -118,7 +118,7 @@
 
 								<hr style="border-color:rgb(199, 199, 199); margin-bottom: 5%;">
 					   
-									<div class="titlebox">																
+									<div class="titlebox" style="border-bottom: 1px solid rgba(222, 222, 222, 0.25);">																
 										<form action="inquiryregistForm" method="post" name="inquiryregistForm" enctype="multipart/form-data">
 											<table class="table">
 												<tbody class="t-control">
@@ -175,7 +175,12 @@
 							</article>
 							
 							<article>
-								<table class="table table-bordered tablestyle">
+								<header style="border-bottom: 1px solid rgba(222, 222, 222, 0.25);">
+									<p> [ 문의내역 ] </p>
+									<br>
+								</header>
+								
+								<table class="table table-bordered tablestyle" >
 									<thead>
 										<tr>
 											<th class="board-title">제목</th>
@@ -184,10 +189,10 @@
 											<th>수정일</th>
 										</tr>
 									</thead>
-									<tbody>
+									<tbody  class="table-bordered">
 										<c:forEach var="myInquiry" items="${myInquiryList }">
-											<tr style = "cursor:pointer;" onClick = "window.open('/project/hodu/board/inquiry/inquiry-detail?inquiry_postnum=${myInquiry.inquiry_postnum }','gi','width = 600, height = 600, top = 100, left = 200, location = no') " 
-											onMouseOver = " window.status = '/project/hodu/board/inquiry/inquiry-detail?inquiry_postnum=${myInquiry.inquiry_postnum }'; style='background-color:#e1e1e1; cursor:pointer;' "
+											<tr style = "cursor:pointer;" onclick = "inquiryD(${myInquiry.inquiry_postnum});"
+											onMouseOver = "style='background-color:#e1e1e1; cursor:pointer;'"
 											onMouseOut = "style='background-color:white cursor:pointer;'" >
 												<td>${myInquiry.inquiry_title }</td>
 												<td>${myInquiry.inquiry_group }</td>
@@ -236,6 +241,17 @@
 			document.inquiryregistForm.submit();//입력 완료시 서브밋
 		}
 		
+	}
+		
+	function inquiryD(inquiry_postnum) {
+		
+		var popupX = (document.body.offsetWidth / 2) - (600 / 2);
+			var popupY= (document.body.offsetHeight / 5) - (600 / 2);
+
+			var url = "/project/hodu/board/inquiry/inquiry-detail?inquiry_postnum=" + inquiry_postnum;
+			var name = "gi";
+			window.open(url,name,'status=no, height=600, width=620, left='+ popupX + ', top='+ popupY);
+			
 	}
 
 	</script>

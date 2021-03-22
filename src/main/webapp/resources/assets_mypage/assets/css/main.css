@@ -2010,6 +2010,10 @@ input, select, textarea {
 
 /* Wrapper */
 
+.is-preload {
+	text-align: center;
+}
+
 	#wrapper {
 		width: 45em;
 		margin: 0 auto;
