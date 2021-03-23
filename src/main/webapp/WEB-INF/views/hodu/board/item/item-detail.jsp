@@ -290,7 +290,7 @@
 								<div class="templatemo-content">
 									<div class="sidenav">
 
-										<h2>클래스 일정</h2>
+										<h5 style="font-weight: bold; font-size:20px;">클래스 일정</h5>
 										<br>
 
 

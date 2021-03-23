@@ -70,15 +70,15 @@ img {  vertical-align: middle; }
     width: 460px;
     position: fixed;
     z-index: 1;
-    top: 380px;
+    top: 370px;
     right: 250px;
     overflow-x: hidden;
     border-radius: 10px;
     border: 1px solid;
     border-style: thin;
     border-color: #faf6f0;
-    padding-bottom: 60px;
-    padding-top: 35px;
+    padding-bottom: 30px;
+    padding-top: 30px;
     box-shadow: 0px 0px 2px 2px #faf6f0;
   }
 
@@ -93,7 +93,7 @@ img {  vertical-align: middle; }
 
 .schedule {
     width: 320px;
-    height: 360px;
+    height: 250px;
     overflow: auto;
     text-align: left;
     margin-left: 15%;
