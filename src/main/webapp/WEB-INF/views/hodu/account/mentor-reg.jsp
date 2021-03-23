@@ -6,23 +6,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<script src="https://code.jquery.com/jquery-3.4.1.js"
-	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-	crossorigin="anonymous">
-</script>
-<!-- CSS Libraries -->
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-	crossorigin="anonymous"></script>
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-	integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
-	crossorigin="anonymous">
+<title>호두 : 생활 서비스 멘토 매칭</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/assets_mypage/assets/css/main.css" />
+<!-- CSS Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets_mypage/assets/css/main.css" />
 
 <script>
 var isPhoto = 0;
@@ -132,9 +122,10 @@ reader.readAsDataURL(file);
 </script>
 </head>
 <style>
-#resize {
+#resize, #header_hr {
 	display: none;
 }
+
 </style>
 
 <body>
@@ -144,16 +135,19 @@ reader.readAsDataURL(file);
 		<div class="p-4"></div>
 		<form action="mentor-registing" method="post" id="mentorform"
 			enctype="multipart/form-data">
-			<div class="row" style="font-size: 30px">
-				<div class="col-12" >
-					<h3 style="text-align: center; border-bottom: 1px solid rgba(222, 222, 222, 0.25); padding-bottom: 30px">멘토 등록&nbsp;&nbsp;✔</h3>
+			<div class="row" style="font-size: 15px">
+				<div class="col-4" >
 				</div>
-
+				<div class="col-3" >
+					<h3 style="font-size: 20px; text-align: center; border-bottom: 1px solid rgba(222, 222, 222, 0.25); padding-bottom: 30px">멘토 등록&nbsp;&nbsp;✔</h3>
+				</div>
+				<div class="col-5" >
+				</div>
 				<div style="text-align: center"><img style="border-radius: 80px" src="" id="output"> </div>
 				<div class="col-3" ></div>
 				<div class="col-2">사진 등록</div>
 				<div class="col-6" style="padding-top:33px">
-					<input
+					<input style="font-size: 15px; vertical-align: middle; margin-bottom: 40px;"
 						type="file" name="member_imgM" id="imageFile"
 						onchange="chk_file_type(this)" accept="image/*">
 				</div>
@@ -199,7 +193,7 @@ reader.readAsDataURL(file);
 					<input type="file"name="member_imgM" id="imageFile" onchange="chk_file_type(this)"
 						accept="image/*">
 					 -->
-					<input
+					<input style="font-size: 15px; vertical-align: middle; margin-bottom: 40px;"
 						class="btn btn-reg" type="button" id="gotojoinform"
 						value="약관에 동의합니다" /> <input class="form-check-input req"
 						type="checkbox" id="req" name="req" disabled="disabled">
