@@ -163,10 +163,9 @@ input, select, textarea {
 	}
 	
 	#header_hr {
-		display:none;
-		margin-bottom: -50px;
+		display: none;
 	}
-
+	
 	blockquote {
 		border-left: solid 0.5em #eee;
 		padding: 1em 0 1em 2em;
