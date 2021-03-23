@@ -135,6 +135,7 @@ reader.readAsDataURL(file);
 #resize {
 	display: none;
 }
+
 </style>
 
 <body>
@@ -144,16 +145,19 @@ reader.readAsDataURL(file);
 		<div class="p-4"></div>
 		<form action="mentor-registing" method="post" id="mentorform"
 			enctype="multipart/form-data">
-			<div class="row" style="font-size: 30px">
-				<div class="col-12" >
-					<h3 style="text-align: center; border-bottom: 1px solid rgba(222, 222, 222, 0.25); padding-bottom: 30px">멘토 등록&nbsp;&nbsp;✔</h3>
+			<div class="row" style="font-size: 15px">
+				<div class="col-4" >
 				</div>
-
+				<div class="col-3" >
+					<h3 style="font-size: 20px; text-align: center; border-bottom: 1px solid rgba(222, 222, 222, 0.25); padding-bottom: 30px">멘토 등록&nbsp;&nbsp;✔</h3>
+				</div>
+				<div class="col-5" >
+				</div>
 				<div style="text-align: center"><img style="border-radius: 80px" src="" id="output"> </div>
 				<div class="col-3" ></div>
 				<div class="col-2">사진 등록</div>
 				<div class="col-6" style="padding-top:33px">
-					<input
+					<input style="font-size: 15px; vertical-align: middle; margin-bottom: 40px;"
 						type="file" name="member_imgM" id="imageFile"
 						onchange="chk_file_type(this)" accept="image/*">
 				</div>
@@ -199,7 +203,7 @@ reader.readAsDataURL(file);
 					<input type="file"name="member_imgM" id="imageFile" onchange="chk_file_type(this)"
 						accept="image/*">
 					 -->
-					<input
+					<input style="font-size: 15px; vertical-align: middle; margin-bottom: 40px;"
 						class="btn btn-reg" type="button" id="gotojoinform"
 						value="약관에 동의합니다" /> <input class="form-check-input req"
 						type="checkbox" id="req" name="req" disabled="disabled">
