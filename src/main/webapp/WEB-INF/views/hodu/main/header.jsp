@@ -45,7 +45,6 @@
 		<nav id="menu" class="main-nav" role="navigation">
 			<ul class="main-menu">
 				<li><a href="${pageContext.request.contextPath}/hodu/board/item/item-category">클래스 찾기</a></li>
-				<li><a href="${pageContext.request.contextPath}/hodu/account/mentor-reg">멘토 가입</a></li>
 				<li><a href="${pageContext.request.contextPath}/hodu/account/login">로그인</a></li>
 				<li><a href="${pageContext.request.contextPath}/hodu/account/join">회원가입</a></li>
 			</ul>
@@ -71,8 +70,8 @@
 
 				<li class="has-submenu">
 				
-					<!-- 프로필 이미지 & 회원 이름 -->
-					<img id="profile_img" onerror="this.style.display='none'" src="/project/upload/member/${member.member_img}"> <a href="#" id="member_name">${member.member_name } 회원님</a>
+					<!-- 프로필 이미지 & 회원 이름 --><!--이미지 엑박 안뜨게 하는코드: onerror="this.style.display='none'" -->
+					<img id="profile_img" src="/project/upload/member/${member.member_img}" onerror="this.src='${pageContext.request.contextPath}/resources/assets/image/profile_default.png';"> <a href="#" id="member_name">${member.member_name } 회원님</a>
 
 
 						<!-- 프로필 터치 시 나오는 메뉴 -->
