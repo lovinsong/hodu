@@ -110,15 +110,6 @@ input, select, textarea {
 		line-height: 2.25em;
 	}
 
-	a {
-		color: #0090c5;
-		text-decoration: underline;
-	}
-
-		a:hover {
-			text-decoration: none;
-		}
-
 	h1, h2, h3, h4, h5, h6 {
 		color: #444;
 		font-weight: 800;
@@ -169,6 +160,11 @@ input, select, textarea {
 	hr {
 		border: 0;
 		border-top: solid 1px #eee;
+	}
+	
+	#header_hr {
+		display:none;
+		margin-bottom: -50px;
 	}
 
 	blockquote {
@@ -2028,7 +2024,9 @@ input, select, textarea {
 /* Wrappers */
 
 	#header-wrapper {
-		padding: 4.5em 0 4em 5em;
+	    font-family: '나눔고딕';
+		padding-bottom: 50px;
+		padding-left: 40px;
 	}
 
 	#features-wrapper {

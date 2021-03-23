@@ -14,11 +14,9 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" >
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">		
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets/css/hodu.css" />
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	
-		
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">			
 		<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/assets/image/favicon.ico">
 
-		
 	</head>
 	<body class="is-preload homepage">
 	

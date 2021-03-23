@@ -65,10 +65,12 @@
 		</ul>
 	</nav>
 
-		<nav id="menu" class="main-nav" role="navigation">
+		<nav id="menu">
+		
 			<ul class="main-menu">
 
 				<li class="has-submenu" id="header_my">
+				
 					<img id="profile_img" onerror="this.style.display='none'" src="/project/upload/member/${member.member_img}"> 
 					<a href="#" id="member_name">${member.member_name } 회원님</a>
 
@@ -102,8 +104,7 @@
 
 	</header>
 
-<hr id="header_hr">
-
+<hr id="header_hr" style="width: 100%;">
 
 </body>
 
