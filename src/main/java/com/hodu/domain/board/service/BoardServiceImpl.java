@@ -34,7 +34,7 @@ public class BoardServiceImpl implements BoardService {
 		ItemSelectDTO itemSelect = new ItemSelectDTO();
 		SimpleDateFormat date = new SimpleDateFormat("yyyy/mm/dd/HH:mm");
 
-		item.setItem_thumbnailimg(Upload.uploadIMG(item.getItem_thumbnailimgA(), "C:\\Users\\Public\\upload\\Thumbnail\\"));
+		item.setItem_thumbnailimg(Upload.uploadIMG(item.getItem_thumbnailimgA(), "/home/ubuntu/upload/Thumbnail/"));
 		
 		// 1회차 다회차 판별 후 주입
 		if (item.getDay2().isEmpty()) {
@@ -50,7 +50,7 @@ public class BoardServiceImpl implements BoardService {
 		board_mapper.regItemboard(item);
 		
 		System.out.println(item);
-		images = Upload.uploadIMGS(item.getB_img(), "C:\\Users\\Public\\upload\\images\\", item, "item_board");
+		images = Upload.uploadIMGS(item.getB_img(), "/home/ubuntu/upload/images/", item, "item_board");
 		
 		for (BoardImgDTO image : images) {
 			board_mapper.addBoardImg(image);
@@ -217,7 +217,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void regInquiry(InquiryDTO inquiry) throws Exception {
-		inquiry.setInquiry_img((Upload.uploadIMG(inquiry.getInquiry_imgs(), "C:\\Users\\Public\\upload\\Inquiry\\")));
+		inquiry.setInquiry_img((Upload.uploadIMG(inquiry.getInquiry_imgs(), "/home/ubuntu/upload/Inquiry/")));
 		
 		board_mapper.regInquiry(inquiry);
 		
@@ -253,7 +253,7 @@ public class BoardServiceImpl implements BoardService {
 		ItemSelectDTO itemSelect = new ItemSelectDTO();
 		SimpleDateFormat date = new SimpleDateFormat("yyyy/mm/dd/HH:mm");
 
-		item.setItem_thumbnailimg(Upload.uploadIMG(item.getItem_thumbnailimgA(), "C:\\Users\\Public\\upload\\Thumbnail\\"));
+		item.setItem_thumbnailimg(Upload.uploadIMG(item.getItem_thumbnailimgA(), "/home/ubuntu/upload/Thumbnail/"));
 		
 		// 1회차 다회차 판별 후 주입
 		if (item.getDay2().isEmpty()) {
@@ -268,7 +268,7 @@ public class BoardServiceImpl implements BoardService {
 		// 글 등록 -> 하면서 item_code 받아옴
 		board_mapper.modifyItem(item);
 		
-		images = Upload.uploadIMGS(item.getB_img(), "C:\\Users\\Public\\upload\\images\\", item, "item_board");
+		images = Upload.uploadIMGS(item.getB_img(), "/home/ubuntu/upload/images/", item, "item_board");
 		
 		for (BoardImgDTO image : images) {
 			board_mapper.addBoardImg(image);
