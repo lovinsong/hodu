@@ -172,7 +172,7 @@
 					
 
 				
-				<hr>
+				<hr style="width: 100%">
 
 			<!-- Features -->
 				<div id="features-wrapper">

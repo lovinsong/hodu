@@ -38,31 +38,12 @@ p {
 	margin: 20px;
 }
 
-#header_my {
-	margin-top: 0px;
-	text-align: center;
+.sub-menu li {
+    display: inline-block;
+    line-height: 20px;
+    margin-left: 15px;
+    position: relative;
 }
-
-#header_my_sub {
-	padding: 5px;
-	background-color: #f7f7f7;
-	width: 100%;
-	height: 180%;
-	font-size: 12px;
-	padding-right: 80px;
-}
-
-#header_my_sub li {
-	border-bottom: 1px solid white;
-	margin-bottom:15px;
-	width: 300px;
-}
-
-#header_my_sub li > a {
-	background-color: #faf6f0;
-	width: 100%;
-}
-
 
 @media screen and (max-width: 950px) {
   a.menu-link {
@@ -195,9 +176,24 @@ p {
       letter-spacing: 0.5px;
       color: #696969;
   }
+ 
+  .main-menu li a:first-child {
+  	  padding-top: 10px;
+  } 
+  
+    .main-menu li:hover {
+      color: black; 
+      font-weight: bold;   
+    }
+  
   
   .sub-menu {
 	  border-style:none;
+	  background-color: white;
+  }
+  
+  .sub-menu:hover {
+      color: black;
   }
   
   .main-menu li.has-submenu a:after {
@@ -212,7 +208,6 @@ p {
   
   .main-menu li .sub-menu {
       position: absolute;
-      width: 50px;
       opacity: 0;
       visibility: none;
       transition: all 0.5s;
@@ -229,29 +224,17 @@ p {
       border-bottom: 1px solid #eee;      
   }
   
-  .main-menu li .sub-menu li:first-child {
-
-  }
-  
-  .main-menu li .sub-menu li:last-child {
-      margin-bottom: 0px;
-      border-bottom: none;
-  }
-  
   .main-menu li .sub-menu li a {
-      font-weight: 500;
       letter-spacing: 0.5px;
-      padding: 10px;
       transition: all 0.5s;
       font-size: 15px;
-      font-weight: bold;
       width: 150%;
   }
   
-  .main-menu li .sub-menu li a:hover {
+  .main-menu li:hover {
       color: #696969;
       border: none;
-      background-color: #f7f7f7;
+      cursor: pointer;
   }
   
   .main-nav li:hover a {
@@ -346,5 +329,36 @@ p {
   }
 }
 
+#profile_menu {
+	font-family: '나눔고딕';
+	vertical-align: middle;
+	margin-left: 15px;
+	width: 240px;
+	border: 1px solid;
+	border-color: #f7f7f7;
+	box-shadow: 0px 0px 1px 1px #f7f7f7;
+	background-color: white;
+	z-index: 1;
+	border-radius: 5px;
+}
+
+#profile_menu > * {
+	width: 240px;
+	vertical-align: middle;
+	border-style:none;
+	height: 20px;
+}
+
+#profile_menu > li:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.main-menu #profile_menu {
+    line-height: 50px;
+    margin-left: 15px;
+    background-color: white;
+    font-size: 13px;
+}
 
  

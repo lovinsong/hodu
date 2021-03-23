@@ -69,31 +69,27 @@
 		
 			<ul class="main-menu">
 
-				<li class="has-submenu" id="header_my">
+				<li class="has-submenu">
 				
-					<img id="profile_img" onerror="this.style.display='none'" src="/project/upload/member/${member.member_img}"> 
-					<a href="#" id="member_name">${member.member_name } 회원님</a>
+					<!-- 프로필 이미지 & 회원 이름 -->
+					<img id="profile_img" onerror="this.style.display='none'" src="/project/upload/member/${member.member_img}"> <a href="#" id="member_name">${member.member_name } 회원님</a>
 
-					<ul class="sub-menu" id="header_my_sub">
 
-						<li><a href="${pageContext.request.contextPath}/hodu/util/chargehodu">보유 호두 : <fmt:formatNumber value="${member.member_cash }" pattern="#,###.## 호두" /> </a></li>
-						
-						<c:choose>
-							<c:when test="${member.hodu_manager eq 'Y'}">
-								<li><a href="${pageContext.request.contextPath}/hodu/mypage/managerpage" class="list_mypage">관리자 페이지</a></li>
-							</c:when>
-							<c:otherwise>
-								<li><a href="${pageContext.request.contextPath}/hodu/mypage/mypage" class="list_mypage">마이페이지</a></li>
-							</c:otherwise>
-						</c:choose>
-						
-						<c:if test="${member.mentor_enable eq 'N'}">
-							<li id="list_mentor"><a href="${pageContext.request.contextPath}/hodu/account/mentor-reg">멘토 가입하기</a></li>
-						</c:if>
-						
-						<li id="list_logout"><a href="${pageContext.request.contextPath}/hodu/account/logout">로그아웃</a></li>
-
-					</ul>
+						<!-- 프로필 터치 시 나오는 메뉴 -->
+						<ul class="sub-menu" id="profile_menu">
+	
+							<li><a href="${pageContext.request.contextPath}/hodu/util/chargehodu">보유 호두 : <fmt:formatNumber value="${member.member_cash }" pattern="#,###.## 호두" /> </a></li>
+							
+							<c:choose>
+								<c:when test="${member.hodu_manager eq 'Y'}"> <li><a href="${pageContext.request.contextPath}/hodu/mypage/managerpage" class="list_mypage">관리자 페이지</a></li> </c:when>
+								<c:otherwise> <li><a href="${pageContext.request.contextPath}/hodu/mypage/mypage" class="list_mypage">마이페이지</a></li> </c:otherwise>
+							</c:choose>
+							
+							<c:if test="${member.mentor_enable eq 'N'}"> <li id="list_mentor"><a href="${pageContext.request.contextPath}/hodu/account/mentor-reg">멘토 가입하기</a></li> </c:if>
+							
+							<li id="list_logout"><a href="${pageContext.request.contextPath}/hodu/account/logout">로그아웃</a></li>
+	
+						</ul>
 				</li>
 				
 			</ul>
