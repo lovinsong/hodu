@@ -2544,11 +2544,11 @@ input, select, textarea {
 			border-color: #e6e6e6;
 			border-radius: 10px;
 			width: 90px;
-		    background-image: -moz-linear-gradient(90deg, #d6c7a8, #dac1be, #d6d1b7);
-		    background-image: -webkit-linear-gradient(90deg, #d6c7a8, #dac1be, #d6d1b7);
-		    background-image: -ms-linear-gradient(90deg, #d6c7a8, #dac1be, #d6d1b7);
-		    background-image: linear-gradient(90deg, #d6c7a8, #dac1be, #d6d1b7);
-			opacity: 0.9;
+		    background-image: -moz-linear-gradient(90deg, #d6c7a8, #ebe6dd, #d1cdc5);
+		    background-image: -webkit-linear-gradient(90deg, #d6c7a8, #ebe6dd, #d1cdc5);
+		    background-image: -ms-linear-gradient(90deg, #d6c7a8, #ebe6dd, #d1cdc5);
+		    background-image: linear-gradient(90deg, #d6c7a8, #ebe6dd, #d1cdc5);
+			opacity: 0.8;
 			color: white;
 		}
 
