@@ -18,7 +18,7 @@ public class Upload {
 		// 난수와 원본이름을 합쳐 저장할 이름을 결정
 		String storedImgName = UUID.randomUUID().toString() + img.getOriginalFilename();
 		
-		File f1 = new File(path + "\\" + storedImgName);
+		File f1 = new File(path + storedImgName);
 		
 		
 		try {
@@ -52,7 +52,7 @@ public class Upload {
 			
 			storedImgNames[i++] = idto;
 			
-			File f1 = new File(path + "\\" + storedImgName);
+			File f1 = new File(path + storedImgName);
 			
 			
 			try {
