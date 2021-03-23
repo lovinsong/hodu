@@ -144,16 +144,16 @@ reader.readAsDataURL(file);
 		<div class="p-4"></div>
 		<form action="mentor-registing" method="post" id="mentorform"
 			enctype="multipart/form-data">
-			<div class="row">
-				<div class="col-12">
-					<h3 style="text-align: center;">멘토 가입&nbsp;&nbsp;✔</h3>
+			<div class="row" style="font-size: 30px">
+				<div class="col-12" >
+					<h3 style="text-align: center; border-bottom: 1px solid rgba(222, 222, 222, 0.25); padding-bottom: 30px">멘토 등록&nbsp;&nbsp;✔</h3>
 				</div>
-				<div class="p-4"></div>
 
-				<div class="col-3"></div>
+				<div style="text-align: center"><img style="border-radius: 80px" src="" id="output"> </div>
+				<div class="col-3" ></div>
 				<div class="col-2">사진 등록</div>
-				<div class="col-6">
-					<img style="border-radius: 80px" src="" id="output"> <input
+				<div class="col-6" style="padding-top:33px">
+					<input
 						type="file" name="member_imgM" id="imageFile"
 						onchange="chk_file_type(this)" accept="image/*">
 				</div>
@@ -184,14 +184,14 @@ reader.readAsDataURL(file);
 				<div class="col-6">${member.member_email}</div>
 				<div class="col-1"></div>
 
-				<div class="p-4"></div>
+				<div class="p-1"></div>
 				<div class="col-3"></div>
 				<div class="col-2">
 					<input type="hidden" name="member_id" id="member_id"
 						value="${member.member_id}"> <input type="button"
 						value="Resize Image" id="resize" onclick="ResizeImage()" />
 
-					<h3>약관 동의</h3>
+					<p>약관 동의</p>
 				</div>
 				<div class="col-6">
 					<!-- 
@@ -199,27 +199,26 @@ reader.readAsDataURL(file);
 					<input type="file"name="member_imgM" id="imageFile" onchange="chk_file_type(this)"
 						accept="image/*">
 					 -->
-					<span class="form-check position-relative"> <input
+					<input
 						class="btn btn-reg" type="button" id="gotojoinform"
-						value="약관에 동의합니다." /> <input class="form-check-input req"
+						value="약관에 동의합니다" /> <input class="form-check-input req"
 						type="checkbox" id="req" name="req" disabled="disabled">
 						<label class="form-check-label" for="req"></label>
-					</span>
 				</div>
 				<div class="col-1"></div>
 
 			</div>
 
-				<div class="row">
+				<div class="row" style="margin-top: 3px ">
 
 
-					<div align="center" class="col-11">
+					<div align="center" class="col-10" style="margin-left: 40px; border-top: 1px solid rgba(222, 222, 222, 0.1)">
 						<input class="btn btn-reg" type="button" value="가입하기"
-							id="mentorbtn">
+							id="mentorbtn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<input class="btn btn-reg" type="button" value="메인 페이지"
-							onclick="location.href='mainpage'">
+							id="mainpage" onclick="location.href='mainpage'">
 					</div>
-					<div class="col-1"></div>
+
 
 
 				</div>

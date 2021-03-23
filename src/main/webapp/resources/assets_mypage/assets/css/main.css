@@ -2392,5 +2392,37 @@ input, select, textarea {
 }
 
 
+#imageFile {
+
+    line-height: 1.5em;
+    font-size: 20px;
+}
+
+
+#mentorbtn {
+	background:  rgba(239, 239, 239, 0.55); 
+	color: black;
+	border: 1px solid gray;
+}
+
+#mainpage {
+	background:  rgba(239, 239, 239, 0.55); 
+	color: black;
+	border: 1px solid gray;
+}
+
+#gotojoinform {
+	background:  rgba(239, 239, 239, 0.55); 
+	color: black;
+	border: 1px solid gray;
+	vertical-align: middle;
+}
+
+#req {
+	margin-top: 14px;
+	margin-left: 10px;
+}
+
+
 
 
