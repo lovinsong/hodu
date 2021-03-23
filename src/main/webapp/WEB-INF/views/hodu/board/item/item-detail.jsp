@@ -49,9 +49,14 @@
 
 								<!-- 별점 -->
 								<p id="content_star">
-									<i class="fa fa-star" style="color: #e31240"></i>${dto.item_review_star }&nbsp;(${dto.item_like })</p>
+									<c:forEach begin="1" end="${dto.item_review_star}" step="1"
+																varStatus="status">
+																<i class="fa fa-star" style="color: #e31240"></i>
+															</c:forEach></p>
 
 							</div>
+							
+							
 
 
 							<div class="content_title">
