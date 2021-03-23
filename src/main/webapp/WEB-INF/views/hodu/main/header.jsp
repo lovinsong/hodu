@@ -11,6 +11,8 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets_headfoot/css/header.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/assets_detail/css/font-awesome.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Iceland&display=swap" rel="stylesheet">
 
 </head>
 
@@ -98,10 +100,10 @@
 	</c:when>
 </c:choose>
 
-
-
-
 	</header>
+
+<hr id="header_hr">
+
 
 </body>
 

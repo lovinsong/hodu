@@ -20,6 +20,12 @@ p {
     line-height: 22px;
 }
 
+#header_hr {
+	border-style: thin;
+	border-color: #eee;
+	margin: 0;
+}
+
 #member_name:hover {
 	background-color: f7f7f7;
 }
@@ -143,6 +149,7 @@ p {
       z-index: 12;
       width: 100%;
       top: 0;
+      font-family: 'Iceland', '나눔고딕';
   }
   
   .main-header .logo {
@@ -156,10 +163,10 @@ p {
 }
   
   .main-header .logo a {
-      font-size: 36px;
+      font-size: 50px;
       text-transform: uppercase;
       font-weight: 800;
-      color: #999898;
+      color: #96897b;
   }
   .main-header .logo a em {
       font-style: normal;
@@ -183,7 +190,7 @@ p {
   }
   
   .main-menu li a {
-      font-size: 12px;
+      font-size: 15px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       color: #696969;
