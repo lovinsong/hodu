@@ -195,7 +195,7 @@
 														<p> ${dtoitem.item_one_day == "Y" ? "원데이" : "다회차"} </p>
 														<p class="profile"><img src="/project/upload/member/${dtoitem.member_img}" alt="" /><br>${dtoitem.member_nickname} 멘토</p>
 												 	<div class ="review_star">
-														<a><i class="fa fa-star" style="color:#e31240"></i></a><a>${dtoitem.item_review_star }&nbsp;(${dtoitem.item_like })</a>
+														<a><i class="fa fa-star" style="color:#e31240"></i></a><a>&nbsp;${dtoitem.item_review_star }</a>
 													</div>																							
 												</header>											
 											</div>
