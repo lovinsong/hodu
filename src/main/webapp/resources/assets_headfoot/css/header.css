@@ -24,6 +24,7 @@ p {
 	border-style: thin;
 	border-color: #eee;
 	margin: 0;
+	padding: 0;
 }
 
 #member_name:hover {
