@@ -49,6 +49,8 @@ body {
 	-webkit-text-size-adjust: none;
 }
 
+a { text-decoration:none }
+
 mark {
 	background-color: transparent;
 	color: inherit;
