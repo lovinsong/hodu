@@ -105,7 +105,7 @@
                         <div class="card-header" style="text-align:center; color: #5e5e5e;">회원 정보 입력</div>
                         <div class="card-body">
                             <form action="join" method="POST" id="signform" name="signform" >
-                                <div class="form-group row">
+                                <div class="form-group row" >
                                     <label for="member_id" class="col-md-4 col-form-label ">아이디</label>
                                     <div class="col-md-6">
                                         <input class="form-control id_input" type="text" name="member_id" id="member_id" maxlength="11" > 
