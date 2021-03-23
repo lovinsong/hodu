@@ -259,7 +259,7 @@
 												<div class='reply-wrap'>
 													<div class='reply-content'>
 														<div class='reply-group'>
-															<strong class='left'>${review.member_id } 멘티</strong>&ensp;<small
+															<strong class='left'>${review.nick_name } 멘티</strong>&ensp;<small
 																class='left'><fmt:formatDate
 																	value="${review.review_regist_date}"
 																	pattern="YYYY-MM-dd HH:mm" /></small>&ensp;
