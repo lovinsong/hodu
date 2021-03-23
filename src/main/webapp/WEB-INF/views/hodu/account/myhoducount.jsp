@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<style>
+
+</style>
 <body>
 
 <div class="titlebox" style="border-bottom: 1px solid rgba(222, 222, 222, 0.25); padding-bottom: 20px">
@@ -13,9 +16,9 @@
             <tbody class="t-control">
                 <tr>
                     <td class="t-title"><strong>보유 호두</strong></td>
-                    <td>${member.member_cash}</td>
+                    <td style="font-weight:bold;width:81.5%;">${member.member_cash}</td>
                 </tr>
-                <tr></tr>
+                <!-- <tr></tr> -->
             </tbody>
         </table> <br><br>
 
