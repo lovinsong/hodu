@@ -1,12 +1,8 @@
 /* Header */
 
-header * {
+header > * {
     text-decoration: none;
-    -webkit-touch-callout: none;
     user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-select: none;
 }
 
 span {
@@ -24,76 +20,30 @@ p {
     line-height: 22px;
 }
 
-#hodu_left {
-	margin-top: -10px;
+#header_hr {
+	border-style: thin;
+	border-color: #eee;
+	margin: 0;
 }
-
-
-#find_class {
-	border-style:none;
-	font-size: 15px;
-	border-bottom: 1px solid #696969;
-	background-color: #f7f7f7;
-	border-radius: 6px;
-	padding: 10px;
-	width: 150%;
-	margin-top: 20px;
-	padding-left: 5px;
-}
-
-#find_class:focus {
-	outline:none;
-	border-bottom: 2px solid black;
-	background-color: white;
-}
-
-a.menu-link { display: none; }
 
 #member_name:hover {
 	background-color: f7f7f7;
 }
 
 #profile_img {
-	width: 45px;
+	width: 40px;
 	height: auto;
-	margin: -10px;
 	border-radius: 50%;
-	margin-top: 20px;
-	margin-right: 0;
-	padding-top:-35px;
 	vertical-align: top;
+	margin: 20px;
 }
 
-#header_my {
-	margin-top: 0px;
-	width: 300px;
+.sub-menu li {
+    display: inline-block;
+    line-height: 20px;
+    margin-left: 15px;
+    position: relative;
 }
-
-#header_my a:hover {
-	background-color: #f7f7f7;
-}
-
-#header_my_sub {
-	padding: 5px;
-	margin-left: -16px;
-	background-color: #faf6f0;
-	width: 100%;
-	padding-right: 80px;
-}
-
-#header_my_sub li {
-	border-bottom: 1px solid white;
-	margin-bottom:15px;
-	width: 300px;
-}
-
-#header_my_sub li > a {
-	background-color: #faf6f0;
-	width: 100%;
-	margin-top: -50px;
-	padding-right: 80px;
-}
-
 
 @media screen and (max-width: 950px) {
   a.menu-link {
@@ -106,10 +56,6 @@ a.menu-link { display: none; }
   }
   nav[role="navigation"] {
     clear: both;
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -ms-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
   }
   .js nav[role="navigation"] {
@@ -182,6 +128,7 @@ a.menu-link { display: none; }
       z-index: 12;
       width: 100%;
       top: 0;
+      font-family: 'Iceland', '나눔고딕';
   }
   
   .main-header .logo {
@@ -192,13 +139,15 @@ a.menu-link { display: none; }
 
   .main-header .logo a:hover {
     text-decoration: none;
+    opacity: 0.6;
+    color: #917e70;
 }
   
   .main-header .logo a {
-      font-size: 36px;
+      font-size: 50px;
       text-transform: uppercase;
       font-weight: 800;
-      color: #999898;
+      color: #96897b;
   }
   .main-header .logo a em {
       font-style: normal;
@@ -207,7 +156,7 @@ a.menu-link { display: none; }
   
   .main-menu {
       float: right;
-      padding-right: 60px;
+      padding-right: 95px;
   }
   
   .main-menu li {
@@ -222,25 +171,35 @@ a.menu-link { display: none; }
   }
   
   .main-menu li a {
-      padding: 10px 15px;
       font-size: 15px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      font-weight: 700;
       color: #696969;
-      border: 2px solid transparent;
-      transition: all 0.5s;
   }
+ 
+  .main-menu li a:first-child {
+  	  padding-top: 10px;
+  } 
+  
+    .main-menu li:hover {
+      color: black; 
+      font-weight: bold;   
+    }
+  
   
   .sub-menu {
-	  padding-right: 150%;
 	  border-style:none;
+	  background-color: white;
+  }
+  
+  .sub-menu:hover {
+      color: black;
   }
   
   .main-menu li.has-submenu a:after {
-      content: '\f107';
+      content: '\f107';     
       font-family: "FontAwesome";
-      margin-left: 100px;
+      margin-left: 15px;
   }
   
   .main-menu li.has-submenu ul li a:after {
@@ -249,9 +208,8 @@ a.menu-link { display: none; }
   
   .main-menu li .sub-menu {
       position: absolute;
-      width: 160px;
       opacity: 0;
-      visibility: hidden;
+      visibility: none;
       transition: all 0.5s;
   }
   
@@ -261,38 +219,22 @@ a.menu-link { display: none; }
   }
   
   .main-menu li .sub-menu li {
-      display: block;
-      line-height: 20px;
+      line-height: 10px;
       margin-left: 0px;
-      margin-bottom: 15px;
-      padding-bottom: 15px;
-      border-bottom: 1px solid #eee;
-      
-  }
-  
-  .main-menu li .sub-menu li:first-child {
-      padding-top: 15px;
-  }
-  
-  .main-menu li .sub-menu li:last-child {
-      margin-bottom: 0px;
-      border-bottom: none;
+      border-bottom: 1px solid #eee;      
   }
   
   .main-menu li .sub-menu li a {
-      font-weight: 500;
       letter-spacing: 0.5px;
-      padding: 10px;
       transition: all 0.5s;
       font-size: 15px;
-      font-weight: bold;
       width: 150%;
   }
   
-  .main-menu li .sub-menu li a:hover {
+  .main-menu li:hover {
       color: #696969;
       border: none;
-      background-color: #f7f7f7;
+      cursor: pointer;
   }
   
   .main-nav li:hover a {
@@ -387,5 +329,36 @@ a.menu-link { display: none; }
   }
 }
 
+#profile_menu {
+	font-family: '나눔고딕';
+	vertical-align: middle;
+	margin-left: 15px;
+	width: 240px;
+	border: 1px solid;
+	border-color: #f7f7f7;
+	box-shadow: 0px 0px 1px 1px #f7f7f7;
+	background-color: white;
+	z-index: 1;
+	border-radius: 5px;
+}
+
+#profile_menu > * {
+	width: 240px;
+	vertical-align: middle;
+	border-style:none;
+	height: 20px;
+}
+
+#profile_menu > li:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.main-menu #profile_menu {
+    line-height: 50px;
+    margin-left: 15px;
+    background-color: white;
+    font-size: 13px;
+}
 
  

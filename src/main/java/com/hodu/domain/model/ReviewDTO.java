@@ -16,4 +16,5 @@ public class ReviewDTO {
 	private Date review_regist_date;
 	private Date review_modify_date;
 	private String review_show;
+	private String nick_name;
 }

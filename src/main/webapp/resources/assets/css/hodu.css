@@ -16,7 +16,7 @@ section, summary, time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
+	font: '나눔고딕';
 	vertical-align: baseline;}
 
 article, aside, details, figcaption, figure,
@@ -110,15 +110,6 @@ input, select, textarea {
 		line-height: 2.25em;
 	}
 
-	a {
-		color: #0090c5;
-		text-decoration: underline;
-	}
-
-		a:hover {
-			text-decoration: none;
-		}
-
 	h1, h2, h3, h4, h5, h6 {
 		color: #444;
 		font-weight: 800;
@@ -170,6 +161,11 @@ input, select, textarea {
 		border: 0;
 		border-top: solid 1px #eee;
 	}
+	
+	#header_hr {
+		display:none;
+		margin-bottom: -50px;
+	}
 
 	blockquote {
 		border-left: solid 0.5em #eee;
@@ -187,6 +183,7 @@ input, select, textarea {
 		margin: 0 auto;
 		max-width: 100%;
 		width: 1400px;
+		height: 20%;
 	}
 
 		@media screen and (max-width: 1680px) {
@@ -2028,7 +2025,9 @@ input, select, textarea {
 /* Wrappers */
 
 	#header-wrapper {
-		padding: 4.5em 0 4em 5em;
+	    font-family: '나눔고딕';
+		padding-bottom: 50px;
+		padding-left: 40px;
 	}
 
 	#features-wrapper {
@@ -2116,7 +2115,7 @@ input, select, textarea {
 				#nav ul li span{
 					padding-top:0.2em;
 					padding-bottom:0.2em;
-					margin-bottom:0.2em;
+					margin-bottom: -1.8em;
 				}
 
 				#nav ul li > ul {
@@ -2833,17 +2832,7 @@ input, select, textarea {
 				padding-bottom: 3em;
 			}
 
-		/* Footer */
-
-			#footer section {
-				border-bottom: solid 1px #ccc;
-				padding-bottom: 3em;
-				margin-bottom: 1em !important;
-			}
-
-			#copyright {
-				text-align: left;
-			}
-
-
 	}
+	
+	
+	
